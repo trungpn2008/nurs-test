@@ -1,0 +1,22 @@
+.hidden{
+    display:none !important;
+}
+.pagination-panel svg{
+    width: 30px !important;
+}
+.form-inline{
+    float: right;
+}
+.form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+.pagination-panel nav{
+    display: flex;
+    justify-content:center;
+}
+.box-search{
+    margin-top: 15px;
+}
+
