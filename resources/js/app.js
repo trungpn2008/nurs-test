@@ -6,7 +6,10 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import axios from 'axios';
-import Front from './layouts/frontend.vue'
+import  VueRouter from "vue-router";
+// import { createRouter, createWebHistory } from 'vue-router'
+import routes from './routers';
+import Front from './layouts/frontend'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -17,9 +20,30 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(axios)
+Vue.use(VueRouter);
+
+// const router =createRouter({
+//     history: createWebHistory(),
+//     routes: [
+//         {
+//             path: '/home',
+//             component: home,
+//             name: 'pc-top1',
+//         },
+//         {
+//             path: '/home2',
+//             component: home2,
+//             name: 'pc-top2',
+//         }
+//     ],
+// })
+const router = new VueRouter({
+    routes,
+    mode: 'history'
+});
 
 const app = new Vue({
     el: '#app',
-    render: h => h(Front)
+    render: h => h(Front),
+    router: router,
 });
-n

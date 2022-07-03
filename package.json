@@ -31,10 +31,9 @@
         "vue": "^2.6.12",
         "vue-axios": "^3.4.1",
         "vue-loader": "^15.9.8",
-        "vue-template-compiler": "^2.6.12"
-    },
-    "dependencies": {
-        "vue-router": "^4.0.16"
+        "vue-router": "^2.8.1",
+        "vue-template-compiler": "^2.6.12",
+        "vuex": "^4.0.2"
     },
     "resolutions": {
         "autoprefixer": "10.4.5"
