@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        {!! Assets::renderHeader() !!}
 
         <!-- Styles -->
         <style>
@@ -22,6 +23,7 @@
     </head>
     <body class="antialiased">
     <div id="app"></div>
-    <script src="/js/app.js"></script>
+{{--    <script src="/js/app.js"></script>--}}
+    {!! Assets::renderFooter() !!}
     </body>
 </html>
