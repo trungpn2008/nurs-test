@@ -4,7 +4,10 @@
 <!--        <front-footer-top></front-footer-top>-->
 <!--        <front-footer-top-hidden-image></front-footer-top-hidden-image>-->
 <!--        <front-body></front-body>-->
-        <router-view></router-view>
+        <router-view>
+            <slot name="footertop" />
+        </router-view>
+
         <front-footer></front-footer>
     </div>
 </template>

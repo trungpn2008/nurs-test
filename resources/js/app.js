@@ -14,6 +14,8 @@ import Front from './layouts/frontend'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+// import VueAwesomeSwiper from 'vue-awesome-swiper'
+// import 'swiper/css/swiper.css'
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 // import App from './App.vue';
 
@@ -21,6 +23,8 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(axios)
 Vue.use(VueRouter);
+// Vue.use(VueAwesomeSwiper)
+
 
 // const router =createRouter({
 //     history: createWebHistory(),

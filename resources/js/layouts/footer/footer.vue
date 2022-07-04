@@ -1,5 +1,6 @@
 <template>
     <footer>
+
         <div class="box-footer">
             <div class="list-group-copany">
                 <p class="text-group-company">グループ会社</p>
