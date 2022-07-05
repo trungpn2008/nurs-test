@@ -2,6 +2,7 @@
     <div class="content">
         <consultation-method2></consultation-method2>
         <front-footer-top></front-footer-top>
+        <front-footer></front-footer>
     </div>
 </template>
 <script>
@@ -11,6 +12,7 @@
     import FrontFooterTop from "../../layouts/footer/footerTop"
     import FrontFooterTopHiddenImage from "../../layouts/footer/footerTopHiddenImage"
     import ConsultationMethod2 from "../../components/ConsultationMethod/ConsultationMethod2"
+
 export default {
     name: "Home2",
     components:{

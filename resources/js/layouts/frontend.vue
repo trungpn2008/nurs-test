@@ -8,7 +8,7 @@
             <slot name="footertop" />
         </router-view>
 
-        <front-footer></front-footer>
+
     </div>
 </template>
 
