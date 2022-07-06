@@ -9,7 +9,7 @@ import axios from 'axios';
 import  VueRouter from "vue-router";
 // import { createRouter, createWebHistory } from 'vue-router'
 import routes from './routers';
-import App from './layouts/App'
+import App from './layouts/App.vue'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'

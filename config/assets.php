@@ -5,11 +5,10 @@ return [
     'enable_version' => env('ASSETS_ENABLE_VERSION', false),
     'version'        => env('ASSETS_VERSION', time()),
     'scripts'        => [
-        'modernizr',
         'app','swiper','site','jquery'
     ],
     'styles'         => [
-        'bootstrap','app','swiper'
+        'app','swiper'
     ],
     'resources'      => [
         'scripts' => [
@@ -53,7 +52,7 @@ return [
                 'location' => 'footer',
                 'src'      => [
                     'local' => '/js/site.js',
-                    'cdn'   => 'https://unpkg.com/swiper/swiper-bundle.min.js',
+                    'cdn'   => '/js/site.js',
                 ],
             ],
         ],

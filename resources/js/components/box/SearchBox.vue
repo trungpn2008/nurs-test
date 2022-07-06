@@ -132,144 +132,146 @@
                         <b-tab title="都道府県から探す">
                             <b-card-text>
                                 <div class="table-chosse-search">
-                                    <div class="row-choose-search">
-                                        <b-row>
-                                            <b-col cols="3">
-                                                <p class="title-row-choosse">北海道・東北</p>
-                                            </b-col>
-                                            <b-col cols="9">
-                                                <div class="input-choose-search">
-                                                    <b-row cols="5">
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value" value="A"> 北海道</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value" value="A"> 青森県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value" value="A"> 岩手県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value" value="A"> 宮城県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value" value="A"> 秋田県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value" value="A"> 山形県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value" value="A"> 福島県</b-form-radio></b-cols>
-                                                    </b-row>
-                                                </div>
-                                            </b-col>
-                                        </b-row>
-                                    </div>
-                                    <div class="row-choose-search">
-                                        <b-row>
-                                            <b-col cols="3">
-                                                <p class="title-row-choosse">関東</p>
-                                            </b-col>
-                                            <b-col cols="9">
-                                                <div class="input-choose-search">
-                                                    <b-row cols="5">
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value1" value="A"> 茨城県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value1" value="A"> 栃木県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value1" value="A"> 群馬県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value1" value="A"> 埼玉県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value1" value="A"> 千葉県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value1" value="A"> 東京都</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value1" value="A"> 神奈川県</b-form-radio></b-cols>
-                                                    </b-row>
-                                                </div>
-                                            </b-col>
-                                        </b-row>
-                                    </div>
-                                    <div class="row-choose-search">
-                                        <b-row>
-                                            <b-col cols="3">
-                                                <p class="title-row-choosse">北陸・甲信越</p>
-                                            </b-col>
-                                            <b-col cols="9">
-                                                <div class="input-choose-search">
-                                                    <b-row cols="5">
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value2" value="A"> 新潟県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value2" value="A"> 富山県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value2" value="A"> 石川県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value2" value="A"> 福井県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value2" value="A"> 山梨県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value2" value="A"> 長野県</b-form-radio></b-cols>
-                                                    </b-row>
-                                                </div>
-                                            </b-col>
-                                        </b-row>
-                                    </div>
-                                    <div class="row-choose-search">
-                                        <b-row>
-                                            <b-col cols="3">
-                                                <p class="title-row-choosse">東海</p>
-                                            </b-col>
-                                            <b-col cols="9">
-                                                <div class="input-choose-search">
-                                                    <b-row cols="5">
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value3" value="A"> 岐阜県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value3" value="A"> 静岡県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value3" value="A"> 愛知県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value3" value="A"> 三重県</b-form-radio></b-cols>
-                                                    </b-row>
-                                                </div>
-                                            </b-col>
-                                        </b-row>
-                                    </div>
-                                    <div class="row-choose-search">
-                                        <b-row>
-                                            <b-col cols="3">
-                                                <p class="title-row-choosse">近畿</p>
-                                            </b-col>
-                                            <b-col cols="9">
-                                                <div class="input-choose-search">
-                                                    <b-row cols="5">
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value4" value="A"> 滋賀県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value4" value="A"> 京都府</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value4" value="A"> 大阪府</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value4" value="A"> 兵庫県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value4" value="A"> 奈良県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value4" value="A"> 和歌山県</b-form-radio></b-cols>
-                                                    </b-row>
-                                                </div>
-                                            </b-col>
-                                        </b-row>
-                                    </div>
-                                    <div class="row-choose-search">
-                                        <b-row>
-                                            <b-col cols="3">
-                                                <p class="title-row-choosse">中国・四国</p>
-                                            </b-col>
-                                            <b-col cols="9">
-                                                <div class="input-choose-search">
-                                                    <b-row cols="5">
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value5" value="A"> 鳥取県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value5" value="A"> 島根県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value5" value="A"> 岡山県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value5" value="A"> 広島県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value5" value="A"> 山口県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value5" value="A"> 徳島県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value5" value="A"> 香川県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value5" value="A"> 愛媛県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value5" value="A"> 高知県</b-form-radio></b-cols>
-                                                    </b-row>
-                                                </div>
-                                            </b-col>
-                                        </b-row>
-                                    </div>
-                                    <div class="row-choose-search">
-                                        <b-row>
-                                            <b-col cols="3">
-                                                <p class="title-row-choosse">九州・沖縄</p>
-                                            </b-col>
-                                            <b-col cols="9">
-                                                <div class="input-choose-search">
-                                                    <b-row cols="5">
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value6" value="A"> 福岡県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value6" value="A"> 佐賀県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value6" value="A"> 長崎県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value6" value="A"> 熊本県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value6" value="A"> 大分県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value6" value="A"> 宮崎県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value6" value="A"> 鹿児島県</b-form-radio></b-cols>
-                                                        <b-cols><b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="value6" value="A"> 沖縄県</b-form-radio></b-cols>
-                                                    </b-row>
-                                                </div>
-                                            </b-col>
-                                        </b-row>
-                                    </div>
+                                    <b-form-group>
+                                        <div class="row-choose-search">
+                                            <b-row>
+                                                <b-col cols="3">
+                                                    <p class="title-row-choosse">北海道・東北</p>
+                                                </b-col>
+                                                <b-col cols="9">
+                                                    <div class="input-choose-search">
+                                                        <b-row cols="5">
+                                                            <b-col><b-form-radio   name="value" value="A"> 北海道</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value" value="A"> 青森県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value" value="A"> 岩手県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value" value="A"> 宮城県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value" value="A"> 秋田県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value" value="A"> 山形県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value" value="A"> 福島県</b-form-radio></b-col>
+                                                        </b-row>
+                                                    </div>
+                                                </b-col>
+                                            </b-row>
+                                        </div>
+                                        <div class="row-choose-search">
+                                            <b-row>
+                                                <b-col cols="3">
+                                                    <p class="title-row-choosse">関東</p>
+                                                </b-col>
+                                                <b-col cols="9">
+                                                    <div class="input-choose-search">
+                                                        <b-row cols="5">
+                                                            <b-col><b-form-radio   name="value1" value="A"> 茨城県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value1" value="A"> 栃木県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value1" value="A"> 群馬県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value1" value="A"> 埼玉県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value1" value="A"> 千葉県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value1" value="A"> 東京都</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value1" value="A"> 神奈川県</b-form-radio></b-col>
+                                                        </b-row>
+                                                    </div>
+                                                </b-col>
+                                            </b-row>
+                                        </div>
+                                        <div class="row-choose-search">
+                                            <b-row>
+                                                <b-col cols="3">
+                                                    <p class="title-row-choosse">北陸・甲信越</p>
+                                                </b-col>
+                                                <b-col cols="9">
+                                                    <div class="input-choose-search">
+                                                        <b-row cols="5">
+                                                            <b-col><b-form-radio   name="value2" value="A"> 新潟県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value2" value="A"> 富山県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value2" value="A"> 石川県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value2" value="A"> 福井県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value2" value="A"> 山梨県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value2" value="A"> 長野県</b-form-radio></b-col>
+                                                        </b-row>
+                                                    </div>
+                                                </b-col>
+                                            </b-row>
+                                        </div>
+                                        <div class="row-choose-search">
+                                            <b-row>
+                                                <b-col cols="3">
+                                                    <p class="title-row-choosse">東海</p>
+                                                </b-col>
+                                                <b-col cols="9">
+                                                    <div class="input-choose-search">
+                                                        <b-row cols="5">
+                                                            <b-col><b-form-radio   name="value3" value="A"> 岐阜県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value3" value="A"> 静岡県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value3" value="A"> 愛知県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value3" value="A"> 三重県</b-form-radio></b-col>
+                                                        </b-row>
+                                                    </div>
+                                                </b-col>
+                                            </b-row>
+                                        </div>
+                                        <div class="row-choose-search">
+                                            <b-row>
+                                                <b-col cols="3">
+                                                    <p class="title-row-choosse">近畿</p>
+                                                </b-col>
+                                                <b-col cols="9">
+                                                    <div class="input-choose-search">
+                                                        <b-row cols="5">
+                                                            <b-col><b-form-radio   name="value4" value="A"> 滋賀県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value4" value="A"> 京都府</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value4" value="A"> 大阪府</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value4" value="A"> 兵庫県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value4" value="A"> 奈良県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value4" value="A"> 和歌山県</b-form-radio></b-col>
+                                                        </b-row>
+                                                    </div>
+                                                </b-col>
+                                            </b-row>
+                                        </div>
+                                        <div class="row-choose-search">
+                                            <b-row>
+                                                <b-col cols="3">
+                                                    <p class="title-row-choosse">中国・四国</p>
+                                                </b-col>
+                                                <b-col cols="9">
+                                                    <div class="input-choose-search">
+                                                        <b-row cols="5">
+                                                            <b-col><b-form-radio   name="value5" value="A"> 鳥取県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value5" value="A"> 島根県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value5" value="A"> 岡山県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value5" value="A"> 広島県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value5" value="A"> 山口県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value5" value="A"> 徳島県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value5" value="A"> 香川県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value5" value="A"> 愛媛県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value5" value="A"> 高知県</b-form-radio></b-col>
+                                                        </b-row>
+                                                    </div>
+                                                </b-col>
+                                            </b-row>
+                                        </div>
+                                        <div class="row-choose-search">
+                                            <b-row>
+                                                <b-col cols="3">
+                                                    <p class="title-row-choosse">九州・沖縄</p>
+                                                </b-col>
+                                                <b-col cols="9">
+                                                    <div class="input-choose-search">
+                                                        <b-row cols="5">
+                                                            <b-col><b-form-radio   name="value6" value="A"> 福岡県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value6" value="A"> 佐賀県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value6" value="A"> 長崎県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value6" value="A"> 熊本県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value6" value="A"> 大分県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value6" value="A"> 宮崎県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value6" value="A"> 鹿児島県</b-form-radio></b-col>
+                                                            <b-col><b-form-radio   name="value6" value="A"> 沖縄県</b-form-radio></b-col>
+                                                        </b-row>
+                                                    </div>
+                                                </b-col>
+                                            </b-row>
+                                        </div>
+                                    </b-form-group>
                                     <div class="btn-choose-search">
                                         <a href="#">このエリアで絞り込む</a>
                                     </div>

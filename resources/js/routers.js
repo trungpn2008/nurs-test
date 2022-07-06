@@ -3,6 +3,16 @@ const routers = [
         path: '/',
         components: {
             header:()=> import('./layouts/header.vue'),
+            default:()=> import('./page/home.vue'),
+            footer:()=> import('./layouts/footer/footer.vue'),
+        },
+        name: 'pc-top1',
+    },
+    {
+        path: '/home2',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./page/home3.vue'),
             footer:()=> import('./layouts/footer/footer.vue'),
         },
         name: 'pc-top1',

@@ -55,7 +55,25 @@
 
 <script>
 export default {
-    name: "ServiceBar"
+    name: "ServiceBar",
+    mounted() {
+        var swiperSlideBar = new Swiper(".slide-bar", {
+            slidesPerView: "auto",
+            spaceBetween: 5,
+            slidesPerGroup: 5,
+            loop: false,
+            loopFillGroupWithBlank: true,
+            // pagination: {
+            //     el: ".swiper-pagination",
+            //     clickable: true,
+            // },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+    }
 }
 </script>
 
