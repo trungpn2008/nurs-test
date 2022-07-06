@@ -6,6 +6,8 @@
         <home-question/>
         <list-chosse-cate/>
         <list-port></list-port>
+        <entertainment-box/>
+        <news-box/>
         <question-home/>
         <question-home-image/>
         <consultation-method2></consultation-method2>
@@ -28,10 +30,12 @@
     import SearchBox from "../../components/box/SearchBox"
     import QuestionHomeImage from "../../components/box/QuestionHomeImage"
     import QuestionHome from "../../components/box/QuestionHome"
+    import NewsBox from "../../components/box/NewsBox"
+    import EntertainmentBox from "../../components/box/EntertainmentBox"
 export default {
     name: "Home3",
     components:{
-        FrontFooterTop,ConsultationMethod2,SliderHome,ListPort,ListChosseCate,HomeQuestion,ServiceBar,SearchBox,FrontFooterVer2,QuestionHomeImage,QuestionHome
+        FrontFooterTop,ConsultationMethod2,SliderHome,ListPort,ListChosseCate,HomeQuestion,ServiceBar,SearchBox,FrontFooterVer2,QuestionHomeImage,QuestionHome,NewsBox,EntertainmentBox
     }
 }
 </script>
