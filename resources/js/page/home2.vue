@@ -2,7 +2,6 @@
     <div class="content">
         <consultation-method2></consultation-method2>
         <front-footer-top></front-footer-top>
-        <front-footer></front-footer>
     </div>
 </template>
 <script>

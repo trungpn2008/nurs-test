@@ -201,9 +201,7 @@
                     </b-row>
                 </b-col>
                 <b-col cols="4">
-                    <div class="text-title">
-                        <p>コラム一覧</p>
-                    </div>
+                    <box-item/>
                     <popular-artice></popular-artice>
                     <popular-keywords/>
                 </b-col>
@@ -213,12 +211,13 @@
 </template>
 
 <script>
+import BoxItem from "../../components/box/BoxItem"
 import PopularArtice from "../../components/box/PopularArtice"
 import PopularKeywords from "../../components/box/PopularKeywords"
 export default {
     name: "ListPort",
     components:{
-        PopularArtice,PopularKeywords
+        PopularArtice,PopularKeywords,BoxItem
     }
 }
 </script>

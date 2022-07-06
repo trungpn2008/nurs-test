@@ -2,13 +2,19 @@
     <header>
         <!--        <b-container fluid>-->
         <!--            <b-row>-->
-        <div class="header-top">
-            <p>介護相談 悩み、不安の相談・解決なら「介護なんでも相談室」</p>
-            <a href="" class="menu-top">
-                <b-img right src="/images/frontend/icons/pull-down.png" alt="menu" width="25"></b-img>
-            </a>
+        <div v-if="windowWidth < 768">
+            mobile
+        </div>
+        <div v-else>
+            destop
         </div>
         <b-container fluid>
+            <div class="header-top">
+                <p>介護相談 悩み、不安の相談・解決なら「介護なんでも相談室」</p>
+                <a href="" class="menu-top">
+                    <b-img right src="/images/frontend/icons/pull-down.png" alt="menu" width="25"></b-img>
+                </a>
+            </div>
             <div class="header-mid">
                 <b-row class="h-100">
                     <b-col>
@@ -59,7 +65,18 @@
 
 <script>
 export default {
-    name: "FrontHeader"
+    name: "FrontHeader",
+    data() {
+        return {
+            windowWidth: window.innerWidth,
+            flag:false
+        }
+    },
+    mounted() {
+        window.onresize = () => {
+            this.windowWidth = window.innerWidth
+        }
+    }
 }
 </script>
 

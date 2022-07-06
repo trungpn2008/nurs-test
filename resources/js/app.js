@@ -5,7 +5,7 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-import axios from 'axios';
+// import axios from 'axios';
 import  VueRouter from "vue-router";
 // import { createRouter, createWebHistory } from 'vue-router'
 import routes from './routers';
@@ -21,7 +21,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
-Vue.use(axios)
+// Vue.use(axios)
 Vue.use(VueRouter);
 // Vue.use(VueAwesomeSwiper)
 

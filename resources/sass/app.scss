@@ -6,11 +6,75 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+$XS:     425px;
+$SM:     540px;
+$MD:     720px;
+$LG:    960px;
+$XL:   1140px;
+$XXL:   1320px;
+$XXX:   1440px;
+$XXXL:   1600px;
+
+// media queries
+
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (max-width: $XS) { @content; }
+    }
+    @else if $canvas == SM {
+        @media only screen and (min-width: $SM) { @content; }
+    }
+    @else if $canvas == MD {
+        @media only screen and (min-width: $MD) { @content; }
+    }
+    @else if $canvas == LG {
+        @media only screen and (min-width: $LG) { @content; }
+    }
+    @else if $canvas == XL {
+        @media only screen and (min-width: $XL) { @content; }
+    }
+    @else if $canvas == XXL {
+        @media only screen and (min-width: $XXL) { @content; }
+    }
+    @else if $canvas == XXX {
+        @media only screen and (min-width: $XXX) { @content; }
+    }
+    @else if $canvas == XXXL {
+        @media only screen and (min-width: $XXXL) { @content; }
+    }
+}
 
 body {
     font-size: 14px !important;
 }
-
+.warpper{
+    @include Responsive(XS) {
+        width: 100%;
+    }
+    @include Responsive(SM) {
+        width: 540px;
+    }
+    @include Responsive(MD) {
+        width: 720px;
+    }
+    @include Responsive(LG) {
+        width: 960px;
+    }
+    @include Responsive(XL) {
+        width: 1140px;
+    }
+    @include Responsive(XXL) {
+        width: 1320px;
+    }
+    @include Responsive(XXX) {
+        width: 1440px;
+    }
+    @include Responsive(XXXL) {
+        width: 1600px;
+    }
+    margin-right: auto;
+    margin-left: auto;
+}
 .header-top {
     height: 40px;
     position: relative;
@@ -52,18 +116,69 @@ body {
     }
 
     .title-logo {
+        @include Responsive(XS) {
+            font-size: 16px;
+        }
+        @include Responsive(SM) {
+            font-size: 18px;
+        }
+        @include Responsive(MD) {
+            font-size: 20px;
+        }
+        @include Responsive(LG) {
+            font-size: 22px;
+        }
+        @include Responsive(XL) {
+            font-size: 24px;
+        }
+        @include Responsive(XXL) {
+            font-size: 26px;
+        }
+        @include Responsive(XXX) {
+            font-size: 30px;
+        }
+        @include Responsive(XXXL) {
+            font-size: 32px;
+        }
         font-size: 32px;
         font-weight: bold;
         padding-left: 40px;
     }
 
     .text-phone-header {
+        @include Responsive(XS) {
+            display: none;
+        }
+        @include Responsive(SM) {
+            font-size: 18px;
+        }
+        @include Responsive(MD) {
+            font-size: 20px;
+        }
+        @include Responsive(LG) {
+            font-size: 22px;
+        }
+        @include Responsive(XL) {
+            font-size: 24px;
+        }
+        @include Responsive(XXL) {
+            font-size: 26px;
+        }
+        @include Responsive(XXX) {
+            font-size: 30px;
+        }
+        @include Responsive(XXXL) {
+            font-size: 32px;
+        }
         font-size: 32px;
         font-weight: bold;
         text-align: center;
     }
 
     .text-time-header {
+        @include Responsive(XS) {
+            display: none;
+        }
         text-align: center;
     }
 
@@ -1489,6 +1604,30 @@ body {
         }
     }
 }
+.box-item{
+    padding: 20px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-bottom: 50px;
+    .img-box-item{
+        img{
+            border-radius: 10px;
+        }
+    }
+    .text-box-item{
+        position: relative;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        .text-item{
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 40px;
+            color: #0D2340;
+        }
+    }
+}
 .c-fff {
     color: #fff !important;
 }
@@ -1532,7 +1671,9 @@ body {
 .bg-FFF3B8 {
     background-color: #FFF3B8 !important;
 }
-
+.m-t-95{
+    margin-top: 95px !important;
+}
 .text-center {
     text-align: center !important;
 }
