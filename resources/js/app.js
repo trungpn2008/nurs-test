@@ -9,7 +9,7 @@ import axios from 'axios';
 import  VueRouter from "vue-router";
 // import { createRouter, createWebHistory } from 'vue-router'
 import routes from './routers';
-import Front from './layouts/frontend'
+import App from './layouts/App'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -48,6 +48,6 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
-    render: h => h(Front),
+    render: h => h(App),
     router: router,
 });
