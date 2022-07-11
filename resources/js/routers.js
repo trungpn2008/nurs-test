@@ -4,7 +4,7 @@ const routers = [
         components: {
             header:()=> import('./layouts/header.vue'),
             default:()=> import('./page/home.vue'),
-            footer:()=> import('./layouts/footer/footer.vue'),
+            footer:()=> import('./layouts/footer.vue'),
         },
         name: 'pc-top1',
     },
@@ -13,7 +13,7 @@ const routers = [
         components: {
             header:()=> import('./layouts/header.vue'),
             default:()=> import('./page/home2.vue'),
-            footer:()=> import('./layouts/footer/footer.vue'),
+            footer:()=> import('./layouts/footer.vue'),
         },
         name: 'pc-top1',
     },
@@ -22,7 +22,7 @@ const routers = [
         components: {
             header:()=> import('./layouts/header.vue'),
             default:()=> import('./page/home3.vue'),
-            footer:()=> import('./layouts/footer/footer.vue'),
+            footer:()=> import('./layouts/footer.vue'),
         },
         name: 'pc-top1',
     },
