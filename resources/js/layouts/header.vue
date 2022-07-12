@@ -6,7 +6,7 @@
 <!--        <div v-else>-->
 <!--            destop-->
 <!--        </div>-->
-        <b-container fluid>
+
             <b-row>
                 <b-col xl="4" xs="12" class="pd-0">
                     <div class="logo-page">
@@ -84,7 +84,7 @@
                     </div>
                 </b-col>
             </b-row>
-        </b-container>
+
     </header>
 </template>
 
