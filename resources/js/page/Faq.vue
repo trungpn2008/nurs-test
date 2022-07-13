@@ -1,27 +1,32 @@
 <template>
-    <div class="guideline">
-        <div class="title-line">
-            <p class="text-line">{{ title }}</p>
-            <div class="line"></div>
-        </div>
-        <div class="content-guideline">
-            <div class="box-guideline" v-for="item of descriptions">
-                <div class="title-line2">
-                    <p class="text-line title-box-guideline">{{item.title}}</p>
-                    <div class="line"></div>
-                </div>
-                <div class="descriotion-guideline">
-                    <div class="accordion" role="tablist">
-                        <b-card no-body class="mb-1" v-for="item1 of item.accordion">
-                            <b-card-header header-tag="header" class="p-1" role="tab">
-                                <b-button block v-b-toggle="item1.id" variant="info">{{item1.title}}</b-button>
-                            </b-card-header>
-                            <b-collapse :id="item1.id" accordion="my-accordion" role="tabpanel">
-                                <b-card-body>
-                                {{ text }}
-                                </b-card-body>
-                            </b-collapse>
-                        </b-card>
+    <div class="faq">
+        <b-breadcrumb :items="items"></b-breadcrumb>
+        <div class="box-faq">
+            <div class="title-line fs-20 mb-40 lh-40">
+                <p class="text-line">{{ title }}</p>
+                <div class="line"></div>
+            </div>
+            <div class="content-faq">
+                <div class="list-faq" v-for="item of descriptions" :data="item"
+                     :key="item.title">
+                    <div class="title-line2">
+                        <p class="text-line title-box-faq">{{item.title}}</p>
+                        <div class="line"></div>
+                    </div>
+                    <div class="descriotion-faq">
+                        <div class="accordion" role="tablist">
+                            <b-card no-body class="mb-1" v-for="item1 of item.accordion" :data="item1"
+                                    :key="item1.title">
+                                <b-card-header header-tag="header" class="p-1" role="tab">
+                                    <b-button block v-b-toggle="item1.id" variant="info">{{item1.title}}</b-button>
+                                </b-card-header>
+                                <b-collapse :id="item1.id" accordion="my-accordion" role="tabpanel">
+                                    <b-card-body>
+                                        {{ item1.text }}
+                                    </b-card-body>
+                                </b-collapse>
+                            </b-card>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -35,6 +40,16 @@ export default {
     data() {
         return {
             title: "みんなの法律相談ガイドライン",
+            items: [
+                {
+                    text: 'トップ',
+                    href: '#'
+                },
+                {
+                    text: '質問・相談',
+                    active: true
+                }
+            ],
             descriptions: [
                 {
                     title: '安心介護について',

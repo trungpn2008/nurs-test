@@ -6,31 +6,36 @@
                 <b-col cols="12" sm="8">
                     <div class="search-input">
                         <b-form>
-                            <b-form-input class="input-search-qa" placeholder="検索"></b-form-input>
+                            <b-form-input class="input-search-qa  mb-35" placeholder="検索"></b-form-input>
                             <b-img src="/images/frontend/icons/search.png" class="icon-search"></b-img>
                         </b-form>
                     </div>
                     <div class="keywords">
-                        <p class="text-keywords-search">このワードに近いキーワード</p>
+                        <div class="title-line fs-20 mb-40 lh-40">
+                            <p class="text-line">このワードに近いキーワード</p>
+                            <div class="line"></div>
+                        </div>
+<!--                        <p class="text-keywords-search">このワードに近いキーワード</p>-->
                         <div class="list-keywords-search">
                             <ul>
                                 <li v-for="item of listKeyword"><a :href="item.href">{{item.text}}</a></li>
                             </ul>
                         </div>
                     </div>
+                    <div class="clearfix"></div>
                     <div class="list-result-search-keywords">
                         <p class="title-count-result-search-keywords">51,812件見つかりました</p>
                         <div class="content-result-search-keywords">
-                            <a :href="item.href" class="item-result" v-for="item of listresult">
+                            <a :href="item1.href" class="item-result" v-for="item1 of listresult">
                                 <b-row>
                                     <b-col cols="1">
-                                        <b-img src="">{{item.image}}</b-img>
+                                        <b-img :src="item1.image"></b-img>
                                     </b-col>
                                     <b-col cols="11">
                                         <div class="item-description-result">
-                                            <div class="title-item-result"><p>{{item.title}}</p></div>
-                                            <div class="content-item-result">{{item.content}}</div>
-                                            <div class="time-item-result">{{item.time}}</div>
+                                            <div class="title-item-result"><p>{{item1.title}}</p></div>
+                                            <div class="content-item-result">{{item1.content}}</div>
+                                            <div class="time-item-result">{{item1.time}}</div>
                                         </div>
                                     </b-col>
                                 </b-row>
@@ -40,11 +45,14 @@
                 </b-col>
                 <b-col cols="12" sm="4">
                     <div class="relate-keywords">
-                        <p class="text-relate-keywords-search">このワードに近いキーワード</p>
+                        <div class="title-line fs-20 mb-40 lh-40">
+                            <p class="text-line">関連キーワード</p>
+                            <div class="line"></div>
+                        </div>
                         <div class="list-relate-keywords-search">
                             <b-row>
-                                <b-col cols="12" sm="6" v-for="item of listRelateKeyword">
-                                    <a :href="item.href">{{item.text}}</a>
+                                <b-col cols="12" sm="6" v-for="item2 of listRelateKeyword">
+                                    <a :href="item2.href">{{item2.text}}</a>
                                 </b-col>
                             </b-row>
                         </div>
@@ -73,83 +81,81 @@ export default {
             ],
             listresult:[
                 {
-                    title:"老人ホームの種類",
+                    title:"特養の順番待ち名簿はどれ位のペースで更新されますか？",
                     href:"#",
                     content:"特別養護老人ホームの名簿の順番について教えてください。\n" +
                         "昨年要介護４で特別養護老人ホームに申し込み、１２月に申込んだ施設から名簿の順番が繰り上がったことと現在の状況確認の電話がありました。今年３月に要介護５に区分が変更され、その旨その施設に連絡したのですが、その後何の連絡もありません。名簿の順番は年に何回ぐらい改定されるのでしょうか？",
-                    image:"",
+                    image:"/images/frontend/image/avatar-draw.png",
                     time:"2022/05/15 18:28",
-                },
-                {
-                    title:"老人ホームの種類",
+                },{
+                    title:"特養の順番待ち名簿はどれ位のペースで更新されますか？",
                     href:"#",
                     content:"特別養護老人ホームの名簿の順番について教えてください。\n" +
                         "昨年要介護４で特別養護老人ホームに申し込み、１２月に申込んだ施設から名簿の順番が繰り上がったことと現在の状況確認の電話がありました。今年３月に要介護５に区分が変更され、その旨その施設に連絡したのですが、その後何の連絡もありません。名簿の順番は年に何回ぐらい改定されるのでしょうか？",
-                    image:"",
+                    image:"/images/frontend/image/avatar-draw.png",
                     time:"2022/05/15 18:28",
-                },
-                {
-                    title:"老人ホームの種類",
+                },{
+                    title:"特養の順番待ち名簿はどれ位のペースで更新されますか？",
                     href:"#",
                     content:"特別養護老人ホームの名簿の順番について教えてください。\n" +
                         "昨年要介護４で特別養護老人ホームに申し込み、１２月に申込んだ施設から名簿の順番が繰り上がったことと現在の状況確認の電話がありました。今年３月に要介護５に区分が変更され、その旨その施設に連絡したのですが、その後何の連絡もありません。名簿の順番は年に何回ぐらい改定されるのでしょうか？",
-                    image:"",
+                    image:"/images/frontend/image/avatar-draw.png",
                     time:"2022/05/15 18:28",
-                },
-                {
-                    title:"老人ホームの種類",
+                },{
+                    title:"特養の順番待ち名簿はどれ位のペースで更新されますか？",
                     href:"#",
                     content:"特別養護老人ホームの名簿の順番について教えてください。\n" +
                         "昨年要介護４で特別養護老人ホームに申し込み、１２月に申込んだ施設から名簿の順番が繰り上がったことと現在の状況確認の電話がありました。今年３月に要介護５に区分が変更され、その旨その施設に連絡したのですが、その後何の連絡もありません。名簿の順番は年に何回ぐらい改定されるのでしょうか？",
-                    image:"",
+                    image:"/images/frontend/image/avatar-draw.png",
                     time:"2022/05/15 18:28",
-                },
-                {
-                    title:"老人ホームの種類",
+                },{
+                    title:"特養の順番待ち名簿はどれ位のペースで更新されますか？",
                     href:"#",
                     content:"特別養護老人ホームの名簿の順番について教えてください。\n" +
                         "昨年要介護４で特別養護老人ホームに申し込み、１２月に申込んだ施設から名簿の順番が繰り上がったことと現在の状況確認の電話がありました。今年３月に要介護５に区分が変更され、その旨その施設に連絡したのですが、その後何の連絡もありません。名簿の順番は年に何回ぐらい改定されるのでしょうか？",
-                    image:"",
+                    image:"/images/frontend/image/avatar-draw.png",
                     time:"2022/05/15 18:28",
-                },
-                {
-                    title:"老人ホームの種類",
+                },{
+                    title:"特養の順番待ち名簿はどれ位のペースで更新されますか？",
                     href:"#",
                     content:"特別養護老人ホームの名簿の順番について教えてください。\n" +
                         "昨年要介護４で特別養護老人ホームに申し込み、１２月に申込んだ施設から名簿の順番が繰り上がったことと現在の状況確認の電話がありました。今年３月に要介護５に区分が変更され、その旨その施設に連絡したのですが、その後何の連絡もありません。名簿の順番は年に何回ぐらい改定されるのでしょうか？",
-                    image:"",
+                    image:"/images/frontend/image/avatar-draw.png",
                     time:"2022/05/15 18:28",
-                },
-                {
-                    title:"老人ホームの種類",
+                },{
+                    title:"特養の順番待ち名簿はどれ位のペースで更新されますか？",
                     href:"#",
                     content:"特別養護老人ホームの名簿の順番について教えてください。\n" +
                         "昨年要介護４で特別養護老人ホームに申し込み、１２月に申込んだ施設から名簿の順番が繰り上がったことと現在の状況確認の電話がありました。今年３月に要介護５に区分が変更され、その旨その施設に連絡したのですが、その後何の連絡もありません。名簿の順番は年に何回ぐらい改定されるのでしょうか？",
-                    image:"",
+                    image:"/images/frontend/image/avatar-draw.png",
                     time:"2022/05/15 18:28",
-                },
-                {
-                    title:"老人ホームの種類",
+                },{
+                    title:"特養の順番待ち名簿はどれ位のペースで更新されますか？",
                     href:"#",
                     content:"特別養護老人ホームの名簿の順番について教えてください。\n" +
                         "昨年要介護４で特別養護老人ホームに申し込み、１２月に申込んだ施設から名簿の順番が繰り上がったことと現在の状況確認の電話がありました。今年３月に要介護５に区分が変更され、その旨その施設に連絡したのですが、その後何の連絡もありません。名簿の順番は年に何回ぐらい改定されるのでしょうか？",
-                    image:"",
+                    image:"/images/frontend/image/avatar-draw.png",
                     time:"2022/05/15 18:28",
-                },
-                {
-                    title:"老人ホームの種類",
+                },{
+                    title:"特養の順番待ち名簿はどれ位のペースで更新されますか？",
                     href:"#",
                     content:"特別養護老人ホームの名簿の順番について教えてください。\n" +
                         "昨年要介護４で特別養護老人ホームに申し込み、１２月に申込んだ施設から名簿の順番が繰り上がったことと現在の状況確認の電話がありました。今年３月に要介護５に区分が変更され、その旨その施設に連絡したのですが、その後何の連絡もありません。名簿の順番は年に何回ぐらい改定されるのでしょうか？",
-                    image:"",
+                    image:"/images/frontend/image/avatar-draw.png",
                     time:"2022/05/15 18:28",
-                },
-                {
-                    title:"老人ホームの種類",
+                },{
+                    title:"特養の順番待ち名簿はどれ位のペースで更新されますか？",
                     href:"#",
                     content:"特別養護老人ホームの名簿の順番について教えてください。\n" +
                         "昨年要介護４で特別養護老人ホームに申し込み、１２月に申込んだ施設から名簿の順番が繰り上がったことと現在の状況確認の電話がありました。今年３月に要介護５に区分が変更され、その旨その施設に連絡したのですが、その後何の連絡もありません。名簿の順番は年に何回ぐらい改定されるのでしょうか？",
-                    image:"",
+                    image:"/images/frontend/image/avatar-draw.png",
+                    time:"2022/05/15 18:28",
+                },{
+                    title:"特養の順番待ち名簿はどれ位のペースで更新されますか？",
+                    href:"#",
+                    content:"特別養護老人ホームの名簿の順番について教えてください。\n" +
+                        "昨年要介護４で特別養護老人ホームに申し込み、１２月に申込んだ施設から名簿の順番が繰り上がったことと現在の状況確認の電話がありました。今年３月に要介護５に区分が変更され、その旨その施設に連絡したのですが、その後何の連絡もありません。名簿の順番は年に何回ぐらい改定されるのでしょうか？",
+                    image:"/images/frontend/image/avatar-draw.png",
                     time:"2022/05/15 18:28",
                 },
             ],

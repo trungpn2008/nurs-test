@@ -2,37 +2,51 @@
     <div class="info-user">
         <b-breadcrumb :items="items"></b-breadcrumb>
         <div class="box-info-user">
-            <b-row>
-                <b-col cols="3">
-                    <div class="image-avatar">
-                        <b-img src=""></b-img>
-                    </div>
-                </b-col>
-                <b-col cols="9">
-                    <div class="text-name-id">
-                        <p class="text-id">登緑番号: 1150943312</p>
-                        <p class="text-id">1150943312さん</p>
-                    </div>
-                    <div class="detail-info-user">
-                        <div class="text-title-profile">
-                            <b-img src=""></b-img>
-                            <p>プロフィール</p>
+            <div class="box-detail">
+                <b-row>
+                    <b-col cols="3">
+                        <div class="image-avatar">
+                            <b-img src="/images/frontend/image/avatar.png"></b-img>
                         </div>
-                        <div class="detail-profile">
-                            <p>性別: <span>非公開</span></p>
-                            <p>年齢: <span>非公開</span></p>
-                            <p>参加日: <span>2022年05月25日に参加</span></p>
+                    </b-col>
+                    <b-col cols="9">
+
+                        <div class="text-name-id">
+                            <p class="text-id">登緑番号: 1150943312</p>
+                            <p class="text-name"> 1150943312さん</p>
                         </div>
-                    </div>
-                </b-col>
+                        <div class="detail-info-user">
+                            <div class="text-title-profile">
+                                <div class="text-line-right">
+                                    <b-img src="/images/frontend/icons/icon-avatar.png"></b-img>
+                                    <p>プロフィール</p>
+                                    <div class="line-right"></div>
+                                </div>
+                            </div>
+                            <div class="detail-profile">
+                                <div class="label-text">
+                                    <p>性別: </p>
+                                    <p>年齢: </p>
+                                    <p>参加日: </p>
+                                </div>
+                                <div class="answer-text">
+                                    <p>非公開</p>
+                                    <p>非公開</p>
+                                    <p>2022年05月25日に参加</p>
+                                </div>
+                            </div>
+                        </div>
+                    </b-col>
+                </b-row>
+            </div>
+
                 <div class="description-info-user">
                     <b-tabs content-class="mt-3" fill>
                         <b-tab title="質問">
-                            <p>質問</p>
                             <b-card no-body>
                                 <b-tabs pills card>
-                                    <b-tab title="Tab 1" active><b-card-text>Tab contents 1</b-card-text></b-tab>
-                                    <b-tab title="Tab 2"><b-card-text>Tab contents 2</b-card-text></b-tab>
+                                    <b-tab title="Tab 1" active><b-card-text><div class="no-result"><p>条件に一致する實問がありません</p></div></b-card-text></b-tab>
+                                    <b-tab title="Tab 2"><b-card-text><div class="no-result"><p>条件に一致する實問がありません</p></div></b-card-text></b-tab>
                                 </b-tabs>
                             </b-card>
                         </b-tab>
@@ -41,7 +55,7 @@
                         <b-tab title="知恵コレ"><p>知恵コレ</p></b-tab>
                     </b-tabs>
                 </div>
-            </b-row>
+
         </div>
     </div>
 </template>

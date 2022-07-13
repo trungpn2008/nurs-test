@@ -2,11 +2,14 @@
     <div class="hashtag">
         <b-breadcrumb :items="items"></b-breadcrumb>
         <div class="box-list-hashtag">
-            <p class="title-hashtag"> ハッシュタグ</p>
+            <div class="title-line fs-20 mb-40 lh-40">
+                <p class="text-line">このワードに近いキーワード</p>
+                <div class="line"></div>
+            </div>
             <div class="list-hashtag">
                 <b-row>
                     <b-col cols="12" sm="4" v-for="item of listHashtag">
-                        <p class="text-hashtag">{{item.text}} <span>({{item.count}})</span></p>
+                        <p class="text-hashtag"><a href="#">{{item.text}} <span>({{item.count}})</span></a></p>
                     </b-col>
                 </b-row>
             </div>

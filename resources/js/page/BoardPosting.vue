@@ -1,15 +1,22 @@
 <template>
     <div class="register">
         <b-breadcrumb :items="items"></b-breadcrumb>
-        <p class="title-register">{{title}}</p>
-        <input-from
-            :data="post"
-            :value="users"
-            :options="options"
-            :name="name"
-            :cols="'col-md-12 col-sm-12 col-xs-12'"
-        />
-        <b-button class="btn-register db-rds-10 bg-EA6D8D">{{ btnText }}</b-button>
+        <div class="box-register">
+            <p class="title-register">{{title}}</p>
+            <div class="all-input">
+                <input-from
+                    :data="post"
+                    :value="users"
+                    :options="options"
+                    :name="name"
+                    :cols="'col-md-12 col-sm-12 col-xs-12'"
+                />
+                <div class="all-btn">
+                    <b-button class="btn-register db-rds-10 bg-EA6D8D">{{ btnText }}</b-button>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -21,9 +28,10 @@ export default {
         options: {
             type: Object,
             default: {
-                selected: [1],
+                selected: [''],
                 category:[
-                    { value: 1, text: '老人ホームの種類' },
+                    { value: '', text: 'Please select an option' },
+                    { value: '1', text: '老人ホームの種類' },
                     { value: '2', text: '老人ホームの費用' },
                     { value: '3', text: '老人ホームの選び方' },
                     { value: '4', text: '介護保険制度とは' },
@@ -32,6 +40,7 @@ export default {
                     { value: '7', text: 'その他' },
                 ],
                 category1:[
+                    { value: '', text: 'Please select an option' },
                     { value: '1', text: '介護付き有料老人ホーム' },
                     { value: '2', text: '住宅型有料老人ホーム' },
                     { value: '3', text: 'サービス付き高齢者向け住宅' },
@@ -77,7 +86,7 @@ export default {
                         { key: "category1", label: "", type: "select-half-row" },
                     ],alert:"必須" },
                 { key: "title", label: "お名前", type: "text" ,alert:"必須" },
-                { key: "content", label: "フリガナ", type: "editor" ,alert:"必須" },
+                { key: "content", label: "フリガナ", type: "textarea" ,alert:"必須" },
                 { key: "checkterm", label: "利用規約ご同意後、チェックを入れてください。", type: "checkbox-term" },
             ],
         }

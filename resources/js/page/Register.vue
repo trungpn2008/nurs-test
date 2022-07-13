@@ -1,15 +1,22 @@
 <template>
     <div class="register">
         <b-breadcrumb :items="items"></b-breadcrumb>
-        <p class="title-register">{{title}}</p>
-        <input-from
-            :data="regis"
-            :value="users"
-            :options="options"
-            :name="name"
-            :cols="'col-md-12 col-sm-12 col-xs-12'"
-        />
-        <b-button class="btn-register db-rds-10 bg-EA6D8D">{{ btnText }}</b-button>
+        <div class="box-register">
+            <p class="title-register">{{title}}</p>
+            <div class="all-input">
+                <input-from
+                    :data="regis"
+                    :value="users"
+                    :options="options"
+                    :name="name"
+                    :cols="'col-md-12 col-sm-12 col-xs-12'"
+                />
+                <div class="all-btn">
+
+                    <b-button class="btn-register db-rds-10 bg-EA6D8D">{{ btnText }}</b-button>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -22,14 +29,14 @@ export default {
             type: Object,
             default: {
                 gender:[
-                    { text: '男性', value: '1' },
-                    { text: '女性', value: '2' },
+                    { text: ' 男性', value: '1' },
+                    { text: ' 女性', value: '2' },
                 ],
                 Contact:[
-                    { text: 'メール', value: '1' },
-                    { text: '電話', value: '2' },
-                    { text: 'ライン', value: '3' },
-                    { text: '当サイトからの連絡は受けとらない', value: '4' },
+                    { text: ' メール', value: '1' },
+                    { text: ' 電話', value: '2' },
+                    { text: ' ライン', value: '3' },
+                    { text: ' 当サイトからの連絡は受けとらない', value: '4' },
                 ],
                 selected: [''],
                 age:[
@@ -95,7 +102,7 @@ export default {
                 { key: "email", label: "メールアドレス", type: "text" ,alert:"必須" },
                 { key: "password", label: "パスワード", type: "text" ,alert:"必須" },
                 { key: "Contact", label: "連絡方法", type: "radio" ,alert:"必須" },
-                { key: "checkterm", label: "利用規約ご同意後、チェックを入れてください。", type: "checkbox-term" },
+                { key: "checkterm", label: " 利用規約ご同意後、チェックを入れてください。", type: "checkbox-term" },
             ],
         }
     },

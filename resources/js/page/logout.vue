@@ -2,9 +2,10 @@
     <div class="logout">
         <b-breadcrumb :items="items"></b-breadcrumb>
         <div class="description-logout">
-            <p class="title-box-logout">
-                ログアウト
-            </p>
+            <div class="title-line fs-20 mb-40 lh-40">
+                <p class="text-line bg-FFFFFF">このワードに近いキーワード</p>
+                <div class="line"></div>
+            </div>
             <div class="content-logout">
                 <div class="content-top">
                     <ul>
@@ -21,8 +22,11 @@
                     </ul>
                 </div>
             </div>
-            <b-button class="btn-logout">ログアウト</b-button>
-            <b-button class="btn-return">戻る</b-button>
+            <div class="btn-page-logout">
+                <b-button class="btn-return">戻る</b-button>
+                <b-button class="btn-logout">ログアウト</b-button>
+            </div>
+
         </div>
     </div>
 </template>

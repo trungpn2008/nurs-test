@@ -161,5 +161,32 @@ const routers = [
         },
         name: 'pc-top1',
     },
+    {
+        path: '/notice-holiday',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./page/NoticeHoliday.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'pc-top1',
+    },
+    {
+        path: '/post-confirm',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./page/PostConfirm.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'pc-top1',
+    },
+    {
+        path: '/post-complete',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./page/PostComplete.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'pc-top1',
+    },
 ];
 export default routers;

@@ -34,11 +34,28 @@
                         >
                     </b-col>
                     <b-col sm="9">
-                        <b-form-checkbox
+                        <b-form-checkbox class="form-control"
                             v-model="value[item.key]"
                             name="check-button"
-                            switch
+                            switch style="margin-right: 5px;"
                         ></b-form-checkbox>
+                    </b-col>
+                </template>
+                <template v-if="item.type === 'textarea'">
+                    <b-col sm="3">
+                        <label :for="`type-${item.key}`">
+                            {{ item.label }}<small class="small-alert c-red"> {{item.alert}}</small></label
+                        >
+                    </b-col>
+                    <b-col sm="9">
+                        <b-form-textarea
+                            :id="`type-${item.key}`"
+                            v-model="value[item.key]"
+                            :type="item.type"
+                            :placeholder="item.label"
+                            rows="3"
+                            max-rows="6"
+                        ></b-form-textarea>
                     </b-col>
                 </template>
                 <template v-if="item.type === 'checkbox-term'">
@@ -46,7 +63,7 @@
                         <b-form-checkbox
                             v-model="value[item.key]"
                             name="check-button"
-                            switch
+                            switch style="margin-right: 5px;"
                         ></b-form-checkbox>
                         <label :for="`type-${item.key}`">
                             {{ item.label }}</label>
@@ -84,7 +101,7 @@
                                     ? options[item.key]
                                     : []
                             "
-                            size="md"
+                            size="md" class="form-control"
                             @change="changeData(item.key, value[item.key])"
                         ></b-form-select>
                         <div v-if="errors" style="color: red">
@@ -183,7 +200,7 @@
                             :id="`type-${item.key}`"
                             v-model="value[item.key]"
                             :options="options[item.key]"
-                            :name="`type-${item.key}`"
+                            :name="`type-${item.key}`" style="margin-right: 5px;"
                         >
                         </b-form-radio-group>
                         <div v-if="errors" style="color: red">
@@ -283,19 +300,36 @@
                                         >
                                     </b-col>
                                     <b-col sm="9">
-                                        <b-form-checkbox
+                                        <b-form-checkbox class="form-control"
                                             v-model="value[item1.key]"
                                             name="check-button"
-                                            switch
+                                            switch style="margin-right: 5px;"
                                         ></b-form-checkbox>
                                     </b-col>
                                 </template>
+                            <template v-if="item1.type === 'textarea'">
+                                <b-col sm="12">
+                                    <label :for="`type-${item1.key}`">
+                                        {{ item.label }}<small class="small-alert c-red"> {{item1.alert}}</small></label
+                                    >
+                                </b-col>
+                                <b-col sm="12">
+                                    <b-form-textarea
+                                        :id="`type-${item1.key}`"
+                                        v-model="value[item1.key]"
+                                        :type="item1.type"
+                                        :placeholder="item1.label"
+                                        rows="3"
+                                        max-rows="6"
+                                    ></b-form-textarea>
+                                </b-col>
+                            </template>
                                 <template v-if="item1.type === 'checkbox-term'">
                                     <b-col sm="12">
                                         <b-form-checkbox
                                             v-model="value[item1.key]"
                                             name="check-button"
-                                            switch
+                                            switch class="form-control" style="margin-right: 5px;"
                                         ></b-form-checkbox>
                                         <label :for="`type-${item1.key}`">
                                         {{ item1.label }}</label>
@@ -317,12 +351,12 @@
                                     </b-col>
                                 </template>
                                 <template v-if="item1.type === 'select'">
-                                    <b-col sm="3">
+                                    <b-col sm="12">
                                         <label :for="`type-${item1.key}`">
                                             {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
                                         >
                                     </b-col>
-                                    <b-col sm="9">
+                                    <b-col sm="12">
                                         <b-form-select
                                             :id="`type-${item1.key}`"
                                             v-model="value[item1.key]"
@@ -333,7 +367,7 @@
                                     ? options[item1.key]
                                     : []
                             "
-                                            size="md"
+                                            size="md" class="form-control"
                                             @change="changeData(item1.key, value[item1.key])"
                                         ></b-form-select>
                                         <div v-if="errors" style="color: red">
@@ -455,7 +489,301 @@
                                             :id="`type-${item1.key}`"
                                             v-model="value[item1.key]"
                                             :options="options[item1.key]"
-                                            :name="`type-${item1.key}`"
+                                            :name="`type-${item1.key}`" style="margin-right: 5px;"
+                                        >
+                                        </b-form-radio-group>
+                                        <div v-if="errors" style="color: red">
+                                            {{ errors[item1.key] }}
+                                        </div>
+                                    </b-col>
+                                </template>
+                                <template v-if="item1.type === 'date'">
+                                    <b-col sm="3">
+                                        <label :for="`type-${item1.key}`">
+                                            {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
+                                        >
+                                    </b-col>
+                                    <b-col sm="9">
+                                        <datepicker
+                                            :id="`type-${item1.key}`"
+                                            :monday-first="true"
+                                            v-model="value[item1.key]"
+                                            :bootstrapStyling="true"
+                                            :name="`${item1.key}`"
+                                            placeholder="Chọn ngày"
+                                            :format="'dd-MM-yyyy'"
+                                            :language="vi"
+                                        >
+                                        </datepicker>
+                                        <div v-if="errors" style="color: red">
+                                            {{ errors[item1.key] }}
+                                        </div>
+                                    </b-col>
+                                </template>
+                                <template v-if="item1.type === 'time'">
+                                    <b-col sm="3">
+                                        <label :for="`type-${item1.key}`">
+                                            {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
+                                        >
+                                    </b-col>
+                                    <b-col sm="9">
+                                        <b-form-input
+                                            type="datetime-local"
+                                            :id="`type-${item1.key}`"
+                                            :placeholder="item1.label"
+                                            v-model="value[item1.key]"
+                                        />
+
+                                        <div v-if="errors" style="color: red">
+                                            {{ errors[item1.key] }}
+                                        </div>
+                                    </b-col>
+                                </template>
+                                <template v-if="item1.type === 'label-title'">
+                                    <b-col sm="6">
+                                        <label :for="`type-${item1.key}`">
+                                            {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
+                                        >
+                                    </b-col>
+                                </template>
+                        </template>
+                        </b-row>
+                    </b-col>
+                </template>
+                <template v-if="item.type === 'multi-input-2'">
+<!--                    <b-col sm="12">-->
+<!--                        <label :for="`type-${item.key}`">-->
+<!--                            {{ item.label }}<small class="small-alert c-red">{{item.alert}}</small></label-->
+<!--                        >-->
+<!--                    </b-col>-->
+                    <b-col sm="12">
+                        <b-row class="my-1">
+                        <template v-for="(item1, index1) in item.multiInput">
+<!--                            <b-row class="my-1" :key="index1" :id="`row-${item1.key}`">-->
+                                <template
+                                    v-if="
+                        item1.type === 'text' ||
+                        item1.type === 'number' ||
+                        item1.type === 'password'
+                    "
+                                >
+                                    <b-col sm="12">
+                                        <label :for="`type-${item1.key}`" v-if="item1.label != ''">
+                                            {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
+                                        >
+                                    </b-col>
+                                    <b-col sm="12">
+                                        <b-form-input
+                                            :disabled="item1.disable ? true : false"
+                                            :id="`type-${item1.key}`"
+                                            :placeholder="item1.label"
+                                            :type="item1.type"
+                                            v-model="value[item1.key]"
+                                        ></b-form-input>
+                                        <div v-if="errors" style="color: red">
+                                            {{ errors[item1.key] }}
+                                        </div>
+                                        <p v-if="index1.notetext">{{index1.notetext}}</p>
+                                    </b-col>
+                                </template>
+                                <template v-if="item1.type === 'checkbox'">
+                                    <b-col sm="3">
+                                        <label :for="`type-${item1.key}`">
+                                            {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
+                                        >
+                                    </b-col>
+                                    <b-col sm="9">
+                                        <b-form-checkbox class="form-control"
+                                            v-model="value[item1.key]"
+                                            name="check-button"
+                                            switch style="margin-right: 5px;"
+                                        ></b-form-checkbox>
+                                    </b-col>
+                                </template>
+                            <template v-if="item1.type === 'textarea'">
+                                <b-col sm="12">
+                                    <label :for="`type-${item1.key}`">
+                                        {{ item1.label }}<small class="small-alert c-red"> {{item1.alert}}</small></label
+                                    >
+                                </b-col>
+                                <b-col sm="12">
+                                    <b-form-textarea
+                                        :id="`type-${item1.key}`"
+                                        v-model="value[item1.key]"
+                                        :type="item1.type"
+                                        :placeholder="item1.label"
+                                        rows="3"
+                                        max-rows="6"
+                                    ></b-form-textarea>
+                                    <p style="font-style: normal;font-weight: 400;font-size: 14px;line-height: 27px;color: #4D4D4D;">※任意5,000文字以内</p>
+                                </b-col>
+                            </template>
+                                <template v-if="item1.type === 'checkbox-term'">
+                                    <b-col sm="12">
+                                        <b-form-checkbox
+                                            v-model="value[item1.key]"
+                                            name="check-button"
+                                            switch class="form-control" style="margin-right: 5px;"
+                                        ></b-form-checkbox>
+                                        <label :for="`type-${item1.key}`">
+                                        {{ item1.label }}</label>
+                                    </b-col>
+                                </template>
+                                <template v-if="item1.type === 'editor'">
+                                    <b-col sm="12">
+                                        <label :for="`type-${item1.key}`">
+                                            {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
+                                        >
+                                    </b-col>
+                                    <b-col sm="12">
+                                        <VueEditor
+                                            :id="`editor-${item1.key}`"
+                                            v-model="value[item1.key]"
+                                            useCustomImageHandler
+                                            @image-added="handleImageAdded"
+                                        ></VueEditor>
+                                    </b-col>
+                                </template>
+                                <template v-if="item1.type === 'select'">
+                                    <b-col sm="12">
+                                        <label :for="`type-${item1.key}`">
+                                            {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
+                                        >
+                                    </b-col>
+                                    <b-col sm="12">
+                                        <b-form-select
+                                            :id="`type-${item1.key}`"
+                                            v-model="value[item1.key]"
+                                            :options="
+                                options &&
+                                options[item1.key] !== undefined &&
+                                options[item1.key].length > 0
+                                    ? options[item1.key]
+                                    : []
+                            "
+                                            size="md" class="form-control"
+                                            @change="changeData(item1.key, value[item1.key])"
+                                        ></b-form-select>
+                                        <div v-if="errors" style="color: red">
+                                            {{ errors[item1.key] }}
+                                        </div>
+                                    </b-col>
+                                </template>
+                                <template v-if="item1.type === 'select-half-row'">
+                                    <b-col sm="6">
+                                        <label :for="`type-${item1.key}`" v-if="item1.label != ''">
+                                            {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
+                                        >
+                                        <b-form-select
+                                            :id="`type-${item1.key}`"
+                                            v-model="value[item1.key]"
+                                            :options="
+                                options &&
+                                options[item1.key] !== undefined &&
+                                options[item1.key].length > 0
+                                    ? options[item1.key]
+                                    : []
+                            "
+                                            size="md"
+                                            @change="changeData(item1.key, value[item1.key])"
+                                        ></b-form-select>
+                                        <div v-if="errors" style="color: red">
+                                            {{ errors[item1.key] }}
+                                        </div>
+                                    </b-col>
+                                </template>
+                                <template v-if="item1.type === 'input-tag'">
+                                    <b-col sm="3">
+                                        <label :for="`type-${item1.key}`">
+                                            {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
+                                        >
+                                    </b-col>
+                                    <b-col sm="9">
+                                        <b-form-tags
+                                            :input-id="`type-${item1.key}`"
+                                            :input-attrs="{
+                                'aria-describedby':
+                                    'tags-remove-on-delete-help',
+                            }"
+                                            v-model="value[item1.key]"
+                                            separator=" "
+                                            remove-on-delete
+                                            no-add-on-enter
+                                            tag-variant="primary"
+                                            tag-pills
+                                        ></b-form-tags>
+                                        <div v-if="errors" style="color: red">
+                                            {{ errors[item1.key] }}
+                                        </div>
+                                    </b-col>
+                                </template>
+                                <template v-if="item1.type === 'input-select'">
+                                    <b-col sm="3">
+                                        <label :for="`type-${item1.key}`">
+                                            {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
+                                        >
+                                    </b-col>
+                                    <b-col sm="9">
+                                        <b-form-input
+                                            :list="`type-${item1.key}`"
+                                            :placeholder="item1.label"
+                                            type="text"
+                                            v-model="value[item1.key]"
+                                        ></b-form-input>
+                                        <b-form-datalist
+                                            :id="`type-${item1.key}`"
+                                            text-field="text"
+                                            size="md"
+                                        >
+                                            <option
+                                                v-for="(data, index1) in options &&
+                                options[item1.key] !== undefined &&
+                                options[item1.key].length > 0
+                                    ? options[item1.key]
+                                    : []"
+                                                :key="index1"
+                                                :value="data.value"
+                                            >
+                                                {{ data.text }}
+                                            </option>
+                                        </b-form-datalist>
+                                        <div v-if="errors" style="color: red">
+                                            {{ errors[item1.key] }}
+                                        </div>
+                                    </b-col>
+                                </template>
+                                <template v-if="item1.type === 'checkbox-group'">
+                                    <b-col sm="3">
+                                        <label :for="`type-${item1.key}`">
+                                            {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
+                                        >
+                                    </b-col>
+                                    <b-col sm="9">
+                                        <b-form-checkbox-group
+                                            :id="`type-${item1.key}`"
+                                            v-model="value[item1.key]"
+                                            :options="options[item1.key]"
+                                            name="flavour-1"
+                                            @change="changeData(item1.key, value[item1.key])"
+                                        ></b-form-checkbox-group>
+
+                                        <div v-if="errors" style="color: red">
+                                            {{ errors[item1.key] }}
+                                        </div>
+                                    </b-col>
+                                </template>
+                                <template v-if="item1.type === 'radio'">
+                                    <b-col sm="12">
+                                        <label :for="`type-${item1.key}`">
+                                            {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
+                                        >
+                                    </b-col>
+                                    <b-col sm="12">
+                                        <b-form-radio-group
+                                            :id="`type-${item1.key}`"
+                                            v-model="value[item1.key]"
+                                            :options="options[item1.key]"
+                                            :name="`type-${item1.key}`" style="margin-right: 5px;"
                                         >
                                         </b-form-radio-group>
                                         <div v-if="errors" style="color: red">

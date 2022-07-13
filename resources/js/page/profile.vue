@@ -1,25 +1,39 @@
 <template>
     <div class="register">
         <b-breadcrumb :items="items"></b-breadcrumb>
-        <p class="title-register">{{title}}</p>
-        <avatar @imageFileBase64="getImageFileBase64" :image="users.avatar" />
-        <input-from
-            :data="profile"
-            :value="users"
-            :options="options"
-            :name="name"
-            :cols="'col-md-12 col-sm-12 col-xs-12'"
-        />
-        <input-from
-            :data="profile2"
-            :value="users"
-            :options="options"
-            :name="name"
-            :cols="'col-md-12 col-sm-12 col-xs-12'"
-        />
-        <b-button class="btn-add-or-edit">{{ btnText }}</b-button>
-        <b-button class="btn-add-or-edit">戻る</b-button>
-        <b-button class="btn-add-or-edit">変更</b-button>
+        <div class="box-register w-800">
+<!--            <p class="title-register">{{title}}</p>-->
+            <div class="all-input pd-t-40 mt-40">
+                <div class="title-line fs-20 mb-40 lh-40 mt-40">
+                    <p class="text-line bg-FFFFFF">{{title}}</p>
+                    <div class="line"></div>
+                </div>
+                <avatar @imageFileBase64="getImageFileBase64" :image="users.avatar" />
+                <p class="text-center"><b-img src="/images/frontend/icons/2133.png"></b-img>JPEG、GIF、PNG形式</p>
+                <input-from
+                    :data="profile"
+                    :value="users"
+                    :options="options"
+                    :cols="'col-md-12 col-sm-12 col-xs-12'"
+                />
+                <div class="title-line fs-20 mb-40 lh-40 mt-40">
+                    <p class="text-line bg-FFFFFF">介護対象者のプロフィール1</p>
+                    <div class="line" style="padding: 0 40px;"></div>
+                </div>
+                <input-from
+                    :data="profile2"
+                    :value="users"
+                    :options="options"
+                    :cols="'col-md-12 col-sm-12 col-xs-12'"
+                />
+                <b-button class="btn-add-or-edit"><b-img src="/images/frontend/icons/r5344.png" style="position: relative;bottom: 5px;"></b-img>{{ btnText }}</b-button>
+                <div class="all-btn">
+                <b-button class="btn-return">戻る</b-button>
+                <b-button class="btn-change">変更</b-button>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -32,7 +46,7 @@ export default {
         options: {
             type: Object,
             default: {
-                selected: [''],
+                selected: [],
                 gender:[
                     { value: '', text: 'Select gender' },
                     { value: '1', text: '男性' },
@@ -81,6 +95,7 @@ export default {
                 gender:"",
                 birth:"",
                 nickname:"",
+                avatar:"/images/frontend/image/avatar.png",
             },
             items: [
                 {
@@ -93,18 +108,23 @@ export default {
                 }
             ],
             profile: [
-                { key: "nickname", label: "ニックネーム", type: "text" ,alert:"必須" },
-                { key: "multiinput", label: "年齢", type: "multi-input",multiInput:[
+
+                { key: "multiinput", label: "", type: "multi-input-2",multiInput:[
+                        { key: "nickname", label: "ニックネーム", type: "text" ,alert:"必須" },
                         { key: "gender", label: "性別", type: "select-half-row",alert:"必須",labelActive:true },
                         { key: "birth", label: "あなたの生まれた年", type: "select-half-row",alert:"必須",labelActive:true },
+                        { key: "content", label: "プロフィール文", type: "textarea" ,alert:"必須" },
                     ] },
-                { key: "checkterm", label: "利用規約ご同意後、チェックを入れてください。", type: "checkbox-term" },
+                // { key: "checkterm", label: "利用規約ご同意後、チェックを入れてください。", type: "checkbox-term" },
             ],
             profile2: [
-                { key: "relationship", label: "続柄", type: "select" ,alert:"必須" },
-                { key: "dementia", label: "認知症の有無", type: "select",alert:"必須" },
-                { key: "degreeofcare", label: "要介護度", type: "select",alert:"必須" },
-                { key: "caresituation", label: "介護状況", type: "select",alert:"必須" },
+                { key: "multiinput", label: "", type: "multi-input-2",multiInput:[
+                        { key: "relationship", label: "続柄", type: "select" ,alert:"必須" },
+                        { key: "dementia", label: "認知症の有無", type: "select",alert:"必須" },
+                        { key: "degreeofcare", label: "要介護度", type: "select",alert:"必須" },
+                        { key: "caresituation", label: "介護状況", type: "select",alert:"必須" },
+                    ] },
+
             ],
         }
     },
@@ -116,30 +136,5 @@ export default {
 }
 </script>
 
-<style scoped>
-.avatar {
-    position: relative;
-img {
-    display: block;
-}
-.round-camera {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background-color: #e4e6eb;
-    border: 2px solid white;
-    transform: translate(-50%, -50%);
-.round_circle_camera {
-    color: #333;
-    font-size: 20px;
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-}
-}
+<style scoped lang="scss">
 </style>

@@ -11,19 +11,19 @@
         </div>
         <div class="contact-method hidden-xs hidden-sm hidden-md">
             <b-row cols="5">
-                <b-col col="12" v-for="item of boxIcon ">
-                    <a :href="item.href">
+                <b-col v-for="bx of boxIcon ">
+                    <a :href="bx.href">
                         <div class="item-contact-method">
-                            <b-img :src="item.image" class="image-method"></b-img>
+                            <b-img :src="bx.image" class="image-method"></b-img>
                             <div class="content-contact-method">
                                 <p class="title-contact-method">
-                                    {{item.title}}
+                                    {{bx.title}}
                                 </p>
                                 <p class="text-contact-method">
-                                    {{item.text}}
+                                    {{bx.text}}
                                 </p>
                             </div>
-                            <b-img v-if="item.active = true" :src="item.cyclePin" class="cycle-pin-image"></b-img>
+                            <b-img v-if="bx.active = true" :src="bx.cyclePin" class="cycle-pin-image"></b-img>
                         </div>
                     </a>
                 </b-col>
