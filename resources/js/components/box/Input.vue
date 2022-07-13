@@ -247,8 +247,9 @@
                         >
                     </b-col>
                     <b-col sm="9">
+                        <b-row class="my-1">
                         <template v-for="(item1, index1) in item.multiInput">
-                            <b-row class="my-1" :key="index1">
+<!--                            <b-row class="my-1" :key="index1" :id="`row-${item1.key}`">-->
                                 <template
                                     v-if="
                         item1.type === 'text' ||
@@ -272,6 +273,7 @@
                                         <div v-if="errors" style="color: red">
                                             {{ errors[item1.key] }}
                                         </div>
+                                        <p v-if="index1.notetext">{{index1.notetext}}</p>
                                     </b-col>
                                 </template>
                                 <template v-if="item1.type === 'checkbox'">
@@ -300,12 +302,12 @@
                                     </b-col>
                                 </template>
                                 <template v-if="item1.type === 'editor'">
-                                    <b-col sm="3">
+                                    <b-col sm="12">
                                         <label :for="`type-${item1.key}`">
                                             {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
                                         >
                                     </b-col>
-                                    <b-col sm="9">
+                                    <b-col sm="12">
                                         <VueEditor
                                             :id="`editor-${item1.key}`"
                                             v-model="value[item1.key]"
@@ -321,6 +323,29 @@
                                         >
                                     </b-col>
                                     <b-col sm="9">
+                                        <b-form-select
+                                            :id="`type-${item1.key}`"
+                                            v-model="value[item1.key]"
+                                            :options="
+                                options &&
+                                options[item1.key] !== undefined &&
+                                options[item1.key].length > 0
+                                    ? options[item1.key]
+                                    : []
+                            "
+                                            size="md"
+                                            @change="changeData(item1.key, value[item1.key])"
+                                        ></b-form-select>
+                                        <div v-if="errors" style="color: red">
+                                            {{ errors[item1.key] }}
+                                        </div>
+                                    </b-col>
+                                </template>
+                                <template v-if="item1.type === 'select-half-row'">
+                                    <b-col sm="6">
+                                        <label :for="`type-${item1.key}`" v-if="item1.label != ''">
+                                            {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
+                                        >
                                         <b-form-select
                                             :id="`type-${item1.key}`"
                                             v-model="value[item1.key]"
@@ -420,12 +445,12 @@
                                     </b-col>
                                 </template>
                                 <template v-if="item1.type === 'radio'">
-                                    <b-col sm="3">
+                                    <b-col sm="12">
                                         <label :for="`type-${item1.key}`">
                                             {{ item1.label }} <small class="small-alert c-red">{{item1.alert}}</small></label
                                         >
                                     </b-col>
-                                    <b-col sm="9">
+                                    <b-col sm="12">
                                         <b-form-radio-group
                                             :id="`type-${item1.key}`"
                                             v-model="value[item1.key]"
@@ -487,8 +512,8 @@
                                         >
                                     </b-col>
                                 </template>
-                            </b-row>
                         </template>
+                        </b-row>
                     </b-col>
                 </template>
             </b-row>
@@ -514,7 +539,7 @@ export default {
         };
     },
     mounted() {
-        console.log(this.data)
+        console.log(this.data[0].multiInput)
     }
     // methods: {
         // changeData(key, data) {

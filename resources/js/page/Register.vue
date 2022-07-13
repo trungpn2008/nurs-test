@@ -9,6 +9,7 @@
             :name="name"
             :cols="'col-md-12 col-sm-12 col-xs-12'"
         />
+        <b-button class="btn-register db-rds-10 bg-EA6D8D">{{ btnText }}</b-button>
     </div>
 </template>
 
@@ -51,6 +52,7 @@ export default {
     data() {
         return {
             title:"新規会員登録",
+            btnText: "入力内容を確認",
             users: {
                 name:"",
                 Furigana:"",
