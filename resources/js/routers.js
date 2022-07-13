@@ -152,5 +152,14 @@ const routers = [
         },
         name: 'pc-top1',
     },
+    {
+        path: '/notice',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./page/notice.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'pc-top1',
+    },
 ];
 export default routers;
