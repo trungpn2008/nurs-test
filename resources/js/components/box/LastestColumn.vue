@@ -1,14 +1,14 @@
 <template>
     <div class="box-list-column">
-        <p class="title-list-column">{{ title }}</p>
+        <p class="title-box c-4e8dc3 bd-c-4e8dc3">{{ title }}</p>
         <div class="list-column">
             <b-row>
-                <b-col cols="12" sm="6" v-for="item of listColumn">
-                    <b-img :src="item.image"></b-img>
+                <b-col cols="12" sm="6" class="item-list-column" c v-for="item of listColumn">
+                    <b-img :src="item.image" class="image-item"></b-img>
                     <div class="description">
                         <div class="type-of-cate">
-                            <p>{{item.cate}}</p>
-                            <p>{{item.type}}</p>
+                            <p><b-img src="/images/frontend/icons/53453452.png"></b-img>{{item.cate}}</p>
+                            <p><b-img src="/images/frontend/icons/543543623.png"></b-img>{{item.type}}</p>
                         </div>
                         <p class="title-item-column">{{item.title}}</p>
                     </div>
