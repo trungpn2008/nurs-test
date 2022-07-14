@@ -10275,7 +10275,7 @@ header .logo-page {
 header .logo-page img {
   position: absolute;
   top: 50%;
-  left: 30px;
+  /* left: 30px; */
   transform: translate(0, -50%);
 }
 header .menu-header, header .top-header {
@@ -13446,6 +13446,7 @@ footer .footer .footer-right a {
     padding-left: 40px !important;
     padding-right: 40px !important;
   }
+
 }
 
 .mr-b-35 {

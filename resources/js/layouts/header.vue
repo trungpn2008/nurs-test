@@ -7,7 +7,7 @@
 <!--            destop-->
 <!--        </div>-->
 
-            <b-row>
+            <b-row class="pd-l-r-40">
                 <b-col xl="4" xs="12" class="pd-0">
                     <div class="logo-page">
                         <b-img src="/images/frontend/image/logo.png"></b-img>
