@@ -1,4 +1,4 @@
-@extends('backend.layouts.master')
+@extends('Backend.layouts.master')
 @section('content')
     <div class="row">
         <!-- Website Analytics-->
