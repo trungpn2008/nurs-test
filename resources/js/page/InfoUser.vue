@@ -4,12 +4,12 @@
         <div class="box-info-user">
             <div class="box-detail">
                 <b-row>
-                    <b-col cols="3">
+                    <b-col cols="12" sm="3">
                         <div class="image-avatar">
                             <b-img src="/images/frontend/image/avatar.png"></b-img>
                         </div>
                     </b-col>
-                    <b-col cols="9">
+                    <b-col cols="12" sm="9">
 
                         <div class="text-name-id">
                             <p class="text-id">登緑番号: 1150943312</p>

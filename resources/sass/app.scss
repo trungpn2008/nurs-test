@@ -817,8 +817,8 @@ footer {
             }
 
             .contact-method {
-                margin-top: 15px;
-                margin-left: 25px;
+                margin-top: 10px;
+                margin-left: 5px;
 
                 a {
                     font-family: "Noto Sans JP";
@@ -1001,8 +1001,8 @@ footer {
             }
 
             .contact-method {
-                margin-top: 15px;
-                margin-left: 25px;
+                margin-top: 10px;
+                margin-left: 5px;
 
                 a {
                     font-family: "Noto Sans JP";
@@ -1185,8 +1185,8 @@ footer {
             }
 
             .contact-method {
-                margin-top: 15px;
-                margin-left: 25px;
+                margin-top: 10px;
+                margin-left: 5px;
 
                 a {
                     font-family: "Noto Sans JP";
@@ -1334,10 +1334,33 @@ footer {
 }
 
 .guideline {
-    padding: 100px 0;
+    @include Responsive1(XS) {
+        padding: 30px 0;
+    }
+    @include Responsive1(SM) {
+        padding: 30px 0;
+    }
+    @include Responsive1(MD) {
+        padding: 50px 0;
+    }
+    @include Responsive1(LG) {
+        padding: 100px 0;
+    }
 
     .descriotion-guideline {
-        margin: 50px 0;
+        @include Responsive1(XS) {
+            margin: 20px 0;
+        }
+        @include Responsive1(SM) {
+            margin: 20px 0;
+        }
+        @include Responsive1(MD) {
+            margin: 30px 0;
+        }
+        @include Responsive1(LG) {
+            margin: 50px 0;
+        }
+
     }
 
     .list-provisions {
@@ -1358,10 +1381,21 @@ footer {
                 a {
                     font-style: normal;
                     font-weight: 400;
-                    font-size: 20px;
                     line-height: 45px;
                     color: #000000;
                     text-decoration: none;
+                    @include Responsive1(XS) {
+                        font-size: 18px;
+                    }
+                    @include Responsive1(SM) {
+                        font-size: 18px;
+                    }
+                    @include Responsive1(MD) {
+                        font-size: 19px;
+                    }
+                    @include Responsive1(LG) {
+                        font-size: 20px;
+                    }
                 }
             }
         }
@@ -1379,7 +1413,19 @@ footer {
     text-align: center;
     //background-color: white;
     padding: 0 25px;
-    margin-bottom: 70px;
+
+    @include Responsive1(XS) {
+        margin-bottom: 25px;
+    }
+    @include Responsive1(SM) {
+        margin-bottom: 25px;
+    }
+    @include Responsive1(MD) {
+        margin-bottom: 40px;
+    }
+    @include Responsive1(LG) {
+        margin-bottom: 70px;
+    }
 
     .text-line {
         position: relative;
@@ -1387,7 +1433,18 @@ footer {
         background-color: #FCF9FC;
         display: inline-block;
         margin: 0;
-        padding: 0 50px;
+        @include Responsive1(XS) {
+            padding: 0 5px;
+        }
+        @include Responsive1(SM) {
+            padding: 0 5px;
+        }
+        @include Responsive1(MD) {
+            padding: 0 15px;
+        }
+        @include Responsive1(LG) {
+            padding: 0 50px;
+        }
     }
 
     .line {
@@ -1412,17 +1469,40 @@ footer {
 .title-line2 {
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 50px;
+
     color: #000000;
     z-index: 2;
     position: relative;
     //background-color: white;
-    display: initial;
+
     text-align: center;
     width: 100%;
     margin: auto;
-    padding: 0 100px;
+    @include Responsive1(XS) {
+        font-size: 18px;
+        line-height: 30px;
+        padding: 0 5px;
+        display: inline-block;
+    }
+    @include Responsive1(SM) {
+        font-size: 18px;
+        line-height: 30px;
+        padding: 0 20px;
+        display: inline-block;
+    }
+    @include Responsive1(MD) {
+        font-size: 18px;
+        line-height: 30px;
+        padding: 0 20px;
+        display: inline-block;
+    }
+    @include Responsive1(LG) {
+        font-size: 20px;
+        line-height: 50px;
+        padding: 0 100px;
+        display: initial;
+    }
+
 
     .text-line {
         position: relative;
@@ -1432,6 +1512,7 @@ footer {
         margin: 0;
         padding: 0 20px;
         margin-bottom: 15px;
+
     }
 
     .line {
@@ -1441,14 +1522,39 @@ footer {
         transform: translate(0, -50%);
         width: 100%;
         height: 15px;
-        background-color: #ECF0F3;
+        @include Responsive1(XS) {
+            background-color: transparent;
+        }
+        @include Responsive1(SM) {
+            background-color: transparent;
+        }
+        @include Responsive1(MD) {
+            background-color: transparent;
+        }
+        @include Responsive1(LG) {
+            background-color: #ECF0F3;
+        }
     }
 }
 
 .breadcrumb {
-    margin-top: 50px;
+    @include Responsive1(XS) {
+        margin-top: 20px;
+        margin-left: 0;
+    }
+    @include Responsive1(SM) {
+        margin-top: 20px;
+        margin-left: 0;
+    }
+    @include Responsive1(MD) {
+        margin-top: 50px;
+        margin-left: 30px;
+    }
+    @include Responsive1(LG) {
+        margin-top: 50px;
+        margin-left: 30px;
+    }
     margin-bottom: 50px;
-    margin-left: 30px;
 
     li {
         a, span {
@@ -1493,6 +1599,22 @@ footer {
     padding: 15px 40px !important;
     margin-bottom: 70px;
     margin-top: 30px;
+    @include Responsive1(XS) {
+        margin-bottom: 30px;
+        margin-top: 15px;
+    }
+    @include Responsive1(SM) {
+        margin-bottom: 30px;
+        margin-top: 15px;
+    }
+    @include Responsive1(MD) {
+        margin-bottom: 50px;
+        margin-top: 30px;
+    }
+    @include Responsive1(LG) {
+        margin-bottom: 70px;
+        margin-top: 30px;
+    }
 }
 
 .image-banner {
@@ -1508,7 +1630,19 @@ footer {
     }
 
     .list-notice-holiday {
-        padding: 0 60px;
+        @include Responsive1(XS) {
+            padding: 0;
+        }
+        @include Responsive1(SM) {
+            padding: 0;
+        }
+        @include Responsive1(MD) {
+            padding: 0 30px;
+        }
+        @include Responsive1(LG) {
+            padding: 0 60px;
+        }
+
 
         .big-item-notice-holiday {
             .time-cate {
@@ -1651,7 +1785,18 @@ footer {
     }
 
     .list-notice {
-        padding: 0 60px;
+        @include Responsive1(XS) {
+            padding: 0;
+        }
+        @include Responsive1(SM) {
+            padding: 0;
+        }
+        @include Responsive1(MD) {
+            padding: 0 30px;
+        }
+        @include Responsive1(LG) {
+            padding: 0 60px;
+        }
 
         .list-cate-notice {
             margin: 0;
@@ -1752,22 +1897,65 @@ footer {
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
-    margin: 120px 0;
+
+    @include Responsive1(XS) {
+        margin: 30px 0;
+    }
+    @include Responsive1(SM) {
+        margin: 30px 0;
+    }
+    @include Responsive1(MD) {
+        margin: 60px 0;
+    }
+    @include Responsive1(LG) {
+        margin: 120px 0;
+    }
 }
 
 .questions-and-answers {
-    padding: 0 60px;
-    margin-top: 150px;
-    margin-bottom: 50px;
+    @include Responsive1(XS) {
+        padding: 0 0;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    @include Responsive1(SM) {
+        padding: 0 0;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    @include Responsive1(MD) {
+        padding: 0 30px;
+        margin-top: 75px;
+        margin-bottom: 30px;
+    }
+    @include Responsive1(LG) {
+        padding: 0 60px;
+        margin-top: 150px;
+        margin-bottom: 50px;
+    }
 
     .title-questions-and-answers {
         text-align: center;
         font-style: normal;
         font-weight: 400;
-        font-size: 22px;
         line-height: 38px;
         color: #4D4D4D;
-        margin-bottom: 60px;
+        @include Responsive1(XS) {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        @include Responsive1(SM) {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        @include Responsive1(MD) {
+            font-size: 22px;
+            margin-bottom: 60px;
+        }
+        @include Responsive1(LG) {
+            font-size: 22px;
+            margin-bottom: 60px;
+        }
     }
 
     .box-search {
@@ -1810,7 +1998,6 @@ footer {
                             display: inline-block;
                             font-style: normal;
                             font-weight: 400;
-                            font-size: 16px;
                             line-height: 27px;
                             color: #000000;
                             padding: 7px 20px;
@@ -1820,7 +2007,18 @@ footer {
                             text-decoration: none;
                             margin-left: 20px;
                             margin-bottom: 20px;
-
+                            @include Responsive1(XS) {
+                                font-size: 14px;
+                            }
+                            @include Responsive1(SM) {
+                                font-size: 14px;
+                            }
+                            @include Responsive1(MD) {
+                                font-size: 16px;
+                            }
+                            @include Responsive1(LG) {
+                                font-size: 16px;
+                            }
                             &:hover, &:focus, &:active, &:target {
                                 background: #FFF0F0;
                             }
@@ -1907,6 +2105,18 @@ footer {
                     border-radius: 60px;
                     text-decoration: none;
                     margin-bottom: 20px;
+                    @include Responsive1(XS) {
+                        font-size: 14px;
+                    }
+                    @include Responsive1(SM) {
+                        font-size: 14px;
+                    }
+                    @include Responsive1(MD) {
+                        font-size: 16px;
+                    }
+                    @include Responsive1(LG) {
+                        font-size: 16px;
+                    }
 
                     &:hover, &:focus, &:active, &:target {
                         background: #FFF0F0;
@@ -1946,11 +2156,36 @@ footer {
 }
 
 .faq {
-    margin-top: 150px;
+    @include Responsive1(XS) {
+        margin-top: 20px;
+    }
+    @include Responsive1(SM) {
+        margin-top: 20px;
+    }
+    @include Responsive1(MD) {
+        margin-top: 75px;
+    }
+    @include Responsive1(LG) {
+        margin-top: 150px;
+    }
 
     .box-faq {
-        margin-top: 40px;
-        padding: 0 250px;
+        @include Responsive1(XS) {
+            padding: 0;
+            margin-top: 20px;
+        }
+        @include Responsive1(SM) {
+            padding: 0;
+            margin-top: 20px;
+        }
+        @include Responsive1(MD) {
+            padding: 0;
+            margin-top: 30px;
+        }
+        @include Responsive1(LG) {
+            padding: 0 250px;
+            margin-top: 40px;
+        }
 
         .content-faq {
             .list-faq {
@@ -2023,20 +2258,63 @@ footer {
 }
 
 .info-user {
-    margin-top: 150px;
-    margin-bottom: 30px;
+    @include Responsive1(XS) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    @include Responsive1(SM) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    @include Responsive1(MD) {
+        margin-top: 75px;
+        margin-bottom: 30px;
+    }
+    @include Responsive1(LG) {
+        margin-top: 150px;
+        margin-bottom: 30px;
+    }
+
     .box-info-user {
-        width: 800px;
-        height: 800px;
+
         margin: auto;
         background: #FFFFFF;
         box-shadow: 0px 2px 10px rgb(0 0 0 / 25%);
         border-radius: 20px;
         margin-top: 100px;
-
+        @include Responsive1(XS) {
+            margin-top: 30px;
+            width: 100%;
+            height: 100%;
+        }
+        @include Responsive1(SM) {
+            margin-top: 30px;
+            width: 100%;
+            height: 100%;
+        }
+        @include Responsive1(MD) {
+            margin-top: 50px;
+            width: 100%;
+            height: 100%;
+        }
+        @include Responsive1(LG) {
+            margin-top: 100px;
+            width: 800px;
+            height: 800px;
+        }
         .box-detail {
-            padding: 50px;
-
+            @include Responsive1(XS) {
+                padding: 15px;
+            }
+            @include Responsive1(SM) {
+                padding: 15px;
+            }
+            @include Responsive1(MD) {
+                padding: 30px;
+            }
+            @include Responsive1(LG) {
+                padding: 50px;
+            }
             .text-name-id {
                 .text-id {
                     font-style: normal;
@@ -2169,18 +2447,52 @@ footer {
     }
 }
 .logout {
-    margin-top: 150px;
-    margin-bottom: 30px;
+    @include Responsive1(XS) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+        @include Responsive1(SM) {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        @include Responsive1(MD) {
+            margin-top: 75px;
+            margin-bottom: 30px;
+        }
+        @include Responsive1(LG) {
+            margin-top: 150px;
+            margin-bottom: 30px;
+        }
 
     .description-logout {
-        width: 800px;
-        height: 800px;
         margin: auto;
         background: #FFFFFF;
         box-shadow: 0px 2px 10px rgb(0 0 0 / 25%);
         border-radius: 20px;
-        margin-top: 100px;
-        padding: 100px 138px;
+        @include Responsive1(XS) {
+            width: 100%;
+            height: 100%;
+            margin-top: 20px;
+            padding: 20px 10px;
+        }
+        @include Responsive1(SM) {
+            width: 100%;
+            height: 100%;
+            margin-top: 20px;
+            padding: 20px 10px;
+        }
+        @include Responsive1(MD) {
+            width: 100%;
+            height: 100%;
+            margin-top: 50px;
+            padding: 50px 60px;
+        }
+        @include Responsive1(LG) {
+            width: 800px;
+            height: 800px;
+            margin-top: 100px;
+            padding: 100px 138px;
+        }
         .content-logout{
             ul{
                 margin: 0;
@@ -2211,12 +2523,29 @@ footer {
                 border-radius: 60px;
                 font-style: normal;
                 font-weight: 400;
-                font-size: 22px;
-                line-height: 30px;
                 display: flex;
                 align-items: flex-end;
                 justify-content: center;
                 color: #FFFFFF;
+                @include Responsive1(XS) {
+                    font-size: 18px;
+                    margin-bottom: 20px;
+                    line-height: 20px;
+                }
+                @include Responsive1(SM) {
+                    font-size: 18px;
+                    margin-bottom: 20px;
+                    line-height: 20px;
+                }
+                @include Responsive1(MD) {
+                    font-size: 20px;
+                    margin-bottom: 20px;
+                    line-height: 30px;
+                }
+                @include Responsive1(LG) {
+                    font-size: 22px;
+                    line-height: 30px;
+                }
             }
             .btn-return{
                 width: 100%;
@@ -2238,24 +2567,69 @@ footer {
     }
 }
 .post-confirm,.post-complete {
-    margin-top: 150px;
-    margin-bottom: 30px;
+    @include Responsive1(XS) {
+        margin-top: 20px;
+    margin-bottom: 20px;
+    }
+    @include Responsive1(SM) {
+        margin-top: 20px;
+    margin-bottom: 20px;
+    }
+    @include Responsive1(MD) {
+        margin-top: 75px;
+        margin-bottom: 30px;
+    }
+    @include Responsive1(LG) {
+        margin-top: 150px;
+        margin-bottom: 30px;
+    }
+
 
     .description-complete,.description-confirm {
-        width: 600px;
+
         margin: auto;
         background: #FFFFFF;
         box-shadow: 0px 2px 10px rgb(0 0 0 / 25%);
         border-radius: 20px;
-        margin-top: 100px;
+        @include Responsive1(XS) {
+            width: 100%;
+            margin-top: 20px
+        }
+        @include Responsive1(SM) {
+            width: 100%;
+            margin-top: 20px
+        }
+        @include Responsive1(MD) {
+            width: 100%;
+            margin-top: 50px
+        }
+        @include Responsive1(LG) {
+            width: 600px;
+            margin-top: 100px
+        }
     }
     .btn-page-confirm,.btn-page-complete{
-        width: 600px;
-        height: 150px;
+
         margin: auto;
         border-radius: 0 0 20px 20px;
         background: #FFFFFF;
         position: relative;
+        @include Responsive1(XS) {
+            width: 100%;
+        height: 150px;
+        }
+        @include Responsive1(SM) {
+            width: 100%;
+        height: 150px;
+        }
+        @include Responsive1(MD) {
+            width: 100%;
+        height: 150px;
+        }
+        @include Responsive1(LG) {
+            width: 600px;
+        height: 150px;
+        }
     }
     .btn-page-confirm button,.btn-page-complete button{
         position: absolute;
@@ -2280,12 +2654,27 @@ footer {
 .post-confirm{
     .description-confirm{
         .content-confirm{
-            padding: 0 50px;
+
             position: relative;
             background-color: #FFF9F9;
             width: 100%;
-            height: 600px;
             border-radius: 20px 20px 0 0;
+            @include Responsive1(XS) {
+                height: 400px;
+                padding: 0 10px;
+            }
+            @include Responsive1(SM) {
+                height: 400px;
+                padding: 0 10px;
+            }
+            @include Responsive1(MD) {
+                height: 600px;
+                padding: 0 25px;
+            }
+            @include Responsive1(LG) {
+                height: 600px;
+                padding: 0 50px;
+            }
             ul{
                 margin: 0;
                 padding: 0;
@@ -2294,6 +2683,18 @@ footer {
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                @include Responsive1(XS) {
+                    position: relative;
+                }
+                @include Responsive1(SM) {
+                    position: relative;
+                }
+                @include Responsive1(MD) {
+                    position: relative;
+                }
+                @include Responsive1(LG) {
+                    position: relative;
+                }
                 li{
                     font-family: 'Noto Sans JP';
                     font-style: normal;
@@ -2312,11 +2713,26 @@ footer {
     .description-complete{
         .content-complete{
             background-color: #FFF9F9;
-            padding: 0 50px;
+
             position: relative;
             width: 100%;
-            height: 600px;
             border-radius: 20px 20px 0 0;
+            @include Responsive1(XS) {
+                height: 400px;
+                padding: 0 10px;
+            }
+            @include Responsive1(SM) {
+                height: 400px;
+                padding: 0 10px;
+            }
+            @include Responsive1(MD) {
+                height: 600px;
+                padding: 0 25px;
+            }
+            @include Responsive1(LG) {
+                height: 600px;
+                padding: 0 50px;
+            }
             ul{
                 margin: 0;
                 padding: 0;
@@ -2343,19 +2759,57 @@ footer {
                 line-height: 30px;
                 text-align: center;
                 color: #000000;
-                position: absolute;
+
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                @include Responsive1(XS) {
+                    position: relative;
+                }
+                @include Responsive1(SM) {
+                    position: relative;
+                }
+                @include Responsive1(MD) {
+                    position: relative;
+                }
+                @include Responsive1(LG) {
+                    position: absolute;
+                }
             }
         }
     }
 }
 .register {
-    margin-top: 150px;
-    margin-bottom: 30px;
+    @include Responsive1(XS) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    @include Responsive1(SM) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    @include Responsive1(MD) {
+        margin-top: 75px;
+        margin-bottom: 30px
+    }
+    @include Responsive1(LG) {
+        margin-top: 150px;
+        margin-bottom: 30px;
+    }
+
     .box-register{
-        margin: 0 100px;
+        @include Responsive1(XS) {
+            margin: 0;
+        }
+        @include Responsive1(SM) {
+            margin: 0;
+        }
+        @include Responsive1(MD) {
+            margin: 0 20px;
+        }
+        @include Responsive1(LG) {
+            margin: 0 100px;
+        }
         //background-color: white;
     }
     .all-input{
@@ -2364,17 +2818,50 @@ footer {
         padding: 0 15px;
         background-color: white;
         .my-1{
-            padding: 30px 40px;
             background: #FFFFFF;
             border-top: 1px solid #C4C4C4;
+            @include Responsive1(XS) {
+                padding: 10px 5px;
+            }
+            @include Responsive1(SM) {
+                padding: 10px 5px;
+            }
+            @include Responsive1(MD) {
+                padding: 20px 20px;
+            }
+            @include Responsive1(LG) {
+                padding: 30px 40px;
+            }
             &:last-child{
                 border-top: 0px;
             }
             #type-gender,#type-Contact{
-                display:flex;
-                .custom-radio{
-                    margin-right: 30px;
+                @include Responsive1(XS) {
+                    display:inline-block;
+                    .custom-radio{
+                        margin-right: 0;
+                    }
                 }
+                @include Responsive1(SM) {
+                    display:inline-block;
+                    .custom-radio{
+                        margin-right: 0;
+                    }
+                }
+                @include Responsive1(MD) {
+                    display:flex;
+                    .custom-radio{
+                        margin-right: 30px;
+                    }
+                }
+                @include Responsive1(LG) {
+                    display:flex;
+                    .custom-radio{
+                        margin-right: 30px;
+                    }
+                }
+
+
             }
             #type-checkterm{
                 border-bottom:0px;
@@ -2409,6 +2896,7 @@ footer {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    margin-bottom: 10px;
 }
 .custom-control-label:before, .custom-file-label, .custom-select{
     transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -2444,58 +2932,126 @@ footer {
         }
     }
 }
+
 .btn-add-or-edit{
     font-style: normal;
     font-weight: 400 !important;
-    font-size: 20px !important;
-    line-height: 30px !important;
     display: flex !important;
     align-items: flex-end;
-    padding: 10px 50px !important;
     color: #000000 !important;
     background: #FFFFFF !important;
     border: 1px solid #000000 !important;
     border-radius: 60px !important;
     margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+
+    @include Responsive1(XS) {
+        font-size: 18px !important;
+        line-height: 25px !important;
+        padding: 10px 20px !important;
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+    @include Responsive1(SM) {
+        font-size: 18px !important;
+        line-height: 25px !important;
+        padding: 10px 20px !important;
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+    @include Responsive1(MD) {
+        font-size: 20px !important;
+        line-height: 30px !important;
+        padding: 10px 50px !important;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    @include Responsive1(LG) {
+        font-size: 20px !important;
+        line-height: 30px !important;
+        padding: 10px 50px !important;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
 }
 .btn-return{
     font-style: normal;
     font-weight: 400 !important;
-    font-size: 22px !important;
-    line-height: 38px !important;
     display: flex !important;
     align-items: flex-end;
     color: #000000 !important;
     background: #FFFFFF !important;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
     border-radius: 60px !important;
-    padding: 5px 25px !important;
-    margin-bottom: 50px;
     margin-right: 10px !important;
     border: none !important;
+    @include Responsive1(XS) {
+        font-size: 18px !important;
+        line-height: 25px !important;
+        padding: 5px 20px !important;
+        margin-bottom: 20px;
+    }
+    @include Responsive1(SM) {
+        font-size: 18px !important;
+        line-height: 25px !important;
+        padding: 5px 20px !important;
+        margin-bottom: 20px;
+    }
+    @include Responsive1(MD) {
+        font-size: 22px !important;
+        line-height: 38px !important;
+        padding: 5px 25px !important;
+        margin-bottom: 50px;
+    }
+    @include Responsive1(LG) {
+        font-size: 22px !important;
+        line-height: 38px !important;
+        padding: 5px 25px !important;
+        margin-bottom: 50px;
+    }
 }
 .btn-change{
     font-style: normal;
     font-weight: 400 !important;
-    font-size: 22px !important;
-    line-height: 38px !important;
     display: flex !important;
     align-items: flex-end;
     color: #fff !important;
     background: #0D2340 !important;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
     border-radius: 60px !important;
-    padding: 5px 25px !important;
-    margin-bottom: 50px;
     margin-left: 10px !important;
     border: none !important;
+    @include Responsive1(XS) {
+        font-size: 18px !important;
+        line-height: 25px !important;
+        padding: 5px 20px !important;
+        margin-bottom: 20px;
+    }
+    @include Responsive1(SM) {
+        font-size: 18px !important;
+        line-height: 25px !important;
+        padding: 5px 20px !important;
+        margin-bottom: 20px;
+    }
+    @include Responsive1(MD) {
+        font-size: 22px !important;
+        line-height: 38px !important;
+        padding: 5px 25px !important;
+        margin-bottom: 50px;
+    }
+    @include Responsive1(LG) {
+        font-size: 22px !important;
+        line-height: 38px !important;
+        padding: 5px 25px !important;
+        margin-bottom: 50px;
+    }
 }
-.w-800{
-    width: 800px !important;
-    margin: auto !important;
+@include Responsive1(LG) {
+    .w-800{
+        width: 800px !important;
+        margin: auto !important;
+    }
 }
+
 .button-choose-bar{
     padding: 30px 0;
     .nav{
@@ -2674,11 +3230,13 @@ footer {
     margin-bottom: 35px !important;
 }
 
-.mt-40 {
-    margin-top: 40px !important;
-}
-.mb-40 {
-    margin-bottom: 40px !important;
+@include Responsive1(LG) {
+    .mt-40 {
+        margin-top: 40px !important;
+    }
+    .mb-40 {
+        margin-bottom: 40px !important;
+    }
 }
 
 .mtb-15 {

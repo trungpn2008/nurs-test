@@ -319,8 +319,8 @@
                                         v-model="value[item1.key]"
                                         :type="item1.type"
                                         :placeholder="item1.label"
-                                        rows="3"
-                                        max-rows="6"
+                                        rows="6"
+                                        max-rows="10"
                                     ></b-form-textarea>
                                 </b-col>
                             </template>

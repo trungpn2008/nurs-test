@@ -28,10 +28,10 @@
                         <div class="content-result-search-keywords">
                             <a :href="item1.href" class="item-result" v-for="item1 of listresult">
                                 <b-row>
-                                    <b-col cols="1">
+                                    <b-col cols="2" sm="2" md="2" lg="1">
                                         <b-img :src="item1.image"></b-img>
                                     </b-col>
-                                    <b-col cols="11">
+                                    <b-col cols="10" sm="10" md="10" lg="11">
                                         <div class="item-description-result">
                                             <div class="title-item-result"><p>{{item1.title}}</p></div>
                                             <div class="content-item-result">{{item1.content}}</div>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="list-relate-keywords-search">
                             <b-row>
-                                <b-col cols="12" sm="6" v-for="item2 of listRelateKeyword">
+                                <b-col cols="6" sm="6" v-for="item2 of listRelateKeyword">
                                     <a :href="item2.href">{{item2.text}}</a>
                                 </b-col>
                             </b-row>
