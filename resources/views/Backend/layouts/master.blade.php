@@ -28,9 +28,9 @@
     <!-- Drag Target Area To SlideIn Menu On Small Screens -->
     <div class="drag-target"></div>
 </div>
-@include('backend.layouts.javascripts')
+@include('Backend.layouts.javascripts')
 @yield('javascript')
-@include('backend.layouts.notification')
+@include('Backend.layouts.notification')
 </body>
 
 </html>
