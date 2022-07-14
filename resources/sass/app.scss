@@ -3069,6 +3069,307 @@ footer {
         }
     }
 }
+.banner{
+    position: relative;
+    .description-banner2{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translate(-15%, -35%);
+        .text-title-banner2{
+            display: flex;
+            justify-content: right;
+            .icon-text{
+                width: 27px !important;
+                height: 60px;
+                margin-right: 20px;
+            }
+            .text-title{
+                p{
+                    color: #EB6D8E;
+                    font-size: 36px;
+                    text-align: right;
+                }
+            }
+        }
+        .content-banner2{
+            p{
+                text-align: right;
+                font-family: "Noto Sans JP";
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 20px;
+                color: #3E3A39;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+.image-banner-3{
+    width: 100%;
+}
+.box-consultation-method-1{
+    position: relative;
+    background-color: #47bfd9;
+    padding: 50px;
+    .content-consultation-method{
+        .text-fisrt-box{
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 20px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+        .title-consultation-method{
+            font-style: normal;
+            font-weight: 400;
+            font-size: 46px;
+            line-height: 30px;
+            color: #fff;
+            margin-right: 40px;
+        }
+        .text-time-box{
+            display: flex;
+            position: relative;
+            margin-bottom: 60px;
+        }
+        .txt-time{
+            p{
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 30px;
+                color: #fff;
+                margin-right: 40px;
+                margin-bottom: 0;
+            }
+        }
+        .image-box{
+            position: absolute;
+            right: 0;
+            top: 40%;
+            transform: translate(10%, -45%);
+        }
+        .des-consultation-method{
+            font-weight: 400;
+            font-size: 26px;
+            line-height: 30px;
+            color: #fff;
+            margin-right: 40px;
+            margin-bottom: 45px;
+            text-align: center;
+            //.img-left{
+            //    margin-right: 15px;
+            //}
+            //.img-right{
+            //    margin-left: 15px;
+            //}
+        }
+
+    }
+    .contact-method{
+        a {
+            text-decoration: none;
+        }
+        .item-contact-method{
+            background-color: white;
+            border-radius: 10px;
+            position: relative;
+            padding: 20px;
+            .cycle-pin-image{
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translate(-50%,-50%);
+            }
+            .image-item-contact{
+                min-height: 60px;
+                display: flex;
+                justify-content: center;
+                img{
+                    height: 100%;
+                }
+            }
+            .content-contact-method{
+                .title-contact-method{
+                    font-weight: 400;
+                    font-size: 26px;
+                    line-height: 30px;
+                    color: #0caacd;
+                    margin-bottom: 0;
+                    text-align: center;
+                }
+                .text-contact-method{
+                    font-weight: 400;
+                    font-size: 10px;
+                    color: #7F7F80;
+                    margin-bottom: 0;
+                    text-align: center;
+                    margin-top: 16px;
+                }
+            }
+        }
+    }
+}
+.box-consultation-method-2{
+    position: relative;
+    background-color: #9DBE52;
+    padding: 50px;
+    .content-consultation-method{
+        .text-fisrt-box{
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 20px;
+            color: #fff;
+        }
+        .title-consultation-method{
+            font-style: normal;
+            font-weight: 400;
+            font-size: 46px;
+            line-height: 30px;
+            color: #fff;
+            margin-right: 40px;
+            margin-top: 15px;
+        }
+        .text-time-box{
+            display: flex;
+            position: relative;
+            margin-bottom: 60px;
+        }
+        .txt-time{
+            p{
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 30px;
+                color: #fff;
+                margin-right: 40px;
+                margin-bottom: 0;
+            }
+        }
+        .image-box{
+            position: absolute;
+            right: 0;
+            top: 40%;
+            transform: translate(10%, -45%);
+        }
+        .des-consultation-method{
+            font-weight: 400;
+            font-size: 26px;
+            line-height: 30px;
+            color: #fff;
+            margin-right: 40px;
+            margin-bottom: 45px;
+            text-align: center;
+            //.img-left{
+            //    margin-right: 15px;
+            //}
+            //.img-right{
+            //    margin-left: 15px;
+            //}
+        }
+
+    }
+    .contact-method{
+        a {
+            text-decoration: none;
+        }
+        .item-contact-method{
+            background-color: white;
+            border-radius: 10px;
+            position: relative;
+            padding: 20px;
+            span{
+                color: #79684C;
+            }
+            .cycle-pin-image{
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translate(-50%,-50%);
+            }
+            .image-item-contact{
+                min-height: 95px;
+                display: flex;
+                justify-content: center;
+                img{
+                    height: 100%;
+                }
+            }
+            .content-contact-method{
+                .title-contact-method{
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 30px;
+                    color: #9dbe52;
+                    margin-bottom: 0;
+                    text-align: center;
+                }
+                .text-contact-method{
+                    font-weight: 400;
+                    font-size: 10px;
+                    color: #7F7F80;
+                    margin-bottom: 0;
+                    text-align: center;
+                    margin-top: 16px;
+                }
+            }
+        }
+    }
+}
+.box-consultation-method-3{
+    position: relative;
+    background-color: #4D8DC5;
+    padding: 50px 125px;
+    .content-consultation-method{
+        .text-fisrt-box{
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 20px;
+            color: #fff;
+        }
+        .title-consultation-method{
+            font-style: normal;
+            font-weight: 400;
+            font-size: 46px;
+            line-height: 30px;
+            color: #fff;
+            margin-right: 40px;
+            margin-top: 15px;
+        }
+        .text-time-box{
+            display: flex;
+            position: relative;
+        }
+        .txt-time{
+            p{
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 30px;
+                color: #fff;
+                margin-right: 40px;
+                margin-bottom: 0;
+            }
+        }
+        .image-box{
+            position: absolute;
+            right: 0;
+            top: 40%;
+            transform: translate(10%,-50%);
+        }
+
+    }
+}
+.thumbnail-left{
+    img{
+        width: 100%;
+    }
+}
 .hiddencam{
     .round-camera{
         display:none !important;
