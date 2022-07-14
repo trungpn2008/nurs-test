@@ -114,7 +114,7 @@ class RoleController extends Controller
         $permissions = $this->permissions->whereOperator([new Operator('status',1),new Operator('deleted_at',null)])->builder(false);
         $data['permissions'] = $this->rechangePermission($permissions);
         $rolePermissions = $this->rolePermissions->whereOperator([new Operator('role_id',$id),new Operator('status',1),new Operator('deleted_at',null)])->builder();
-        $data['selectPermissions'] = json_decode($rolePermissions->permission,true);
+        $data['selectPermissions'] = isset($rolePermissions->permission)?json_decode($rolePermissions->permission,true):null;
 //        DB::enableQueryLog();
         $data['UserRolePermissions'] = $this->userRolePermissions->select(['*','user_role_permission.id as urp_id'])->join(new Operator(null,null,'users','user_role_permission.user_id','users.id'))->whereOperator([new Operator('role_id',$id),new Operator('status',1),new Operator('deleted_at',null)])->builder(false);
 //        dd(DB::getQueryLog());
@@ -142,8 +142,8 @@ class RoleController extends Controller
                 $this->rolePermissions->updateData(['permission'=>json_encode($data['permission']),'updated_at'=>now()],$check_role_permission->id);
                 $this->history_activity->addHistory('Sửa role permission thành công','RolePermission','Edit','Tài khoản '.Auth::user()->name.' Sửa role permission thành công','sửa role permission','Success',$check_role_permission->id,json_encode(['permission'=>json_encode($data['permission']),'updated_at'=>now()]));
             }else{
-                $this->rolePermissions->insertData(['role_id'=>$id,'permission'=>json_encode($data['permission']),'created_at'=>now(),'updated_at'=>now()]);
-                $this->history_activity->addHistory('Thêm role permission thành công','RolePermission','Edit','Tài khoản '.Auth::user()->name.' Thêm role permission thành công','Thêm role permission','Success',$check_role_permission->id,json_encode(['role_id'=>$id,'permission'=>json_encode($data['permission']),'created_at'=>now(),'updated_at'=>now()]));
+                $role_perm = $this->rolePermissions->insertData(['role_id'=>$id,'permission'=>json_encode($data['permission']),'created_at'=>now(),'updated_at'=>now()]);
+                $this->history_activity->addHistory('Thêm role permission thành công','RolePermission','Edit','Tài khoản '.Auth::user()->name.' Thêm role permission thành công','Thêm role permission','Success',$role_perm,json_encode(['role_id'=>$id,'permission'=>json_encode($data['permission']),'created_at'=>now(),'updated_at'=>now()]));
             }
             unset($data['permission']);
             $role = $this->roles->updateData($data,$id);

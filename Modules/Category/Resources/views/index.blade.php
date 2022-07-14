@@ -1,4 +1,4 @@
-@extends('backend.layouts.master')
+@extends('Backend.layouts.master')
 
 @section('content')
     <h4 class="py-3 breadcrumb-wrapper mb-4">
@@ -6,7 +6,9 @@
     </h4>
     <div class="box-content">
         <div class="table-list-content">
-            <a href="{{route('admin.category.add')}}" class="btn btn-primary"><i class="bx bx-plus me-sm-2"></i>Tạo</a>
+            @if(in_array('category.add',isset($perms['Category'])?$perms['Category']:[]) || $super == 1)
+                <a href="{{route('admin.category.add')}}" class="btn btn-primary"><i class="bx bx-plus me-sm-2"></i>Tạo category</a>
+            @endif
             <div class="box-search">
                 <form action="" method="get" id="form-search">
                     <div class="row">
@@ -29,40 +31,59 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Hình ảnh</th>
                             <th>Tiêu đề</th>
-                            <th>Danh mục</th>
-                            <th>Người tạo</th>
-                            <th>Lượt xem</th>
+                            <th>Danh mục cha</th>
                             <th>Vị trí</th>
+                            <th>Thứ tự</th>
                             <th>Trạng thái</th>
+                            <th>Người cập nhật</th>
                             <th>Hành động</th>
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                        @if (count($category))
-                            @foreach ($category as $key =>$item)
+                        @if (count($categorys))
+                            @foreach ($categorys as $key =>$item)
                                 <tr>
+                                    <td>{{$item->id}}</td>
                                     <td><img src="{{$item->image}}" alt="{{$item->title}}" width="96" height="54"></td>
-                                    <td><a href="{{route('admin.category.edit',['id'=>$item->id])}}">{{$item->title}}</a>
+                                    <td>
+                                        @if(in_array('category.edit',isset($perms['Category'])?$perms['Category']:[]) || $super == 1)
+                                            <a href="{{route('admin.category.edit',['id'=>$item->id])}}">{{$item->title}}</a>
+                                        @else
+                                            {{$item->title}}
+                                        @endif
                                     </td>
-                                    <td>{{$item->category_id}}</td>
-                                    <td>{{$item->creator}}</td>
-                                    <td>{{$item->view}}</td>
+                                    <td>{{$item->parent_title}}</td>
+                                    <td>@if (empty($item->url_location))
+                                            <span class="badge rounded-pill bg-danger">No</span>
+                                        @else
+                                            <span class="badge rounded-pill bg-success">Yes</span>
+                                        @endif</td>
                                     <td>{{$item->arrange}}</td>
-                                    <td>{{$item->status}}</td>
+                                    <td>@if ($item->status == 1)
+                                            <span class="badge rounded-pill bg-success">Active</span>
+                                        @else
+                                            <span class="badge rounded-pill bg-danger">Unactive</span>
+                                        @endif</td>
+                                    <td>{{$item->name}}</td>
                                     <td>
                                         <div class="dropdown">
                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                                     data-bs-toggle="dropdown"><i
                                                     class="bx bx-dots-vertical-rounded"></i></button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item"
-                                                   href="{{route('admin.category.edit',['id'=>$item->id])}}"><i
-                                                        class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                <a class="dropdown-item"
-                                                   href="{{route('admin.category.delete',['id'=>$item->id])}}"><i
-                                                        class="bx bx-trash me-1"></i> Delete</a>
+                                                @if(in_array('category.edit',isset($perms['Category'])?$perms['Category']:[]) || $super == 1)
+                                                    <a class="dropdown-item"
+                                                       href="{{route('admin.category.edit',['id'=>$item->id])}}"><i
+                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                @endif
+                                                @if(in_array('category.delete',isset($perms['Category'])?$perms['Category']:[]) || $super == 1)
+                                                    <a class="dropdown-item"
+                                                       href="{{route('admin.category.delete',['id'=>$item->id])}}"><i
+                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                @endif
                                             </div>
                                         </div>
                                     </td>
@@ -79,11 +100,11 @@
 
                     <div class="row mbm">
                         <div class="col-sm-3">
-                            <span class="record-total">Tổng: {{ $category->total() }} bản ghi</span>
+                            <span class="record-total">Tổng: {{ $categorys->total() }} bản ghi</span>
                         </div>
                         <div class="col-sm-6 text-center">
                             <div class="pagination-panel">
-                                {{ $category->appends(Request::all())->onEachSide(1)->links('pagination::bootstrap-4') }}
+                                {{ $categorys->appends(Request::all())->onEachSide(1)->links('pagination::bootstrap-4') }}
                             </div>
                         </div>
                         <div class="col-sm-3 text-right">
@@ -103,5 +124,10 @@
             </div>
         </div>
     </div>
+@endsection
+@section('javascript')
+    <script>
+        sidebarMenu('Category', 'index');
+    </script>
 @endsection
 

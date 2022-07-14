@@ -1,4 +1,4 @@
-@extends('backend.layouts.master')
+@extends('Backend.layouts.master')
 @section('stylesheet')
     <link rel="stylesheet" href="/libs/flatpickr/flatpickr.css" />
     <link rel="stylesheet" href="/libs/select2/select2.css" />

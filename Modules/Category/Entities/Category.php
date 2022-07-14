@@ -10,5 +10,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Category extends BaseModel
 {
     use HasFactory,SoftDeletes;
+
     protected $table = 'category';
 }

@@ -1,4 +1,4 @@
-@extends('backend.layouts.master')
+@extends('Backend.layouts.master')
 @section('stylesheet')
     <link rel="stylesheet" href="/libs/flatpickr/flatpickr.css" />
     <link rel="stylesheet" href="/libs/select2/select2.css" />
@@ -218,7 +218,7 @@
                         // _.alert(_.label("Unknown error."));
                     }
                 });
-                console.log(e.params.args.data.id,$(this).data('role'),$(this).data('rolepermission'));
+                // console.log(e.params.args.data.id,$(this).data('role'),$(this).data('rolepermission'));
             });
 
             $('.btn-user-permission').click(function() {

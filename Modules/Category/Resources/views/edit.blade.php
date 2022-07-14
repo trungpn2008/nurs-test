@@ -1,136 +1,257 @@
-@extends('backend.layouts.master')
+@extends('Backend.layouts.master')
 @section('stylesheet')
     <link rel="stylesheet" href="/libs/flatpickr/flatpickr.css" />
     <link rel="stylesheet" href="/libs/select2/select2.css" />
 @endsection
 @section('content')
     <h4 class="py-3 breadcrumb-wrapper mb-4">
-        <span class="text-muted fw-light">$STUDLY_NAME$ /</span> List
+        <span class="text-muted fw-light">Category /</span> List
     </h4>
     <div class="box-content">
         <div class="card mb-4">
-        <h5 class="card-header">Sửa</h5>
-        <form class="card-body" method="post" action="" enctype="application/x-www-form-urlencoded">
-            @csrf
-            <h6 class="fw-normal">1. Thông tin cấu hình</h6>
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <label class="form-label" for="title">Tiêu đề</label>
-                    <input type="text" id="title" name="title" class="form-control" placeholder="Tiêu đề" value="{{$$LOWER_NAME$->title}}" />
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label" for="category_id">Danh mục</label>
-                    <div class="">
-                        <select id="category_id" name="category_id" class="select2 form-select" data-allow-clear="true">
-                            <option value="">Select</option>
-                            <option value="1" @if ($$LOWER_NAME$->category_id == 1) selected @endif>Australia</option>
-                            <option value="2" @if ($$LOWER_NAME$->category_id == 2) selected @endif>Bangladesh</option>
-                            <option value="Belarus">Belarus</option>
-                            <option value="Brazil">Brazil</option>
-                            <option value="Canada">Canada</option>
-                            <option value="China">China</option>
-                            <option value="France">France</option>
-                            <option value="Germany">Germany</option>
-                            <option value="India">India</option>
-                            <option value="Indonesia">Indonesia</option>
-                            <option value="Israel">Israel</option>
-                            <option value="Italy">Italy</option>
-                            <option value="Japan">Japan</option>
-                            <option value="Korea">Korea, Republic of</option>
-                            <option value="Mexico">Mexico</option>
-                            <option value="Philippines">Philippines</option>
-                            <option value="Russia">Russian Federation</option>
-                            <option value="South Africa">South Africa</option>
-                            <option value="Thailand">Thailand</option>
-                            <option value="Turkey">Turkey</option>
-                            <option value="Ukraine">Ukraine</option>
-                            <option value="United Arab Emirates">United Arab Emirates</option>
-                            <option value="United Kingdom">United Kingdom</option>
-                            <option value="United States">United States</option>
-                        </select>
+            <h5 class="card-header">Tạo category</h5>
+            <form class="card-body" id="form-category" method="post" action="" enctype="application/x-www-form-urlencoded">
+                @csrf
+                <h6 class="fw-normal">1. Thông tin cấu hình</h6>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label" for="title">Tiêu đề</label>
+                        <input type="text" id="title" name="title" class="form-control" placeholder="Tiêu đề" value="{{$category->title}}" />
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-password-toggle">
-                        <label class="form-label" for="alias">Alias</label>
-                        <div class="input-group input-group-merge">
-                            <input type="text" id="alias" name="alias" class="form-control" placeholder="Alias" value="{{$$LOWER_NAME$->alias}}" aria-describedby="multicol-password2" />
-{{--                            <span class="input-group-text cursor-pointer" id="multicol-password2"><i class="bx bx-hide"></i></span>--}}
+                    <div class="col-md-6">
+                        <label class="form-label" for="category_action">Danh mục cha</label>
+                        <div class="">
+                            <select id="category_action" name="category_id" class="form-select" data-allow-clear="true">
+                                <option value="">Chọn danh mục cha</option>
+                                @if($category->parent_id)
+                                    <option value="{{$category->parent_id}}" selected="selected">{{$category->parent_title}}</option>
+                                @endif
+                            </select>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-password-toggle">
-                        <label class="form-label" for="arrange">Vị trí</label>
-                        <div class="input-group input-group-merge">
-                            <input type="number" id="arrange" name="arrange" class="form-control" placeholder="Vị trí" value="{{$$LOWER_NAME$->arrange}}" aria-describedby="multicol-confirm-password2" />
-{{--                            <span class="input-group-text cursor-pointer" id="multicol-confirm-password2"><i class="bx bx-hide"></i></span>--}}
+                    <div class="col-md-6">
+                        <div class="form-password-toggle">
+                            <label class="form-label" for="category_type_action">Loại danh mục</label>
+                            <div class="">
+                                <select id="category_type_action" name="type" class="form-select" data-allow-clear="true">
+                                    <option value="">Chọn loại danh mục</option>
+                                    @if($category->type)
+                                        <option value="{{$category->type}}" selected="selected">{{$category->cate_type_title}}</option>
+                                    @endif
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <hr class="my-4 mx-n4" />
-            <h6 class="fw-normal">2. Mô tả - hình ảnh</h6>
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <label class="form-label" for="short_description">Mô tả ngắn</label>
-                    <textarea name="short_description" id="short_description"  class="form-control" placeholder="Mô tả ngắn" cols="30" rows="10">{{$$LOWER_NAME$->short_description}}</textarea>
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label" for="note">Ghi chú</label>
-                    <textarea name="note" id="note"  class="form-control" placeholder="Ghi chú" cols="30" rows="10">{{$$LOWER_NAME$->note}}</textarea>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="form-label" for="ckfinder-input-image">Image</label>
-                        <div class="input-group">
-                            <input type="text" name="image" id="ckfinder-input-image" value="{{$$LOWER_NAME$->image}}"
-                                   class="form-control"><span class="input-group-btn">
+                    <div class="col-md-6">
+                        <div class="form-password-toggle">
+                            <label class="form-label" for="arrange">Thứ tự</label>
+                            <div class="input-group input-group-merge">
+                                <input type="number" id="arrange" name="arrange" class="form-control" value="{{$category->arrange}}" placeholder="Vị trí" aria-describedby="multicol-confirm-password2" />
+                                {{--                            <span class="input-group-text cursor-pointer" id="multicol-confirm-password2"><i class="bx bx-hide"></i></span>--}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <label class="form-label" for="flexSwitchCheckChecked">Trạng thái</label>
+                        <div class="form-check form-switch mb-2" style="padding-top: 5px;">
+                            <input class="form-check-input" name="status" type="checkbox" id="flexSwitchCheckChecked" @if ($category->status == 1) checked @endif >
+                        </div>
+                    </div>
+                    <div class="col-md-11">
+                        <div class="form-password-toggle">
+                            <label class="form-label" for="arrange">Link vị trí (Iframe google map)</label>
+                            <div class="input-group input-group-merge">
+                                <input type="text" id="url_location" name="url_location" class="form-control" placeholder="Vị trí" value="{{$category->url_location}}" aria-describedby="multicol-confirm-password2" />
+                            </div>
+                        </div>
+                        <div class="iframe-view"></div>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label" for="text_image">Text ảnh</label>
+                        <input type="text" id="text_image" name="text_image" class="form-control" placeholder="Text ảnh" value="{{$category->text_image}}" />
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="form-label" for="ckfinder-input-image">Ảnh</label>
+                            <div class="input-group">
+                                <input type="text" name="image" id="ckfinder-input-image" value="{{$category->image}}"
+                                       class="form-control"><span class="input-group-btn">
                                 <a id="ckfinder-popup-image" class="btn btn-primary">Chọn</a></span>
+                            </div>
+                            <div class="clearfix"></div>
+                            @if (!empty($category->image))
+                                <img src="{{$category->image}}" width="300">
+                            @endif
                         </div>
                     </div>
-                    @if($$LOWER_NAME$->image)
-                        <img src="{{$$LOWER_NAME$->image}}" width="100%" style="padding-top: 10px">
-                    @endif
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="form-label" for="ckfinder-input-icon">Icon</label>
+                            <div class="input-group">
+                                <input type="text" name="icon" id="ckfinder-input-icon" value="{{$category->icon}}"
+                                       class="form-control"><span class="input-group-btn">
+                                <a id="ckfinder-popup-icon" class="btn btn-primary">Chọn</a></span>
+                            </div>
+                            <div class="clearfix"></div>
+                            @if (!empty($category->icon))
+                                <img src="{{$category->icon}}" width="50">
+                            @endif
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 select2-primary">
-                    <label class="form-label" for="hashtag">Hashtag</label>
-                    <select id="hashtag" name="hashtag" class="select2 form-select" multiple>
-                        <option value="en" @if($$LOWER_NAME$->hashtag == 'en') selected @endif>English</option>
-                        <option value="fr" @if($$LOWER_NAME$->hashtag == 'fr') selected @endif>French</option>
-                        <option value="de">German</option>
-                        <option value="pt">Portuguese</option>
-                    </select>
+                <hr class="my-4 mx-n4" />
+                <div class="box-des"></div>
+                <div class="pt-4">
+                    <button type="submit" form="form-category" class="btn btn-primary me-sm-3 me-1">Submit</button>
+                    <a href="{{route('admin.category.index')}}" class="btn btn-label-secondary">Back</a>
                 </div>
-                <div class="col-md-12">
-                    <label class="form-label" for="description">Nội dung bài viết</label>
-                    <textarea name="description" id="description"  class="form-control" placeholder="Nội dung bài viết" cols="30" rows="10">{{$$LOWER_NAME$->description}}</textarea>
-                </div>
-                <div class="col-md-12">
-                    <label class="form-label" for="source">Nguồn</label>
-                    <input type="text" id="source" name="source" class="form-control" value="{{$$LOWER_NAME$->source}}" placeholder="Nguồn" />
-                </div>
-            </div>
-            <div class="pt-4">
-                <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
-                <button type="reset" class="btn btn-label-secondary">Cancel</button>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
     </div>
 @endsection
 @section('javascript')
     <script src="/libs/cleavejs/cleave.js"></script>
-<script src="/libs/cleavejs/cleave-phone.js"></script>
-<script src="/libs/moment/moment.js"></script>
-<script src="/libs/flatpickr/flatpickr.js"></script>
+    <script src="/libs/cleavejs/cleave-phone.js"></script>
+    <script src="/libs/moment/moment.js"></script>
+    <script src="/libs/flatpickr/flatpickr.js"></script>
     <script src="/libs/select2/select2.js"></script>
     <script src="/js/form-layouts.js"></script>
     <script src="/js/ckfinder/ckfinder.js"></script>
+    <script src="/libs/formvalidation/dist/js/FormValidation.min.js"></script>
+    <script src="/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+    <script src="/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
     <script>CKFinder.config( { connectorPath: '/ckfinder/connector' } );</script>
     <script>
 
+        var mySec = 1000;
+        var myEvent;
+
+        $(document).ready(function () {
+            htmlCategoryType('{{$category->type}}','{{$id}}');
+            $("#url_location").on('change',function (e) {
+                clearTimeout(myEvent);
+                url_location = $(this).val();
+                myEvent = setTimeout(function(){
+                    $(".iframe-view").html('<iframe src="'+GoogleMapsURLToEmbedURL(url_location)+'" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>');
+                }, mySec);
+            });
+            $("#category_type_action").on('change',function (e) {
+                clearTimeout(myEvent);
+                select_cate_type = $(this).val();
+                myEvent = setTimeout(function(){
+                    htmlCategoryType(select_cate_type);
+                }, mySec);
+            });
+            function htmlCategoryType(t,i) {
+                $.ajax({
+                    type: "get",
+                    dataType: "html",
+                    url: '{{ route("admin.category.ajax-get-form") }}',
+                    data: {'type': t,'id':i},
+                    async: false,
+                    success: function (data) {
+                        if(data === 'false-load'){
+                            // $('.box-des').html('<h6 class="fw-normal">Loại danh mục này không có dữ liệu thêm!</h6>');
+                            // toastr.warning('Loại danh mục này không có dữ liệu thêm!');
+                        }else{
+                            $('.box-des').html(data);
+                            toastr.success('Load dữ liệu thêm thành công!');
+                        }
+                    },
+                    error: function () {
+                        // _.alert(_.label("Unknown error."));
+                    }
+                });
+            }
+            function GoogleMapsURLToEmbedURL(GoogleMapsURL)
+            {
+                var coords = /\@([0-9\.\,\-a-zA-Z]*)/.exec(GoogleMapsURL);
+                var coords2 = /\!1s([0-9a-zA-z\:\.\,]*)/.exec(GoogleMapsURL);
+                if(coords!=null)
+                {
+                    var coordsArray = coords[1].split(',');
+                    return "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.767410027492!2d"+coordsArray[1]+"!3d"+coordsArray[0]+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2"+coords2[0]+"!2sAsahi%20Japan!5e0!3m2!1svi!2s!4v1646939153883!5m2!1svi!2s";
+                }
+            }
+            get_categorys({
+                object: '#category_action',
+                url: '{{ route("admin.category.ajax-get-category").'?id='.$id }}',
+                data_id: 'id',
+                data_text: 'text',
+                title_default: 'Chọn danh mục cha'
+            });
+            function get_categorys(options) {
+                $(options.object).select2({
+                    ajax: {
+                        url: options.url,
+                        dataType: 'json',
+                        data: function(params) {
+                            var query = {
+                                keyword: params.term,
+                            }
+                            return query;
+                        },
+                        processResults: function(json, params) {
+                            var results = [{
+                                id: '',
+                                text: options.title_default
+                            }];
+
+                            for (i in json.data) {
+                                var item = json.data[i];
+                                results.push({
+                                    id: item[options.data_id],
+                                    text: item[options.data_text]
+                                });
+                            }
+                            return {
+                                results: results,
+                            };
+                        },
+                        minimumInputLength: 3,
+                    }
+                });
+            }
+            get_category_types({
+                object: '#category_type_action',
+                url: '{{ route("admin.categorytype.ajax-get-category-type") }}',
+                data_id: 'id',
+                data_text: 'text',
+                title_default: 'Chọn loại danh mục'
+            });
+            function get_category_types(options) {
+                $(options.object).select2({
+                    ajax: {
+                        url: options.url,
+                        dataType: 'json',
+                        data: function(params) {
+                            var query = {
+                                keyword: params.term,
+                            }
+                            return query;
+                        },
+                        processResults: function(json, params) {
+                            var results = [{
+                                id: '',
+                                text: options.title_default
+                            }];
+
+                            for (i in json.data) {
+                                var item = json.data[i];
+                                results.push({
+                                    id: item[options.data_id],
+                                    text: item[options.data_text]
+                                });
+                            }
+                            return {
+                                results: results,
+                            };
+                        },
+                        minimumInputLength: 3,
+                    }
+                });
+            }
+        });
         var editor_config = {
             language: 'vi',
             removeButtons : 'Underline,Subscript,Superscript',
@@ -154,17 +275,98 @@
             {{--        filebrowserBrowseUrl: '{{ url('/kcfinder/browse.php?type=image') }}',--}}
 
         };
-        CKEDITOR.replace('description',editor_config);
-        CKEDITOR.replace('short_description',editor_config);
-        CKEDITOR.replace('note',editor_config);
+        const formAuthentication = document.querySelector('#form-category');
 
+        document.addEventListener('DOMContentLoaded', function (e) {
+            (function () {
+                // Form validation for Add new record
+                if (formAuthentication) {
+                    const fv = FormValidation.formValidation(formAuthentication, {
+                        fields: {
+                            title: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'Please enter title'
+                                    },
+                                    stringLength: {
+                                        min: 3,
+                                        max:255,
+                                        message: 'The title must be more than 6 and less than 255 characters long'
+                                    }
+                                }
+                            },
+                            type: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'Please select your type'
+                                    },
+                                }
+                            },
+                            image: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'Please enter image'
+                                    },
+                                    stringLength: {
+                                        min: 6,
+                                        max:255,
+                                        message: 'The image must be more than 6 and less than 255 characters long'
+                                    }
+                                }
+                            },
+                        },
+                        plugins: {
+                            trigger: new FormValidation.plugins.Trigger(),
+                            bootstrap5: new FormValidation.plugins.Bootstrap5({
+                                // Use this for enabling/changing valid/invalid class
+                                // eleInvalidClass: '',
+                                eleValidClass: '',
+                                rowSelector: function (field, ele) {
+                                    // field is the field name & ele is the field element
+                                    switch (field) {
+                                        case 'title':
+                                        case 'type':
+                                        case 'image':
+                                        default:
+                                            return '.row';
+                                    }
+                                }
+                            }),
+                            submitButton: new FormValidation.plugins.SubmitButton(),
+                            // Submit the form when all fields are valid
+                            defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+                            autoFocus: new FormValidation.plugins.AutoFocus()
+                        },
+                        init: instance => {
+                            instance.on('plugins.message.placed', function (e) {
+                                //* Move the error message out of the `input-group` element
+                                if (e.element.parentElement.classList.contains('input-group')) {
+                                    // `e.field`: The field name
+                                    // `e.messageElement`: The message element
+                                    // `e.element`: The field element
+                                    e.element.parentElement.insertAdjacentElement('afterend', e.messageElement);
+                                }
+                                //* Move the error message out of the `row` element for custom-options
+                                if (e.element.parentElement.parentElement.classList.contains('custom-option')) {
+                                    e.element.closest('.row').insertAdjacentElement('afterend', e.messageElement);
+                                }
+                            });
+                        }
+                    });
+                }
+            })();
+        });
         $("#ckfinder-popup-image").on('click',function () {
             selectFileWithCKFinder( 'ckfinder-input-image' );
+        })
+
+        $("#ckfinder-popup-icon").on('click',function () {
+            selectFileWithCKFinder( 'ckfinder-input-icon' );
         })
         function selectFileWithCKFinder( elementId ) {
             CKFinder.modal( {
                 chooseFiles: true,
-                top:200,
+                top:-200,
                 width: 800,
                 height: 600,
                 onInit: function( finder ) {
@@ -181,7 +383,7 @@
                 }
             } );
         }
-
+        sidebarMenu('Category', 'index');
     </script>
 @endsection
 @include('ckfinder::setup')

@@ -1,0 +1,13 @@
+{
+    "name": "BlueprintType",
+    "alias": "blueprinttype",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\BlueprintType\\Providers\\BlueprintTypeServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

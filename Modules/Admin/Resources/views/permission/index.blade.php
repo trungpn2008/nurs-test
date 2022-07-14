@@ -1,4 +1,4 @@
-@extends('backend.layouts.master')
+@extends('Backend.layouts.master')
 
 @section('content')
     <h4 class="py-3 breadcrumb-wrapper mb-4">

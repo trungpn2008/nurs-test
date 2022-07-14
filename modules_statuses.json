@@ -1,5 +1,14 @@
 {
     "News": true,
     "Admin": true,
-    "Category": true
+    "Category": true,
+    "CategoryType": true,
+    "Alias": true,
+    "Images": true,
+    "Contacts": true,
+    "Recruitment": true,
+    "Applies": true,
+    "Projects": true,
+    "BlueprintType": true,
+    "Config": true
 }
