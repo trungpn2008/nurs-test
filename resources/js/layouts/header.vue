@@ -29,13 +29,13 @@
                     </div>
                     <div class="menu-header hidden-xs hidden-sm hidden-md">
                         <b-nav>
-                            <b-nav-item href="/bulletin-board" class="bd-sl-r-1-000">掲示板</b-nav-item>
-                            <b-nav-item href="/column" class="bd-sl-r-1-000">コラム</b-nav-item>
-                            <b-nav-item href="/care-manager-introduction" class="bd-sl-r-1-000">ケアマネジャー紹介</b-nav-item>
+                            <b-nav-item href="/notice-holiday" class="bd-sl-r-1-000">掲示板</b-nav-item>
+                            <b-nav-item href="/notice" class="bd-sl-r-1-000">コラム</b-nav-item>
+                            <b-nav-item href="/manager-intro" class="bd-sl-r-1-000">ケアマネジャー紹介</b-nav-item>
                             <b-nav-item href="/faq">FAQ</b-nav-item>
                             <li class="nav-item"><a href="/register" class="btn-register-page">新規会員登録</a></li>
                             <li class="nav-item"><a href="/login" class="btn-login-page">ログイン</a></li>
-                            <li class="nav-item"><a href="/notify" class="pd-0"><b-img src="/images/frontend/icons/bell.png" class="icon-bell"></b-img></a></li>
+                            <li class="nav-item"><a href="/notice" class="pd-0"><b-img src="/images/frontend/icons/bell.png" class="icon-bell"></b-img></a></li>
                         </b-nav>
                     </div>
                     <div class="menu-header-mobile display-xs display-sm display-md hidden-lg  hidden-xl hidden-xxl hidden-xxx hidden-xxxl">
@@ -65,9 +65,9 @@
                                     </div>
                                     <div class="menu-mobile">
                                         <ul>
-                                            <li><a href="/bulletin-board">掲示板</a></li>
-                                            <li><a href="/column">コラム</a></li>
-                                            <li><a href="/care-manager-introduction">ケアマネジャー紹介</a></li>
+                                            <li><a href="/notice-holiday">掲示板</a></li>
+                                            <li><a href="/notice">コラム</a></li>
+                                            <li><a href="/manager-intro">ケアマネジャー紹介</a></li>
                                             <li><a href="/faq">FAQ</a></li>
                                         </ul>
                                     </div>

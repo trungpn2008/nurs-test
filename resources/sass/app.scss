@@ -4268,7 +4268,19 @@ footer {
                     padding: 10px;
 
                     .type-of-cate {
-                        display: flex;
+
+                        @include Responsive1(XS) {
+                            display: block;
+                        }
+                        @include Responsive1(SM) {
+                            display: block;
+                        }
+                        @include Responsive1(MD) {
+                            display: flex;
+                        }
+                        @include Responsive1(LG) {
+                            display: flex;
+                        }
 
                         p {
                             font-style: normal;
