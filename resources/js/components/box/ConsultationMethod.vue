@@ -11,7 +11,7 @@
         </div>
         <div class="contact-method hidden-xs hidden-sm hidden-md">
             <b-row cols="5">
-                <b-col v-for="bx of boxIcon ">
+                <b-col v-for="(index,bx) of boxIcon" :key="index">
                     <a :href="bx.href">
                         <div class="item-contact-method">
                             <b-img :src="bx.image" class="image-method"></b-img>
@@ -31,7 +31,7 @@
         </div>
         <div class="contact-method display-xs display-sm  display-md hidden-lg hidden-xl hidden-xxl hidden-xxx hidden-xxxl">
             <b-row>
-                <b-col cols="12" v-for="item of boxIcon ">
+                <b-col cols="12" v-for="(index,item) of boxIcon" :key="index">
                     <a :href="item.href">
                         <div class="item-contact-method">
                             <div class="content-contact-method">
