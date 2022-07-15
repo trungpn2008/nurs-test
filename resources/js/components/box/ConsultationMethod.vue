@@ -11,7 +11,7 @@
         </div>
         <div class="contact-method hidden-xs hidden-sm hidden-md">
             <b-row cols="5">
-                <b-col v-for="(index,bx) of boxIcon" :key="index">
+                <b-col v-for="(bx,index) of boxIcon" >
                     <a :href="bx.href">
                         <div class="item-contact-method">
                             <b-img :src="bx.image" class="image-method"></b-img>
@@ -23,7 +23,7 @@
                                     {{bx.text}}
                                 </p>
                             </div>
-                            <b-img v-if="bx.active = true" :src="bx.cyclePin" class="cycle-pin-image"></b-img>
+                            <b-img :src="bx.cyclePin" class="cycle-pin-image"></b-img>
                         </div>
                     </a>
                 </b-col>
@@ -31,7 +31,7 @@
         </div>
         <div class="contact-method display-xs display-sm  display-md hidden-lg hidden-xl hidden-xxl hidden-xxx hidden-xxxl">
             <b-row>
-                <b-col cols="12" v-for="(index,item) of boxIcon" :key="index">
+                <b-col cols="12" v-for="(item,index) of boxIcon" >
                     <a :href="item.href">
                         <div class="item-contact-method">
                             <div class="content-contact-method">
@@ -45,7 +45,7 @@
                                     </p></b-col>
                                 </b-row>
                             </div>
-                            <b-img v-if="item.active = true" :src="item.cyclePin" class="cycle-pin-image"></b-img>
+                            <b-img :src="item.cyclePin" class="cycle-pin-image"></b-img>
                         </div>
                     </a>
                 </b-col>
@@ -68,7 +68,6 @@ export default {
                     text: '受付時間：24時間受付',
                     image:"/images/frontend/icons/pagepin.png",
                     href: '#',
-                    active:true,
                     cyclePin:"/images/frontend/icons/cyclepin.png"
                 },
                 {
@@ -76,7 +75,6 @@ export default {
                     text: '受付時間：24時間受付',
                     image:"/images/frontend/icons/Vector.png",
                     href: '#',
-                    active:true,
                     cyclePin:"/images/frontend/icons/cyclepin.png"
                 },
                 {
@@ -84,21 +82,18 @@ export default {
                     text: '受付時間:平日9:00～18:00',
                     image:"/images/frontend/icons/Vector-1.png",
                     href: '#',
-                    active: false
                 },
                 {
                     title: 'zoom',
                     text: '受付時間:平日9:00～18:00',
                     image:"/images/frontend/icons/wx6D6w.png",
                     href: '#',
-                    active: false
                 },
                 {
                     title: 'LINE',
                     text: '受付時間：24時間受付',
                     image:"/images/frontend/icons/logoline.png",
                     href: '#',
-                    active: true,
                     cyclePin:"/images/frontend/icons/cyclepin.png"
                 }
             ]

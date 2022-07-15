@@ -21,7 +21,7 @@
 
                 <div class="label-answer-type">
                     <b-img src="/images/frontend/icons/647846734.png"></b-img>
-                    <p>可能ですが、介護付有料老人ホームと比べると、劣る部分もあります。</p>
+                    <p class="label-answer">可能ですが、介護付有料老人ホームと比べると、劣る部分もあります。</p>
                 </div>
                 <div class="answer-nurs">
                     <p>はい、可能です。</p>
@@ -36,7 +36,7 @@
                         <b-row>
                             <b-col cols="3">
                                 <b-img src="/images/frontend/image/242344234.png"></b-img>
-                                <b-button>zoomで相談する</b-button>
+                                <b-button class="btn-contact-x">zoomで相談する</b-button>
                             </b-col>
                             <b-col cols="9">
                                 <p class="person-position">ケアマネージャー</p>

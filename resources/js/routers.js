@@ -196,12 +196,21 @@ const routers = [
             footer:()=> import('./layouts/footer.vue'),
         },
         name: 'pc-top1',
-    },,
+    },
     {
         path: '/detail-question',
         components: {
             header:()=> import('./layouts/header.vue'),
             default:()=> import('./page/detailQuestion.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'pc-top1',
+    },
+    {
+        path: '/manager-intro',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./page/ManagerIntroduction.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
         name: 'pc-top1',

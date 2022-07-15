@@ -1,6 +1,6 @@
 <template>
-    <div class="box-list-column1">
-        <p class="title-box c-9cbe5a bd-c-9cbe5a">{{ title }}</p>
+    <div class="box-list-column3">
+        <p class="title-box c-E7AC31 bd-c-E7AC31">{{ title }}</p>
         <div class="list-column">
             <b-row>
                 <b-col cols="12" sm="12" class="item-list-column" c v-for="item of listColumn">
@@ -39,7 +39,7 @@
 
 <script>
 export default {
-    name: "LastestColumn1",
+    name: "LastestColumn3",
     data() {
         return {
             perPage: 3,
