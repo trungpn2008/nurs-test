@@ -1,7 +1,7 @@
 <template>
     <div class="box-consultation-method-5">
         <div class="content-consultation-method">
-            <b-breadcrumb :items="items"></b-breadcrumb>
+            <b-breadcrumb :items="items" class="hidden-xs hidden-sm hidden-md"></b-breadcrumb>
             <p class="text-fisrt-box">
                 ― 介護のプロの相談員をご紹介 ―
             </p>

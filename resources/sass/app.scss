@@ -1570,6 +1570,13 @@ footer {
 }
 
 .register {
+    @include Responsive1(XS) {
+        padding:  0 5px;
+    }
+    @include Responsive1(SM) {
+        padding:  0 5px;
+    }
+
     .title-register {
         font-family: 'Noto Sans JP';
         font-style: normal;
@@ -3771,7 +3778,20 @@ footer {
 .box-consultation-method-4 {
     position: relative;
     background-color: #9DBE52;
-    padding: 20px 100px;
+    @include Responsive1(XS) {
+       padding: 20px ;
+    }
+        @include Responsive1(SM) {
+           padding: 20px;
+        }
+        @include Responsive1(MD) {
+            padding: 20px 75px;
+        }
+        @include Responsive1(LG) {
+            padding: 20px 100px;
+        }
+
+
     //margin-bottom: 30px;
     .breadcrumb {
         margin-top: 0 !important;
@@ -3783,28 +3803,85 @@ footer {
         .text-fisrt-box {
             font-style: normal;
             font-weight: 400;
-            font-size: 20px;
             line-height: 20px;
             color: #fff;
+            @include Responsive1(XS) {
+                    font-size: 14px;
+            }
+            @include Responsive1(SM) {
+                    font-size: 16px;
+            }
+            @include Responsive1(MD) {
+                font-size: 20px;
+            }
+            @include Responsive1(LG) {
+                font-size: 20px;
+            }
+
         }
 
         .title-consultation-method {
             font-style: normal;
             font-weight: 400;
-            font-size: 46px;
+
             line-height: 30px;
             color: #fff;
             margin-right: 40px;
             margin-top: 15px;
             margin-bottom: 0;
+            @include Responsive1(XS) {
+                font-size: 28px;
+                img{
+                    width: 55px;
+                }
+            }
+            @include Responsive1(SM) {
+                font-size: 28px;
+                img{
+                    width: 55px;
+                }
+            }
+            @include Responsive1(MD) {
+                font-size: 46px;
+                img{
+                    width: auto;
+                }
+            }
+            @include Responsive1(LG) {
+                font-size: 46px;
+                img{
+                    width: auto;
+                }
+            }
+
+
         }
 
         .text-time-box {
-            display: flex;
+
             position: relative;
+            @include Responsive1(XS) {
+                display: block;
+            }
+            @include Responsive1(SM) {
+                display: block;
+            }
+            @include Responsive1(MD) {
+                display: flex;
+            }
+            @include Responsive1(LG) {
+                display: flex;
+            }
+
         }
 
         .txt-time {
+            @include Responsive1(XS) {
+                text-align: center;
+            }
+            @include Responsive1(SM) {
+                text-align: center;
+            }
             p {
                 font-style: normal;
                 font-weight: 400;
@@ -3816,28 +3893,95 @@ footer {
 
             .tpc {
                 margin-bottom: 0;
-                position: absolute;
+
                 bottom: 0;
-                left: 10;
-                padding: 10px 50px;
-                transform: translate(10%, -30%);
+
+
                 border-top: 1px solid #fff;
                 border-bottom: 1px solid #fff;
+                @include Responsive1(XS) {
+                    position: relative;
+                    display: inline-block;
+                    left: 0;
+                    padding: 10px 40px;
+                    transform: unset;
+                    margin-top: 50px;
+                }
+                @include Responsive1(SM) {
+                    position: relative;
+                    display: inline-block;
+                    left: 0;
+                    padding: 10px 40px;
+                    transform: unset;
+                    margin-top: 50px;
+                }
+                @include Responsive1(MD) {
+                     position: relative;
+                    left: 10px;
+                       padding: 10px 50px;
+                transform: translate(10%, -30%);
+                }
+                @include Responsive1(LG) {
+                     position: relative;
+                    left: 10px;
+                       padding: 10px 50px;
+                transform: translate(10%, -30%);
+                }
+
             }
         }
 
         .image-box {
             position: absolute;
-            right: 0;
             top: 0;
             transform: translate(10%, -50%);
+            @include Responsive1(XS) {
+                background-color: transparent;
+                right: 5%;
+                img{
+                    width: 120px;
+                }
+            }
+            @include Responsive1(SM) {
+                background-color: transparent;
+                right: 5%;
+                img{
+                    width: 120px;
+                }
+            }
+            @include Responsive1(MD) {
+
+            right: 0;
+                img{
+                    width: auto;
+                }
+            }
+            @include Responsive1(LG) {
+
+            right: 0;
+                img{
+                    width: auto;
+                }
+            }
+
         }
     }
 }
 .box-consultation-method-5 {
     position: relative;
     background-color: #E7AC31;
-    padding: 20px 100px;
+    @include Responsive1(XS) {
+        padding: 20px ;
+    }
+    @include Responsive1(SM) {
+        padding: 20px;
+    }
+    @include Responsive1(MD) {
+        padding: 20px 75px;
+    }
+    @include Responsive1(LG) {
+        padding: 20px 100px;
+    }
     //margin-bottom: 30px;
     .breadcrumb {
         margin-top: 0 !important;
@@ -3849,28 +3993,82 @@ footer {
         .text-fisrt-box {
             font-style: normal;
             font-weight: 400;
-            font-size: 20px;
             line-height: 20px;
             color: #fff;
+            @include Responsive1(XS) {
+                font-size: 14px;
+            }
+            @include Responsive1(SM) {
+                font-size: 16px;
+            }
+            @include Responsive1(MD) {
+                font-size: 20px;
+            }
+            @include Responsive1(LG) {
+                font-size: 20px;
+            }
         }
 
         .title-consultation-method {
             font-style: normal;
             font-weight: 400;
-            font-size: 46px;
             line-height: 30px;
             color: #fff;
             margin-right: 40px;
             margin-top: 15px;
             margin-bottom: 0;
+            @include Responsive1(XS) {
+                font-size: 24px;
+                margin-bottom: 60px;
+                img{
+                    width: 55px;
+                }
+            }
+            @include Responsive1(SM) {
+                font-size: 24px;
+                img{
+                    width: 55px;
+                }
+                margin-bottom: 60px;
+            }
+            @include Responsive1(MD) {
+                font-size: 46px;
+                img{
+                    width: auto;
+                }
+            }
+            @include Responsive1(LG) {
+                font-size: 46px;
+                img{
+                    width: auto;
+                }
+            }
         }
 
         .text-time-box {
-            display: flex;
+
             position: relative;
+            @include Responsive1(XS) {
+                display: block;
+            }
+            @include Responsive1(SM) {
+                display: block;
+            }
+            @include Responsive1(MD) {
+                display: flex;
+            }
+            @include Responsive1(LG) {
+                display: flex;
+            }
         }
 
         .txt-time {
+            @include Responsive1(XS) {
+                text-align: center;
+            }
+            @include Responsive1(SM) {
+                text-align: center;
+            }
             p {
                 font-style: normal;
                 font-weight: 400;
@@ -3882,13 +4080,40 @@ footer {
 
             .tpc {
                 margin-bottom: 0;
-                position: absolute;
+
                 bottom: 0;
-                left: 10;
-                padding: 10px 50px;
-                transform: translate(10%, -30%);
+
+
                 border-top: 1px solid #fff;
                 border-bottom: 1px solid #fff;
+                @include Responsive1(XS) {
+                    position: relative;
+                    display: inline-block;
+                    left: 0;
+                    padding: 10px 40px;
+                    transform: unset;
+                    margin-top: 50px;
+                }
+                @include Responsive1(SM) {
+                    position: relative;
+                    display: inline-block;
+                    left: 0;
+                    padding: 10px 40px;
+                    transform: unset;
+                    margin-top: 50px;
+                }
+                @include Responsive1(MD) {
+                    position: relative;
+                    left: 10px;
+                    padding: 10px 50px;
+                    transform: translate(10%, -30%);
+                }
+                @include Responsive1(LG) {
+                    position: relative;
+                    left: 10px;
+                    padding: 10px 50px;
+                    transform: translate(10%, -30%);
+                }
             }
         }
 
@@ -3896,7 +4121,32 @@ footer {
             position: absolute;
             right: 0;
             top: 1px;
-            transform: translate(10%, -47%);
+
+            @include Responsive1(XS) {
+                transform: translate(10%, 18%);
+                img{
+                    width: 200px;
+                }
+            }
+            @include Responsive1(SM) {
+                transform: translate(10%, 18%);
+                img{
+                    width: 200px;
+                }
+            }
+            @include Responsive1(MD) {
+                transform: translate(10%, 18%);
+                img{
+                    width: auto;
+                }
+            }
+            @include Responsive1(LG) {
+                transform: translate(10%, -18%);
+                img{
+                    width: auto;
+                }
+            }
+
         }
     }
 }
@@ -4140,6 +4390,7 @@ footer {
                                 border-radius: 50px;
                                 margin-bottom: 0;
                                 text-align: center;
+                                padding: 2px 10px;
                             }
                         }
                     }
@@ -4159,6 +4410,13 @@ footer {
     }
     .box-list-column3 {
         margin-top: 30px;
+        @include Responsive1(XS) {
+            margin: 0 5px;
+        }
+        @include Responsive1(SM) {
+            margin: 0 5px;
+        }
+
         .list-column {
             margin-top: 10px;
             margin-bottom: 30px;
@@ -4235,6 +4493,7 @@ footer {
                                 border-radius: 50px;
                                 margin-bottom: 0;
                                 text-align: center;
+                                padding: 2px 10px;
                             }
                         }
                     }
@@ -4567,6 +4826,13 @@ footer {
 }
 
 .column-detail {
+    @include Responsive1(XS) {
+        padding: 0 5px;
+    }
+    @include Responsive1(SM) {
+        padding: 0 5px;
+    }
+
     .quest-detail {
         .time-and-type {
             display: flex;
@@ -4648,6 +4914,19 @@ footer {
                 width: 100%;
                 background-color: #EBF2DC;
                 border-radius: 0 0 15px 15px;
+                @include Responsive1(XS) {
+                    height: 48%;
+                }
+                @include Responsive1(SM) {
+                    height: 48%;
+                }
+                @include Responsive1(MD) {
+                    height: 40px;
+                }
+                @include Responsive1(LG) {
+                    height: 40px;
+                }
+
             }
 
             p {
@@ -4659,6 +4938,19 @@ footer {
             .label-answer {
                 line-height: 40px;
                 margin-left: 15px;
+                @include Responsive1(XS) {
+                    line-height: 20px;
+                }
+                @include Responsive1(SM) {
+                    line-height: 20px;
+                }
+                @include Responsive1(MD) {
+                    line-height: 40px;
+                }
+                @include Responsive1(LG) {
+                    line-height: 40px;
+                }
+
             }
 
             .label-answer-type {
@@ -4690,9 +4982,17 @@ footer {
                         font-weight: 400;
                         line-height: 20px;
                         border: none;
-                        display: block;
-                        margin: auto;
+
                         margin-top: 10px;
+                        @include Responsive1(MD) {
+                            display: block;
+                        margin: auto;
+                        }
+                        @include Responsive1(LG) {
+                            display: block;
+                        margin: auto;
+                        }
+
                     }
                 }
 
@@ -4701,6 +5001,8 @@ footer {
                     font-style: normal;
                     font-weight: 400;
                     line-height: 20px;
+                    display: inline-block;
+                    margin-bottom: 0;
                 }
 
                 .name-manager {
@@ -4708,6 +5010,11 @@ footer {
                     font-weight: 700;
                     font-style: normal;
                     line-height: 20px;
+                    display: inline-block;
+                    margin-bottom: 0;
+                }
+                .text-name-profile-mobile{
+                    margin-top: 30px;
                 }
             }
         }
@@ -4729,9 +5036,16 @@ footer {
             font-weight: 400;
             line-height: 20px;
             border: none;
-            display: block;
-            margin: auto;
+
             margin-top: 10px;
+            @include Responsive1(MD) {
+                display: block;
+                margin: auto;
+            }
+            @include Responsive1(LG) {
+                display: block;
+                margin: auto;
+            }
         }
 
         .text-bottom {
@@ -4743,6 +5057,8 @@ footer {
             font-style: normal;
             font-weight: 400;
             line-height: 20px;
+            display: inline-block;
+            margin-bottom: 0;
         }
 
         .name-manager {
@@ -4750,6 +5066,8 @@ footer {
             font-weight: 700;
             font-style: normal;
             line-height: 20px;
+            display: inline-block;
+            margin-bottom: 0;
         }
         .info-bg{
             background-color: #FAEED6;
@@ -4761,7 +5079,32 @@ footer {
         }
     }
 }
-
+.btn-inquiry{
+    background: #0D233E !important;
+    box-shadow: 0px 2px 10px rgb(0 0 0 / 25%);
+    border-radius: 60px !important;
+    font-style: normal;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 38px !important;
+    display: flex !important;
+    align-items: flex-end;
+    padding: 5px 20px !important;
+    color: #FFFFFF !important;
+    margin: auto;
+    @include Responsive1(XS) {
+        font-size: 16px !important;
+    }
+    @include Responsive1(SM) {
+        font-size: 16px !important;
+    }
+    @include Responsive1(MD) {
+        font-size: 22px !important;
+    }
+    @include Responsive1(LG) {
+        font-size: 26px !important;
+    }
+}
 .c-E7AC31 {
     color: #E7AC31 !important;
 }
@@ -4776,7 +5119,18 @@ footer {
 .bd-c-9cbe5a {
     border-color: #9cbe5a !important;
 }
-
+.bg-c-9cbe5a {
+    background-color: #9cbe5a !important;
+}
+.relative{
+    position: relative;
+}
+.z-idx{
+    z-index: 2;
+}
+.dl-inl-blb{
+    display: inline-block !important;
+}
 .c-79684C {
     color: #79684C !important;
 }
