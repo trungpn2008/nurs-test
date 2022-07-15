@@ -1,10 +1,10 @@
 <template>
     <div class="box-consultation-method-2">
         <div class="content-consultation-method">
-            <p class="text-fisrt-box">
+            <p class="text-fisrt-box hidden-xs hidden-sm hidden-md">
                 ― 皆様の介護のお悩み掲示板 ―
             </p>
-            <div class="text-time-box">
+            <div class="text-time-box hidden-xs hidden-sm hidden-md">
                 <p class="title-consultation-method">
                     <b-img :src="imageMethod"></b-img>
                     {{title}}
@@ -16,6 +16,24 @@
                 </div>
                 <div class="image-box">
                     <b-img src="/images/frontend/image/547657634.png"></b-img>
+                </div>
+            </div>
+            <div class="text-time-box1 display-xs display-sm  display-md hidden-lg hidden-xl hidden-xxl hidden-xxx hidden-xxxl">
+                <div class="image-box">
+                    <b-img src="/images/frontend/image/547657634.png"></b-img>
+                </div>
+                <p class="text-fisrt-box">
+                    ― 皆様の介護のお悩み掲示板 ―
+                </p>
+                <p class="title-consultation-method">
+                    <b-img :src="imageMethod"></b-img>
+                    {{title}}
+                </p>
+
+                <div class="txt-time">
+                    <p>□□□□□掲示版の説明が入ります□□□□□</p>
+                    <p>□□□□□掲示版の説明が入ります□□□□□</p>
+                    <p>□□□□□掲示版の説明が入ります□□□□□</p>
                 </div>
             </div>
 
@@ -47,17 +65,19 @@
                 </b-col>
             </b-row>
         </div>
-        <div class="contact-method display-xs display-sm  display-md hidden-lg hidden-xl hidden-xxl hidden-xxx hidden-xxxl">
+        <div class="contact-method1 display-xs display-sm  display-md hidden-lg hidden-xl hidden-xxl hidden-xxx hidden-xxxl">
             <b-row>
                 <b-col cols="12" v-for="item of boxIcon ">
                     <a :href="item.href">
                         <div class="item-contact-method">
                             <div class="content-contact-method">
                                 <b-row>
-                                    <b-col cols="5"><p class="title-contact-method">
+<!--                                    <b-col cols="6"><b-img :src="item.image" class="image-method"></b-img></b-col>-->
+                                    <b-col cols="12" style="display: flex;justify-content: center;">
+                                        <b-img :src="item.image" class="image-method"></b-img>
+                                        <p class="title-contact-method">
                                         {{item.title}} <span>{{item.text}}</span>
                                     </p></b-col>
-                                    <b-col cols="2"><b-img :src="item.image" class="image-method"></b-img></b-col>
 <!--                                    <b-col cols="5"><p class="text-contact-method">-->
 <!--                                        {{item.text}}-->
 <!--                                    </p></b-col>-->

@@ -8,10 +8,10 @@
         <banner5></banner5>
         <div class="info-homepage">
             <b-row>
-                <b-col cols="12" sm="8">
+                <b-col cols="12" lg="8">
                     <lastest-column></lastest-column>
                 </b-col>
-                <b-col cols="12" sm="4">
+                <b-col cols="12" lg="4">
                     <thumbnail-left></thumbnail-left>
                     <article-ranking></article-ranking>
                     <popular-keywords></popular-keywords>

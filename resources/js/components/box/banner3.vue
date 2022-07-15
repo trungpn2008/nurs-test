@@ -1,10 +1,10 @@
 <template>
     <div class="box-consultation-method-1">
         <div class="content-consultation-method">
-            <p class="text-fisrt-box">
+            <p class="text-fisrt-box hidden-xs hidden-sm hidden-md">
                 ― あなたに合う相談方法がみつかる ―
             </p>
-            <div class="text-time-box">
+            <div class="text-time-box hidden-xs hidden-sm hidden-md">
                 <p class="title-consultation-method">
                     <b-img :src="imageMethod"></b-img>
                     {{title}}
@@ -16,6 +16,23 @@
                 </div>
                 <div class="image-box">
                     <b-img src="/images/frontend/image/756774.png"></b-img>
+                </div>
+            </div>
+            <div class="text-time-box1 display-xs display-sm  display-md hidden-lg hidden-xl hidden-xxl hidden-xxx hidden-xxxl">
+                <div class="image-box">
+                    <b-img src="/images/frontend/image/756774.png"></b-img>
+                </div>
+                <p class="text-fisrt-box">
+                    ― あなたに合う相談方法がみつかる ―
+                </p>
+                <p class="title-consultation-method">
+                    <b-img :src="imageMethod"></b-img>
+                    {{title}}
+                </p>
+                <div class="txt-time">
+                    <p>電話、zoomでのご相談は、</p>
+                    <p>平日の9：00～18：00の時間帯で受け付けています。</p>
+                    <p>掲示板、メール、LINEでのご相談は、24時間受け付ています。</p>
                 </div>
             </div>
 
@@ -47,7 +64,7 @@
                 </b-col>
             </b-row>
         </div>
-        <div class="contact-method display-xs display-sm  display-md hidden-lg hidden-xl hidden-xxl hidden-xxx hidden-xxxl">
+        <div class="contact-method1 display-xs display-sm  display-md hidden-lg hidden-xl hidden-xxl hidden-xxx hidden-xxxl">
             <b-row>
                 <b-col cols="12" v-for="item of boxIcon ">
                     <a :href="item.href">

@@ -3,7 +3,7 @@
         <p class="title-box c-4e8dc3 bd-c-4e8dc3">{{ title }}</p>
         <div class="list-column">
             <b-row>
-                <b-col cols="12" sm="6" class="item-list-column" c v-for="item of listColumn">
+                <b-col cols="6" sm="6" class="item-list-column" c v-for="item of listColumn">
                     <b-img :src="item.image" class="image-item"></b-img>
                     <div class="description">
                         <div class="type-of-cate">

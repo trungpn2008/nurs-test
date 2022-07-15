@@ -1,10 +1,10 @@
 <template>
     <div class="box-consultation-method-3">
         <div class="content-consultation-method">
-            <p class="text-fisrt-box">
+            <p class="text-fisrt-box hidden-xs hidden-sm hidden-md">
                 ― 介護の今をコラム形式でわかりやすく紹介 ―
             </p>
-            <div class="text-time-box">
+            <div class="text-time-box hidden-xs hidden-sm hidden-md">
                 <p class="title-consultation-method">
                     <b-img :src="imageMethod"></b-img>
                     {{title}}
@@ -17,6 +17,24 @@
                 <div class="image-box">
                     <b-img src="/images/frontend/image/34565635.png"></b-img>
                 </div>
+            </div>
+            <div class="text-time-box1 display-xs display-sm  display-md hidden-lg hidden-xl hidden-xxl hidden-xxx hidden-xxxl">
+                <div class="image-box">
+                    <b-img src="/images/frontend/image/34565635.png"></b-img>
+                </div>
+                <p class="text-fisrt-box">
+                    ― 介護の今をコラム形式でわかりやすく紹介 ―
+                </p>
+                <p class="title-consultation-method">
+                    <b-img :src="imageMethod"></b-img>
+                    {{title}}
+                </p>
+                <div class="txt-time">
+                    <p>□□□□□掲示版の説明が入ります□□□□□</p>
+                    <p>□□□□□掲示版の説明が入ります□□□□□</p>
+                    <p>□□□□□掲示版の説明が入ります□□□□□</p>
+                </div>
+
             </div>
         </div>
     </div>

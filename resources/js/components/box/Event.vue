@@ -1,6 +1,6 @@
 <template>
     <div class="event">
-        <div class="event-item" v-for="item of listEvent">
+        <div class="event-item  hidden-xs hidden-sm hidden-md" v-for="item of listEvent">
             <b-img :src="item.frames" class="img-frames"></b-img>
             <div class="content-in-img">
                 <b-img :src="item.imgLeft" class="img-left"></b-img>
@@ -13,6 +13,25 @@
                     <p class="topic-event">{{item.topic}}</p>
                 </div>
                 <b-img :src="item.imgRight" class="img-right"></b-img>
+            </div>
+        </div>
+        <div class="event-item1  display-xs display-sm  display-md hidden-lg hidden-xl hidden-xxl hidden-xxx hidden-xxxl" v-for="item of listEvent">
+            <b-img :src="item.frames" class="img-frames"></b-img>
+            <div class="content-in-img">
+                <div class="img-lr">
+
+                    <b-img :src="item.imgLeft" class="img-left"></b-img>
+                    <b-img :src="item.imgRight" class="img-right"></b-img>
+                </div>
+                <div class="content-event">
+                    <div class="title-event-row">
+                        <b-img :src="item.imgTextLeft"></b-img>
+                        <p class="title-event">{{item.textIntro}}</p>
+                        <b-img :src="item.imgTextRight"></b-img>
+                    </div>
+                    <p class="topic-event">{{item.topic}}</p>
+                </div>
+
             </div>
         </div>
     </div>
