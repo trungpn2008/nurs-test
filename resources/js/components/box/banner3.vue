@@ -44,7 +44,7 @@
         </div>
         <div class="contact-method hidden-xs hidden-sm hidden-md">
             <b-row cols="5">
-                <b-col v-for="(index,bx) of boxIcon " :key="index">
+                <b-col v-for="bx of boxIcon ">
                     <a :href="bx.href">
                         <div class="item-contact-method">
                             <div class="image-item-contact">
@@ -58,7 +58,7 @@
                                     {{bx.text}}
                                 </p>
                             </div>
-                            <b-img v-if="bx.active = true" :src="bx.cyclePin" class="cycle-pin-image"></b-img>
+                            <b-img :src="bx.cyclePin" class="cycle-pin-image"></b-img>
                         </div>
                     </a>
                 </b-col>
@@ -66,7 +66,7 @@
         </div>
         <div class="contact-method1 display-xs display-sm  display-md hidden-lg hidden-xl hidden-xxl hidden-xxx hidden-xxxl">
             <b-row>
-                <b-col cols="12" v-for="(index,item) of boxIcon" :key="index">
+                <b-col cols="12" v-for="item of boxIcon ">
                     <a :href="item.href">
                         <div class="item-contact-method">
                             <div class="content-contact-method">

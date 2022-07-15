@@ -45,7 +45,7 @@
         </div>
         <div class="contact-method hidden-xs hidden-sm hidden-md">
             <b-row cols="6">
-                <b-col v-for="(index,bx) of boxIcon " :key="index">
+                <b-col v-for="bx of boxIcon ">
                     <a :href="bx.href">
                         <div class="item-contact-method">
                             <div class="image-item-contact">
@@ -55,11 +55,11 @@
                                 <p class="title-contact-method">
                                     {{bx.title}} <span>{{bx.text}}</span>
                                 </p>
-<!--                                <p class="text-contact-method">-->
-<!--                                    {{bx.text}}-->
-<!--                                </p>-->
+                                <!--                                <p class="text-contact-method">-->
+                                <!--                                    {{bx.text}}-->
+                                <!--                                </p>-->
                             </div>
-                            <b-img v-if="bx.active = true" :src="bx.cyclePin" class="cycle-pin-image"></b-img>
+                            <b-img :src="bx.cyclePin" class="cycle-pin-image"></b-img>
                         </div>
                     </a>
                 </b-col>
@@ -67,20 +67,20 @@
         </div>
         <div class="contact-method1 display-xs display-sm  display-md hidden-lg hidden-xl hidden-xxl hidden-xxx hidden-xxxl">
             <b-row>
-                <b-col cols="12" v-for="(index,item) of boxIcon" :key="index">
+                <b-col cols="12" v-for="item of boxIcon ">
                     <a :href="item.href">
                         <div class="item-contact-method">
                             <div class="content-contact-method">
                                 <b-row>
-<!--                                    <b-col cols="6"><b-img :src="item.image" class="image-method"></b-img></b-col>-->
+                                    <!--                                    <b-col cols="6"><b-img :src="item.image" class="image-method"></b-img></b-col>-->
                                     <b-col cols="12" style="display: flex;justify-content: center;">
                                         <b-img :src="item.image" class="image-method"></b-img>
                                         <p class="title-contact-method">
-                                        {{item.title}} <span>{{item.text}}</span>
-                                    </p></b-col>
-<!--                                    <b-col cols="5"><p class="text-contact-method">-->
-<!--                                        {{item.text}}-->
-<!--                                    </p></b-col>-->
+                                            {{item.title}} <span>{{item.text}}</span>
+                                        </p></b-col>
+                                    <!--                                    <b-col cols="5"><p class="text-contact-method">-->
+                                    <!--                                        {{item.text}}-->
+                                    <!--                                    </p></b-col>-->
                                 </b-row>
                             </div>
                             <b-img v-if="item.active = true" :src="item.cyclePin" class="cycle-pin-image"></b-img>
