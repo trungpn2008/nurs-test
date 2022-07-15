@@ -18,7 +18,7 @@
                 <div class="short-info-customer">大阪府（40代/男性）　くまのプーさん</div>
             </div>
             <div class="answer-customer-question">
-                <b-img src="/images/frontend/image/242344234.png"></b-img>
+
                 <div class="label-answer-type">
                     <b-img src="/images/frontend/icons/647846734.png"></b-img>
                     <p>可能ですが、介護付有料老人ホームと比べると、劣る部分もあります。</p>
@@ -35,7 +35,7 @@
                     <div class="short-profile-nurs">
                         <b-row>
                             <b-col cols="3">
-                                <b-img></b-img>
+                                <b-img src="/images/frontend/image/242344234.png"></b-img>
                                 <b-button>zoomで相談する</b-button>
                             </b-col>
                             <b-col cols="9">

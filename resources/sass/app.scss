@@ -3250,7 +3250,7 @@ footer {
                 position: absolute;
                 right: 0px;
                 top: 10%;
-                transform: translate(20%, -53%);
+                transform: translate(10%, -35%);
 
                 img {
                     //width: 270px;
@@ -3463,7 +3463,7 @@ footer {
                 position: absolute;
                 right: 0px;
                 top: 10%;
-                transform: translate(20%, -53%);
+                transform: translate(10%, -45%);
 
                 img {
                     //width: 270px;
@@ -3562,14 +3562,14 @@ footer {
             .content-contact-method {
                 .title-contact-method {
                     font-weight: 400;
-                    font-size: 18px;
+                    font-size: 20px;
                     line-height: 30px;
                     color: #9dbe52;
                     margin-bottom: 0;
                     text-align: center;
                     position: relative;
-                    top: 50%;
-                    transform: translate(15%, -20%);
+                    //top: 50%;
+                    //transform: translate(15%, -20%);
                 }
 
                 .text-contact-method {
@@ -4415,7 +4415,7 @@ footer {
             }
         }
         .answer-customer-question{
-            display: flex;
+            //display: flex;
             padding: 10px 20px;
             border-bottom: 1px solid #79684e;
             margin-bottom: 10px;
