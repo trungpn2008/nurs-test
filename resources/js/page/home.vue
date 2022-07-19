@@ -7,16 +7,18 @@
         <banner4></banner4>
         <banner5></banner5>
         <div class="info-homepage">
-            <b-row>
-                <b-col cols="12" lg="8">
-                    <lastest-column></lastest-column>
-                </b-col>
-                <b-col cols="12" lg="4">
-                    <thumbnail-left></thumbnail-left>
-                    <article-ranking></article-ranking>
-                    <popular-keywords></popular-keywords>
-                </b-col>
-            </b-row>
+            <b-container fluid>
+                <b-row>
+                    <b-col cols="12" lg="8">
+                        <lastest-column></lastest-column>
+                    </b-col>
+                    <b-col cols="12" lg="4">
+                        <thumbnail-left></thumbnail-left>
+                        <article-ranking></article-ranking>
+                        <popular-keywords></popular-keywords>
+                    </b-col>
+                </b-row>
+            </b-container>
         </div>
         <event></event>
     </div>
@@ -34,10 +36,21 @@ import ArticleRanking from "../components/box/ArticleRanking"
 import PopularKeywords from "../components/box/PopularKeywords"
 import Event from "../components/box/Event"
 import ButtonChooseBar from "../components/box/ButtonChooseBar"
+
 export default {
     name: "Home",
-    components:{
-        Banner,ButtonChooseBar,Banner2,Banner3,Banner4,Banner5,LastestColumn,ThumbnailLeft,ArticleRanking,PopularKeywords,Event
+    components: {
+        Banner,
+        ButtonChooseBar,
+        Banner2,
+        Banner3,
+        Banner4,
+        Banner5,
+        LastestColumn,
+        ThumbnailLeft,
+        ArticleRanking,
+        PopularKeywords,
+        Event
     }
 }
 </script>

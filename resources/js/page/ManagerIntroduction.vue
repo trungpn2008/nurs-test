@@ -2,17 +2,19 @@
     <div class="content-home-page">
         <banner7></banner7>
         <div class="info-homepage">
-            <b-row>
-                <b-col cols="12" sm="8">
-                    <intro-manager></intro-manager>
-                    <lastest-column3></lastest-column3>
-                </b-col>
-                <b-col cols="12" sm="4">
-                    <thumbnail-left></thumbnail-left>
-                    <article-ranking></article-ranking>
-                    <popular-keywords></popular-keywords>
-                </b-col>
-            </b-row>
+            <b-container fluid>
+                <b-row>
+                    <b-col cols="12" sm="8">
+                        <intro-manager></intro-manager>
+                        <lastest-column3></lastest-column3>
+                    </b-col>
+                    <b-col cols="12" sm="4">
+                        <thumbnail-left></thumbnail-left>
+                        <article-ranking></article-ranking>
+                        <popular-keywords></popular-keywords>
+                    </b-col>
+                </b-row>
+            </b-container>
         </div>
     </div>
 </template>

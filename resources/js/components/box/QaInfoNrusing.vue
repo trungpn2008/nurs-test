@@ -1,9 +1,12 @@
 <template>
     <div class="qa-nursing-home">
         <div class="list-qa-nursing">
-            <b-row>
-                <b-col cols="12" sm="4" v-for="item of listQa"><a :href="item.href"><p>{{item.text}}</p></a></b-col>
-            </b-row>
+            <b-container fluid>
+                <b-row>
+                    <b-col cols="12" sm="4" v-for="item of listQa"><a :href="item.href"><p>{{ item.text }}</p></a>
+                    </b-col>
+                </b-row>
+            </b-container>
         </div>
     </div>
 </template>

@@ -11,8 +11,8 @@ $XS: 575px;
 $SM: 576px;
 $MD: 769px;
 $LG: 992px;
-$XL: 1999px;
-$XXL: 1319px;
+$XL: 1025px;
+$XXL: 1200px;
 $XXX: 1439px;
 $XXXL: 1599px;
 
@@ -3162,6 +3162,24 @@ footer {
                     line-height: 20px;
                     color: #3E3A39;
                     margin-bottom: 0;
+                    @include Responsive1(XS) {
+                        font-size: 14px;
+                    }
+                    @include Responsive1(SM) {
+                        font-size: 14px;
+                    }
+                    @include Responsive1(MD) {
+                        font-size: 14px;
+
+                    }
+                    @include Responsive1(LG) {
+                        font-size: 14px;
+                    }
+                    @include Responsive1(XL) {
+                        font-size: 16px;
+                    }
+
+
                 }
             }
         }
@@ -3750,6 +3768,7 @@ footer {
                 right: 0;
                 top: 0;
                 transform: translate(23%, 0%);
+                display: inline-block
             }
         }
 
@@ -4216,8 +4235,21 @@ footer {
 .btn-group-mobile {
     .group-btn {
         padding: 5px 10px;
-        border-radius: 6px;
-        border: 1px solid #000;
+        border-radius: 10px;
+        border: 1px solid #79684c;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #79684c;
+        font-size: 15px;
+        @include Responsive1(XS) {
+            font-size: 15px;
+        }
+        @include Responsive1(SM) {
+            font-size: 18px;
+        }
+        @include Responsive1(MD) {
+            font-size: 18px;
+        }
     }
 }
 
@@ -4250,6 +4282,18 @@ footer {
     margin-top: 30px;
 
     .box-list-column {
+        @include Responsive1(XS) {
+            padding: 0 50px;
+        }
+        @include Responsive1(SM) {
+            padding: 0 50px;
+        }
+        @include Responsive1(MD) {
+            padding: 0 50px;
+        }
+        @include Responsive1(LG) {
+            padding: 0;
+        }
         .list-column {
             margin-top: 25px;
             margin-bottom: 30px;
@@ -4326,6 +4370,18 @@ footer {
     }
 
     .box-list-column1 {
+        @include Responsive1(XS) {
+            padding: 0 50px;
+        }
+        @include Responsive1(SM) {
+            padding: 0 50px;
+        }
+        @include Responsive1(MD) {
+            padding: 0 50px;
+        }
+        @include Responsive1(LG) {
+            padding: 0;
+        }
         .list-column {
             margin-top: 10px;
             margin-bottom: 30px;
@@ -4421,6 +4477,18 @@ footer {
         }
     }
     .box-list-column3 {
+        @include Responsive1(XS) {
+            padding: 0 50px;
+        }
+        @include Responsive1(SM) {
+            padding: 0 50px;
+        }
+        @include Responsive1(MD) {
+            padding: 0 50px;
+        }
+        @include Responsive1(LG) {
+            padding: 0;
+        }
         margin-top: 30px;
         @include Responsive1(XS) {
             margin: 0 5px;
@@ -4555,26 +4623,36 @@ footer {
             position: absolute;
             left: 0;
             top: 0;
+            /* right: 12px; */
             display: flex;
             width: 100%;
+            height: 100%;
+            background-color: white;
+            overflow: hidden;
+            border: 2px solid #eb6d8e;
+            border-radius: 10px;
+            box-shadow: 6px 6px 0px #eb6d8e;
+            padding-right: 12px;
+            margin-right: 6px;
+            margin-bottom: 15px;
             //transform: translate(10%, -50%);
             .img-left {
-                width: 170px;
-                height: 100%;
-                position: relative;
+                //width: 170px;
+                position: absolute;
                 padding: -21px;
-                top: 48%;
-                transform: translate(0, 12%);
+                bottom: -10px;
+                left: 0;
+                transform: translate(0, 0);
             }
 
             .img-right {
-                width: 120px;
-                height: 100%;
-                position: relative;
+                //width: 120px;
+                height: 97%;
+                position: absolute;
                 padding: -21px;
-                top: 48%;
+                bottom: 0;
                 right: 5%;
-                transform: translate(0, 1%);
+                transform: translate(0, 0%);
             }
 
             .content-event {

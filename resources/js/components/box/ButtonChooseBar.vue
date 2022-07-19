@@ -14,15 +14,15 @@
         </b-nav>
         <div class="btn-group-mobile display-xs display-sm display-md hidden-lg  hidden-xl hidden-xxl hidden-xxx hidden-xxxl">
             <b-row style="margin: 0 !important;">
-                <b-col cols="4" class="group-btn">老人ホーム</b-col>
-                <b-col cols="4" class="group-btn">費　用</b-col>
-                <b-col cols="4" class="group-btn">訪　問</b-col>
-                <b-col cols="4" class="group-btn">通　所</b-col>
-                <b-col cols="4" class="group-btn">看　護</b-col>
-                <b-col cols="4" class="group-btn">リハビリ</b-col>
-                <b-col cols="4" class="group-btn">□□□□□</b-col>
-                <b-col cols="4" class="group-btn">□□□□□</b-col>
-                <b-col cols="4" class="group-btn">□□□□□</b-col>
+                <b-col cols="4"> <div class="group-btn">老人ホーム</div></b-col>
+                <b-col cols="4"> <div class="group-btn">費　用</div></b-col>
+                <b-col cols="4"> <div class="group-btn">訪　問</div></b-col>
+                <b-col cols="4"> <div class="group-btn">通　所</div></b-col>
+                <b-col cols="4"> <div class="group-btn">看　護</div></b-col>
+                <b-col cols="4"> <div class="group-btn">リハビリ</div></b-col>
+                <b-col cols="4"> <div class="group-btn">□□□□□</div></b-col>
+                <b-col cols="4"> <div class="group-btn">□□□□□</div></b-col>
+                <b-col cols="4"> <div class="group-btn">□□□□□</div></b-col>
 
             </b-row>
         </div>
