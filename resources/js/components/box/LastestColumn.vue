@@ -10,11 +10,11 @@
                             <div class="type-of-cate">
                                 <p>
                                     <b-img src="/images/frontend/icons/53453452.png"></b-img>
-                                    {{ item.cate }}
+                                    {{ item.cate_name }}
                                 </p>
                                 <p>
                                     <b-img src="/images/frontend/icons/543543623.png"></b-img>
-                                    {{ item.type }}
+                                    {{ item.cate_type_title }}
                                 </p>
                             </div>
                             <p class="title-item-column">{{ item.title }}</p>
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: "LastestColumn",
     data() {
@@ -35,51 +36,18 @@ export default {
             imageMethod: "/images/frontend/image/4764533246.png",
             title: "最新コラム",
             des: "お気軽にご相談ください ",
-            listColumn: [
-                {
-                    title: '介護はどこにどう申請するの？ケアマネジャーが介護の第一…',
-                    cate: '介護保険制度',
-                    image: "/images/frontend/image/4q435423.png",
-                    href: '#',
-                    type: 'その他',
-                },
-                {
-                    title: '介護はどこにどう申請するの？ケアマネジャーが介護の第一…',
-                    cate: '介護保険制度',
-                    image: "/images/frontend/image/ga3422343.png",
-                    href: '#',
-                    type: 'その他',
-                },
-                {
-                    title: '介護はどこにどう申請するの？ケアマネジャーが介護の第一…',
-                    cate: '介護保険制度',
-                    image: "/images/frontend/image/45re45345.png",
-                    href: '#',
-                    type: 'その他',
-                },
-                {
-                    title: '介護はどこにどう申請するの？ケアマネジャーが介護の第一…',
-                    cate: '介護保険制度',
-                    image: "/images/frontend/image/4q435423.png",
-                    href: '#',
-                    type: 'その他',
-                },
-                {
-                    title: '介護はどこにどう申請するの？ケアマネジャーが介護の第一…',
-                    cate: '介護保険制度',
-                    image: "/images/frontend/image/4q435423.png",
-                    href: '#',
-                    type: 'その他',
-                },
-                {
-                    title: '介護はどこにどう申請するの？ケアマネジャーが介護の第一…',
-                    cate: '介護保険制度',
-                    image: "/images/frontend/image/ga3422343.png",
-                    href: '#',
-                    type: 'その他',
-                },
-            ]
+            listColumn: null,
+            errors:[]
         }
+    },
+    mounted () {
+        axios.get(`/api/news/list`)
+            .then(response => {
+                this.listColumn = response.data.data.news.data
+            })
+            .catch(e => {
+                this.errors.push(e)
+            })
     }
 }
 </script>

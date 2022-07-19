@@ -26,5 +26,5 @@ Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function
     });
 });
 
-Route::get('{slug?}', '\App\Http\Controllers\Frontend\CategoryController@index')->name('frontend.category');
-Route::get('{cate?}/{slug?}', '\App\Http\Controllers\Frontend\ProjectController@index')->name('frontend.project');
+//Route::get('{slug?}', '\App\Http\Controllers\Frontend\CategoryController@index')->name('frontend.category');
+//Route::get('{cate?}/{slug?}', '\App\Http\Controllers\Frontend\ProjectController@index')->name('frontend.project');

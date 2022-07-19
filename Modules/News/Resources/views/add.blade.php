@@ -25,11 +25,21 @@
                             <option value="">Chọn danh mục</option>
                         </select>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" style="display:none;">
                         <label class="form-label" for="project_id">Dự án</label>
                         <select id="project_action" name="project_id" class="form-select" data-allow-clear="true">
                             <option value="">Chọn dự án</option>
                         </select>
+                    </div>
+                    <div class="col-md-6" >
+                        <div class="form-password-toggle">
+                            <label class="form-label" for="category_type_action">Loại danh mục</label>
+                            <div class="">
+                                <select id="category_type_action" name="type" class="form-select" data-allow-clear="true">
+                                    <option value="">Chọn loại danh mục</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 {{--                    <div class="col-md-6">--}}
 {{--                        <div class="form-password-toggle">--}}
@@ -53,11 +63,11 @@
                 <hr class="my-4 mx-n4" />
                 <h6 class="fw-normal">2. Mô tả - hình ảnh</h6>
                 <div class="row g-3">
-                    <div class="col-md-6">
+                    <div class="col-md-6" style="display:none;">
                         <label class="form-label" for="short_description">Mô tả ngắn</label>
                         <textarea name="short_description" id="short_description"  class="form-control" placeholder="Mô tả ngắn" cols="30" rows="10"></textarea>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" style="display:none;">
                         <label class="form-label" for="note">Ghi chú</label>
                         <textarea name="note" id="note"  class="form-control" placeholder="Ghi chú" cols="30" rows="10"></textarea>
                     </div>
@@ -211,6 +221,45 @@
                 title_default: 'Chọn dự án'
             });
             function get_projects(options) {
+                $(options.object).select2({
+                    ajax: {
+                        url: options.url,
+                        dataType: 'json',
+                        data: function(params) {
+                            var query = {
+                                keyword: params.term,
+                            }
+                            return query;
+                        },
+                        processResults: function(json, params) {
+                            var results = [{
+                                id: '',
+                                text: options.title_default
+                            }];
+
+                            for (i in json.data) {
+                                var item = json.data[i];
+                                results.push({
+                                    id: item[options.data_id],
+                                    text: item[options.data_text]
+                                });
+                            }
+                            return {
+                                results: results,
+                            };
+                        },
+                        minimumInputLength: 3,
+                    }
+                });
+            }
+            get_category_types({
+                object: '#category_type_action',
+                url: '{{ route("admin.categorytype.ajax-get-category-type") }}',
+                data_id: 'id',
+                data_text: 'text',
+                title_default: 'Chọn loại danh mục'
+            });
+            function get_category_types(options) {
                 $(options.object).select2({
                     ajax: {
                         url: options.url,

@@ -29,7 +29,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6"  style="display:none;">
                         <div class="form-password-toggle">
                             <label class="form-label" for="category_type_action">Loại danh mục</label>
                             <div class="">
@@ -295,25 +295,25 @@
                                     }
                                 }
                             },
-                            type: {
-                                validators: {
-                                    notEmpty: {
-                                        message: 'Please select your type'
-                                    },
-                                }
-                            },
-                            image: {
-                                validators: {
-                                    notEmpty: {
-                                        message: 'Please enter image'
-                                    },
-                                    stringLength: {
-                                        min: 6,
-                                        max:255,
-                                        message: 'The image must be more than 6 and less than 255 characters long'
-                                    }
-                                }
-                            },
+                            // type: {
+                            //     validators: {
+                            //         notEmpty: {
+                            //             message: 'Please select your type'
+                            //         },
+                            //     }
+                            // },
+                            // image: {
+                            //     validators: {
+                            //         notEmpty: {
+                            //             message: 'Please enter image'
+                            //         },
+                            //         stringLength: {
+                            //             min: 6,
+                            //             max:255,
+                            //             message: 'The image must be more than 6 and less than 255 characters long'
+                            //         }
+                            //     }
+                            // },
                         },
                         plugins: {
                             trigger: new FormValidation.plugins.Trigger(),
@@ -325,8 +325,8 @@
                                     // field is the field name & ele is the field element
                                     switch (field) {
                                         case 'title':
-                                        case 'type':
-                                        case 'image':
+                                        // case 'type':
+                                        // case 'image':
                                         default:
                                             return '.row';
                                     }

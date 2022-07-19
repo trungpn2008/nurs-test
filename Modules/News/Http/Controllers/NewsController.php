@@ -153,7 +153,8 @@ class NewsController extends Controller
             return back()->with('error','Bạn không có quyền vào edit!');
         }
         $data['new'] = $this->news
-            ->select(['news.title','news.status','news.image','news.category_id','news.project_id','news.alias','news.arrange','news.short_description','news.note','news.hashtag','news.description','news.source','category.title as parent_title','projects.title as project_title'])
+            ->select(['news.title','news.type','news.status','news.image','news.category_id','news.project_id','news.alias','news.arrange','news.short_description','news.note','news.hashtag','news.description','news.source','category.title as parent_title','projects.title as project_title','category_type.id as cate_type_id','category_type.status as cate_type_status','category_type.title as cate_type_title'])
+            ->join(new Operator(null,null,'category_type','news.type','category_type.code'))
             ->join(new Operator(null,null,'category','category.id','news.category_id'))
             ->join(new Operator(null,null,'projects','projects.id','news.project_id'))
             ->whereOperator(new Operator('news.id',$id))->builder();
@@ -241,5 +242,31 @@ class NewsController extends Controller
         }
         $this->history_activity->addHistory('Xóa bài viết không tìm thấy bản ghi','New','Delete','Tài khoản '.Auth::user()->name.' Xóa bài viết không tìm thấy bản ghi','Xóa bài viết không tìm thấy bản ghi','Error',$id);
         return back()->with('error','Không tìm thấy bản ghi');
+    }
+    public function listArticle(Request $request)
+    {
+        $data['per_page'] = $request->input('per_page',6);
+//        dd($data['per_page']);
+        $data['page'] = $request->input('page',1);
+        $news = $this->news
+            ->select(['news.id','news.image','news.title','news.arrange','news.status','news.view','news.created_at','news.updated_at','users.name','category.title as cate_name','category_type.id as cate_type_id','category_type.status as cate_type_status','category_type.title as cate_type_title'])
+            ->join([
+                new Operator(null,null,'category_type','news.type','category_type.code'),
+                new Operator(null,null,'category','news.category_id','category.id'),
+                new Operator(null,null,'users','news.creator','users.id'),
+            ])
+            ->whereOperator([new Operator('news.deleted_at',null),new Operator('news.status',1)]);
+        if($request->keyword){
+            $news = $news->whereOperator(new Operator('news.title','%'.$request->keyword.'%',null,null,null,[],'like'));
+            $search['keyword']=$request->keyword;
+        }
+        if($request->category){
+            $news = $news->whereOperator(new Operator('news.category_id',$request->category));
+            $search['category']=$request->category;
+            $data['category']= $this->category->select(['id','title'])->whereOperator([new Operator('deleted_at',null),new Operator('id',$request->category),new Operator('status',1)])->builder();
+        }
+        $news = $news->orderByDesc('news.created_at')->paging($data['per_page'],$data['page'],false);
+        $data['news']=$news;
+        return $this->responseAPI($data,'Lấy dữ liệu thành công',200);
     }
 }

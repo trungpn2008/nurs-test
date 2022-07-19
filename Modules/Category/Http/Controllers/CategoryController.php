@@ -283,9 +283,9 @@ class CategoryController extends Controller
         if ($id) {
             $categorys = $categorys->whereOperator([new Operator('id',$id,null,null,null,null,'!=')]);
         }
-        if ($type) {
-            $categorys = $categorys->whereOperator([new Operator('type',$type)]);
-        }
+//        if ($type) {
+//            $categorys = $categorys->whereOperator([new Operator('type',$type)]);
+//        }
         $categorys = $categorys->paging($size,$offset)->builder(false);
         $data = [];
         foreach ($categorys as $item) {

@@ -264,4 +264,14 @@ class Controller extends BaseController
         }
         return array_merge($permissions,array_diff_key($userPermission,$permission));
     }
+    public function responseAPI($data = null, $msg = null, $code = 200, $info = [])
+    {
+        return response()->json([
+            'data' => $data,
+            'msg' => $msg,
+            'success' => $code == 200 ? true : false,
+            'code' => $code,
+            'info' => $info,
+        ], $code);
+    }
 }

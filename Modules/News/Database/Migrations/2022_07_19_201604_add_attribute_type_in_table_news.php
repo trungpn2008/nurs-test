@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddAttrinbuteColumnNumberTableImages extends Migration
+class AddAttributeTypeInTableNews extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddAttrinbuteColumnNumberTableImages extends Migration
      */
     public function up()
     {
-        Schema::table('images', function (Blueprint $table) {
-//            $table->string('number')->nullable()->comment('number');
+        Schema::table('news', function (Blueprint $table) {
+            $table->string('type',11)->nullable()->comment('type');
         });
     }
 
@@ -25,8 +25,8 @@ class AddAttrinbuteColumnNumberTableImages extends Migration
      */
     public function down()
     {
-        Schema::table('images', function (Blueprint $table) {
-//            $table->dropColumn('number');
+        Schema::table('news', function (Blueprint $table) {
+            $table->dropColumn('type');
         });
     }
 }
