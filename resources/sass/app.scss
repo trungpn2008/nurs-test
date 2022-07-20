@@ -634,8 +634,8 @@ footer {
                 font-size: 40px;
                 line-height: 48px;
                 color: #0AAACD;
-                margin-right: 48px;
-                min-width: 310px;
+                margin-right: 40px;
+                min-width: 260px;
 
                 img {
                     margin-right: 30px;
@@ -1346,7 +1346,9 @@ footer {
     @include Responsive1(LG) {
         padding: 100px 0;
     }
-
+    .content-guideline{
+        padding: 0 15px;
+    }
     .descriotion-guideline {
         @include Responsive1(XS) {
             margin: 20px 0;
@@ -1497,7 +1499,7 @@ footer {
         display: inline-block;
     }
     @include Responsive1(LG) {
-        font-size: 20px;
+        font-size: 18px;
         line-height: 50px;
         padding: 0 100px;
         display: initial;
@@ -3680,10 +3682,18 @@ footer {
                     @include Responsive1(XS) {
                         font-size: 18px;
                         line-height: 35px;
+                        margin: auto;
+                        margin-right: 0;
+                        margin-left: 0;
+                        width: 100%;
                     }
                     @include Responsive1(SM) {
                         font-size: 18px;
                         line-height: 35px;
+                        margin: auto;
+                        margin-right: 0;
+                        margin-left: 0;
+                        width: 100%;
                     }
                     @include Responsive1(MD) {
                         font-size: 26px;
@@ -4283,10 +4293,10 @@ footer {
 
     .box-list-column {
         @include Responsive1(XS) {
-            padding: 0 50px;
+            padding: 0 5px;
         }
         @include Responsive1(SM) {
-            padding: 0 50px;
+            padding: 0 15px;
         }
         @include Responsive1(MD) {
             padding: 0 50px;
@@ -4783,6 +4793,7 @@ footer {
 
 .article-ranking {
     .list-article-ranking {
+        margin-top: 15px;
         .item-article-ranking {
             margin-bottom: 30px;
 

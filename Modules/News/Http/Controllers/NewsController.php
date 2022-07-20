@@ -269,4 +269,30 @@ class NewsController extends Controller
         $data['news']=$news;
         return $this->responseAPI($data,'Lấy dữ liệu thành công',200);
     }
+    public function listPopular(Request $request)
+    {
+        $data['per_page'] = $request->input('per_page',5);
+//        dd($data['per_page']);
+        $data['page'] = $request->input('page',1);
+        $news = $this->news
+            ->select(['news.id','news.image','news.title','news.arrange','news.status','news.view',DB::raw("DATE_FORMAT (`news`.`created_at`, '%Y.%d.%m') as date"),'news.updated_at','users.name','category.title as cate_name','category_type.id as cate_type_id','category_type.status as cate_type_status','category_type.title as cate_type_title'])
+            ->join([
+                new Operator(null,null,'category_type','news.type','category_type.code'),
+                new Operator(null,null,'category','news.category_id','category.id'),
+                new Operator(null,null,'users','news.creator','users.id'),
+            ])
+            ->whereOperator([new Operator('news.deleted_at',null),new Operator('news.status',1)]);
+        if($request->keyword){
+            $news = $news->whereOperator(new Operator('news.title','%'.$request->keyword.'%',null,null,null,[],'like'));
+            $search['keyword']=$request->keyword;
+        }
+        if($request->category){
+            $news = $news->whereOperator(new Operator('news.category_id',$request->category));
+            $search['category']=$request->category;
+            $data['category']= $this->category->select(['id','title'])->whereOperator([new Operator('deleted_at',null),new Operator('id',$request->category),new Operator('status',1)])->builder();
+        }
+        $news = $news->orderByDesc('news.view')->paging($data['per_page'],$data['page'],false);
+        $data['news']=$news;
+        return $this->responseAPI($data,'Lấy dữ liệu thành công',200);
+    }
 }

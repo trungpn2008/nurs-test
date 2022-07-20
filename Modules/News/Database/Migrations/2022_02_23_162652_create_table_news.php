@@ -16,7 +16,7 @@ class CreateTableNews extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->id();
             $table->string('title')->comment('tiêu đề');
-            $table->string('alias')->comment('alias');
+            $table->string('alias')->nullable()->comment('alias');
             $table->bigInteger('category_id')->nullable()->comment('Danh mục');
             $table->bigInteger('option_id')->nullable()->comment('Danh mục');
             $table->text('short_description')->nullable()->comment('Mô tả ngắn');

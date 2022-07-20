@@ -16,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 //Route::prefix('api')->name('api.')->group(function() {
     Route::prefix('news')->name('news.')->group(function() {
         Route::get('/list', 'NewsController@listArticle')->name('listing');
+        Route::get('/list-popular', 'NewsController@listPopular')->name('popular');
     });
 //});

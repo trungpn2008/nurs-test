@@ -40,7 +40,7 @@ export default {
             errors:[]
         }
     },
-    mounted () {
+    created () {
         axios.get(`/api/news/list`)
             .then(response => {
                 this.listColumn = response.data.data.news.data

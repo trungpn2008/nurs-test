@@ -13,8 +13,8 @@
                         </b-col>
                         <b-col cols="7">
                             <div class="content-ranking">
-                                <p class="time-article">{{ item.time }}</p>
-                                <p class="cate-article">{{ item.category }}</p>
+                                <p class="time-article">{{ item.date }}</p>
+                                <p class="cate-article">{{ item.cate_name }}</p>
                                 <p class="title-article">{{ item.title }}</p>
                             </div>
                         </b-col>
@@ -26,50 +26,29 @@
 </template>
 
 <script>
+import axios from "axios";
+import moment from "moment"
+import dayjs from 'dayjs';
 export default {
     name: "ArticleRanking",
     data() {
         return {
             title: "",
-            listArticle: [
-                {
-                    title: '県外の介護付き有料老人ホームに入居…',
-                    category: '介護付き有料老人ホーム ',
-                    image: "/images/frontend/image/534534.png",
-                    href: '#',
-                    time: "2022.05.09",
-                },
-                {
-                    title: '県外の介護付き有料老人ホームに入居…',
-                    category: '介護付き有料老人ホーム ',
-                    image: "/images/frontend/image/534534.png",
-                    href: '#',
-                    time: "2022.05.09",
-                },
-                {
-                    title: '県外の介護付き有料老人ホームに入居…',
-                    category: '介護付き有料老人ホーム ',
-                    image: "/images/frontend/image/534534.png",
-                    href: '#',
-                    time: "2022.05.09",
-                },
-                {
-                    title: '県外の介護付き有料老人ホームに入居…',
-                    category: '介護付き有料老人ホーム ',
-                    image: "/images/frontend/image/534534.png",
-                    href: '#',
-                    time: "2022.05.09",
-                },
-                {
-                    title: '県外の介護付き有料老人ホームに入居…',
-                    category: '介護付き有料老人ホーム ',
-                    image: "/images/frontend/image/534534.png",
-                    href: '#',
-                    time: "2022.05.09",
-                },
-            ]
+            listArticle: [],
+            errors:[]
         }
-    }
+    },
+    created () {
+        axios.get(`/api/news/list-popular`)
+            .then(response => {
+                this.listArticle = response.data.data.news.data
+            })
+            .catch(e => {
+                this.errors.push(e)
+            })
+    },
+
+
 }
 </script>
 
