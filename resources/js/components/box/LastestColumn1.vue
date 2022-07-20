@@ -2,7 +2,7 @@
     <div class="box-list-column1">
         <p class="title-box c-9cbe5a bd-c-9cbe5a">{{ title }}</p>
         <div class="list-column">
-            <b-container fluid>
+            <b-container fluid class="pd-0">
                 <b-row>
                     <b-col cols="12" sm="12" class="item-list-column" c v-for="item of listColumn">
                         <div class="item-column" :items="listColumn"

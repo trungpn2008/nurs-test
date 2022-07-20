@@ -19,7 +19,7 @@
                             <!--                        <p class="text-keywords-search">このワードに近いキーワード</p>-->
                             <div class="list-keywords-search">
                                 <ul>
-                                    <li v-for="(index,item) of listKeyword" :key="index"><a
+                                    <li v-for="(item,index) of listKeyword" :key="index"><a
                                         :href="item.href">{{ item.text }}</a></li>
                                 </ul>
                             </div>
@@ -28,7 +28,7 @@
                         <div class="list-result-search-keywords">
                             <p class="title-count-result-search-keywords">51,812件見つかりました</p>
                             <div class="content-result-search-keywords">
-                                <a :href="item1.href" class="item-result" v-for="(index,item1) of listresult"
+                                <a :href="item1.href" class="item-result" v-for="(item1,index) of listresult"
                                    :key="index">
                                     <b-container fluid>
                                         <b-row>
@@ -57,7 +57,7 @@
                             <div class="list-relate-keywords-search">
                                 <b-container fluid>
                                     <b-row>
-                                        <b-col cols="6" sm="6" v-for="(index,item2) of listRelateKeyword" :key="index">
+                                        <b-col cols="6" sm="6" v-for="(item2,index) of listRelateKeyword" :key="index">
                                             <a :href="item2.href">{{ item2.text }}</a>
                                         </b-col>
                                     </b-row>

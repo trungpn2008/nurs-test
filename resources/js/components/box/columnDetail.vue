@@ -39,7 +39,7 @@
                         答えてくれたのは…
                     </p>
                     <div class="short-profile-nurs">
-                        <b-container fluid>
+                        <b-container fluid class="pd-0">
                             <b-row class="relative z-idx">
                                 <b-col cols="12" sm="3">
                                     <b-img src="/images/frontend/image/242344234.png"

@@ -3,7 +3,7 @@
         <banner6></banner6>
         <qa-info-nrusing></qa-info-nrusing>
         <div class="info-homepage">
-            <b-container fluid>
+            <b-container fluid class="pd-0">
                 <b-row>
                     <b-col cols="12" sm="8">
                         <lastest-column1></lastest-column1>

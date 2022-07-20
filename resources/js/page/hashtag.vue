@@ -8,7 +8,7 @@
             </div>
             <div class="list-hashtag">
                 <b-row>
-                    <b-col cols="12" sm="4" v-for="(index,item) of listHashtag" :key="index">
+                    <b-col cols="12" sm="4" v-for="(item,index) of listHashtag" :key="index">
                         <p class="text-hashtag"><a href="#">{{item.text}} <span>({{item.count}})</span></a></p>
                     </b-col>
                 </b-row>

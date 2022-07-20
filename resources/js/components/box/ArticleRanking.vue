@@ -28,7 +28,6 @@
 <script>
 import axios from "axios";
 import moment from "moment"
-import dayjs from 'dayjs';
 export default {
     name: "ArticleRanking",
     data() {
