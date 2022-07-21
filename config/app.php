@@ -174,8 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        UniSharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
+//        UniSharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+//        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*

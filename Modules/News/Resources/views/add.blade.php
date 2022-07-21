@@ -149,25 +149,19 @@
         // CKEDITOR.replace('description',editor_config);
         // CKEDITOR.replace('short_description',editor_config);
         // CKEDITOR.replace('note',editor_config);
-        const mediaUpload = ({filesList, onFileChange}) => {
-            setTimeout(() => {
-                const uploadedFiles = Array.from(filesList).map(file => {
-                    return {
-                        id: file.name,
-                        name: file.name,
-                        url: `https://dummyimage.com/600x400/000/fff&text=${file.name}`
-                    }
-                })
-                onFileChange(uploadedFiles)
-            }, 1000)
-        }
-        const options = {
-            mediaUpload: {mediaUpload},
-        }
-        Laraberg.init('description',{mediaUpload})
-        $("#ckfinder-popup-image").on('click',function () {
-            selectFileWithCKFinder( 'ckfinder-input-image' );
-        })
+        // const mediaUpload = ({filesList, onFileChange}) => {
+        //     setTimeout(() => {
+        //         const uploadedFiles = Array.from(filesList).map(file => {
+        //             return {
+        //                 id: file.name,
+        //                 name: file.name,
+        //                 url: `https://dummyimage.com/600x400/000/fff&text=${file.name}`
+        //             }
+        //         })
+        //         onFileChange(uploadedFiles)
+        //     }, 1000)
+        // }
+
         function selectFileWithCKFinder( elementId ) {
             CKFinder.modal( {
                 chooseFiles: true,
@@ -188,6 +182,22 @@
                 }
             } );
         }
+        const mediaUpload = ({filesList, onFileChange}) => {
+            setTimeout(() => {
+                const uploadedFiles = Array.from(filesList).map(file => {
+                    return {
+                        id: file.name,
+                        name: file.name,
+                        url: `https://dummyimage.com/600x400/000/fff&text=${file.name}`
+                    }
+                })
+                onFileChange(uploadedFiles)
+            }, 1000)
+        }
+        Laraberg.init('description',{ mediaUpload })
+        $("#ckfinder-popup-image").on('click',function () {
+            selectFileWithCKFinder( 'ckfinder-input-image' );
+        })
         $(document).ready(function () {
             get_categorys({
                 object: '#category_action',

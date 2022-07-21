@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/config', function (Request $request) {
-    return $request->user();
+Route::prefix('config')->name('config.')->group(function() {
+    Route::get('', 'ConfigController@config')->name('config');
+    Route::get('/{type?}', 'ConfigController@detailByKey')->name('key');
 });

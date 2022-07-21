@@ -55,6 +55,7 @@
     <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
 
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="{{ asset('vendor/laravel-filemanager/js/script.js') }}"></script>
     <script src="{{ asset('vendor/laraberg/js/laraberg.js') }}"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
