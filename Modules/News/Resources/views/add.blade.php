@@ -94,7 +94,7 @@
 {{--                    </div>--}}
                     <div class="col-md-12">
                         <label class="form-label" for="description">Nội dung bài viết</label>
-                        <textarea name="description" id="description"  class="form-control" placeholder="Nội dung bài viết" cols="30" rows="10"></textarea>
+                        <textarea name="description" id="description"  class="form-control" placeholder="Nội dung bài viết" cols="30" rows="10" hidden></textarea>
                     </div>
                     <div class="col-md-12">
                         <label class="form-label" for="source">Nguồn</label>
@@ -146,10 +146,25 @@
             {{--        filebrowserBrowseUrl: '{{ url('/kcfinder/browse.php?type=image') }}',--}}
 
         };
-        CKEDITOR.replace('description',editor_config);
-        CKEDITOR.replace('short_description',editor_config);
-        CKEDITOR.replace('note',editor_config);
-
+        // CKEDITOR.replace('description',editor_config);
+        // CKEDITOR.replace('short_description',editor_config);
+        // CKEDITOR.replace('note',editor_config);
+        const mediaUpload = ({filesList, onFileChange}) => {
+            setTimeout(() => {
+                const uploadedFiles = Array.from(filesList).map(file => {
+                    return {
+                        id: file.name,
+                        name: file.name,
+                        url: `https://dummyimage.com/600x400/000/fff&text=${file.name}`
+                    }
+                })
+                onFileChange(uploadedFiles)
+            }, 1000)
+        }
+        const options = {
+            mediaUpload: {mediaUpload},
+        }
+        Laraberg.init('description',{mediaUpload})
         $("#ckfinder-popup-image").on('click',function () {
             selectFileWithCKFinder( 'ckfinder-input-image' );
         })

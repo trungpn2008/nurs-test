@@ -11,9 +11,9 @@ const routers = [
     {
         path: '/home',
         components: {
-            header:()=> import('./layouts/header.vue'),
+            // header:()=> import('./layouts/header.vue'),
             default:()=> import('./page/home2.vue'),
-            footer:()=> import('./layouts/footer.vue'),
+            // footer:()=> import('./layouts/footer.vue'),
         },
         name: 'pc-top1',
     },

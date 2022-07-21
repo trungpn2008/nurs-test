@@ -18,4 +18,4 @@ Route::get('/', function () {
 //Route::get('/', 'HomeController@index')->name('dashboard');
 Route::get('/{any}', function () {
     return view('welcome');
-})->where('any', '^(?!(admin|api)).*$');
+})->where('any', '^(?!(admin|api|laravel-filemanager)).*$');
