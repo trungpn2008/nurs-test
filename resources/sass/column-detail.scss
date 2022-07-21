@@ -1,0 +1,278 @@
+$XS: 575px;
+$SM: 576px;
+$MD: 769px;
+$LG: 992px;
+$XL: 1025px;
+$XXL: 1200px;
+$XXX: 1439px;
+$XXXL: 1599px;
+
+// media queries
+
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (max-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (max-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == LG {
+        @media only screen and (min-width: $LG) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (min-width: $XL) {
+            @content;
+        }
+    } @else if $canvas == XXL {
+        @media only screen and (min-width: $XXL) {
+            @content;
+        }
+    } @else if $canvas == XXX {
+        @media only screen and (min-width: $XXX) {
+            @content;
+        }
+    } @else if $canvas == XXXL {
+        @media only screen and (min-width: $XXXL) {
+            @content;
+        }
+    }
+}
+
+@mixin Responsive1($canvas) {
+    @if $canvas == XS {
+        @media only screen and (max-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (min-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (min-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == LG {
+        @media only screen and (min-width: $LG) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (min-width: $XL) {
+            @content;
+        }
+    } @else if $canvas == XXL {
+        @media only screen and (min-width: $XXL) {
+            @content;
+        }
+    } @else if $canvas == XXX {
+        @media only screen and (min-width: $XXX) {
+            @content;
+        }
+    } @else if $canvas == XXXL {
+        @media only screen and (min-width: $XXXL) {
+            @content;
+        }
+    }
+}
+.column-detail {
+    @include Responsive1(XS) {
+        padding: 0 5px;
+    }
+    @include Responsive1(SM) {
+        padding: 0 5px;
+    }
+
+    .quest-detail {
+        .time-and-type {
+            display: flex;
+            background-color: #79684C;
+            border-radius: 10px 10px 0 0;
+            padding: 15px;
+
+            .time-detail {
+                margin: 0;
+                font-size: 16px;
+                margin-right: 20px;
+                color: #fff;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 20px;
+            }
+
+            .type-detail {
+                margin: 0;
+                font-size: 16px;
+                color: #fff;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 20px;
+            }
+        }
+
+        .type-of-cate {
+            display: flex;
+            background-color: #EBF2DC;
+            padding: 10px 20px;
+
+            p {
+                margin-right: 20px;
+                margin-bottom: 0;
+            }
+        }
+
+        .label-customer-question-type {
+            display: flex;
+            padding: 10px 30px;
+            border-bottom: 2px solid #9cbe5a;
+
+            p {
+                margin: 0;
+                font-size: 18px;
+                line-height: 40px;
+                margin-left: 15px;
+            }
+        }
+
+        .customer-question {
+            padding: 10px 20px;
+            min-height: 150px;
+            position: relative;
+            background-color: #EBF2DC;
+
+            .short-info-customer {
+                position: absolute;
+                bottom: 10px;
+            }
+        }
+
+        .answer-customer-question {
+            //display: flex;
+            padding: 20px;
+            //border-bottom: 1px solid #79684e;
+            margin-bottom: 10px;
+            background-color: #fff;
+            border-radius: 0 0 15px 15px;
+            position: relative;
+
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 40px;
+                width: 100%;
+                background-color: #EBF2DC;
+                border-radius: 0 0 15px 15px;
+                @include Responsive1(XS) {
+                    height: 48%;
+                }
+                @include Responsive1(SM) {
+                    height: 48%;
+                }
+                @include Responsive1(MD) {
+                    height: 40px;
+                }
+                @include Responsive1(LG) {
+                    height: 40px;
+                }
+
+            }
+
+            p {
+                line-height: 25px;
+                margin-bottom: 0;
+                font-size: 15px;
+            }
+
+            .label-answer {
+                line-height: 40px;
+                margin-left: 15px;
+                @include Responsive1(XS) {
+                    line-height: 20px;
+                }
+                @include Responsive1(SM) {
+                    line-height: 20px;
+                }
+                @include Responsive1(MD) {
+                    line-height: 40px;
+                }
+                @include Responsive1(LG) {
+                    line-height: 40px;
+                }
+
+            }
+
+            .label-answer-type {
+                display: flex;
+                padding: 10px 15px;
+                border-bottom: 2px solid #79684e;
+            }
+
+
+            .answer-nurs {
+                margin-bottom: 20px;
+            }
+
+            .info-nurs {
+                .text-answer-was {
+                    font-size: 17px;
+                    color: #9cbe5a;
+                }
+
+                .short-profile-nurs {
+                    position: relative;
+
+                    .btn-contact-x {
+                        font-size: 14px;
+                        border-radius: 10px;
+                        color: #fff;
+                        background-color: #0AAACD;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 20px;
+                        border: none;
+
+                        margin-top: 10px;
+                        @include Responsive1(MD) {
+                            display: block;
+                            margin: auto;
+                        }
+                        @include Responsive1(LG) {
+                            display: block;
+                            margin: auto;
+                        }
+
+                    }
+                }
+
+                .person-position {
+                    font-size: 13px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 20px;
+                    display: inline-block;
+                    margin-bottom: 0;
+                }
+
+                .name-manager {
+                    font-size: 18px;
+                    font-weight: 700;
+                    font-style: normal;
+                    line-height: 20px;
+                    display: inline-block;
+                    margin-bottom: 0;
+                }
+                .text-name-profile-mobile{
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,790 @@
+
+
+$XS: 575px;
+$SM: 576px;
+$MD: 769px;
+$LG: 992px;
+$XL: 1025px;
+$XXL: 1200px;
+$XXX: 1439px;
+$XXXL: 1599px;
+
+// media queries
+
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (max-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (max-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == LG {
+        @media only screen and (min-width: $LG) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (min-width: $XL) {
+            @content;
+        }
+    } @else if $canvas == XXL {
+        @media only screen and (min-width: $XXL) {
+            @content;
+        }
+    } @else if $canvas == XXX {
+        @media only screen and (min-width: $XXX) {
+            @content;
+        }
+    } @else if $canvas == XXXL {
+        @media only screen and (min-width: $XXXL) {
+            @content;
+        }
+    }
+}
+
+@mixin Responsive1($canvas) {
+    @if $canvas == XS {
+        @media only screen and (max-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (min-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (min-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == LG {
+        @media only screen and (min-width: $LG) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (min-width: $XL) {
+            @content;
+        }
+    } @else if $canvas == XXL {
+        @media only screen and (min-width: $XXL) {
+            @content;
+        }
+    } @else if $canvas == XXX {
+        @media only screen and (min-width: $XXX) {
+            @content;
+        }
+    } @else if $canvas == XXXL {
+        @media only screen and (min-width: $XXXL) {
+            @content;
+        }
+    }
+}
+footer {
+    .box-consultation-method {
+        padding: 75px 100px;
+        background: linear-gradient(89.76deg, #DDF3F8 0.19%, #DDF3F8 99.8%);
+
+        .content-consultation-method {
+            display: flex;
+
+            .title-consultation-method {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 40px;
+                line-height: 48px;
+                color: #0AAACD;
+                margin-right: 40px;
+                min-width: 260px;
+
+                img {
+                    margin-right: 30px;
+                }
+            }
+
+            .des-consultation-method {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 30px;
+                color: #0AAACD;
+            }
+        }
+
+        .contact-method {
+            margin-top: 83px;
+            //margin-left: 42px;
+
+            a {
+                text-decoration: none;
+            }
+
+            .item-contact-method {
+                position: relative;
+                background-color: #ffffff;
+                width: 160px;
+                height: 152px;
+                border-radius: 5px;
+
+                .image-method {
+                    position: absolute;
+                    left: 50%;
+                    top: 25%;
+                    transform: translate(-50%, -50%)
+                }
+
+                .content-contact-method {
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+
+                    .title-contact-method {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 26px;
+                        line-height: 31px;
+                        color: #0AAACD;
+                        text-align: center;
+                    }
+
+                    .text-contact-method {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 15px;
+                        color: #7A7573;
+                        text-align: center;
+                    }
+                }
+
+                .cycle-pin-image {
+                    position: absolute;
+                    left: -50%;
+                    top: 0;
+                    transform: translate(95%, -25%);
+                    width: 60px;
+                }
+            }
+        }
+    }
+
+    .footer {
+        display: flex;
+        padding: 38px 30px;
+
+        .footer-left {
+
+            min-width: 400px;
+
+            .logo-page-footer {
+                margin-bottom: 75px;
+            }
+
+            .info-footer {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 25px;
+                color: #50432F;
+
+                .text-address {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .footer-mid {
+            min-width: 255px;
+            padding: 10px 30px;
+
+            ul {
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+
+                li {
+                    a {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 30px;
+                        color: #50432F;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        .footer-right {
+            padding: 10px 0 10px 23px;
+
+            .text-group-company {
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 30px;
+            }
+
+            a {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 30px;
+                color: #50432F;
+                text-decoration: none;
+            }
+        }
+    }
+}
+@include Responsive(XS) {
+    footer {
+        .box-consultation-method {
+            padding: 30px;
+            background: linear-gradient(89.76deg, #DDF3F8 0.19%, #DDF3F8 99.8%);
+
+            .content-consultation-method {
+                display: block;
+
+                .title-consultation-method {
+                    font-family: "Noto Sans JP";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 40px;
+                    line-height: 48px;
+                    color: #0AAACD;
+                    margin-right: 48px;
+                    min-width: 260px;
+
+                    img {
+                        margin-right: 0px;
+                    }
+                }
+
+                .des-consultation-method {
+                    font-family: "Noto Sans JP";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 30px;
+                    color: #0AAACD;
+                }
+            }
+
+            .contact-method {
+                margin-top: 10px;
+                margin-left: 5px;
+
+                a {
+                    font-family: "Noto Sans JP";
+                    text-decoration: none;
+                }
+
+                .item-contact-method {
+                    position: relative;
+                    background-color: #ffffff;
+                    width: 100%;
+                    height: auto;
+                    border-radius: 5px;
+                    margin-bottom: 10px;
+                    padding: 5px;
+
+                    .image-method {
+                        position: relative;
+                        left: unset;
+                        top: unset;
+                        transform: unset;
+                        width: 35px;
+                        height: 100%;
+                        padding: 0px;
+                    }
+
+                    .content-contact-method {
+                        position: relative;
+                        bottom: 0;
+                        width: 100%;
+
+                        .title-contact-method {
+                            font-family: "Noto Sans JP";
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 18px;
+                            line-height: 40px;
+                            color: #0AAACD;
+                            text-align: center;
+                            margin: 0;
+                            position: relative;
+                            left: 15px;
+                        }
+
+                        .text-contact-method {
+                            font-family: "Noto Sans JP";
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 8px;
+                            line-height: 40px;
+                            color: #7A7573;
+                            text-align: center;
+                            margin: 0;
+                        }
+                    }
+
+                    .cycle-pin-image {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        transform: translate(-50%, -10%);
+                        width: 65px;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            display: flex;
+            padding: 20px 30px;
+
+            .footer-left {
+                min-width: unset;
+                border-bottom: 1px solid #000;
+                padding-bottom: 20px;
+
+                .logo-page-footer {
+                    margin-bottom: 25px;
+                    position: relative;
+
+                    img {
+                        display: flex;
+                        margin: auto;
+                    }
+                }
+
+                .info-footer {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 25px;
+                    color: #50432F;
+                    text-align: center;
+
+                    .text-address {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .footer-mid {
+                text-align: center;
+                min-width: 255px;
+                padding: 20px 30px;
+                border-bottom: 1px solid #000;
+
+                ul {
+                    padding: 0;
+                    margin: 0;
+                    list-style-type: none;
+
+                    li {
+                        a {
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 30px;
+                            color: #50432F;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+            .footer-right {
+                padding: 20px 0;
+
+                .text-group-company {
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 30px;
+                }
+
+                a {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 30px;
+                    color: #50432F;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+}
+
+@include Responsive(SM) {
+    footer {
+        .box-consultation-method {
+            padding: 30px;
+            background: linear-gradient(89.76deg, #DDF3F8 0.19%, #DDF3F8 99.8%);
+
+            .content-consultation-method {
+                display: block;
+
+                .title-consultation-method {
+                    font-family: "Noto Sans JP";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 40px;
+                    line-height: 48px;
+                    color: #0AAACD;
+                    margin-right: 48px;
+                    min-width: 260px;
+
+                    img {
+                        margin-right: 0px;
+                    }
+                }
+
+                .des-consultation-method {
+                    font-family: "Noto Sans JP";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 30px;
+                    color: #0AAACD;
+                }
+            }
+
+            .contact-method {
+                margin-top: 10px;
+                margin-left: 5px;
+
+                a {
+                    font-family: "Noto Sans JP";
+                    text-decoration: none;
+                }
+
+                .item-contact-method {
+                    position: relative;
+                    background-color: #ffffff;
+                    width: 100%;
+                    height: auto;
+                    border-radius: 5px;
+                    margin-bottom: 10px;
+                    padding: 5px;
+
+                    .image-method {
+                        position: relative;
+                        left: unset;
+                        top: unset;
+                        transform: unset;
+                        width: 35px;
+                        height: 100%;
+                        padding: 0px;
+                    }
+
+                    .content-contact-method {
+                        position: relative;
+                        bottom: 0;
+                        width: 100%;
+
+                        .title-contact-method {
+                            font-family: "Noto Sans JP";
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 18px;
+                            line-height: 40px;
+                            color: #0AAACD;
+                            text-align: center;
+                            margin: 0;
+                            position: relative;
+                            left: 15px;
+                        }
+
+                        .text-contact-method {
+                            font-family: "Noto Sans JP";
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 8px;
+                            line-height: 40px;
+                            color: #7A7573;
+                            text-align: center;
+                            margin: 0;
+                        }
+                    }
+
+                    .cycle-pin-image {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        transform: translate(-50%, -10%);
+                        width: 65px;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            display: flex;
+            padding: 20px 30px;
+
+            .footer-left {
+                min-width: unset;
+                border-bottom: 1px solid #000;
+                padding-bottom: 20px;
+
+                .logo-page-footer {
+                    margin-bottom: 25px;
+                    position: relative;
+
+                    img {
+                        display: flex;
+                        margin: auto;
+                    }
+                }
+
+                .info-footer {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 25px;
+                    color: #50432F;
+                    text-align: center;
+
+                    .text-address {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .footer-mid {
+                text-align: center;
+                min-width: 255px;
+                padding: 20px 30px;
+                border-bottom: 1px solid #000;
+
+                ul {
+                    padding: 0;
+                    margin: 0;
+                    list-style-type: none;
+
+                    li {
+                        a {
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 30px;
+                            color: #50432F;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+            .footer-right {
+                padding: 20px 0;
+
+                .text-group-company {
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 30px;
+                }
+
+                a {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 30px;
+                    color: #50432F;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+}
+
+@include Responsive(MD) {
+    footer {
+        .box-consultation-method {
+            padding: 5px;
+            background: linear-gradient(89.76deg, #DDF3F8 0.19%, #DDF3F8 99.8%);
+
+            .content-consultation-method {
+                display: block;
+
+                .title-consultation-method {
+                    font-family: "Noto Sans JP";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 40px;
+                    line-height: 48px;
+                    color: #0AAACD;
+                    margin-right: 48px;
+                    min-width: 260px;
+
+                    img {
+                        margin-right: 0px;
+                    }
+                }
+
+                .des-consultation-method {
+                    font-family: "Noto Sans JP";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 30px;
+                    color: #0AAACD;
+                }
+            }
+
+            .contact-method {
+                margin-top: 10px;
+                margin-left: 5px;
+
+                a {
+                    font-family: "Noto Sans JP";
+                    text-decoration: none;
+                }
+
+                .item-contact-method {
+                    position: relative;
+                    background-color: #ffffff;
+                    width: 100%;
+                    height: auto;
+                    border-radius: 5px;
+                    margin-bottom: 10px;
+                    padding: 5px;
+
+                    .image-method {
+                        position: relative;
+                        left: unset;
+                        top: unset;
+                        transform: unset;
+                        width: 35px;
+                        height: 100%;
+                        padding: 0px;
+                    }
+
+                    .content-contact-method {
+                        position: relative;
+                        bottom: 0;
+                        width: 100%;
+
+                        .title-contact-method {
+                            font-family: "Noto Sans JP";
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 18px;
+                            line-height: 40px;
+                            color: #0AAACD;
+                            text-align: center;
+                            margin: 0;
+                            position: relative;
+                            left: 15px;
+                        }
+
+                        .text-contact-method {
+                            font-family: "Noto Sans JP";
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 8px;
+                            line-height: 40px;
+                            color: #7A7573;
+                            text-align: center;
+                            margin: 0;
+                        }
+                    }
+
+                    .cycle-pin-image {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        transform: translate(-40%, -10%);
+                        width: 65px;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            display: flex;
+            padding: 20px 30px;
+
+            .footer-left {
+                min-width: unset;
+                border-bottom: 1px solid #000;
+                padding-bottom: 20px;
+
+                .logo-page-footer {
+                    margin-bottom: 25px;
+                    position: relative;
+
+                    img {
+                        display: flex;
+                        margin: auto;
+                    }
+                }
+
+                .info-footer {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 25px;
+                    color: #50432F;
+                    text-align: center;
+
+                    .text-address {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .footer-mid {
+                text-align: center;
+                min-width: 255px;
+                padding: 20px 30px;
+                border-bottom: 1px solid #000;
+
+                ul {
+                    padding: 0;
+                    margin: 0;
+                    list-style-type: none;
+
+                    li {
+                        a {
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 30px;
+                            color: #50432F;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+            .footer-right {
+                padding: 20px 0;
+
+                .text-group-company {
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 30px;
+                }
+
+                a {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 30px;
+                    color: #50432F;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
