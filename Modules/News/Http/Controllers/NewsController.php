@@ -275,7 +275,7 @@ class NewsController extends Controller
 //        dd($data['per_page']);
         $data['page'] = $request->input('page',1);
         $news = $this->news
-            ->select(['news.id','news.image','news.title','news.arrange','news.status','news.view',DB::raw("DATE_FORMAT (`news`.`created_at`, '%Y.%d.%m') as date"),'news.updated_at','users.name','category.title as cate_name','category_type.id as cate_type_id','category_type.status as cate_type_status','category_type.title as cate_type_title'])
+            ->select(['news.id','news.image','news.title','news.arrange','news.status','news.view',DB::raw("DATE_FORMAT(`news`.`created_at`, '%Y.%d.%m') as date"),'news.updated_at','users.name','category.title as cate_name','category_type.id as cate_type_id','category_type.status as cate_type_status','category_type.title as cate_type_title'])
             ->join([
                 new Operator(null,null,'category_type','news.type','category_type.code'),
                 new Operator(null,null,'category','news.category_id','category.id'),
