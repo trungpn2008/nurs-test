@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/blueprinttype', function (Request $request) {
-    return $request->user();
+Route::prefix('images-type')->name('images-type.')->group(function() {
+    Route::get('/', 'BlueprintTypeController@listType')->name('listing');
+    Route::get('/detail', 'BlueprintTypeController@listDetail')->name('detail');
 });

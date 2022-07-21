@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
+use Modules\BlueprintType\Entities\BlueprintType;
 use Modules\Images\Entities\Images;
 
 class ImagesController extends Controller
@@ -21,10 +22,12 @@ class ImagesController extends Controller
          */
         private $images;
         private $history_activity;
+        private $bluesprint;
         function __construct()
         {
             $this->images = new Images();
             $this->history_activity = new HistoryActivity();
+            $this->bluesprint = new BlueprintType();
         }
 
         public function index(Request $request)
@@ -87,6 +90,7 @@ class ImagesController extends Controller
             unset($data['_token']);
             $data['created_at'] = $data['updated_at'] =now();
             $data['type'] = 'Banner';
+            $data['list_image'] = json_encode($data['list_image']);
             $images = $this->images->insertData($data);
             if($images){
                 $this->history_activity->addHistory('Thêm hình ảnh thành công','Images','Add','Tài khoản '.Auth::user()->name.' thêm hình ảnh thành công','Thêm hình ảnh','Success',$images);
@@ -119,7 +123,11 @@ class ImagesController extends Controller
                 return back()->with('error','Bạn không có quyền edit!');
             }
             $data['type'] = $request->type?$request->type:'';
+            $data['blueprinttype'] = null;
             $data['images'] = $this->images->whereOperator(new Operator('id',$id))->builder();
+            if($data['images']->blueprint_type_id){
+                $data['blueprinttype'] = $this->bluesprint->whereOperator([new Operator('status',1),new Operator('id',$data['images']->blueprint_type_id)])->builder();
+            }
             $this->history_activity->addHistory('Vào trang sửa hình ảnh','Images','EditForm','Tài khoản '.Auth::user()->name.' vào trang sửa hình ảnh','Vào trang sửa hình ảnh','Nomal',$id);
             return view('images::edit',$data);
         }
@@ -140,6 +148,7 @@ class ImagesController extends Controller
             unset($data['_token']);
             $data['updated_at'] =now();
             $data['status'] =isset($data['status'])?1:0;
+            $data['list_image'] = json_encode($data['list_image']);
             if($id){
                 $images = $this->images->updateData($data,$id);
                 if($images){
@@ -176,4 +185,43 @@ class ImagesController extends Controller
             $this->history_activity->addHistory('Xóa hình ảnh không tìm thấy bản ghi','Images','Delete','Tài khoản '.Auth::user()->name.' Xóa hình ảnh không tìm thấy bản ghi','Xóa hình ảnh không tìm thấy bản ghi','Error');
             return back()->with('error','Không tìm thấy bản ghi');
         }
+
+    public function getBoxImages(Request $request)
+    {
+        $type = $request->input('type', null);
+        $count = $request->input('count', 0);
+        if(empty($type)){
+            self::jsonError('Không có type');
+        }
+        if (file_exists(base_path('Modules/Images/Resources/views/box/'.$type.'.blade.php'))) {
+//            $categorys = $this->categorys->whereOperator([new Operator('status',1),new Operator('deleted_at',null)])->builder();
+            $projects = '';
+            return view('images::box.'.$type,compact('projects','type','count'));
+        }
+        return 'false-load';
+    }
+    public function listImages(Request $request)
+    {
+        $data['per_page'] = $request->input('per_page',6);
+        $data['page'] = $request->input('page',1);
+        $images = $this->images->whereOperator([new Operator('deleted_at',null),new Operator('type','Banner')])->orderByDesc()->paging($data['per_page'],$data['page'],false);
+        return $this->responseAPI($images,'Lấy dữ liệu thành công',200);
+    }
+    public function listDetail(Request $request)
+    {
+        $data['arrange'] = $request->input('arrange',null);
+        $data['type'] = $request->input('type',null);
+        $images = $this->images->whereOperator([new Operator('deleted_at',null),new Operator('type','Banner')]);
+        if($data['arrange']){
+            $images = $images->whereOperator(new Operator('arrange',$data['arrange']));
+        }
+        if($data['type']){
+            $images = $images->whereOperator(new Operator('blueprint_type_id',$data['type']));
+        }
+        $images = $images->builder();
+        if($images){
+            return $this->responseAPI($images,'Lấy dữ liệu thành công',200);
+        }
+        return $this->responseAPI([],'Lấy dữ liệu không thành công',500);
+    }
 }

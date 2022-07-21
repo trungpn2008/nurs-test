@@ -308,7 +308,7 @@ class NewsController extends Controller
             ])
             ->whereOperator([new Operator('news.deleted_at',null),new Operator('news.status',1)]);
 
-            $news = $news->whereOperator(new Operator('news.id',$data['id'],null,null,null,[],'like'));
+            $news = $news->whereOperator(new Operator('news.id',$data['id']));
             $search['keyword']=$request->keyword;
             $news = $news->orderByDesc('news.created_at')->builder();
             return $this->responseAPI($news,'Lấy dữ liệu thành công',200);
