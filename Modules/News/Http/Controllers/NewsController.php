@@ -39,15 +39,14 @@ class NewsController extends Controller
         if((!isset($pemission['perms']['News']) || in_array('news.index',isset($pemission['perms']['News'])?$pemission['perms']['News']:[]) == false) && $pemission['super'] != 1){
             return back()->with('error','Bạn không có quyền vào trang này!');
         }
-        $data['per_page'] = Cookie::get('per_page', 20);
-//        dd($data['per_page']);
+        $data['per_page'] = Cookie::get('per_page', 3);
         $data['page'] = Cookie::get('page', 1);
         $data['title']='Danh sách bài viết';
         $search = ['keyword'=>'','category'=>''];
         DB::enableQueryLog();
 //        $data['news'] = $this->news->whereOperator(new Operator('deleted_at',null))->orderByDesc()->paging($data['per_page'],$data['page'])->builder(false);
         $news = $this->news
-            ->select(['news.id','news.image','news.title','news.arrange','news.status','news.view','news.created_at','news.updated_at','users.name','category.title as cate_name'])
+            ->select(['news.id','news.image','news.title','news.arrange','news.short_description','news.status','news.view','news.created_at','news.updated_at','users.name','category.title as cate_name'])
             ->join([
                 new Operator(null,null,'category','news.category_id','category.id'),
                 new Operator(null,null,'users','news.creator','users.id'),
@@ -245,11 +244,11 @@ class NewsController extends Controller
     }
     public function listArticle(Request $request)
     {
-        $data['per_page'] = $request->input('per_page',6);
+        $data['per_page'] = $request->input('per_page',3);
 //        dd($data['per_page']);
         $data['page'] = $request->input('page',1);
         $news = $this->news
-            ->select(['news.id','news.image','news.title','news.arrange','news.status','news.view','news.created_at','news.updated_at','users.name','category.title as cate_name','category_type.id as cate_type_id','category_type.status as cate_type_status','category_type.title as cate_type_title'])
+            ->select(['news.id','news.image','news.title','news.arrange','news.short_description','news.status','news.view','news.created_at','news.updated_at','users.name','category.title as cate_name','category_type.id as cate_type_id','category_type.status as cate_type_status','category_type.title as cate_type_title'])
             ->join([
                 new Operator(null,null,'category_type','news.type','category_type.code'),
                 new Operator(null,null,'category','news.category_id','category.id'),
@@ -275,7 +274,7 @@ class NewsController extends Controller
 //        dd($data['per_page']);
         $data['page'] = $request->input('page',1);
         $news = $this->news
-            ->select(['news.id','news.image','news.title','news.arrange','news.status','news.view',DB::raw("DATE_FORMAT(`news`.`created_at`, '%Y.%d.%m') as date"),'news.updated_at','users.name','category.title as cate_name','category_type.id as cate_type_id','category_type.status as cate_type_status','category_type.title as cate_type_title'])
+            ->select(['news.id','news.image','news.title','news.short_description','news.arrange','news.status','news.view',DB::raw("DATE_FORMAT(`news`.`created_at`, '%Y.%d.%m') as date"),'news.updated_at','users.name','category.title as cate_name','category_type.id as cate_type_id','category_type.status as cate_type_status','category_type.title as cate_type_title'])
             ->join([
                 new Operator(null,null,'category_type','news.type','category_type.code'),
                 new Operator(null,null,'category','news.category_id','category.id'),

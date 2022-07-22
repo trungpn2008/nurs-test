@@ -34,6 +34,15 @@ const routers = [
             footer:()=> import('./layouts/footer.vue'),
         },
         name: 'news',
+    },
+    {
+        path: '/fqa',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/fqa/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
     }
 
 ];

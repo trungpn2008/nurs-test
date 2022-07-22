@@ -30,55 +30,38 @@
 									</p>
 								</div>
 								<p class="title">
-									{{news[0].name}}
+									{{news[0].title}}
 								</p>
 
 								<p class="image">
 									<img :src="news[0].image" alt="">
 								</p>
 								<p class="text">
-									平素は格別のお引き立てを賜り、厚く御礼申し上げます。<br>
-									誠に勝手ながら弊社では下記の期間を年末年始休業とさせていただきます。
+									{{news[0].short_description}}
 								</p>
 							</div>
 							<div class="box-right">
-								<div class="info">
-									<div class="bg-title">
+								<template v-for="(item,index) in news">
+                                    <div class="info" v-if="index!=0" :key="index">
+									    <div class="bg-title">
 										<p class="btn">
 											<a href="#">
-												お知らせ
+												{{item.cate_name}}
 											</a>
 										</p>
 										<p class="date">
-											2022/05/15 18:28
+											{{item.created_at}}
 										</p>
 										</div>
 										<p class="img">
-											<img src="img/img02.jpg" alt="">
+											<img :src="item.image" alt="">
 										</p>
 										<p class="text">
-											年末年始の休業のお知らせ
+											{{item.title}}
 										</p>
 									</div>
-								<div class="info">
-									<div class="bg-title">
-										<p class="btn">
-											<a href="#">
-												お知らせ
-											</a>
-										</p>
-										<p class="date">
-											2022/05/15 18:28
-										</p>
-									</div>
-										<p class="img">
-											<img src="img/img02.jpg" alt="">
-										</p>
-										<p class="text">
-											年末年始の休業のお知らせ
-										</p>
 
-								</div>
+                                </template>
 							</div>
 						</div>
 						<p class="page">
@@ -105,81 +88,7 @@
 								</div>
 
 							</div>
-							<div class="info-box">
-								<div class="article">
-									<p class="image">
-										<img src="img/icon_page.png" alt="">
-									</p>
-									<p class="att">
-										掲示板
-									</p>
-									<p class="note">
-										受付時間：24時間受付
-									</p>
-									<p class="num">
-										<span>
-											24
-										</span>
-										時間
-									</p>
-								</div>
-								<div class="article">
-									<p class="image">
-										<img src="img/icon_mail.png" alt="">
-									</p>
-									<p class="att">
-										メール
-									</p>
-									<p class="note">
-										受付時間：24時間受付
-									</p>
-									<p class="num">
-										<span>
-											24
-										</span>
-										時間
-									</p>
-								</div>
-								<div class="article">
-									<p class="image">
-										<img src="img/icon_tel.png" alt="">
-									</p>
-									<p class="att">
-										電　話
-									</p>
-									<p class="note">
-										受付時間：平日9：00～18：00
-									</p>
-								</div>
-								<div class="article">
-									<p class="image">
-										<img src="img/icon_zoom.png" alt="">
-									</p>
-									<p class="att">
-										zoom
-									</p>
-									<p class="note">
-										受付時間：平日9：00～18：00
-									</p>
-								</div>
-								<div class="article">
-									<p class="image">
-										<img src="img/icon_line.png" alt="">
-									</p>
-									<p class="att">
-										LINE
-									</p>
-									<p class="note">
-										受付時間：24時間受付
-									</p>
-									<p class="num">
-										<span>
-											24
-										</span>
-										時間
-									</p>
-								</div>
-							</div>
+							<Infor/>
 						</div>
 					</div>
 				</div>
@@ -193,31 +102,31 @@
 </template>
 
 <script>
+import Infor from "../../components/Infor.vue";
 
 export default {
-    data(){
+    data() {
         return {
-            news :[],
-            paging : null
-        }
+            news: [],
+            paging: null
+        };
     },
-    methods:{
-        async getNews(){
-            console.log(this.axios);
-            let {data} = await this.axios.get('api/news/list',{
+    methods: {
+        async getNews() {
+            let { data } = await this.axios.get("api/news/list", {
                 auth: {
-                    username: 'care21@greentechsolutions',
-                    password: 'care21greentech@'
+                    username: "care21@greentechsolutions",
+                    password: "care21greentech@"
                 },
             });
             this.paging = data.data.news;
             this.news = this.paging.data;
-            console.log(this.news)
         }
     },
-    async created(){
+    async mounted() {
         await this.getNews();
-    }
+    },
+    components: { Infor }
 }
 </script>
 

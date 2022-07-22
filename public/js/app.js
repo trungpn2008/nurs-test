@@ -5904,6 +5904,20 @@ var routers = [{
     }
   },
   name: 'news'
+}, {
+  path: '/fqa',
+  components: {
+    header: function header() {
+      return __webpack_require__.e(/*! import() */ "resources_js_layouts_header_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./layouts/header.vue */ "./resources/js/layouts/header.vue"));
+    },
+    "default": function _default() {
+      return __webpack_require__.e(/*! import() */ "resources_js_pages_fqa_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./pages/fqa/index.vue */ "./resources/js/pages/fqa/index.vue"));
+    },
+    footer: function footer() {
+      return __webpack_require__.e(/*! import() */ "resources_js_layouts_footer_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./layouts/footer.vue */ "./resources/js/layouts/footer.vue"));
+    }
+  },
+  name: 'news'
 }];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (routers);
 
@@ -46015,7 +46029,7 @@ Vue.compile = compileToFunctions;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_layouts_header_vue":1,"resources_js_pages_home_index_vue":1,"resources_js_layouts_footer_vue":1,"resources_js_pages_homes_index_vue":1,"resources_js_pages_introduction_index_vue":1,"resources_js_pages_news_index_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_layouts_header_vue":1,"resources_js_pages_home_index_vue":1,"resources_js_layouts_footer_vue":1,"resources_js_pages_homes_index_vue":1,"resources_js_pages_introduction_index_vue":1,"resources_js_pages_news_index_vue":1,"resources_js_pages_fqa_index_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
@@ -46166,7 +46180,7 @@ Vue.compile = compileToFunctions;
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if(/^(resources_js_(layouts_(foot|head)er_vue|pages_(home(|s)_index_vue|(introduction|news)_index_vue))|\/js\/app)$/.test(chunkId)) {
+/******/ 						if(!/^css\/(co(lumn(|\-detail)|nsultation)|(bann|foot|info\-us)er|app|event|head|manager\-introduction|notice|post|qa)$/.test(chunkId)) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);

@@ -10,5 +10,6 @@
     "Applies": true,
     "Projects": true,
     "BlueprintType": true,
-    "Config": true
+    "Config": true,
+    "FAQ": true
 }

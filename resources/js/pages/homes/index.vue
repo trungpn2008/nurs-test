@@ -637,81 +637,7 @@
 								</div>
 
 							</div>
-							<div class="info-box">
-								<div class="article">
-									<p class="image">
-										<img src="img/icon_page.png" alt="">
-									</p>
-									<p class="att">
-										掲示板
-									</p>
-									<p class="note">
-										受付時間：24時間受付
-									</p>
-									<p class="num">
-										<span>
-											24
-										</span>
-										時間
-									</p>
-								</div>
-								<div class="article">
-									<p class="image">
-										<img src="img/icon_mail.png" alt="">
-									</p>
-									<p class="att">
-										メール
-									</p>
-									<p class="note">
-										受付時間：24時間受付
-									</p>
-									<p class="num">
-										<span>
-											24
-										</span>
-										時間
-									</p>
-								</div>
-								<div class="article">
-									<p class="image">
-										<img src="img/icon_tel.png" alt="">
-									</p>
-									<p class="att">
-										電　話
-									</p>
-									<p class="note">
-										受付時間：平日9：00～18：00
-									</p>
-								</div>
-								<div class="article">
-									<p class="image">
-										<img src="img/icon08.png" alt="">
-									</p>
-									<p class="att">
-										zoom
-									</p>
-									<p class="note">
-										受付時間：平日9：00～18：00
-									</p>
-								</div>
-								<div class="article">
-									<p class="image">
-										<img src="img/icon09.png" alt="">
-									</p>
-									<p class="att">
-										LINE
-									</p>
-									<p class="note">
-										受付時間：24時間受付
-									</p>
-									<p class="num">
-										<span>
-											24
-										</span>
-										時間
-									</p>
-								</div>
-							</div>
+							<Infor />
 						</div>
 					</div>
 				</div>
@@ -725,8 +651,9 @@
 </template>
 
 <script>
+import Infor from '../../components/Infor.vue';
 export default {
-
+    components: { Infor }
 }
 </script>
 
