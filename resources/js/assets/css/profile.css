@@ -1,0 +1,322 @@
+#header {
+    border-bottom: 1px solid #C4C4C4;
+}
+
+.content {
+    background-color: #FCF9FC;
+}
+
+.mainimg {
+    display: none;
+}
+
+.mainimg.no {
+    display: none;
+}
+
+.bread {
+    display: flex;
+    margin-bottom: 99px;
+    padding-top: 106px;
+    padding-left: 20px;
+}
+
+.bread li a {
+    font-size: 1.6rem;
+    font-weight: normal;
+    position: relative;
+    padding: 0 3px 0 14px;
+    font-family: 'Sawarabi Mincho', serif;
+}
+
+.bread li a::after {
+    content: '>';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.bread li:first-child a::after {
+    content: '';
+}
+
+.profile {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto 120px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px 0 #00000040;
+    padding: 105px 73px 50px 76px;
+}
+
+.profile .title {
+    font-size: 2.5rem;
+    line-height: 1.4;
+    font-weight: normal;
+    font-family: 'Sawarabi Mincho', serif;
+    text-align: center;
+    position: relative;
+    z-index: 9;
+    margin-bottom: 50px;
+}
+
+.profile .title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    background-color: #C4C4C4;
+    width: 100%;
+    height: 1px;
+    z-index: -1;
+}
+
+.profile .title span {
+    background-color: #FFFFFF;
+    padding: 0 50px;
+}
+
+.profile .image {
+    text-align: center;
+    width: 250px;
+    height: 250px;
+    background-color: #F2F2F2;
+    box-shadow: 0 2px 10px 0 #00000040;
+    margin: 0 auto 102px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.profile label{
+    font-size: 2rem;
+    line-height: 1.4;
+    color:#000000;
+    font-family: 'Sawarabi Mincho', serif;
+    display: block;
+    margin-bottom: -20px;
+}
+.profile input{
+    width: 650px;
+    height: 60px;
+    background-color: #FCF9FC;
+    box-shadow: 0 2px 10px 0 #00000040 inset ;
+    border-radius:5px;
+    padding: 0 15px;
+    font-size: 2rem;
+    color:#000;
+    font-weight: normal;
+}
+.profile .info{
+    margin-bottom: 25px;
+}
+.profile .info-box{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+.profile .info-box label {
+    font-size: 2rem;
+    font-weight: normal;
+    font-family: 'Sawarabi Mincho', serif;
+    line-height: 1.3;
+    display: block;
+    margin-bottom: -20px;
+}
+.profile .info-box select{
+    width: 300px;
+    height: 60px;
+    font-size: 2rem;
+    line-height: 1.4;
+    background-color: #FCF9FC;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px 0 #00000040 inset;
+    font-family: 'Sawarabi Mincho', serif;
+    padding: 0 15px;
+    display: block;
+}
+.profile .info-box label span{
+    color:#EB3223;
+    font-size: 1.4rem;
+    margin-left: 10px;
+}
+.profile .info-box .info-right{
+    margin-left: 50px;
+}
+.profile textarea {
+    width: 650px;
+    height: 150px;
+    background-color: #FCF9FC;
+    box-shadow: 0 2px 10px 0 #00000040 inset ;
+    border-radius: 5px;
+}
+
+.profile .att{
+    font-size:1.8rem ;
+    line-height: 1.4;
+    font-weight: normal;
+    font-family: 'Sawarabi Mincho', serif;
+    margin-bottom: 61px;
+}
+.profile .case .title{
+    margin-bottom: 40px;
+}
+.profile .case label{
+    font-size: 2rem;
+    line-height: 1.4;
+    font-family: 'Sawarabi Mincho', serif;
+    display: block;
+    margin-bottom: -20px;
+}
+.profile .case label span{
+    color:#EB3223;
+    margin-left: 10px;
+}
+.profile .case select{
+    width: 652px;
+    height: 60px;
+    background: #FCF9FC;
+    box-shadow: 0 2px 10px 0 #00000040 inset;
+    border-radius: 5px;
+    font-size: 2rem;
+    font-weight: normal;
+    font-family: 'Sawarabi Mincho', serif;
+    padding:0 15px;
+    margin-bottom: 30px;
+}
+.profile .case .btn{
+    max-width: 350px;
+    width: 100%;
+    margin: 20px auto 50px;
+}
+.profile .case .btn a{
+    display: block;
+    background-color: #FFF;
+    border: 1px solid #000000;
+    border-radius: 60px;
+    padding: 16px 10px 17px;
+}
+.profile .case .btn a:hover{
+    text-decoration: none;
+    opacity: 0.8;
+}
+.profile .case .btn a span{
+    background:url('../img/icon_plus.png') left center no-repeat;
+    padding-left: 25px;
+}
+.profile .list{
+    display: flex;
+    justify-content: center;
+}
+.profile .list li{
+    max-width: 150px;
+    width: 100%;
+}
+.profile .list li + li {
+    margin-left: 30px;
+}
+.profile .list li a{
+    display: block;
+    font-size: 2.6rem;
+    line-height: 1.4;
+    text-align: center;
+    color:#000000;
+    font-weight: normal;
+    font-family: 'Sawarabi Mincho', serif;
+    background-color: #FFFFFF;
+    border-radius: 60px;
+    box-shadow: 0 2px 10px 0 #00000040;
+    padding : 12px 10px;
+}
+.profile .list li:last-child a{
+    background-color: #0D2340;
+    color:#FFF;
+}
+.profile .list li a:hover{
+    text-decoration: none;
+    opacity: 0.8;
+}
+.index_banner .bg-title {
+    font-size: 4rem;
+    line-height: 1.4;
+    color: #0AAACD;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0;
+}
+
+.index_banner .bg-title span {
+    background: url('../img/icon29.png') left center no-repeat;
+    padding: 10px 0 10px 100px;
+}
+
+.index_banner .text {
+    font-size: 1.6rem;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.875;
+    font-weight: 400;
+}
+
+.index_banner .att {
+    font-weight: normal;
+    font-family: 'Inter', sans-serif;
+}
+
+.index_banner .article .note {
+    font-family: 'Inter', sans-serif;
+}
+
+.index_banner .num {
+    font-family: 'Inter', sans-serif;
+    font-weight: normal;
+
+}
+
+.f-info {
+    font-weight: normal;
+    font-family: 'Inter', sans-serif;
+    color: #50432F;
+
+}
+
+.f-box__center .list li a {
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-family: 'Inter', sans-serif;
+    color: #50432F;
+}
+
+.f-box__right .f-title {
+    color: #50432F;
+    font-family: 'Inter', sans-serif;
+
+}
+
+.f-box__right .info-box .list-info li a {
+    font-family: 'Inter', sans-serif;
+    font-weight: normal;
+    color: #50432F;
+}
+@media screen and (max-width:960px){
+    .profile input{
+        max-width: 100%;
+    }
+    .profile .info-box{flex-direction: column;}
+    .profile .info-box select{
+       margin:auto 0 20px 0;
+       max-width: 100%;
+    }
+    .profile .info-box .info-right{
+        margin: auto  0 0 0;
+    }
+    .profile textarea{
+        max-width: 100%;
+    }
+    .profile .case select{
+        max-width: 100%;
+    }
+}

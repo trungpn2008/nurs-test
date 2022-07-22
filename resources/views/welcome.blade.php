@@ -8,7 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        {!! Assets::renderHeader() !!}
+        {{-- {!! Assets::renderHeader() !!} --}}
 
         <!-- Styles -->
         <style>
@@ -21,7 +21,7 @@
             }
         </style>
     </head>
-    <body class="antialiased">
+    <body class=" drawer drawer--left">
     <div id="app"></div>
     <script src="/js/app.js"></script>
     {!! Assets::renderFooter() !!}

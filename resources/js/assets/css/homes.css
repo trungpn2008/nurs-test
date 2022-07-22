@@ -1,0 +1,424 @@
+.homes-list {
+    background-color: #EBF2DC;
+}
+
+.homes-list .box {
+    max-width: 1110px;
+    width: 100%;
+    padding: 35px 15px 0;
+    margin: 0 auto;
+
+}
+
+.homes-list .list-btn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.homes-list .list-btn li {
+    max-width: 330px;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.homes-list .list-btn li a {
+    display: block;
+    border: 1px solid #79684C;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    font-size: 2rem;
+    line-height: 1.4;
+    color: #79684C;
+    font-weight: normal;
+    letter-spacing: 0;
+    text-align: center;
+    padding: 15px 10px;
+}
+
+.homes-list .list-btn li a:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+/* homes-posted */
+.homes-posted {
+    position: relative;
+    z-index: 9;
+}
+
+.homes-posted::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #FEFBF2;
+    width: calc(50% + 187px);
+    height: 100%;
+    z-index: -1;
+}
+
+.homes-posted .box {
+    max-width: 1110px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.homes-posted .box-left {
+    max-width: 705px;
+    width: 100%;
+    padding: 57px 0 40px;
+}
+
+.homes-posted .box-left .image {
+    max-width: 150px;
+    width: 100%;
+}
+
+.homes-posted .box-left .bg-title {
+    font-size: 2.2rem;
+    font-weight: normal;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    letter-spacing: 0;
+    color: #9DBE52;
+    line-height: 1.4;
+    border-bottom: 2px solid #9DBE52;
+    text-align: center;
+    padding-bottom: 8px;
+}
+
+.homes-posted .box-left .info-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 43px;
+}
+
+.homes-posted .box-left .article {
+    display: flex;
+    border-bottom: 1px solid #7F7F80;
+    padding: 30px 0;
+}
+
+.homes-posted .box-left .text-box {
+    margin-left: 20px;
+}
+
+.homes-posted .box-left .time {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.homes-posted .box-left .date {
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: #9E9E9F;
+    letter-spacing: 0;
+    font-weight: normal;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin-right: 23px;
+}
+
+.homes-posted .box-left .att {
+    font-size: 1.4rem;
+    color: #FFFFFF;
+    font-weight: 1.2;
+    letter-spacing: 0;
+    font-weight: normal;
+    text-align: center;
+    background-color: #79684C;
+    border-radius: 15px;
+    max-width: 178px;
+    width: 100%;
+}
+
+.homes-posted .box-left .title {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    letter-spacing: 0;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.homes-posted .box-left .text {
+    font-size: 1.6rem;
+    line-height: 1.5625;
+    letter-spacing: 0;
+    font-weight: normal;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: #000000;
+    margin-bottom: 12px;
+}
+
+.homes-posted .box-left .author {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 0 10px;
+}
+
+.homes-posted .box-left .page {
+    font-size: 1.8rem;
+    line-height: 1.2222;
+    letter-spacing: 0;
+    color: #79684C;
+}
+
+.homes-posted .box-left .page span {
+    background: url(../img/icon20.png) left center no-repeat;
+    padding-left: 30px;
+}
+
+.homes-posted .box-left .question {
+    font-size: 1.8rem;
+    line-height: 1.2222;
+    letter-spacing: 0;
+    color: #79684C;
+    margin-left: 15px;
+}
+
+.homes-posted .box-left .question span {
+    background: url(../img/icon21.png) left center no-repeat;
+    padding-left: 30px;
+}
+
+.homes-posted .pager {
+    display: flex;
+    justify-content: center;
+}
+
+.homes-posted .pager li {
+    margin: 0 5px;
+}
+
+.homes-posted ul.pager a {
+    display: block;
+    border: 1px solid #7F7F80;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 10px;
+    font-size: 1.8rem;
+    letter-spacing: 0;
+    font-weight: normal;
+    color: #000000;
+    width: 37px;
+    height: 37px;
+}
+
+.homes-posted .pager li a:hover {
+    text-decoration: none;
+}
+
+.homes-posted .pager li.active:hover a {
+    background-color: #9DBE52;
+    border: 1px solid #9DBE52;
+    color: #FFF;
+
+}
+
+.homes-posted ul.pager a:hover,
+.homes-posted ul.pager a.current {
+    background-color: #9DBE52;
+    border: 1px solid #9DBE52;
+    color: #FFF;
+}
+
+.homes-posted .pager li a.link_before,
+.homes-posted .pager li a.link_next {
+    background-color: #BFBFBF;
+    border: 1px solid #7F7F80;
+}
+
+
+
+.homes-posted .box-right {
+    max-width: 330px;
+    width: 100%;
+    padding: 62px 0 38px;
+}
+
+.homes-posted .category {
+    border: 7px solid #4D8DC5;
+    padding: 16px 10px 7px;
+    background: url('../img/no-image.png') center no-repeat;
+    margin-bottom: 36px;
+}
+
+.homes-posted .box-right .term {
+    text-align: center;
+    color: #4D8DC5;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    letter-spacing: 0;
+    font-weight: 500;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    max-width: 136px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 88px;
+}
+
+.homes-posted .box-right .term span {
+    background: url('../img/icon18.png') left center no-repeat, url('../img/icon19.png') right center no-repeat;
+    padding: 0 20px;
+    display: block;
+
+}
+
+.homes-posted .category .att {
+    font-size: 2rem;
+    line-height: 1.3;
+    letter-spacing: 0;
+    font-weight: bold;
+    color: #4D8DC5;
+    text-align: center;
+}
+
+.homes-posted .product {
+    margin-bottom: 40px;
+}
+
+.homes-posted .product .title {
+    font-size: 2.2rem;
+    line-height: 1.4;
+    text-align: center;
+    color: #EB6D8E;
+    font-weight: normal;
+    letter-spacing: 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    border-bottom: 2px solid #EB6D8E;
+    padding-bottom: 13px;
+    margin-bottom: 30px;
+}
+
+.homes-posted .box-right .article {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.homes-posted .box-right .bg-title {
+    display: flex;
+    align-items: center;
+}
+
+.homes-posted .box-right .bg-title .num {
+    font-size: 2.7rem;
+    line-height: 1.2;
+    color: #FFF;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    padding: 3px 5px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 5px;
+    background-color: #79684C;
+}
+
+.homes-posted .product .article:nth-child(2) .bg-title .num {
+    color: #F6D133;
+    background-color: #FFF;
+    border: 1px solid #F6D133;
+}
+
+.homes-posted .product .article:nth-child(3) .bg-title .num {
+    color: #908C8A;
+    border: 1px solid #908C8A;
+    background-color: #FFF;
+}
+
+.homes-posted .product .article:nth-child(4) .bg-title .num {
+    color: #B67A20;
+    border: 1px solid #B67A20;
+    background-color: #FFF;
+}
+
+.homes-posted .box-right .text-box {
+    padding: 0;
+    max-width: 180px;
+    width: 100%;
+    margin-left: 12px;
+}
+
+.homes-posted .box-right .date {
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: #9E9E9F;
+    font-weight: normal;
+    letter-spacing: 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin-bottom: 8px;
+}
+
+.homes-posted .box-right .note {
+    font-size: 1.4rem;
+    background-color: #79684C;
+    border-radius: 15px;
+    text-align: center;
+    color: #FFF;
+    margin-bottom: 6px;
+}
+
+.homes-posted .box-right .text {
+    font-size: 1.6rem;
+    line-height: 1.375;
+    letter-spacing: 0;
+    font-weight: 500;
+    color: #000000;
+}
+
+.homes-posted .keywords .title {
+    font-size: 2.2rem;
+    line-height: 1.4;
+    font-weight: normal;
+    color: #79684C;
+    text-align: center;
+    letter-spacing: 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    border-bottom: 2px solid #79684C;
+    padding-bottom: 3px;
+    margin-bottom: 27px;
+}
+
+.homes-posted .keywords .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.homes-posted .keywords .list li {
+    max-width: 160px;
+    width: 100%;
+    background-color: #EBE8E4;
+    border-radius: 15px;
+    text-align: center;
+    color: #79684C;
+    font-size: 1.7rem;
+    line-height: 1.4;
+    letter-spacing: 0;
+    font-weight: normal;
+    padding: 1px 5px 1px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 960px) {
+    .homes-posted .box {
+        flex-direction: column;
+    }
+
+    .homes-list .list-btn {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .homes-posted .box-left .article {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,396 @@
+.nursing{
+    position: relative;
+    z-index: 9;
+}
+.nursing::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #FEFBF2;
+    width: calc(50% + 187px);
+    height: 100%;
+    z-index: -1;
+}
+.nursing .box{
+    max-width: 1110px;
+    width: 100%;
+    padding: 35px 15px 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+.nursing  .box-left{
+    max-width: 705px;
+    width: 100%;
+    padding: 0px 0 0px
+}
+
+.nursing .box-left .bg-title{
+    background-color: #79684C;
+    border: 1px solid #79684C;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+align-items: center;
+padding: 10px 10px 8px 23px
+}
+
+.nursing  .box-left .author {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 0 10px;
+    background-color: #EBF2DC;
+    padding: 12px 15px ;
+}
+.nursing  .box-left .page {
+    font-size: 1.8rem;
+    line-height: 1.2222;
+    letter-spacing: 0;
+    color: #79684C;
+}
+.nursing .box-left .page span {
+    background: url(../img/icon20.png) left center no-repeat;
+    padding-left: 30px;
+}
+.nursing  .box-left .question {
+    font-size: 1.8rem;
+    line-height: 1.2222;
+    letter-spacing: 0;
+    color: #79684C;
+    margin-left: 15px;
+}
+.nursing  .box-left .question span {
+    background: url(../img/icon21.png) left center no-repeat;
+    padding-left: 30px;
+}
+.nursing  .box-left .att{
+    font-size: 2.2rem;
+    line-height: 1.275;
+    font-weight: normal;
+    color:#9DBE52;
+    background-color: #FFFFFF;
+    padding: 24px 10px 23px 30px;
+    margin-top: -10px;
+}
+.nursing  .box-left .att span{
+    background: url('../img/icon30.png') left center no-repeat;
+    padding: 5px 10px 5px 47px;
+}
+.nursing  .box-left .bg-text{
+    background-color: #EBF2DC;
+    padding: 23px 15px 14px 20px;
+}
+.nursing  .box-left .bg-text .text{
+    font-size: 1.6rem;
+    line-height: 1.56;
+    letter-spacing: 0;
+    color:#000000;
+    font-weight: normal;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+.nursing  .box-left .bg-text .text + .text{
+    margin-top: 60px;
+}
+.nursing  .box-left .image{
+    text-align: center;
+    margin-bottom: 33px;
+    padding-top: 30px;
+}
+.nursing  .box-left .note{
+    font-size: 1.8rem;
+    line-height: 1.4;
+    letter-spacing: 0;
+    font-weight: normal;
+    color:#211815;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    border-bottom: 2px solid #7F7F80;
+    padding-bottom: 17px;
+    margin-bottom: 13px;
+}
+.nursing  .box-left .info-box{
+    background-color: #FFF;
+    padding: 0 30px;
+    margin-bottom: 15px;
+    position: relative;
+}
+.nursing .info-box::after{
+    content:'';
+    position: absolute;
+    bottom:-20px;
+    left:0;
+    background-color: #EBF2DC;
+    width: 100%;
+    height: 35px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+}
+.nursing  .box-left .note span{
+    background:url('../img/icon31.png') left center no-repeat;
+    padding: 10px 10px 5px 46px;
+}
+.nursing  .box-left .language {
+    margin-bottom: 22px;
+}
+.nursing  .box-left .answer .title{
+    font-size: 2rem;
+    line-height: 1.4;
+    color:#9DBE52;
+    letter-spacing: 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: normal;
+    margin-bottom: 26px;
+}
+.nursing  .box-left .answer .inner{
+    display: flex;
+    position: relative;
+    z-index: 9;
+}
+
+.nursing   .inner .info{
+margin-left: 20px;
+margin-top: 12px;
+}
+.nursing   .inner .info-inner{
+    margin-bottom: 20px;
+}
+.nursing  .box-left .img{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 8px;
+}
+.nursing  .box-left .answer .att{
+    font-size: 1.6rem;
+    background: none;
+    letter-spacing: 0;
+    font-weight: 1.4;
+    color:#211815;
+    padding:0;
+    margin-bottom: 3px;
+}
+.nursing  .box-left .answer .info .title{
+    font-size: 2.6rem;
+    line-height: 1.4;
+    color:#211815;
+    font-weight: 500;
+    margin:0;
+}
+.nursing  .box-left .answer .text-box{
+    font-size: 1.6rem;
+    color:#000000;
+}
+.nursing  .box-left .btn{
+    max-width: 150px;
+    width: 100%;
+}
+.nursing  .box-left .btn a{
+    display: block;
+    background-color: #0AAACD;
+    font-size: 1.6rem;
+    color:#FFFFFF;
+    letter-spacing: 0;
+    border-radius: 5px;
+    padding: 4px 5px 5px;
+}
+.nursing  .box-left .btn a:hover{
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.nursing  .box-right{
+    max-width: 330px;
+    width: 100%;
+    padding: 0px 0 142px;
+}
+
+.nursing  .box-right .bg-title{
+    display: flex;
+    align-items: center;
+}
+.nursing .bg-title .title{
+    margin-left: 20px;
+    font-size: 2.2rem;
+    line-height: 1.4;
+    letter-spacing: 0.15em;
+    color:#FFFFFF;
+    font-weight: normal;
+}
+.nursing  .category{
+    border: 7px solid #4D8DC5;
+    padding: 16px 10px 7px;
+    background: url('../img/no-image.png') center no-repeat;
+    margin-bottom: 36px;
+}
+.nursing  .date{
+    color:#FFFFFF;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    font-weight: normal;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    letter-spacing: 0;
+}
+.nursing  .box-right .term{
+    text-align: center;
+    color:#4D8DC5;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    letter-spacing: 0;
+    font-weight: 500;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    max-width: 136px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 88px;
+}
+.nursing  .box-right .term span{
+    background: url('../img/icon18.png') left center no-repeat ,url('../img/icon19.png') right center no-repeat;
+    padding: 0 20px;
+    display: block;
+
+}
+.nursing  .category .att{
+    font-size: 2rem;
+    line-height: 1.3;
+    letter-spacing: 0;
+    font-weight: bold;
+    color:#4D8DC5;
+    text-align: center;
+}
+.nursing  .product{
+    margin-bottom: 11px;
+}
+.nursing  .product .title{
+    font-size: 2.2rem;
+    line-height: 1.4;
+    text-align: center;
+    color:#EB6D8E;
+    font-weight: normal;
+    letter-spacing: 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    border-bottom: 2px solid #EB6D8E;
+    padding-bottom: 13px;
+    margin-bottom: 30px;
+}
+.nursing  .box-right .article{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.nursing  .box-right .bg-title{
+    display: flex;
+    align-items: center;
+}
+.nursing  .box-right .bg-title .num{
+    font-size: 2.7rem;
+    line-height: 1.2;
+    color:#FFF;
+    border-radius: 50%;
+    width: 25px;
+    height:25px;
+    padding: 3px 5px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 5px;
+    background-color: #79684C;
+}
+.nursing .product .article:nth-child(2)  .bg-title .num{
+color:#F6D133;
+background-color: #FFF;
+border: 1px solid #F6D133;
+}
+.nursing  .product .article:nth-child(3) .bg-title .num {
+    color:#908C8A;
+    border: 1px solid #908C8A;
+    background-color: #FFF;
+}
+.nursing  .product .article:nth-child(4) .bg-title .num {
+    color:#B67A20;
+    border: 1px solid #B67A20;
+    background-color: #FFF;
+}
+.nursing  .box-right .text-box{
+    padding:0;
+    max-width: 180px;
+    width: 100%;
+    margin-left: 12px;
+}
+.nursing  .box-right .date{
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color:#9E9E9F;
+    font-weight: normal;
+    letter-spacing: 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin-bottom: 8px;
+}
+.nursing  .box-right .note{
+    font-size: 1.4rem;
+    background-color: #79684C;
+    border-radius: 15px;
+    text-align: center;
+    color:#FFF;
+    margin-bottom: 6px;
+}
+.nursing  .box-right .text{
+    font-size: 1.6rem;
+    line-height: 1.375;
+    letter-spacing: 0;
+    font-weight: 500;
+    color:#000000;
+}
+/* keywords*/
+.nursing  .keywords .title{
+    font-size: 2.2rem;
+    line-height: 1.4;
+    font-weight: normal;
+    color:#79684C;
+    text-align: center;
+    letter-spacing: 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    border-bottom: 2px solid #79684C;
+    padding-bottom: 3px;
+    margin-bottom: 27px;
+}
+.nursing  .keywords .list{
+    display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+.nursing  .keywords .list li{
+    max-width: 160px;
+    width: 100%;
+    background-color: #EBE8E4;
+    border-radius: 15px;
+    text-align: center;
+    color:#79684C;
+    font-size: 1.7rem;
+    line-height: 1.4;
+    letter-spacing: 0;
+    font-weight: normal;
+    padding: 1px 5px 1px;
+    margin-bottom: 20px;
+}
+@media screen and (max-width:960px){
+    .nursing .box{
+        flex-direction: column;
+    }
+    .nursing .box-right{
+        margin: 40px auto 0;
+    }
+    .nursing .box-left .answer .inner{
+        flex-direction: column;
+    }
+    .nursing .box-left .img{
+        margin:0 auto;
+    }
+    .nursing .box-left .btn{
+        margin: 0 auto;
+    }
+    .nursing .inner .info{
+        margin:20px 0 0;
+    }
+}
