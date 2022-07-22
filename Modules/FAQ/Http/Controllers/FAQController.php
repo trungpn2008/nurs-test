@@ -76,4 +76,6 @@ class FAQController extends Controller
     {
         //
     }
+
+
 }
