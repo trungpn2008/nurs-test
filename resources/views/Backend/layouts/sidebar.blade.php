@@ -262,6 +262,81 @@
                 </ul>
             </li>
         @endif
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Faq</span></li>
+        @if(isset($perms['Faqs']) || $super == 1)
+            <li class="menu-item" data-nav="Faqs">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Faqs">Faqs </div>
+                </a>
+                <ul class="menu-sub">
+                    @if(in_array('faqs.index',isset($perms['Faqs'])?$perms['Faqs']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="index">
+                            <a href="{{route('admin.faqs.index')}}" class="menu-link">
+                                <div data-i18n="Danh sách">Danh sách</div>
+                            </a>
+                        </li>
+                    @endif
+                    @if(in_array('faqs.add',isset($perms['Faqs'])?$perms['Faqs']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="add">
+                            <a href="{{route('admin.faqs.add')}}" class="menu-link">
+                                <div data-i18n="Thêm mới">Thêm mới</div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+        @if(isset($perms['FaqCategories']) || $super == 1)
+            <li class="menu-item" data-nav="FaqCategories">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Faq Category">Faq Category</div>
+                </a>
+                <ul class="menu-sub">
+                    @if(in_array('faqcates.index',isset($perms['FaqCategories'])?$perms['FaqCategories']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="index">
+                            <a href="{{route('admin.faqcates.index')}}" class="menu-link">
+                                <div data-i18n="Danh sách">Danh sách</div>
+                            </a>
+                        </li>
+                    @endif
+                    @if(in_array('faqcates.add',isset($perms['FaqCategories'])?$perms['FaqCategories']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="add">
+                            <a href="{{route('admin.faqcates.add')}}" class="menu-link">
+                                <div data-i18n="Thêm mới">Thêm mới</div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Investigation</span></li>
+        @if(isset($perms['Investigation']) || $super == 1)
+            <li class="menu-item" data-nav="Investigation">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Investigation">Investigation </div>
+                </a>
+                <ul class="menu-sub">
+                    @if(in_array('investigation.index',isset($perms['Investigation'])?$perms['Investigation']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="index">
+                            <a href="{{route('admin.investigation.index')}}" class="menu-link">
+                                <div data-i18n="Danh sách">Danh sách</div>
+                            </a>
+                        </li>
+                    @endif
+{{--                    @if(in_array('faqs.add',isset($perms['Faqs'])?$perms['Faqs']:[]) || $super == 1)--}}
+{{--                        <li class="menu-item" data-sub="add">--}}
+{{--                            <a href="{{route('admin.faqs.add')}}" class="menu-link">--}}
+{{--                                <div data-i18n="Thêm mới">Thêm mới</div>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    @endif--}}
+                </ul>
+            </li>
+        @endif
         @if($super == 1)
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Roles & Permission</span></li>
             <li class="menu-item" data-nav="Roles">

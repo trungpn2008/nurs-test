@@ -11,6 +11,25 @@
 |
 */
 
-Route::prefix('faq')->group(function() {
-    Route::get('/', 'FAQController@index');
+Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function() {
+    Route::prefix('faqs')->name('faqs.')->group(function() {
+        Route::get('/', 'FAQController@index')->name('index');
+        Route::get('/add', 'FAQController@create')->name('add');
+        Route::post('/add', 'FAQController@store');
+        Route::get('/edit/{id?}', 'FAQController@edit')->name('edit');
+        Route::post('/edit/{id?}', 'FAQController@update');
+        Route::get('/show/{id?}', 'FAQController@show')->name('show');
+        Route::get('/delete/{id?}', 'FAQController@destroy')->name('delete');
+        Route::get('/ajax-get-category-faq', 'FAQController@getFaqCategory')->name('ajax-get-category-faq');
+    });
+    Route::prefix('faqcates')->name('faqcates.')->group(function() {
+        Route::get('/', 'FAQCategoryController@index')->name('index');
+        Route::get('/add', 'FAQCategoryController@create')->name('add');
+        Route::post('/add', 'FAQCategoryController@store');
+        Route::get('/edit/{id?}', 'FAQCategoryController@edit')->name('edit');
+        Route::post('/edit/{id?}', 'FAQCategoryController@update');
+        Route::get('/show/{id?}', 'FAQCategoryController@show')->name('show');
+        Route::get('/delete/{id?}', 'FAQCategoryController@destroy')->name('delete');
+        Route::get('/ajax-get-category-faq', 'FAQCategoryController@getFaqCategory')->name('ajax-get-category-faq');
+    });
 });

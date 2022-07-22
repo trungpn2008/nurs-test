@@ -11,5 +11,6 @@
     "Projects": true,
     "BlueprintType": true,
     "Config": true,
-    "FAQ": true
+    "FAQ": true,
+    "Investigation": true
 }

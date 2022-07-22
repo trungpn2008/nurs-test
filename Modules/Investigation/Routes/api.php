@@ -13,10 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::prefix('faqs')->name('faqs.')->group(function() {
-    Route::get('/list', 'FAQController@listFaq')->name('listing');
-});
-
-Route::prefix('faq-category')->name('faq-category.')->group(function() {
-    Route::get('/list', 'FAQCategoryController@listFaqCategory')->name('listing');
+Route::prefix('investigation')->name('investigation.')->group(function() {
+    Route::post('/add', 'InvestigationController@addInvestigation')->name('investigation');
 });
