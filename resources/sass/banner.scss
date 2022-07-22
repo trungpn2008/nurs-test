@@ -1,0 +1,260 @@
+
+$XS: 575px;
+$SM: 576px;
+$MD: 769px;
+$LG: 992px;
+$XL: 1025px;
+$XXL: 1200px;
+$XXX: 1439px;
+$XXXL: 1599px;
+
+// media queries
+
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (max-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (max-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == LG {
+        @media only screen and (min-width: $LG) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (min-width: $XL) {
+            @content;
+        }
+    } @else if $canvas == XXL {
+        @media only screen and (min-width: $XXL) {
+            @content;
+        }
+    } @else if $canvas == XXX {
+        @media only screen and (min-width: $XXX) {
+            @content;
+        }
+    } @else if $canvas == XXXL {
+        @media only screen and (min-width: $XXXL) {
+            @content;
+        }
+    }
+}
+
+@mixin Responsive1($canvas) {
+    @if $canvas == XS {
+        @media only screen and (max-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (min-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (min-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == LG {
+        @media only screen and (min-width: $LG) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (min-width: $XL) {
+            @content;
+        }
+    } @else if $canvas == XXL {
+        @media only screen and (min-width: $XXL) {
+            @content;
+        }
+    } @else if $canvas == XXX {
+        @media only screen and (min-width: $XXX) {
+            @content;
+        }
+    } @else if $canvas == XXXL {
+        @media only screen and (min-width: $XXXL) {
+            @content;
+        }
+    }
+}
+.image-banner {
+    img {
+        width: 100%;
+    }
+}
+.banner {
+    position: relative;
+
+    .box-banner1 {
+        .description-banner2 {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transform: translate(-15%, -35%);
+
+            .text-title-banner2 {
+                display: flex;
+                justify-content: right;
+
+                .icon-text {
+                    width: 27px !important;
+                    height: 60px;
+                    margin-right: 20px;
+                }
+
+                .text-title {
+                    p {
+                        color: #EB6D8E;
+                        font-size: 36px;
+                        text-align: right;
+                    }
+                }
+            }
+
+            .content-banner2 {
+                p {
+                    text-align: right;
+                    font-family: "Noto Sans JP";
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: #3E3A39;
+                    margin-bottom: 0;
+                    @include Responsive1(XS) {
+                        font-size: 14px;
+                    }
+                    @include Responsive1(SM) {
+                        font-size: 14px;
+                    }
+                    @include Responsive1(MD) {
+                        font-size: 14px;
+
+                    }
+                    @include Responsive1(LG) {
+                        font-size: 14px;
+                    }
+                    @include Responsive1(XL) {
+                        font-size: 16px;
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    .box-banner2 {
+        background-color: #FDF0F4;
+
+        .description-banner2 {
+            position: relative;
+            bottom: 0;
+            right: 0;
+            padding: 30px 0;
+            //transform: translate(-15%, -35%);
+
+            .text-title-banner2 {
+                display: flex;
+                justify-content: center;
+
+                .icon-text {
+                    width: 27px !important;
+                    height: 60px;
+                    margin-right: 20px;
+                }
+
+                .text-title {
+                    p {
+                        color: #EB6D8E;
+                        font-size: 36px;
+                        text-align: right;
+                    }
+                }
+            }
+
+            .content-banner2 {
+                p {
+                    text-align: left;
+                    font-family: "Noto Sans JP";
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: #3E3A39;
+                    margin-bottom: 0;
+                    padding: 0 50px;
+                }
+            }
+        }
+    }
+}
+
+.image-banner-3 {
+    width: 100%;
+}
+.image-banner {
+    background-color: #FFEE8C;
+
+    .content-banner {
+        padding: 15px 30px;
+
+        .content-f {
+            p {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 26px;
+                line-height: 30px;
+                color: #767CBA;
+                margin-bottom: 0;
+            }
+
+            p1 {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 26px;
+                line-height: 30px;
+                color: #767CBA;
+                margin-bottom: 0;
+            }
+        }
+
+        .content-l {
+            p {
+                font-size: 18px;
+                margin-bottom: 0;
+            }
+        }
+
+        .frames-chat {
+            position: relative;
+
+            img {
+                transform: rotate(180deg);
+            }
+
+            .text-in-framechat {
+                position: absolute;
+                left: 7%;
+                top: 62%;
+                transform: translate(0, -50%);
+                //transform: translate(10%, -50%);
+                p {
+                    margin-bottom: 0;
+                    color: #fff;
+                }
+            }
+        }
+
+    }
+}
+.banner {
+    img {
+        width: 100%;
+    }
+
+}

@@ -25,6 +25,15 @@ const routers = [
             footer:()=> import('./layouts/footer.vue'),
         },
         name: 'homes',
+    },
+    {
+        path: '/news',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/news/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
     }
 
 ];

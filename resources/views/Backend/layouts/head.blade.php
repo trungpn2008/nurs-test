@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="/libs/typeahead-js/typeahead.css" />
     <link rel="stylesheet" href="/libs/apex-charts/apex-charts.css" />
     <link rel="stylesheet" href="/libs/toastr/toastr.css" />
+    <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
 
     <!-- Page CSS -->
     @yield('stylesheet')
@@ -51,6 +52,11 @@
 
     <script src="/libs/select2/select2.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="{{ asset('vendor/laravel-filemanager/js/script.js') }}"></script>
+    <script src="{{ asset('vendor/laraberg/js/laraberg.js') }}"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];

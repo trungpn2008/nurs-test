@@ -23,7 +23,7 @@
     </head>
     <body class=" drawer drawer--left">
     <div id="app"></div>
-    <script src="/js/app.js"></script>
+{{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
     {!! Assets::renderFooter() !!}
     </body>
 </html>

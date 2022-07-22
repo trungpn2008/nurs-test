@@ -1,0 +1,343 @@
+$XS: 575px;
+$SM: 576px;
+$MD: 769px;
+$LG: 992px;
+$XL: 1025px;
+$XXL: 1200px;
+$XXX: 1439px;
+$XXXL: 1599px;
+
+// media queries
+
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (max-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (max-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == LG {
+        @media only screen and (min-width: $LG) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (min-width: $XL) {
+            @content;
+        }
+    } @else if $canvas == XXL {
+        @media only screen and (min-width: $XXL) {
+            @content;
+        }
+    } @else if $canvas == XXX {
+        @media only screen and (min-width: $XXX) {
+            @content;
+        }
+    } @else if $canvas == XXXL {
+        @media only screen and (min-width: $XXXL) {
+            @content;
+        }
+    }
+}
+
+@mixin Responsive1($canvas) {
+    @if $canvas == XS {
+        @media only screen and (max-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (min-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (min-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == LG {
+        @media only screen and (min-width: $LG) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (min-width: $XL) {
+            @content;
+        }
+    } @else if $canvas == XXL {
+        @media only screen and (min-width: $XXL) {
+            @content;
+        }
+    } @else if $canvas == XXX {
+        @media only screen and (min-width: $XXX) {
+            @content;
+        }
+    } @else if $canvas == XXXL {
+        @media only screen and (min-width: $XXXL) {
+            @content;
+        }
+    }
+}
+.notice-holiday {
+    .breadcrumb {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .list-notice-holiday {
+        @include Responsive1(XS) {
+            padding: 0;
+        }
+        @include Responsive1(SM) {
+            padding: 0;
+        }
+        @include Responsive1(MD) {
+            padding: 0 30px;
+        }
+        @include Responsive1(LG) {
+            padding: 0 60px;
+        }
+
+
+        .big-item-notice-holiday {
+            .time-cate {
+                display: flex;
+
+                .time-notice-holiday {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 30px;
+                    color: #4D4D4D;
+                    margin-right: 30px;
+                    margin-bottom: 0;
+                }
+
+                .name-cate {
+                    p {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 10px;
+                        line-height: 18px;
+                        color: #000000;
+                        padding: 2px 10px;
+                        background: #FFFFFF;
+                        border: 1px solid #4D4D4D;
+                        border-radius: 60px;
+                        display: inline-block;
+                        margin-bottom: 0;
+                        position: relative;
+                        top: 50%;
+                        transform: translate(0, -50%);
+                    }
+                }
+            }
+
+            .title-notice-holiday {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 19px;
+                line-height: 50px;
+                color: #000000;
+                margin-bottom: 0;
+            }
+
+            .image-notice-holiday {
+                margin-bottom: 20px;
+
+                img {
+                    width: 100%;
+                    filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.25));
+                    border-radius: 10px;
+                }
+            }
+
+            .content-notice-holiday {
+                p {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 40px;
+                    color: #000000;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .list-item-holiday {
+            margin-top: 45px;
+
+            .item-notice-holiday {
+                .time-cate {
+                    display: flex;
+
+                    .time-notice-holiday {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 40px;
+                        color: #4D4D4D;
+                        margin-bottom: 0;
+                    }
+
+                    .name-cate {
+                        p {
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 10px;
+                            line-height: 18px;
+                            color: #000000;
+                            padding: 2px 10px;
+                            background: #FFFFFF;
+                            border: 1px solid #4D4D4D;
+                            border-radius: 60px;
+                            display: inline-block;
+                            margin-bottom: 0;
+                            margin-right: 20px;
+                            position: relative;
+                            top: 50%;
+                            transform: translate(0, -50%);
+                        }
+                    }
+                }
+
+                .image-notice-holiday {
+                    margin-bottom: 15px;
+
+                    img {
+                        width: 100%;
+                        filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.25));
+                        border-radius: 10px;
+                    }
+                }
+
+                .title-notice-holiday {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 19px;
+                    line-height: 50px;
+                    color: #000000;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+.notice {
+    .breadcrumb {
+        margin-left: 30px;
+        margin-bottom: 30px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .item-link-notice {
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    .list-notice {
+        @include Responsive1(XS) {
+            padding: 0;
+        }
+        @include Responsive1(SM) {
+            padding: 0;
+        }
+        @include Responsive1(MD) {
+            padding: 0 30px;
+        }
+        @include Responsive1(LG) {
+            padding: 0 60px;
+        }
+
+        .list-cate-notice {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+
+            li {
+                a {
+                    background: #ECF0F3;
+                    box-shadow: 10px 10px 20px rgb(0 0 0 / 15%), -10px -10px 10px rgb(255 255 255 / 80%);
+                    border-radius: 10px;
+                    text-align: center;
+                    color: #000000;
+                    padding: 10px 0;
+                    margin-bottom: 20px;
+                    display: block;
+
+                    &:hover, &:focus, &:active, &:target {
+                        background: #FFF0F0;
+                    }
+                }
+            }
+
+        }
+
+        .list-item-notice {
+            padding: 0 30px;
+
+            .image-notice {
+                img {
+                    width: 100%;
+                    filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.25));
+                    border-radius: 10px;
+                }
+            }
+
+            .content-notice {
+                padding: 0 10px;
+
+                .time-cate {
+                    display: flex;
+
+                    .time-notice {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 50px;
+                        color: #4D4D4D;
+                        margin-bottom: 0;
+                        margin-right: 30px;
+                    }
+
+                    .name-cate {
+                        p {
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 10px;
+                            line-height: 18px;
+                            color: #000000;
+                            padding: 2px 10px;
+                            background: #FFFFFF;
+                            border: 1px solid #4D4D4D;
+                            border-radius: 60px;
+                            display: inline-block;
+                            margin-bottom: 0;
+                            margin-right: 20px;
+                            position: relative;
+                            top: 50%;
+                            transform: translate(0, -50%);
+                        }
+                    }
+                }
+
+                .title-notice {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 19px;
+                    line-height: 40px;
+                    color: #000000;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    .pagination{
+        justify-content: center;
+    }
+}

@@ -19,6 +19,14 @@
                         <input type="text" id="title" name="title" class="form-control" placeholder="Tiêu đề" />
                     </div>
                     <div class="col-md-6">
+                        <label class="form-label" for="intro">Intro First</label>
+                        <input type="text" id="intro" name="intro" class="form-control" placeholder="Intro First" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="intro2">Intro Second</label>
+                        <input type="text" id="intro2" name="intro2" class="form-control" placeholder="Intro Second" />
+                    </div>
+                    <div class="col-md-6">
                         <label class="form-label" for="arrange">Sắp xếp</label>
                         <input type="number" id="arrange" name="arrange" class="form-control" placeholder="Sắp xếp" />
                     </div>
@@ -27,6 +35,14 @@
                         <input type="text" id="link" name="link" class="form-control" placeholder="Link" />
                     </div>
                     <div class="col-md-12">
+                        <label class="form-label" for="type-image">Loại</label>
+                        <div class="">
+                            <select id="type-image" name="blueprint_type_id" class="form-select" data-allow-clear="true">
+                                <option value="">Chọn loại</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label" for="ckfinder-input-image">Image</label>
                             <div class="input-group">
@@ -36,7 +52,46 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" for="ckfinder-input-icon">Icon</label>
+                            <div class="input-group">
+                                <input type="text" name="icon" id="ckfinder-input-icon" value=""
+                                       class="form-control"><span class="input-group-btn">
+                                <a id="ckfinder-popup-icon" class="btn btn-primary">Chọn</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" for="ckfinder-input-image-left">Image Left</label>
+                            <div class="input-group">
+                                <input type="text" name="image_left" id="ckfinder-input-image-left" value=""
+                                       class="form-control"><span class="input-group-btn">
+                                <a id="ckfinder-popup-image-left" class="btn btn-primary">Chọn</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" for="ckfinder-input-image-right">Image Right</label>
+                            <div class="input-group">
+                                <input type="text" name="image_right" id="ckfinder-input-image-right" value=""
+                                       class="form-control"><span class="input-group-btn">
+                                <a id="ckfinder-popup-image-right" class="btn btn-primary">Chọn</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label">list images <a href="javascript:void(0);" class="btn btn-primary btn-add-js-images" data-type="listImages" data-boxinput="box-input-list-image" data-boxadd="box-list-images" style="padding: 0;"><i class="bx bx-plus"></i></a></label>
+                        <div class="box-list-images">
 
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label" for="description">Nội dung</label>
+                        <textarea name="description" id="description"  class="form-control" placeholder="Nội dung" cols="30" rows="10"></textarea>
+                    </div>
                 </div>
                 <div class="pt-4">
                     <button type="submit" form="form-images" class="btn btn-primary me-sm-3 me-1">Submit</button>
@@ -59,29 +114,134 @@
     <script src="/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
     <script>CKFinder.config( { connectorPath: '/ckfinder/connector' } );</script>
     <script>
+
+        $(".btn-add-js-images").on('click',function () {
+            var type = $(this).data('type');
+            var boxInput = $(this).data('boxinput');
+            var boxadd = $(this).data('boxadd');
+            var lengBoxInput = $('.'+boxInput).length;
+            $.ajax({
+                type: "get",
+                dataType: "html",
+                url: '{{ route("admin.images.ajax-get-box-images") }}',
+                data: {'type': type,'count':(lengBoxInput)},
+                async: false,
+                success: function (data) {
+                    if(data === 'false-load'){
+                        // $('.'+boxadd).html('<h6 class="fw-normal">Loại box này chưa dựng data!</h6>');
+                        // toastr.warning('Loại danh mục này không có dữ liệu thêm!');
+                    }else{
+                        $("."+boxInput+" .remove-box").hide();
+                        $("."+boxInput+" .accordion-item").removeClass('active');
+                        $("."+boxInput+" .accordion-collapse").removeClass('show');
+                        $('.'+boxadd).append(data);
+                        toastr.success('Load dữ liệu thêm thành công!');
+                    }
+                },
+                error: function () {
+                    // _.alert(_.label("Unknown error."));
+                }
+            });
+        });
         $("#ckfinder-popup-image").on('click',function () {
             selectFileWithCKFinder( 'ckfinder-input-image' );
         })
-        function selectFileWithCKFinder( elementId ) {
-            CKFinder.modal( {
-                chooseFiles: true,
-                top:200,
-                width: 800,
-                height: 600,
-                onInit: function( finder ) {
-                    finder.on( 'files:choose', function( evt ) {
-                        var file = evt.data.files.first();
-                        var output = $("#"+elementId);
-                        output.val(file.getUrl()) ;
-                    } );
+        $("#ckfinder-popup-icon").on('click',function () {
+            selectFileWithCKFinder( 'ckfinder-input-icon' );
+        })
+        $("#ckfinder-popup-image-left").on('click',function () {
+            selectFileWithCKFinder( 'ckfinder-input-image-left' );
+        })
+        $("#ckfinder-popup-image-right").on('click',function () {
+            selectFileWithCKFinder( 'ckfinder-input-image-right' );
+        })
 
-                    finder.on( 'file:choose:resizedImage', function( evt ) {
-                        var output = $("#"+elementId);
-                        output.val(evt.data.resizedUrl);
-                    } );
+        function blueprintType(options) {
+            $(options.object).select2({
+                ajax: {
+                    url: options.url,
+                    dataType: 'json',
+                    data: function(params) {
+                        var query = {
+                            keyword: params.term,
+                        }
+                        return query;
+                    },
+                    processResults: function(json, params) {
+                        var results = [{
+                            id: '',
+                            text: options.title_default
+                        }];
+
+                        for (i in json.data) {
+                            var item = json.data[i];
+                            results.push({
+                                id: item[options.data_id],
+                                text: item[options.data_text]
+                            });
+                        }
+                        return {
+                            results: results,
+                        };
+                    },
                 }
-            } );
+            });
         }
+        $(document).ready(function () {
+            blueprintType({
+                object: '#type-image',
+                url: '{{ route("admin.blueprinttype.ajax-get") }}',
+                data_id: 'id',
+                data_text: 'text',
+                title_default: 'Chọn loại'
+            });
+        })
+            function selectFileWithCKFinder( elementId ) {
+                CKFinder.modal( {
+                    chooseFiles: true,
+                    top:200,
+                    width: 800,
+                    height: 600,
+                    onInit: function( finder ) {
+                        finder.on( 'files:choose', function( evt ) {
+                            var file = evt.data.files.first();
+                            var output = $("#"+elementId);
+                            output.val(file.getUrl()) ;
+                        } );
+
+                        finder.on( 'file:choose:resizedImage', function( evt ) {
+                            var output = $("#"+elementId);
+                            output.val(evt.data.resizedUrl);
+                        } );
+                    }
+                } );
+            }
+
+
+        var editor_config = {
+            language: 'vi',
+            removeButtons : 'Underline,Subscript,Superscript',
+
+            // Set the most common block elements.
+            format_tags : 'p;h1;h2;h3;pre',
+
+            // Simplify the dialog windows.
+            removeDialogTabs : 'image:advanced;link:advanced',
+            fillEmptyBlocks : false,
+            tabSpaces : 0,
+            forcePasteAsPlainText : true,
+            basicEntities : false,
+            entities_latin : false,
+            filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
+            {{--filebrowserImageBrowseUrl: "{{ route('ckfinder_browser') }}?type=Images",--}}
+            {{--filebrowserFlashBrowseUrl: "{{ route('ckfinder_browser') }}?type=Flash",--}}
+            {{--filebrowserUploadUrl     : "{{ route('ckfinder_connector') }}?command=QuickUpload&type=Files",--}}
+            {{--filebrowserImageUploadUrl: "{{ route('ckfinder_connector') }}?command=QuickUpload&type=Images",--}}
+            {{--filebrowserFlashUploadUrl: "{{ route('ckfinder_connector') }}?command=QuickUpload&type=Flash",--}}
+            {{--        filebrowserBrowseUrl: '{{ url('/kcfinder/browse.php?type=image') }}',--}}
+
+        };
+        CKEDITOR.replace('description',editor_config);
         const formAuthentication = document.querySelector('#form-images');
 
         document.addEventListener('DOMContentLoaded', function (e) {

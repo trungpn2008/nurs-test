@@ -1,0 +1,271 @@
+
+$XS: 575px;
+$SM: 576px;
+$MD: 769px;
+$LG: 992px;
+$XL: 1025px;
+$XXL: 1200px;
+$XXX: 1439px;
+$XXXL: 1599px;
+
+// media queries
+
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (max-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (max-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == LG {
+        @media only screen and (min-width: $LG) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (min-width: $XL) {
+            @content;
+        }
+    } @else if $canvas == XXL {
+        @media only screen and (min-width: $XXL) {
+            @content;
+        }
+    } @else if $canvas == XXX {
+        @media only screen and (min-width: $XXX) {
+            @content;
+        }
+    } @else if $canvas == XXXL {
+        @media only screen and (min-width: $XXXL) {
+            @content;
+        }
+    }
+}
+
+@mixin Responsive1($canvas) {
+    @if $canvas == XS {
+        @media only screen and (max-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (min-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (min-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == LG {
+        @media only screen and (min-width: $LG) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (min-width: $XL) {
+            @content;
+        }
+    } @else if $canvas == XXL {
+        @media only screen and (min-width: $XXL) {
+            @content;
+        }
+    } @else if $canvas == XXX {
+        @media only screen and (min-width: $XXX) {
+            @content;
+        }
+    } @else if $canvas == XXXL {
+        @media only screen and (min-width: $XXXL) {
+            @content;
+        }
+    }
+}
+
+.event {
+    background-color: #FCE9EE;
+    @include Responsive1(XS) {
+        padding: 30px;
+    }
+    @include Responsive1(SM) {
+        padding: 30px;
+    }
+    @include Responsive1(MD) {
+        padding: 35px 50px;
+    }
+    @include Responsive1(LG) {
+        padding: 70px 100px;
+    }
+
+    .event-item {
+        position: relative;
+        margin-bottom: 30px;
+
+        .img-frames {
+            //position: relative;
+            //left: 50%;
+            //transform: translate(-50%, 0);
+            width: 100%;
+        }
+
+        .content-in-img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            /* right: 12px; */
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            overflow: hidden;
+            border: 2px solid #eb6d8e;
+            border-radius: 10px;
+            box-shadow: 6px 6px 0px #eb6d8e;
+            padding-right: 12px;
+            margin-right: 6px;
+            margin-bottom: 15px;
+            //transform: translate(10%, -50%);
+            .img-left {
+                //width: 170px;
+                position: absolute;
+                padding: -21px;
+                bottom: -10px;
+                left: 0;
+                transform: translate(0, 0);
+            }
+
+            .img-right {
+                //width: 120px;
+                height: 97%;
+                position: absolute;
+                padding: -21px;
+                bottom: 0;
+                right: 5%;
+                transform: translate(0, 0%);
+            }
+
+            .content-event {
+                width: 100%;
+
+                .title-event-row {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 20px;
+
+                    img {
+                        height: 30px;
+                    }
+
+                    p {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 30px;
+                        color: #EB6D8E;
+                        margin-bottom: 0;
+                        margin-left: 25px;
+                        margin-right: 25px;
+                    }
+                }
+
+                .topic-event {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 30px;
+                    color: #EB6D8E;
+                    margin-bottom: 0;
+                    text-align: center;
+                    position: absolute;
+                    top: 60%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+    }
+
+    .event-item1 {
+        position: relative;
+        margin-bottom: 30px;
+
+        .img-frames {
+            //position: relative;
+            //left: 50%;
+            //transform: translate(-50%, 0);
+            width: 100%;
+            min-height: 300px;
+        }
+
+        .content-in-img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            //transform: translate(10%, -50%);
+            .img-lr {
+                display: flex;
+                justify-content: center;
+            }
+
+            .img-left {
+                width: 170px;
+                height: 100%;
+                position: relative;
+                padding: -21px;
+                top: 48%;
+                transform: translate(0, 12%);
+            }
+
+            .img-right {
+                width: 120px;
+                height: 100%;
+                position: relative;
+                padding: -21px;
+                top: 48%;
+                right: 5%;
+                transform: translate(0, 1%);
+            }
+
+            .content-event {
+                width: 100%;
+
+                .title-event-row {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+
+                    img {
+                        height: 30px;
+                    }
+
+                    p {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 30px;
+                        color: #EB6D8E;
+                        margin-bottom: 0;
+                        margin-left: 25px;
+                        margin-right: 25px;
+                    }
+                }
+
+                .topic-event {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 30px;
+                    color: #EB6D8E;
+                    margin-bottom: 0;
+                    text-align: center;
+                    position: relative;
+                    //top: 60%;
+                    //left: 50%;
+                    //transform: translate(-50%, -50%);
+                }
+            }
+        }
+    }
+}

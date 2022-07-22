@@ -1,4 +1,16 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/css/banner.css": "/css/banner.css",
+    "/css/head.css": "/css/head.css",
+    "/css/footer.css": "/css/footer.css",
+    "/css/info-user.css": "/css/info-user.css",
+    "/css/qa.css": "/css/qa.css",
+    "/css/post.css": "/css/post.css",
+    "/css/column-detail.css": "/css/column-detail.css",
+    "/css/notice.css": "/css/notice.css",
+    "/css/manager-introduction.css": "/css/manager-introduction.css",
+    "/css/consultation.css": "/css/consultation.css",
+    "/css/event.css": "/css/event.css",
+    "/css/column.css": "/css/column.css"
 }

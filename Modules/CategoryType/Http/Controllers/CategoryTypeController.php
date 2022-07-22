@@ -189,4 +189,12 @@ class CategoryTypeController extends Controller
         }
         return self::jsonSuccess($data);
     }
+    public function listType(Request $request)
+    {
+        $data['per_page'] = $request->input('per_page',6);
+//        dd($data['per_page']);
+        $data['page'] = $request->input('page',1);
+        $categorytypes = $this->categorytypes->whereOperator(new Operator('deleted_at',null))->orderByDesc()->paging($data['per_page'],$data['page'],false);
+        return $this->responseAPI($categorytypes,'Lấy dữ liệu thành công',200);
+    }
 }

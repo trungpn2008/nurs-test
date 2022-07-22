@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/category', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/category', function (Request $request) {
+//    return $request->user();
+//});
+Route::prefix('category')->name('category.')->group(function() {
+    Route::get('/list', 'CategoryController@listCategory')->name('listing');
 });

@@ -110,16 +110,6 @@
 <script>
 export default {
     name: "FrontHeader",
-    data() {
-        return {
-
-        }
-    },
-    methods:{
-    },
-    mounted:{
-
-    }
 }
 </script>
 

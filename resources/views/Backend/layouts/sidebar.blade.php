@@ -215,7 +215,7 @@
             </li>
         @endif
         @if(isset($perms['Partner']) || $super == 1)
-            <li class="menu-item" data-nav="Partner">
+            <li class="menu-item" data-nav="Partner" style="display:none;">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-home-circle"></i>
                     <div data-i18n="Đối tác">Đối tác</div>
@@ -242,7 +242,7 @@
             <li class="menu-item" data-nav="BlueprintType">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                    <div data-i18n="Loại mặt bằng">Loại mặt bằng</div>
+                    <div data-i18n="Loại mặt bằng">Loại ảnh </div>
                 </a>
                 <ul class="menu-sub">
                     @if(in_array('blueprinttype.index',isset($perms['BlueprintType'])?$perms['BlueprintType']:[]) || $super == 1)

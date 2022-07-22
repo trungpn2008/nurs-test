@@ -329,4 +329,23 @@ class CategoryController extends Controller
         }
         return 'false-load';
     }
+    public function listCategory(Request $request)
+    {
+        $data['per_page'] = $request->input('per_page',6);
+//        dd($data['per_page']);
+        $data['page'] = $request->input('page',1);
+        $categorys = $this->categorys
+            ->select(['category.id','category.image','category.title','parent.title as parent_title','category.url_location','category.arrange','category.status','users.name'])
+            ->join([
+                new Operator(null,null,'category as parent','category.parent_id','parent.id'),
+                new Operator(null,null,'users','category.updater','users.id'),
+            ])
+            ->whereOperator(new Operator('category.deleted_at',null));
+        if($request->keyword){
+            $categorys = $categorys->whereOperator(new Operator('category.title','%'.$request->keyword.'%',null,null,null,[],'like'));
+            $search['keyword']=$request->keyword;
+        }
+        $categorys = $categorys->orderByDesc('category.created_at')->paging($data['per_page'],$data['page'],false);
+        return $this->responseAPI($categorys,'Lấy dữ liệu thành công',200);
+    }
 }

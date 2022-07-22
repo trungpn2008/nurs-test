@@ -13,4 +13,17 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .vue()
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/sass/footer.scss', 'public/css')
+    .sass('resources/sass/head.scss', 'public/css')
+    .sass('resources/sass/banner.scss', 'public/css')
+    .sass('resources/sass/column.scss', 'public/css')
+    .sass('resources/sass/event.scss', 'public/css')
+    .sass('resources/sass/consultation.scss', 'public/css')
+    .sass('resources/sass/manager-introduction.scss', 'public/css')
+    .sass('resources/sass/notice.scss', 'public/css')
+    .sass('resources/sass/column-detail.scss', 'public/css')
+    .sass('resources/sass/post.scss', 'public/css')
+    .sass('resources/sass/qa.scss', 'public/css')
+    .sass('resources/sass/info-user.scss', 'public/css')
+;

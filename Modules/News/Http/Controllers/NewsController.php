@@ -275,7 +275,7 @@ class NewsController extends Controller
 //        dd($data['per_page']);
         $data['page'] = $request->input('page',1);
         $news = $this->news
-            ->select(['news.id','news.image','news.title','news.arrange','news.status','news.view',DB::raw("DATE_FORMAT (`news`.`created_at`, '%Y.%d.%m') as date"),'news.updated_at','users.name','category.title as cate_name','category_type.id as cate_type_id','category_type.status as cate_type_status','category_type.title as cate_type_title'])
+            ->select(['news.id','news.image','news.title','news.arrange','news.status','news.view',DB::raw("DATE_FORMAT(`news`.`created_at`, '%Y.%d.%m') as date"),'news.updated_at','users.name','category.title as cate_name','category_type.id as cate_type_id','category_type.status as cate_type_status','category_type.title as cate_type_title'])
             ->join([
                 new Operator(null,null,'category_type','news.type','category_type.code'),
                 new Operator(null,null,'category','news.category_id','category.id'),
@@ -294,5 +294,25 @@ class NewsController extends Controller
         $news = $news->orderByDesc('news.view')->paging($data['per_page'],$data['page'],false);
         $data['news']=$news;
         return $this->responseAPI($data,'Lấy dữ liệu thành công',200);
+    }
+    public function listDetail(Request $request)
+    {
+        $data['id'] = $request->input('id',null);
+        if($data['id']){
+        $news = $this->news
+            ->select(['news.id','news.image','news.title','news.arrange','news.status','news.view','news.created_at','news.updated_at','users.name','category.title as cate_name','category_type.id as cate_type_id','category_type.status as cate_type_status','category_type.title as cate_type_title'])
+            ->join([
+                new Operator(null,null,'category_type','news.type','category_type.code'),
+                new Operator(null,null,'category','news.category_id','category.id'),
+                new Operator(null,null,'users','news.creator','users.id'),
+            ])
+            ->whereOperator([new Operator('news.deleted_at',null),new Operator('news.status',1)]);
+
+            $news = $news->whereOperator(new Operator('news.id',$data['id']));
+            $search['keyword']=$request->keyword;
+            $news = $news->orderByDesc('news.created_at')->builder();
+            return $this->responseAPI($news,'Lấy dữ liệu thành công',200);
+        }
+        return $this->responseAPI([],'Lấy dữ liệu không thành công',500);
     }
 }

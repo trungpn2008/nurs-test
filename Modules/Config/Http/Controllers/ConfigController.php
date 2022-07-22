@@ -198,4 +198,25 @@ class ConfigController extends Controller
         }
         return 'false-load';
     }
+    public function config(Request $request)
+    {
+        $data['per_page'] = $request->input('per_page',6);
+//        dd($data['per_page']);
+        $data['page'] = $request->input('page',1);
+        $configs = $this->configs->whereOperator(new Operator('deleted_at',null));
+        if($request->keyword){
+            $configs = $configs->whereOperator(new Operator('title','%'.$request->keyword.'%',null,null,null,[],'like'));
+            $search['keyword']=$request->keyword;
+        }
+        $configs = $configs->orderByDesc()->builder(false);
+        return $this->responseAPI($configs,'Lấy dữ liệu thành công',200);
+    }
+    public function detailByKey(Request $request,$type)
+    {
+        $configs = $this->configs->whereOperator([new Operator('config_key',$type),new Operator('deleted_at',null)])->builder();
+        if($configs){
+            return $this->responseAPI($configs,'Lấy dữ liệu thành công',200);
+        }
+        return $this->responseAPI([],'Lấy dữ liệu không thành công',500);
+    }
 }

@@ -23,6 +23,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function
         Route::post('/edit/{id?}', 'ImagesController@update');
         Route::get('/show/{id?}', 'ImagesController@show')->name('show');
         Route::get('/delete/{id?}', 'ImagesController@destroy')->name('delete');
+        Route::get('/ajax-get-box-images', 'ImagesController@getBoxImages')->name('ajax-get-box-images');
     });
     Route::prefix('partner')->name('partner.')->group(function() {
         Route::get('/', 'PartnerController@index')->name('index');

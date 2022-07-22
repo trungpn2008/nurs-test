@@ -1,3 +1,5 @@
+window.axios = require('axios');
+
 window._ = require('lodash');
 
 try {
@@ -10,9 +12,20 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+ window.axios = window.axios.create({
+    baseURL: "https://care21.gxo.co.jp",
+    auth: {
+        username: 'care21@greentechsolutions',
+        password: 'care21greentech@'
+      },
+      headers:{
+        'X-Requested-With':'XMLHttpRequest',
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Methods': '*',
+      }
+})
+
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

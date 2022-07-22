@@ -8,7 +8,7 @@ return [
         'app','swiper','site','jquery'
     ],
     'styles'         => [
-        'app','swiper'
+        'app','swiper','head','footer','banner','column','event','consultation','manager-introduction','notice','column-detail','post','qa','info-user'
     ],
     'resources'      => [
         'scripts' => [
@@ -74,6 +74,150 @@ return [
                 'location'   => 'header',
                 'src'        => [
                     'local' => '/css/app.css',
+                    'cdn'   => '',
+                ],
+                'attributes' => [
+//                    'integrity'   => 'sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB',
+//                    'crossorigin' => 'anonymous',
+                ],
+            ],
+            'head' => [
+                'use_cdn'    => false,
+                'location'   => 'header',
+                'src'        => [
+                    'local' => '/css/head.css',
+                    'cdn'   => '',
+                ],
+                'attributes' => [
+//                    'integrity'   => 'sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB',
+//                    'crossorigin' => 'anonymous',
+                ],
+            ],
+            'footer' => [
+                'use_cdn'    => false,
+                'location'   => 'header',
+                'src'        => [
+                    'local' => '/css/footer.css',
+                    'cdn'   => '',
+                ],
+                'attributes' => [
+//                    'integrity'   => 'sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB',
+//                    'crossorigin' => 'anonymous',
+                ],
+            ],
+            'banner' => [
+                'use_cdn'    => false,
+                'location'   => 'header',
+                'src'        => [
+                    'local' => '/css/banner.css',
+                    'cdn'   => '',
+                ],
+                'attributes' => [
+//                    'integrity'   => 'sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB',
+//                    'crossorigin' => 'anonymous',
+                ],
+            ],
+            'column' => [
+                'use_cdn'    => false,
+                'location'   => 'header',
+                'src'        => [
+                    'local' => '/css/column.css',
+                    'cdn'   => '',
+                ],
+                'attributes' => [
+//                    'integrity'   => 'sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB',
+//                    'crossorigin' => 'anonymous',
+                ],
+            ],
+            'event' => [
+                'use_cdn'    => false,
+                'location'   => 'header',
+                'src'        => [
+                    'local' => '/css/event.css',
+                    'cdn'   => '',
+                ],
+                'attributes' => [
+//                    'integrity'   => 'sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB',
+//                    'crossorigin' => 'anonymous',
+                ],
+            ],
+            'consultation' => [
+                'use_cdn'    => false,
+                'location'   => 'header',
+                'src'        => [
+                    'local' => '/css/consultation.css',
+                    'cdn'   => '',
+                ],
+                'attributes' => [
+//                    'integrity'   => 'sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB',
+//                    'crossorigin' => 'anonymous',
+                ],
+            ],
+            'manager-introduction' => [
+                'use_cdn'    => false,
+                'location'   => 'header',
+                'src'        => [
+                    'local' => '/css/manager-introduction.css',
+                    'cdn'   => '',
+                ],
+                'attributes' => [
+//                    'integrity'   => 'sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB',
+//                    'crossorigin' => 'anonymous',
+                ],
+            ],
+            'notice' => [
+                'use_cdn'    => false,
+                'location'   => 'header',
+                'src'        => [
+                    'local' => '/css/notice.css',
+                    'cdn'   => '',
+                ],
+                'attributes' => [
+//                    'integrity'   => 'sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB',
+//                    'crossorigin' => 'anonymous',
+                ],
+            ],
+            'column-detail' => [
+                'use_cdn'    => false,
+                'location'   => 'header',
+                'src'        => [
+                    'local' => '/css/column-detail.css',
+                    'cdn'   => '',
+                ],
+                'attributes' => [
+//                    'integrity'   => 'sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB',
+//                    'crossorigin' => 'anonymous',
+                ],
+            ],
+            'post' => [
+                'use_cdn'    => false,
+                'location'   => 'header',
+                'src'        => [
+                    'local' => '/css/post.css',
+                    'cdn'   => '',
+                ],
+                'attributes' => [
+//                    'integrity'   => 'sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB',
+//                    'crossorigin' => 'anonymous',
+                ],
+            ],
+            'qa' => [
+                'use_cdn'    => false,
+                'location'   => 'header',
+                'src'        => [
+                    'local' => '/css/qa.css',
+                    'cdn'   => '',
+                ],
+                'attributes' => [
+//                    'integrity'   => 'sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB',
+//                    'crossorigin' => 'anonymous',
+                ],
+            ],
+            'info-user' => [
+                'use_cdn'    => false,
+                'location'   => 'header',
+                'src'        => [
+                    'local' => '/css/info-user.css',
                     'cdn'   => '',
                 ],
                 'attributes' => [

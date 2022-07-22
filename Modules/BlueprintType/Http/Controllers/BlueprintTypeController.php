@@ -190,4 +190,20 @@ class BlueprintTypeController extends Controller
         }
         return self::jsonSuccess($data);
     }
+    public function listType(Request $request)
+    {
+        $data['per_page'] = $request->input('per_page',6);
+        $data['page'] = $request->input('page',1);
+        $blueprinttypes = $this->blueprinttypes->whereOperator(new Operator('deleted_at',null))->orderByDesc()->paging($data['per_page'],$data['page'],false);
+        return $this->responseAPI($blueprinttypes,'Lấy dữ liệu thành công',200);
+    }
+    public function listDetail(Request $request)
+    {
+        $data['id'] = $request->input('id',null);
+        $blueprinttypes = $this->blueprinttypes->whereOperator([new Operator('deleted_at',null),new Operator('id',$data['id'])])->orderByDesc()->builder();
+        if($blueprinttypes){
+            return $this->responseAPI($blueprinttypes,'Lấy dữ liệu thành công',200);
+        }
+        return $this->responseAPI([],'Lấy dữ liệu không thành công',500);
+    }
 }

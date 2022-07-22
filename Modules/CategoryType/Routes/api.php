@@ -13,6 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/categorytype', function (Request $request) {
-    return $request->user();
+Route::prefix('type')->name('type.')->group(function() {
+    Route::get('', 'CategoryTypeController@listType')->name('config');
 });
