@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +15,7 @@ use Illuminate\Http\Request;
 
 Route::prefix('investigation')->name('investigation.')->group(function() {
     Route::post('/add', 'InvestigationController@addInvestigation')->name('investigation');
+});
+Route::prefix('investigation-type')->name('investigation-type.')->group(function() {
+    Route::get('/list', 'InvestigationTypeController@listInvestigationType')->name('investigation-type');
 });

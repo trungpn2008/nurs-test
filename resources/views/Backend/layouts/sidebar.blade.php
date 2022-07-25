@@ -242,7 +242,7 @@
             <li class="menu-item" data-nav="BlueprintType">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                    <div data-i18n="Loại mặt bằng">Loại ảnh </div>
+                    <div data-i18n="Loại ảnh">Loại ảnh </div>
                 </a>
                 <ul class="menu-sub">
                     @if(in_array('blueprinttype.index',isset($perms['BlueprintType'])?$perms['BlueprintType']:[]) || $super == 1)
@@ -311,6 +311,154 @@
                 </ul>
             </li>
         @endif
+<li class="menu-header small text-uppercase"><span class="menu-header-text">Term And Condition</span></li>
+        @if(isset($perms['TermAndCondition']) || $super == 1)
+            <li class="menu-item" data-nav="TermAndCondition">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Term And Condition">Term And Condition </div>
+                </a>
+                <ul class="menu-sub">
+                    @if(in_array('term-and-condition.index',isset($perms['TermAndCondition'])?$perms['TermAndCondition']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="index">
+                            <a href="{{route('admin.term-and-condition.index')}}" class="menu-link">
+                                <div data-i18n="Danh sách">Danh sách</div>
+                            </a>
+                        </li>
+                    @endif
+                    @if(in_array('term-and-condition.add',isset($perms['TermAndCondition'])?$perms['TermAndCondition']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="add">
+                            <a href="{{route('admin.term-and-condition.add')}}" class="menu-link">
+                                <div data-i18n="Thêm mới">Thêm mới</div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+        @if(isset($perms['TermAndConditionCategories']) || $super == 1)
+            <li class="menu-item" data-nav="TermAndConditionCategories">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Term And Condition Category">Term And Condition Category</div>
+                </a>
+                <ul class="menu-sub">
+                    @if(in_array('term-and-condition-category.index',isset($perms['TermAndConditionCategories'])?$perms['TermAndConditionCategories']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="index">
+                            <a href="{{route('admin.term-and-condition-category.index')}}" class="menu-link">
+                                <div data-i18n="Danh sách">Danh sách</div>
+                            </a>
+                        </li>
+                    @endif
+                    @if(in_array('term-and-condition-category.add',isset($perms['TermAndConditionCategories'])?$perms['TermAndConditionCategories']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="add">
+                            <a href="{{route('admin.term-and-condition-category.add')}}" class="menu-link">
+                                <div data-i18n="Thêm mới">Thêm mới</div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+
+
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">QA</span></li>
+        @if(isset($perms['QA']) || $super == 1)
+            <li class="menu-item" data-nav="QA">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="QA">QA </div>
+                </a>
+                <ul class="menu-sub">
+                    @if(in_array('qa.index',isset($perms['QA'])?$perms['QA']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="index">
+                            <a href="{{route('admin.qa.index')}}" class="menu-link">
+                                <div data-i18n="Danh sách">Danh sách</div>
+                            </a>
+                        </li>
+                    @endif
+                    @if(in_array('qa.add',isset($perms['QA'])?$perms['QA']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="add">
+                            <a href="{{route('admin.qa.add')}}" class="menu-link">
+                                <div data-i18n="Thêm mới">Thêm mới</div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+        @if(isset($perms['QAType']) || $super == 1)
+            <li class="menu-item" data-nav="QAType">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="QA Type">QA Type</div>
+                </a>
+                <ul class="menu-sub">
+                    @if(in_array('qa-type.index',isset($perms['QAType'])?$perms['QAType']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="index">
+                            <a href="{{route('admin.qa-type.index')}}" class="menu-link">
+                                <div data-i18n="Danh sách">Danh sách</div>
+                            </a>
+                        </li>
+                    @endif
+                    @if(in_array('qa-type.add',isset($perms['QAType'])?$perms['QAType']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="add">
+                            <a href="{{route('admin.qa-type.add')}}" class="menu-link">
+                                <div data-i18n="Thêm mới">Thêm mới</div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+        @if(isset($perms['QACate']) || $super == 1)
+            <li class="menu-item" data-nav="QACate">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="QA Cate">QA Cate</div>
+                </a>
+                <ul class="menu-sub">
+                    @if(in_array('qa-cate.index',isset($perms['QACate'])?$perms['QACate']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="index">
+                            <a href="{{route('admin.qa-cate.index')}}" class="menu-link">
+                                <div data-i18n="Danh sách">Danh sách</div>
+                            </a>
+                        </li>
+                    @endif
+                    @if(in_array('qa-cate.add',isset($perms['QACate'])?$perms['QACate']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="add">
+                            <a href="{{route('admin.qa-cate.add')}}" class="menu-link">
+                                <div data-i18n="Thêm mới">Thêm mới</div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+        @if(isset($perms['QAAnswer']) || $super == 1)
+            <li class="menu-item" data-nav="QAAnswer">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="QA Answer">QA Answer</div>
+                </a>
+                <ul class="menu-sub">
+                    @if(in_array('qa-answer.index',isset($perms['QAAnswer'])?$perms['QAAnswer']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="index">
+                            <a href="{{route('admin.qa-answer.index')}}" class="menu-link">
+                                <div data-i18n="Danh sách">Danh sách</div>
+                            </a>
+                        </li>
+                    @endif
+                    @if(in_array('qa-answer.add',isset($perms['QAAnswer'])?$perms['QAAnswer']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="add">
+                            <a href="{{route('admin.qa-answer.add')}}" class="menu-link">
+                                <div data-i18n="Thêm mới">Thêm mới</div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
 
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Investigation</span></li>
         @if(isset($perms['Investigation']) || $super == 1)
@@ -334,6 +482,30 @@
 {{--                            </a>--}}
 {{--                        </li>--}}
 {{--                    @endif--}}
+                </ul>
+            </li>
+        @endif
+        @if(isset($perms['InvestigationType']) || $super == 1)
+            <li class="menu-item" data-nav="InvestigationType">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Investigation Type">Investigation Type</div>
+                </a>
+                <ul class="menu-sub">
+                    @if(in_array('investigation-type.index',isset($perms['InvestigationType'])?$perms['InvestigationType']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="index">
+                            <a href="{{route('admin.investigation-type.index')}}" class="menu-link">
+                                <div data-i18n="Danh sách">Danh sách</div>
+                            </a>
+                        </li>
+                    @endif
+                    @if(in_array('investigation-type.add',isset($perms['InvestigationType'])?$perms['InvestigationType']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="add">
+                            <a href="{{route('admin.investigation-type.add')}}" class="menu-link">
+                                <div data-i18n="Thêm mới">Thêm mới</div>
+                            </a>
+                        </li>
+                    @endif
                 </ul>
             </li>
         @endif

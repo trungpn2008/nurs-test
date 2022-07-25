@@ -12,5 +12,7 @@
     "BlueprintType": true,
     "Config": true,
     "FAQ": true,
-    "Investigation": true
+    "Investigation": true,
+    "TermAndConditon": true,
+    "QA": true
 }

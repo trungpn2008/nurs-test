@@ -1,0 +1,13 @@
+{
+    "name": "TermAndConditon",
+    "alias": "termandconditon",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\TermAndConditon\\Providers\\TermAndConditonServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
