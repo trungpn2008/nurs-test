@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 //        UniSharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
 //        Intervention\Image\ImageServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
     ],
 
     /*

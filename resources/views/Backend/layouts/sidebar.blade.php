@@ -361,6 +361,79 @@
             </li>
         @endif
 
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Customer</span></li>
+        @if(isset($perms['Customer']) || $super == 1)
+            <li class="menu-item" data-nav="Customer">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Customer">Customer </div>
+                </a>
+                <ul class="menu-sub">
+                    @if(in_array('customer.index',isset($perms['Customer'])?$perms['Customer']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="index">
+                            <a href="{{route('admin.customer.index')}}" class="menu-link">
+                                <div data-i18n="Danh sách">Danh sách</div>
+                            </a>
+                        </li>
+                    @endif
+{{--                    @if(in_array('choose-profile-category.add',isset($perms['ChooseProfileCategory'])?$perms['ChooseProfileCategory']:[]) || $super == 1)--}}
+{{--                        <li class="menu-item" data-sub="add">--}}
+{{--                            <a href="{{route('admin.choose-profile-category.add')}}" class="menu-link">--}}
+{{--                                <div data-i18n="Thêm mới">Thêm mới</div>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    @endif--}}
+                </ul>
+            </li>
+        @endif
+        @if(isset($perms['ChooseProfileCategory']) || $super == 1)
+            <li class="menu-item" data-nav="ChooseProfileCategory">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Choose Profile Category">Choose Profile Category </div>
+                </a>
+                <ul class="menu-sub">
+                    @if(in_array('choose-profile-category.index',isset($perms['ChooseProfileCategory'])?$perms['ChooseProfileCategory']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="index">
+                            <a href="{{route('admin.choose-profile-category.index')}}" class="menu-link">
+                                <div data-i18n="Danh sách">Danh sách</div>
+                            </a>
+                        </li>
+                    @endif
+                    @if(in_array('choose-profile-category.add',isset($perms['ChooseProfileCategory'])?$perms['ChooseProfileCategory']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="add">
+                            <a href="{{route('admin.choose-profile-category.add')}}" class="menu-link">
+                                <div data-i18n="Thêm mới">Thêm mới</div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+        @if(isset($perms['ListProfileOption']) || $super == 1)
+            <li class="menu-item" data-nav="ListProfileOption">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="List Profile Option">List Profile Option </div>
+                </a>
+                <ul class="menu-sub">
+                    @if(in_array('list-profile-option.index',isset($perms['ListProfileOption'])?$perms['ListProfileOption']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="index">
+                            <a href="{{route('admin.list-profile-option.index')}}" class="menu-link">
+                                <div data-i18n="Danh sách">Danh sách</div>
+                            </a>
+                        </li>
+                    @endif
+                    @if(in_array('list-profile-option.add',isset($perms['ListProfileOption'])?$perms['ListProfileOption']:[]) || $super == 1)
+                        <li class="menu-item" data-sub="add">
+                            <a href="{{route('admin.list-profile-option.add')}}" class="menu-link">
+                                <div data-i18n="Thêm mới">Thêm mới</div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
 
         <li class="menu-header small text-uppercase"><span class="menu-header-text">QA</span></li>
         @if(isset($perms['QA']) || $super == 1)
