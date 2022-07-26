@@ -36,14 +36,188 @@ const routers = [
         name: 'news',
     },
     {
-        path: '/fqa',
+        path: '/faq',
         components: {
             header:()=> import('./layouts/header.vue'),
             default:()=> import('./pages/fqa/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
         name: 'news',
-    }
+    },
+
+
+
+    {
+        path: '/advice',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/advice/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/community',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/community/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/company',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/company/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/confirmation',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/confirmation/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/genaral',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/genaral/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/qa',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/qa/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/info',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/info/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/inquiry',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/inquiry/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/list',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/list/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/logout',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/logout/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/news_details',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/news_details/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/nursing',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/nursing/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/posting',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/posting/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/privacy',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/privacy/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/profile',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/profile/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/registration',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/registration/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/screen',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/screen/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/transactions',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/transactions/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
+    {
+        path: '/user',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/user/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'news',
+    },
 
 ];
 export default routers;

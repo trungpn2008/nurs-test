@@ -8,7 +8,20 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        {{-- {!! Assets::renderHeader() !!} --}}
+        <link
+            href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter&family=M+PLUS+Rounded+1c:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Sawarabi+Mincho&display=swap"
+            rel="stylesheet">
+        <link href="/css/frontend/module.css" rel="stylesheet" type="text/css">
+        <link href="/css/frontend/common.css" rel="stylesheet" type="text/css">
+        <link href="/css/frontend/style.css" rel="stylesheet" type="text/css">
+        <link href="/css/frontend/index.css" rel="stylesheet" type="text/css">
+{{--        <script src="/js/common.js"></script>--}}
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+         {!! Assets::renderHeader() !!}
 
         <!-- Styles -->
         <style>
@@ -25,5 +38,8 @@
     <div id="app"></div>
 {{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
     {!! Assets::renderFooter() !!}
+    <script>
+
+    </script>
     </body>
 </html>

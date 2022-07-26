@@ -17,8 +17,8 @@ class AddAttributeInTableImages extends Migration
             $table->string('image_left')->nullable()->comment('image left');
             $table->string('image_right')->nullable()->comment('image right');
             $table->string('icon')->nullable()->comment('icon');
-            $table->string('intro')->nullable()->comment('intro');
-            $table->string('intro2')->nullable()->comment('intro');
+            $table->text('intro')->nullable()->comment('intro');
+            $table->text('intro2')->nullable()->comment('intro');
             $table->string('description')->nullable()->comment('description');
             $table->json('list_image')->nullable()->comment('list image');
         });

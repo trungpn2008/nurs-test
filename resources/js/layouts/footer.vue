@@ -62,7 +62,9 @@
 
 <script>
 export default {
-
+    mounted: function() {
+        $('.break').parents('.module').addClass('break-wrap');
+    }
 }
 </script>
 

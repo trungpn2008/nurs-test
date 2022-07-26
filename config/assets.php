@@ -5,10 +5,16 @@ return [
     'enable_version' => env('ASSETS_ENABLE_VERSION', false),
     'version'        => env('ASSETS_VERSION', time()),
     'scripts'        => [
-        'app','swiper','site','jquery'
+//        'swiper',
+
+        'app',
+//        'jquery',
+//        'common',
+//        'function',
+
     ],
     'styles'         => [
-        'app','swiper','head','footer','banner','column','event','consultation','manager-introduction','notice','column-detail','post','qa','info-user'
+//        'app','swiper','head','footer','banner','column','event','consultation','manager-introduction','notice','column-detail','post','qa','info-user'
     ],
     'resources'      => [
         'scripts' => [
@@ -53,6 +59,22 @@ return [
                 'src'      => [
                     'local' => '/js/site.js',
                     'cdn'   => '/js/site.js',
+                ],
+            ],
+            'common' => [
+                'use_cdn'  => true,
+                'location' => 'footer',
+                'src'      => [
+                    'local' => '/js/common.js',
+                    'cdn'   => '/js/common.js',
+                ],
+            ],
+            'function' => [
+                'use_cdn'  => true,
+                'location' => 'footer',
+                'src'      => [
+                    'local' => '/js/function.js',
+                    'cdn'   => '/js/function.js',
                 ],
             ],
         ],

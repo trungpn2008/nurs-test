@@ -20,14 +20,7 @@
                         <input type="text" id="title" name="title" class="form-control" placeholder="Tiêu đề" value="{{$images->title}}" />
                     </div>
 
-                    <div class="col-md-6">
-                        <label class="form-label" for="intro">Intro First</label>
-                        <input type="text" id="intro" name="intro" class="form-control" placeholder="Intro First" value="{{$images->intro}}" />
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label" for="intro2">Intro Second</label>
-                        <input type="text" id="intro2" name="intro2" class="form-control" placeholder="Intro Second" value="{{$images->intro2}}" />
-                    </div>
+
                     <div class="col-md-5">
                         <label class="form-label" for="arrange">Sắp xếp</label>
                         <input type="number" id="arrange" name="arrange" class="form-control" placeholder="Sắp xếp" value="{{$images->arrange}}" />
@@ -166,6 +159,14 @@
                                 @endforeach
                             @endif
                         </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="intro">Intro First</label>
+                        <textarea name="intro" id="intro"  class="form-control" placeholder="Nội dung" cols="30" rows="10">{{$images->intro}}</textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="intro2">Intro Second</label>
+                        <textarea name="intro2" id="intro2"  class="form-control" placeholder="Nội dung" cols="30" rows="10">{{$images->intro2}}</textarea>
                     </div>
                     <div class="col-md-12">
                         <label class="form-label" for="description">Nội dung</label>
@@ -317,6 +318,8 @@
             {{--        filebrowserBrowseUrl: '{{ url('/kcfinder/browse.php?type=image') }}',--}}
 
         };
+        CKEDITOR.replace('intro',editor_config);
+        CKEDITOR.replace('intro2',editor_config);
         CKEDITOR.replace('description',editor_config);
         const formAuthentication = document.querySelector('#form-images');
 

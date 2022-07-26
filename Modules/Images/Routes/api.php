@@ -15,5 +15,5 @@ use Illuminate\Http\Request;
 
 Route::prefix('images')->name('images.')->group(function() {
     Route::get('/', 'ImagesController@listImages')->name('listing');
-    Route::get('/detail', 'ImagesController@listDetail')->name('detail');
+    Route::get('/detail/{id?}', 'ImagesController@listDetail')->name('detail');
 });

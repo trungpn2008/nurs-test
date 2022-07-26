@@ -148,7 +148,7 @@ class ImagesController extends Controller
             unset($data['_token']);
             $data['updated_at'] =now();
             $data['status'] =isset($data['status'])?1:0;
-            $data['list_image'] = json_encode($data['list_image']);
+            $data['list_image'] = isset($data['list_image'])?json_encode($data['list_image']):null;
             if($id){
                 $images = $this->images->updateData($data,$id);
                 if($images){
@@ -207,11 +207,11 @@ class ImagesController extends Controller
         $images = $this->images->whereOperator([new Operator('deleted_at',null),new Operator('type','Banner')])->orderByDesc()->paging($data['per_page'],$data['page'],false);
         return $this->responseAPI($images,'Lấy dữ liệu thành công',200);
     }
-    public function listDetail(Request $request)
+    public function listDetail(Request $request,$id)
     {
         $data['arrange'] = $request->input('arrange',null);
         $data['type'] = $request->input('type',null);
-        $images = $this->images->whereOperator([new Operator('deleted_at',null),new Operator('type','Banner')]);
+        $images = $this->images->whereOperator([new Operator('deleted_at',null),new Operator('type','Banner'),new Operator('id',$id)]);
         if($data['arrange']){
             $images = $images->whereOperator(new Operator('arrange',$data['arrange']));
         }

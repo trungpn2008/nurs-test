@@ -776,7 +776,31 @@
 
 <script>
 export default {
-
+    data() {
+        return {
+            intro: null,
+            intro2: null.;
+                imageLeft : null
+            imageLeft: null
+        };
+    },
+    methods: {
+        async getNews() {
+            let { data } = await this.axios.get("api/images/detail", {
+                params: { id: 1 }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            this.paging = data.data.news;
+            console.log(data.data.news)
+            this.news = this.paging.data;
+        }
+    },
+    async mounted() {
+        await this.getNews();
+    },
 }
 </script>
 

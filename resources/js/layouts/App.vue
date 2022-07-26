@@ -1,7 +1,7 @@
 <template>
 
     <!-- <b-container> -->
-        <div id="warpper">
+        <div id="wrap">
             <router-view name="header"></router-view>
             <router-view></router-view>
             <router-view name="footer"></router-view>
