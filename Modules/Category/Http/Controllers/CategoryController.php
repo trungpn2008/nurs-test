@@ -208,7 +208,14 @@ class CategoryController extends Controller
 //                        $query->orWhere('sub_slug',str_replace([' ','/','\\','"',"'",',','.',':',';'],'-',strtolower(self::stripVN($data['title']))));
 //                    })->get();
 //                if(count($check_alias)<=0){
-                $alias = DB::table('alias')->where(['category_id'=>$id,'status'=>1,'deleted_at'=>null])->update(['title'=>$data['title'],'slug'=>str_replace([' ','/','\\','"',"'",',','.',':',';'],'-',strtolower(self::stripVN($data['title']))),'category_id'=>$id,'updated_at'=>now()]);
+
+                $alias = DB::table('alias')->where(['category_id'=>$id,'status'=>1,'deleted_at'=>null])
+                    ->update(
+                        ['title'=>$data['title'],
+//                            'slug'=>str_replace([' ','/','\\','"',"'",',','.',':',';'],'-',strtolower(self::stripVN($data['title']))),
+                            'slug'=>$data['title'],
+                            'category_id'=>$id,
+                            'updated_at'=>now()]);
                 if($alias){
                     $this->history_activity->addHistory('Sửa alias thành công','Alias','Add','Tài khoản '.Auth::user()->name.' Sửa alias thành công','Sửa alias','Success',$alias);
                 }

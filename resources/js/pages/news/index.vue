@@ -114,12 +114,13 @@ export default {
     methods: {
         async getNews() {
             let { data } = await this.axios.get("api/news/list", {
-                auth: {
-                    username: "care21@greentechsolutions",
-                    password: "care21greentech@"
-                },
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
             });
             this.paging = data.data.news;
+            console.log(data.data.news)
             this.news = this.paging.data;
         }
     },
@@ -131,5 +132,5 @@ export default {
 </script>
 
 <style>
-@import '../../assets/css/news.css'
+@import '../../assets/css/news.css';
 </style>

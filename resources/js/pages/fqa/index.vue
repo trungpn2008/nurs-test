@@ -236,5 +236,5 @@ export default {
 </script>
 
 <style>
-@import '../../assets/css/question.css'
+@import '../../assets/css/question.css';
 </style>
