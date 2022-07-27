@@ -54,100 +54,37 @@
 				<div class="module break-wrap">
 					<div class="index-consultation break">
 						<div class="box">
-							<p class="note">
-								― あなたに合う相談方法がみつかる ―
-							</p>
+							<p class="note" v-html="banner3.intro"></p>
 							<div class="method">
 								<div class="text-box">
 									<p class="bg-title">
-										<span>
-											相談方法
+										<span :style="{
+    'background': 'url(' + imageicon3 + ') left center no-repeat'}">
+											{{ banner3.title }}
 										</span>
 									</p>
-									<p class="text">
-										電話、zoomでのご相談は、<br>
-										平日の9：00～18：00の時間帯で受け付けています。<br>
-										掲示板、メール、LINEでのご相談は、24時間受け付ています。
-									</p>
+									<p class="text" v-html="banner3.description"></p>
 								</div>
 								<p class="img">
-									<img :src="require('../../assets/img/no-image.png')" alt="">
+									<img :src="banner3.image" alt="">
 								</p>
 							</div>
 							<div class="info">
 								<p class="title">
-									<span>
-										皆様の介護のお悩み募集中
-									</span>
-								</p>
+                                    <span  v-html="banner3.intro2"></span>
+                                </p>
 								<div class="info-box">
-									<div class="article">
+									<div class="article" v-for="(item, index) in banner3.list_image">
 										<p class="image">
-											<img :src="require('../../assets/img/icon_page.png')" alt="">
+											<img :src="item.image" alt="">
 										</p>
 										<p class="att">
-											掲示板
+                                            {{ item.title }}
 										</p>
 										<p class="note">
-											受付時間：24時間受付
+                                            {{ item.note }}
 										</p>
-										<p class="num">
-											<span>
-												24
-											</span>
-											時間
-										</p>
-									</div>
-									<div class="article">
-										<p class="image">
-											<img :src="require('../../assets/img/icon_mail.png')" alt="">
-										</p>
-										<p class="att">
-											メール
-										</p>
-										<p class="note">
-											受付時間：24時間受付
-										</p>
-										<p class="num">
-											<span>
-												24
-											</span>
-											時間
-										</p>
-									</div>
-									<div class="article">
-										<p class="image">
-											<img :src="require('../../assets/img/icon_tel.png')" alt="">
-										</p>
-										<p class="att">
-											電　話
-										</p>
-										<p class="note">
-											受付時間：平日9：00～18：00
-										</p>
-									</div>
-									<div class="article">
-										<p class="image">
-											<img :src="require('../../assets/img/icon08.png')" alt="">
-										</p>
-										<p class="att">
-											zoom
-										</p>
-										<p class="note">
-											受付時間：平日9：00～18：00
-										</p>
-									</div>
-									<div class="article">
-										<p class="image">
-											<img :src="require('../../assets/img/icon09.png')" alt="">
-										</p>
-										<p class="att">
-											LINE
-										</p>
-										<p class="note">
-											受付時間：24時間受付
-										</p>
-										<p class="num">
+										<p class="num" v-if="item.check === 'on'">
 											<span>
 												24
 											</span>
@@ -162,86 +99,31 @@
 				<div class="module break-wrap">
 					<div class="index-board break">
 						<div class="box">
-							<p class="note">
-								― 皆様の介護のお悩み掲示板 ―
-							</p>
+                            <p class="note" v-html="banner4.intro"></p>
 							<div class="method">
 								<div class="text-box">
 									<p class="bg-title">
-										<span>
-											掲 示 板
+										<span :style="{
+                                        'background': 'url(' + imageicon4 + ') left center no-repeat'}">
+                                        {{ banner4.title }}
 										</span>
 									</p>
-									<p class="text">
-										□□□□□掲示版の説明が入ります□□□□□<br>
-										□□□□□掲示版の説明が入ります□□□□□<br>
-										□□□□□掲示版の説明が入ります□□□□□
-									</p>
+                                    <p class="text" v-html="banner4.description"></p>
 								</div>
 								<p class="img">
-									<img src="img/icon02.png" alt="">
+                                    <img :src="banner4.image" alt="">
 								</p>
 							</div>
 							<div class="info">
 								<p class="title">
-									<span>
-										お気軽にご相談ください
-									</span>
+                                    <span  v-html="banner4.intro2"></span>
 								</p>
 								<div class="info-box">
-									<div class="article">
+									<div class="article" v-for="(item, index) in banner4.list_image">
 										<p class="image">
-											<img src="img/icon10.png" alt="">
+											<img :src="item.image" alt="">
 										</p>
-										<p class="att">
-											<span>老人ホームの</span><br>
-											<span>種類</span>について
-										</p>
-									</div>
-									<div class="article">
-										<p class="image">
-											<img src="img/icon11.png" alt="">
-										</p>
-										<p class="att">
-											<span>老人ホームの</span><br>
-											<span>費用</span>について
-										</p>
-									</div>
-									<div class="article">
-										<p class="image">
-											<img src="img/icon12.png" alt="">
-										</p>
-										<p class="att">
-											<span>老人ホームの<br>
-												選び方</span>
-										</p>
-									</div>
-									<div class="article">
-										<p class="image">
-											<img src="img/icon13.png" alt="">
-										</p>
-										<p class="att">
-											<span>介護保険制度</span><br>
-											とは
-										</p>
-									</div>
-									<div class="article">
-										<p class="image">
-											<img src="img/icon14.png" alt="">
-										</p>
-										<p class="att">
-											<span>認知症</span><br>
-											について
-										</p>
-									</div>
-									<div class="article">
-										<p class="image">
-											<img src="img/icon15.png" alt="">
-										</p>
-										<p class="att">
-											<span>在宅介護</span><br>
-											について
-										</p>
+										<p class="att" v-html="item.note"></p>
 									</div>
 								</div>
 							</div>
@@ -251,24 +133,19 @@
 				<div class="module break-wrap">
 					<div class="index-present break">
 						<div class="box">
-							<p class="note">
-								― 介護の今をコラム形式でわかりやすく紹介 ―
-							</p>
+                            <p class="note" v-html="banner5.intro"></p>
 							<div class="method">
 								<div class="text-box">
 									<p class="bg-title">
-										<span>
-											コ ラ ム
+										<span :style="{
+                                        'background': 'url(' + imageicon5 + ') left center no-repeat'}">
+                                        {{ banner5.title }}
 										</span>
 									</p>
-									<p class="text">
-										□□□□□コラムの説明が入ります□□□□□<br>
-										□□□□□コラムの説明が入ります□□□□□<br>
-										□□□□□コラムの説明が入ります□□□□□
-									</p>
+                                    <p class="text" v-html="banner5.description"></p>
 								</div>
 								<p class="img">
-									<img :src="require('../../assets/img/no-image.png')" alt="">
+                                    <img :src="banner5.image" alt="">
 								</p>
 							</div>
 
@@ -283,7 +160,7 @@
 									最新コラム
 								</p>
 								<div class="info-box">
-									<div class="article">
+									<div class="article" v-for="(item, index) in listQa">
 										<p class="image">
 											<img :src="require('../../assets/img/no-image.png')" alt="">
 										</p>
@@ -291,158 +168,21 @@
 											<div class="author">
 												<p class="page">
 													<span>
-														介護保険制度
+														{{item.qa_cate_title}}
 
 													</span>
 												</p>
 												<p class="question">
 													<span>
-														その他
+														{{item.qa_type_title}}
 
 													</span>
 												</p>
 											</div>
 											<p class="text">
-												介護はどこにどう申請するの？<br>
-												ケアマネジャーが介護の第一…
-
+                                                {{item.title}}…
 											</p>
 										</div>
-									</div>
-									<div class="article">
-										<p class="image">
-											<img :src="require('../../assets/img/no-image.png')" alt="">
-										</p>
-										<div class="text-box">
-											<div class="author">
-												<p class="page">
-													<span>
-														介護保険制度
-
-													</span>
-												</p>
-												<p class="question">
-													<span>
-														その他
-
-													</span>
-												</p>
-											</div>
-											<p class="text">
-												介護はどこにどう申請するの？<br>
-												ケアマネジャーが介護の第一…
-
-											</p>
-										</div>
-
-									</div>
-									<div class="article">
-										<p class="image">
-											<img :src="require('../../assets/img/no-image.png')" alt="">
-										</p>
-										<div class="text-box">
-											<div class="author">
-												<p class="page">
-													<span>
-														介護保険制度
-
-													</span>
-												</p>
-												<p class="question">
-													<span>
-														その他
-
-													</span>
-												</p>
-											</div>
-											<p class="text">
-												介護はどこにどう申請するの？<br>
-												ケアマネジャーが介護の第一…
-
-											</p>
-										</div>
-
-									</div>
-									<div class="article">
-										<p class="image">
-											<img :src="require('../../assets/img/no-image.png')" alt="">
-										</p>
-										<div class="text-box">
-											<div class="author">
-												<p class="page">
-													<span>
-														介護保険制度
-
-													</span>
-												</p>
-												<p class="question">
-													<span>
-														その他
-
-													</span>
-												</p>
-											</div>
-											<p class="text">
-												介護はどこにどう申請するの？<br>
-												ケアマネジャーが介護の第一…
-
-											</p>
-										</div>
-
-									</div>
-									<div class="article">
-										<p class="image">
-											<img :src="require('../../assets/img/no-image.png')" alt="">
-										</p>
-										<div class="text-box">
-											<div class="author">
-												<p class="page">
-													<span>
-														介護保険制度
-
-													</span>
-												</p>
-												<p class="question">
-													<span>
-														その他
-
-													</span>
-												</p>
-											</div>
-											<p class="text">
-												介護はどこにどう申請するの？<br>
-												ケアマネジャーが介護の第一…
-
-											</p>
-										</div>
-
-									</div>
-									<div class="article">
-										<p class="image">
-											<img :src="require('../../assets/img/no-image.png')" alt="">
-										</p>
-										<div class="text-box">
-											<div class="author">
-												<p class="page">
-													<span>
-														介護保険制度
-
-													</span>
-												</p>
-												<p class="question">
-													<span>
-														その他
-
-													</span>
-												</p>
-											</div>
-											<p class="text">
-												介護はどこにどう申請するの？<br>
-												ケアマネジャーが介護の第一…
-
-											</p>
-										</div>
-
 									</div>
 								</div>
 								<p class="btn">
@@ -452,148 +192,8 @@
 								</p>
 							</div>
 							<div class="box-right">
-								<div class="category">
-									<p class="term">
-										<span>
-											介護のご相談<br>
-											その前に！
-										</span>
-									</p>
-									<p class="att">
-										介護なんでも相談室について
-									</p>
-								</div>
-								<div class="product">
-									<p class="title">
-										人気記事ランキング
-
-									</p>
-									<div class="article">
-										<div class="bg-title">
-											<p class="num">
-												1
-											</p>
-											<p class="image">
-												<img :src="require('../../assets/img/no-image.png')" alt="">
-											</p>
-										</div>
-
-										<div class="text-box">
-											<p class="date">
-												2022.05.09
-
-											</p>
-											<p class="note">
-												介護付き有料老人ホーム
-											</p>
-											<p class="text">
-												県外の介護付き<br>
-												有料老人ホームに入居…
-
-											</p>
-										</div>
-									</div>
-									<div class="article">
-										<div class="bg-title">
-											<p class="num">
-												2
-											</p>
-											<p class="image">
-												<img :src="require('../../assets/img/no-image.png')" alt="">
-											</p>
-										</div>
-
-										<div class="text-box">
-											<p class="date">
-												2022.05.09
-
-											</p>
-											<p class="note">
-												介護付き有料老人ホーム
-											</p>
-											<p class="text">
-												県外の介護付き<br>
-												有料老人ホームに入居…
-
-											</p>
-										</div>
-									</div>
-									<div class="article">
-										<div class="bg-title">
-											<p class="num">
-												3
-											</p>
-											<p class="image">
-												<img :src="require('../../assets/img/no-image.png')" alt="">
-											</p>
-										</div>
-
-										<div class="text-box">
-											<p class="date">
-												2022.05.09
-
-											</p>
-											<p class="note">
-												介護付き有料老人ホーム
-											</p>
-											<p class="text">
-												県外の介護付き<br>
-												有料老人ホームに入居…
-
-											</p>
-										</div>
-									</div>
-									<div class="article">
-										<div class="bg-title">
-											<p class="num">
-												4
-											</p>
-											<p class="image">
-												<img :src="require('../../assets/img/no-image.png')" alt="">
-											</p>
-										</div>
-
-										<div class="text-box">
-											<p class="date">
-												2022.05.09
-
-											</p>
-											<p class="note">
-												介護付き有料老人ホーム
-											</p>
-											<p class="text">
-												県外の介護付き<br>
-												有料老人ホームに入居…
-
-											</p>
-										</div>
-									</div>
-									<div class="article">
-										<div class="bg-title">
-											<p class="num">
-												5
-											</p>
-											<p class="image">
-												<img :src="require('../../assets/img/no-image.png')" alt="">
-											</p>
-										</div>
-
-										<div class="text-box">
-											<p class="date">
-												2022.05.09
-
-											</p>
-											<p class="note">
-												介護付き有料老人ホーム
-											</p>
-											<p class="text">
-												県外の介護付き<br>
-												有料老人ホームに入居…
-
-											</p>
-										</div>
-									</div>
-								</div>
+								<category-right/>
+                                <list-popular/>
 								<div class="keywords">
 									<p class="title">
 										人気キーワード
@@ -619,24 +219,14 @@
 				<div class="module break-wrap">
 					<div class="index-event break">
 						<div class="box">
-							<div class="box01">
+							<div class="box01" v-for="(item, index) in listEvent">
 								<p class="att">
 									<span>
-										特別企画
+										{{item.title}}
 									</span>
 								</p>
 								<p class="title">
-									介護、なぜ？なに？クイズ
-								</p>
-							</div>
-							<div class="box02">
-								<p class="att">
-									<span>
-										キャンペーン！
-									</span>
-								</p>
-								<p class="title">
-									プレゼント企画
+                                    {{item.description}}
 								</p>
 							</div>
 						</div>
@@ -657,83 +247,8 @@
 										掲示板、メール、LINEでのご相談は、24時間受け付ています。
 									</p>
 								</div>
-
 							</div>
-							<div class="info-box">
-								<div class="article">
-									<p class="image">
-										<img :src="require('../../assets/img/icon_page.png')" alt="">
-									</p>
-									<p class="att">
-										掲示板
-									</p>
-									<p class="note">
-										受付時間：24時間受付
-									</p>
-									<p class="num">
-										<span>
-											24
-										</span>
-										時間
-									</p>
-								</div>
-								<div class="article">
-									<p class="image">
-										<img :src="require('../../assets/img/icon_mail.png')" alt="">
-									</p>
-									<p class="att">
-										メール
-									</p>
-									<p class="note">
-										受付時間：24時間受付
-									</p>
-									<p class="num">
-										<span>
-											24
-										</span>
-										時間
-									</p>
-								</div>
-								<div class="article">
-									<p class="image">
-										<img :src="require('../../assets/img/icon_tel.png')" alt="">
-									</p>
-									<p class="att">
-										電　話
-									</p>
-									<p class="note">
-										受付時間：平日9：00～18：00
-									</p>
-								</div>
-								<div class="article">
-									<p class="image">
-										<img :src="require('../../assets/img/icon08.png')" alt="">
-									</p>
-									<p class="att">
-										zoom
-									</p>
-									<p class="note">
-										受付時間：平日9：00～18：00
-									</p>
-								</div>
-								<div class="article">
-									<p class="image">
-										<img :src="require('../../assets/img/icon09.png')" alt="">
-									</p>
-									<p class="att">
-										LINE
-									</p>
-									<p class="note">
-										受付時間：24時間受付
-									</p>
-									<p class="num">
-										<span>
-											24
-										</span>
-										時間
-									</p>
-								</div>
-							</div>
+							<Infor/>
 						</div>
 					</div>
 				</div>
@@ -747,37 +262,82 @@
 </template>
 
 <script>
+import categoryRight from '../../components/categoryRight.vue';
+import listPopular from '../../components/listPopular.vue';
+import Infor from '../../components/Infor.vue';
 export default {
+    components: { categoryRight,listPopular,Infor },
     data() {
         return {
             banner: {
                 image_left:null,
+                title:null,
                 image_right:null,
                 image:null,
                 intro:null,
                 intro2:null,
                 description:null,
+                list_image:[],
             },
             banner2: {
                 image_left:null,
+                title:null,
                 image_right:null,
                 image:null,
                 intro:null,
                 intro2:null,
                 description:null,
+                list_image:[],
             },
             banner3: {
                 image_left:null,
+                title:null,
                 image_right:null,
                 image:null,
                 intro:null,
                 intro2:null,
+                icon:null,
                 description:null,
-            }
+                list_image:[],
+            },
+            banner4: {
+                image_left:null,
+                title:null,
+                image_right:null,
+                image:null,
+                intro:null,
+                intro2:null,
+                icon:null,
+                description:null,
+                list_image:[],
+            },
+            banner5: {
+                image_left:null,
+                title:null,
+                image_right:null,
+                image:null,
+                intro:null,
+                intro2:null,
+                icon:null,
+                description:null,
+                list_image:[],
+            },
+            listQa: [],
+            listEvent: []
         };
     },
     methods: {
         async getbanner() {
+            let { data } = await this.axios.get("api/images/detail", {
+                params: { type: 1 }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            this.banner = data.data;
+        },
+        async getbanner2() {
             let { data } = await this.axios.get("api/images/detail", {
                 params: { type: 2 }
                 // auth: {
@@ -785,40 +345,82 @@ export default {
                 //     password: "care21greentech@"
                 // },
             });
-            console.log(data.data)
-            this.banner = data.data;
-        },
-        async getbanner2() {
-            let { data } = await this.axios.get("api/images/detail", {
-                params: { type: 1 }
-                // auth: {
-                //     username: "care21@greentechsolutions",
-                //     password: "care21greentech@"
-                // },
-            });
-            console.log(data.data)
             this.banner2 = data.data;
         },
         async getbanner3() {
             let { data } = await this.axios.get("api/images/detail", {
-                params: { type: 1 }
+                params: { type: 3 }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            this.banner3 = data.data;
+        },
+        async getbanner4() {
+            let { data } = await this.axios.get("api/images/detail", {
+                params: { type: 4 }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            this.banner4 = data.data;
+        },
+        async getbanner5() {
+            let { data } = await this.axios.get("api/images/detail", {
+                params: { type: 5 }
                 // auth: {
                 //     username: "care21@greentechsolutions",
                 //     password: "care21greentech@"
                 // },
             });
             console.log(data.data)
-            this.banner3 = data.data;
+            this.banner5 = data.data;
+        },
+        async getlistQa() {
+            let { data } = await this.axios.get("api/qa/list", {
+                params: { per_page: 6 }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            this.listQa = data.data.data;
+        },
+        async getlistEvent() {
+            let { data } = await this.axios.get("api/images/detail", {
+                params: { type: 7,list:1 }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            this.listEvent = data.data;
         }
     },
     computed: {
         imageUrl() {
             return this.banner2.image;
+        },
+        imageicon3() {
+            return this.banner3.icon;
+        },
+        imageicon4() {
+            return this.banner4.icon;
+        },
+        imageicon5() {
+            return this.banner5.icon;
         }
     },
     async mounted() {
         await this.getbanner();
         await this.getbanner2();
+        await this.getbanner3();
+        await this.getbanner4();
+        await this.getbanner5();
+        await this.getlistQa();
+        await this.getlistEvent();
     },
 }
 </script>

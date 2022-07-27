@@ -36,11 +36,11 @@ class QAController extends Controller
         $data['page'] = Cookie::get('page', 1);
         $data['title']='Danh sách';
         $search = ['keyword'=>''];
-        $qa = $this->qa->select(['qa.title','qa.content','qa.status','qa_cate.title as qa_cate_title','qa_type.title as qa_type_title'])->whereOperator(new Operator('qa.deleted_at',null))
+        $qa = $this->qa->select(['qa.id','qa.title','qa.content','qa.status','qa.customer_id','qa_cate.title as qa_cate_title','qa_type.title as qa_type_title'])->whereOperator(new Operator('qa.deleted_at',null))
             ->join([
                 new Operator(null,null,'qa_cate','qa.qa_cate','qa_cate.id'),
                 new Operator(null,null,'qa_type','qa.qa_type','qa_type.id'),
-                new Operator(null,null,'customer_id','qa.qa_type','qa_type.id'),
+                new Operator(null,null,'customer','qa.customer_id','customer.id'),
             ])
         ;
         if($request->keyword){
@@ -171,6 +171,23 @@ class QAController extends Controller
         $this->history_activity->addHistory('Xóa QA không tìm thấy bản ghi','QA','Delete','Tài khoản '.Auth::user()->name.' Xóa QA không tìm thấy bản ghi','Xóa QA không tìm thấy bản ghi','Error');
         return back()->with('error','Không tìm thấy bản ghi');
     }
+    public function listQA(Request $request)
+    {
+        $data['per_page'] = $request->input('per_page',6);
+        $data['page'] = $request->input('page',1);
+        $qa = $this->qa->select(['qa.id','qa.title','qa.content','qa.status','qa.customer_id','qa_cate.title as qa_cate_title','qa_type.title as qa_type_title'])->whereOperator(new Operator('qa.deleted_at',null))
+            ->join([
+                new Operator(null,null,'qa_cate','qa.qa_cate','qa_cate.id'),
+                new Operator(null,null,'qa_type','qa.qa_type','qa_type.id'),
+                new Operator(null,null,'customer','qa.customer_id','customer.id'),
+            ])
+        ;
+        if($request->keyword){
+            $qa = $qa->whereOperator(new Operator('qa.name','%'.$request->keyword.'%',null,null,null,[],'like'));
+        }
+        $qa = $qa->orderByDesc('qa.created_at')->paging($data['per_page'],$data['page'],false);
+        return $this->responseAPI($qa,'Lấy dữ liệu thành công',200);
+    }
     public function AddQa(Request $request)
     {
         $data = $request->all();
@@ -187,10 +204,10 @@ class QAController extends Controller
         $data['created_at'] = $data['updated_at'] =now();
         $qa = $this->qa->insertData($data);
         if($qa){
-            $this->history_activity->addHistory('Thêm investigation thành công','Investigation','Add','Tài khoản '.Auth::user()->name.' thêm investigation thành công','Thêm investigation','Success',$investigation);
+            $this->history_activity->addHistory('Thêm investigation thành công','Investigation','Add','Guest thêm investigation thành công','Thêm investigation','Success',$qa);
             return $this->responseAPI($qa,'Thêm dữ liệu thành công',200);
         }
-        $this->history_activity->addHistory('Thêm investigation không thành công','Investigation','Add','Tài khoản '.Auth::user()->name.' thêm investigation không thành công','Thêm investigation','Error');
+        $this->history_activity->addHistory('Thêm investigation không thành công','Investigation','Add','Guest thêm investigation không thành công','Thêm investigation','Error');
         return $this->responseAPI([],'Thêm dữ liệu không thành công',500);
     }
 }

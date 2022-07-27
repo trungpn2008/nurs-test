@@ -50,7 +50,7 @@
                                     </td>
                                     <td>{{$item->qa_type_title}}</td>
                                     <td>{{$item->qa_cate_title}}</td>
-                                    <td>{{$item->customer_id}}</td>
+{{--                                    <td>{{$item->customer_id}}</td>--}}
                                     <td>
                                         <div class="dropdown">
                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow"

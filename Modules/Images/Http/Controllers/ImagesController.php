@@ -211,6 +211,7 @@ class ImagesController extends Controller
     {
         $data['arrange'] = $request->input('arrange',null);
         $data['type'] = $request->input('type',null);
+        $data['list'] = $request->input('list',null);
         $images = $this->images->whereOperator([new Operator('deleted_at',null),new Operator('type','Banner')]);
         if($data['arrange']){
             $images = $images->whereOperator(new Operator('arrange',$data['arrange']));
@@ -218,7 +219,13 @@ class ImagesController extends Controller
         if($data['type']){
             $images = $images->whereOperator(new Operator('blueprint_type_id',$data['type']));
         }
-        $images = $images->builder();
+        if($data['list'] == 1){
+            $images = $images->builder(false);
+        }else{
+            $images = $images->builder();
+        }
+
+        $images->list_image = !empty($images->list_image)?json_decode($images->list_image,true):"";
         if($images){
             return $this->responseAPI($images,'Lấy dữ liệu thành công',200);
         }

@@ -292,7 +292,7 @@ class NewsController extends Controller
         }
         $news = $news->orderByDesc('news.view')->paging($data['per_page'],$data['page'],false);
         $data['news']=$news;
-        return $this->responseAPI($data,'Lấy dữ liệu thành công',200);
+        return $this->responseAPI($news,'Lấy dữ liệu thành công',200);
     }
     public function listDetail(Request $request)
     {
