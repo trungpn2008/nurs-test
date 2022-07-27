@@ -4,30 +4,17 @@
 			<div class="box">
 				<div class="box01">
 					<p class="image">
-						<img :src="require('../../assets/img/no-image.png')" alt="">
+						<img :src="banner.image_left" alt="">
 					</p>
 				</div>
 				<div class="text-box">
-					<p class="bg-title">
-						<span>
-							皆様の介護のお悩み相談募集中
-						</span>
-						選べる相談方法、コラムも随時更新。<br>
-						介護に関するお悩みをお気軽にご相談ください。
-					</p>
-					<p class="title">
-						ケア21の<br>
-						「介護なんでも相談室」
-
-					</p>
-					<p class="text">
-						新規会員登録でケアマネジャーが、<br>
-						無料で介護相談に対応
-					</p>
+                    <p class="bg-title" v-html="banner.intro"></p>
+                    <p class="title" v-html="banner.intro2"></p>
+                    <p class="text" v-html="banner.description"></p>
 				</div>
 				<div class="box02">
 					<p class="image">
-						<img :src="require('../../assets/img/no-image.png')" alt="">
+						<img :src="banner.image_right" alt="">
 					</p>
 				</div>
 			</div>
@@ -53,28 +40,13 @@
 				<div class="module break-wrap">
 					<div class="index-counseling break">
 						<div class="box">
-							<div class="bg-image">
-								<p class="att">
-									<span>
-										お気軽に<br>
-										ご相談ください
-									</span>
-								</p>
+							<div class="bg-image" :style="{
+    'background': 'url(' + imageUrl + ') center no-repeat'}">
+								<p class="att" v-html="banner2.intro"></p>
 							</div>
 							<div class="text-box">
-								<p class="title">
-									<span>
-										介護なんでも<br>
-										相談室とは
-
-									</span>
-								</p>
-								<p class="text">
-									ケア21が運営する介護相談サイトです。<br>
-									新規会員登録で、どなたでも無料でご相談いただけます。<br>
-									当社ケアマネジャーが、掲示板、メール、電話、zoom、LINEで<br>
-									ご相談にお答えします。
-								</p>
+								<p class="title" v-html="banner2.intro2"></p>
+								<p class="text" v-html="banner2.description"></p>
 							</div>
 						</div>
 					</div>
@@ -778,32 +750,79 @@
 export default {
     data() {
         return {
-            intro: null,
-            intro2: null.;
-                imageLeft : null
-            imageLeft: null
+            banner: {
+                image_left:null,
+                image_right:null,
+                image:null,
+                intro:null,
+                intro2:null,
+                description:null,
+            },
+            banner2: {
+                image_left:null,
+                image_right:null,
+                image:null,
+                intro:null,
+                intro2:null,
+                description:null,
+            },
+            banner3: {
+                image_left:null,
+                image_right:null,
+                image:null,
+                intro:null,
+                intro2:null,
+                description:null,
+            }
         };
     },
     methods: {
-        async getNews() {
+        async getbanner() {
             let { data } = await this.axios.get("api/images/detail", {
-                params: { id: 1 }
+                params: { type: 2 }
                 // auth: {
                 //     username: "care21@greentechsolutions",
                 //     password: "care21greentech@"
                 // },
             });
-            this.paging = data.data.news;
-            console.log(data.data.news)
-            this.news = this.paging.data;
+            console.log(data.data)
+            this.banner = data.data;
+        },
+        async getbanner2() {
+            let { data } = await this.axios.get("api/images/detail", {
+                params: { type: 1 }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            console.log(data.data)
+            this.banner2 = data.data;
+        },
+        async getbanner3() {
+            let { data } = await this.axios.get("api/images/detail", {
+                params: { type: 1 }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            console.log(data.data)
+            this.banner3 = data.data;
+        }
+    },
+    computed: {
+        imageUrl() {
+            return this.banner2.image;
         }
     },
     async mounted() {
-        await this.getNews();
+        await this.getbanner();
+        await this.getbanner2();
     },
 }
 </script>
 
-<style>
+<style scoped>
     @import "../../assets/css/index.css";
 </style>

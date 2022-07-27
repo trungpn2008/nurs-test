@@ -91,11 +91,11 @@
 
                     <div class="col-md-6">
                         <label class="form-label" for="intro">Intro First</label>
-                        <textarea name="intro" id="intro"  class="form-control" placeholder="Nội dung" cols="30" rows="10">{{$images->intro}}</textarea>
+                        <textarea name="intro" id="intro"  class="form-control" placeholder="Nội dung" cols="30" rows="10"></textarea>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label" for="intro2">Intro Second</label>
-                        <textarea name="intro2" id="intro2"  class="form-control" placeholder="Nội dung" cols="30" rows="10">{{$images->intro2}}</textarea>
+                        <textarea name="intro2" id="intro2"  class="form-control" placeholder="Nội dung" cols="30" rows="10"></textarea>
                     </div>
                     <div class="col-md-12">
                         <label class="form-label" for="description">Nội dung</label>
@@ -267,7 +267,7 @@
                                         message: 'Please enter title'
                                     },
                                     stringLength: {
-                                        min: 6,
+                                        min: 3,
                                         max:255,
                                         message: 'The title must be more than 6 and less than 255 characters long'
                                     }
