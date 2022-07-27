@@ -9,7 +9,7 @@ return [
 
         'app',
 //        'jquery',
-//        'common',
+        'common',
 //        'function',
 
     ],

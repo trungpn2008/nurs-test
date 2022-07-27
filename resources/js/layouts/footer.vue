@@ -64,6 +64,10 @@
 export default {
     mounted: function() {
         $('.break').parents('.module').addClass('break-wrap');
+        $(".drawer").drawer();
+        $('.drawer-close').on('click', function() {
+            $('.drawer').drawer('close');
+        });
     }
 }
 </script>
