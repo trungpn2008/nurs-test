@@ -121,7 +121,7 @@
 
 #contact_form td input::before {
     content: '';
-    position: absolute;
+    /*position: absolute;*/
     top: 0;
     left: 0;
     background-color: #FCF9FC;

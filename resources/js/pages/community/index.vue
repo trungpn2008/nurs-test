@@ -117,105 +117,15 @@
                         <div class="box">
                             <p class="bg-title">
 								<span>
-									特定商取引に関する法律に基づく表示
+									{{ cate.title }}
 								</span>
                             </p>
-                            <div class="info">
+                            <div class="info" v-for="(item, index) in content">
                                 <p class="title">
-                                    <span>提供業者</span>
+                                    <span>{{ item.title }}</span>
                                 </p>
-                                <div class="text-box">
-                                    株式会社ヤマップ
-                                </div>
-                            </div>
-                            <div class="info">
-                                <p class="title">
-                                    <span>所在地</span>
-                                </p>
-                                <div class="text-box">
-                                    <p class="text">
-                                        福岡市博多区博多駅前3-23-20 博多AGビル6F
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <p class="title">
-                                    <span>代表電話番号</span>
-                                </p>
-                                <div class="text-box">
-                                    092-710-5511
-                                </div>
-                            </div>
-                            <div class="info">
-                                <p class="title">
-                                    <span>利用料</span>
-                                </p>
-                                <div class="text-box">
-                                    <p class="text">
-                                        当サイト上・当アプリ上で表示している有料サービス利用額です。
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <p class="title">
-                                    <span>利用料以外に発生する料金等</span>
-                                </p>
-                                <div class="text-box">
-                                    <p class="text">
-                                        サイトの閲覧、コンテンツのダウンロード、お問い合わせ等の際の電子メールの送受信時などに、所定の通信料が発生します。
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <p class="title">
-                                    <span>サービス開始時期</span>
-                                </p>
-                                <div class="text-box">
-                                    <p class="text">
-                                        プレミアムサービスについては有料登録をし、ステータス更新後にご利用可能です。
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <p class="title">
-                                    <span>サービス開始時期</span>
-                                </p>
-                                <div class="text-box">
-                                    <p class="text">
-                                        プレミアムサービスについては有料登録をし、ステータス更新後にご利用可能です。
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <p class="title">
-                                    <span>ダウンロードファイルの使用</span>
-                                </p>
-                                <div class="text-box">
-                                    <p class="text">
-                                        JPEGにてご使用できます。
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <p class="title">
-                                    <span>返品についての特約事項</span>
-                                </p>
-                                <div class="text-box">
-                                    <p class="text">
-                                        電子商品としての性質上、返品／キャンセルには応じられません。
-
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <p class="title">
-                                    <span>解約条件・解約方法</span>
-                                </p>
-                                <div class="text-box">
-                                    <p class="text">
-                                        銀行振込みにおいて自動的に課金が継続されることはありません。解約については ヘルプセンター を参照ください。
-
-                                    </p>
+                                <div class="text-box" >
+                                    <p class="text" v-html="item.content"></p>
                                 </div>
                             </div>
                         </div>
@@ -255,7 +165,38 @@
 <script>
 import Infor from '../../components/Infor.vue';
 export default {
-    components: { Infor }
+    components: { Infor },
+    data() {
+        return {
+            cate: {
+                title:null,
+                parent_id:null,
+            },
+            content: [],
+        };
+    },
+    methods: {
+        async getCommunity() {
+            let { data } = await this.axios.get("api/term-and-condition-category/detail/2", {
+                params: { type: 1 }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            console.log(data.data)
+            this.cate = data.data.category;
+            this.content = data.data.content;
+        },
+    },
+    computed: {
+        // imageUrl() {
+        //     return this.banner2.image;
+        // },
+    },
+    async mounted() {
+        await this.getCommunity();
+    },
 }
 </script>
 

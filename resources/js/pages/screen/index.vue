@@ -53,7 +53,7 @@
 
                         </div>
                         <div class="btn">
-                            <p class="inner"><a href="#">
+                            <p class="inner"><a href="/">
                                 閉じる
                             </a></p>
 

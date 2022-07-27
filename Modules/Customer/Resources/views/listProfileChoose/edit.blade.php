@@ -66,21 +66,16 @@
                                         message: 'Please enter title'
                                     },
                                     stringLength: {
-                                        min: 3,
+                                        min: 2,
                                         max:255,
                                         message: 'The title must be more than 3 and less than 255 characters long'
                                     }
                                 }
                             },
-                            code: {
+                            choose_category_id: {
                                 validators: {
                                     notEmpty: {
-                                        message: 'Please enter your code'
-                                    },
-                                    stringLength: {
-                                        min: 3,
-                                        max:255,
-                                        message: 'The code must be more than 3 and less than 255 characters lon'
+                                        message: 'Please enter image'
                                     }
                                 }
                             }
@@ -95,7 +90,7 @@
                                     // field is the field name & ele is the field element
                                     switch (field) {
                                         case 'title':
-                                        case 'code':
+                                        case 'choose_category_id':
                                         default:
                                             return '.row';
                                     }

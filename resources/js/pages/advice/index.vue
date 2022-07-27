@@ -171,7 +171,7 @@ export default {
     },
     methods: {
         async getadvice() {
-            let { data } = await this.axios.get("api/term-and-condition-category/detail/1", {
+            let { data } = await this.axios.get("api/term-and-condition-category/detail/4", {
                 params: { type: 1 }
                 // auth: {
                 //     username: "care21@greentechsolutions",
@@ -183,18 +183,6 @@ export default {
         },
     },
     computed: {
-        imageUrl() {
-            return this.banner2.image;
-        },
-        imageicon3() {
-            return this.banner3.icon;
-        },
-        imageicon4() {
-            return this.banner4.icon;
-        },
-        imageicon5() {
-            return this.banner5.icon;
-        }
     },
     async mounted() {
         await this.getadvice();

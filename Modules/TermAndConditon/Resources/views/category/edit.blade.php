@@ -18,6 +18,10 @@
                     <label class="form-label" for="title">Title</label>
                     <input type="text" id="title" name="title" class="form-control" placeholder="Tiêu đề" value="{{$termAndConditionCategory->title}}" />
                 </div>
+                <div class="col-md-12">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea name="description" id="description"  class="form-control" placeholder="Content" cols="30" rows="10" hidden>{{$termAndConditionCategory->description}}</textarea>
+                </div>
             </div>
             <hr class="my-4 mx-n4" />
             <div class="pt-4">
@@ -41,6 +45,19 @@
     <script src="/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
     <script>CKFinder.config( { connectorPath: '/ckfinder/connector' } );</script>
     <script>
+        const mediaUpload = ({filesList, onFileChange}) => {
+            setTimeout(() => {
+                const uploadedFiles = Array.from(filesList).map(file => {
+                    return {
+                        id: file.name,
+                        name: file.name,
+                        url: `https://dummyimage.com/600x400/000/fff&text=${file.name}`
+                    }
+                })
+                onFileChange(uploadedFiles)
+            }, 1000)
+        }
+        Laraberg.init('description',{ mediaUpload })
         const formCategoryType = document.querySelector('#form-category-type');
 
         document.addEventListener('DOMContentLoaded', function (e) {

@@ -45,7 +45,7 @@
                         新規会員登録
                     </p>
                     <div id="contact_form">
-                        <form action="/static/php/contact.php" method="post" id="inquiry-form">
+                        <form @submit.prevent="registerData" method="post" id="inquiry-form">
                             <input type="hidden" name="thanksurl" value="/thanks.php" class="errPosRight">
                             <input type="hidden" name="s" value="02" class="errPosRight">
                             <table class="form_table">
@@ -69,7 +69,7 @@
                                                 <div class="line1"></div>
                                             </div>
                                         </div>
-                                        <input type="text" name="name" id="name"
+                                        <input type="text" name="name" id="name" v-model="register.name"
                                                class="chkrequired errPosRight before">
                                     </td>
                                 </tr>
@@ -92,25 +92,25 @@
                                                 <div class="line1"></div>
                                             </div>
                                         </div>
-                                        <input type="text" name="email" id="email"
+                                        <input type="text" name="furigana" id="furigana" v-model="register.furigana"
                                                class="chkrequired chkemail chkhankaku errPosRight before">
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>ニックネーム<span class="req">必須</span></th>
                                     <td>
-                                        <input type="text" name="zip" class="zipcode errPosRight">
+                                        <input type="text" name="nickName" v-model="register.nickName" class=" errPosRight">
                                     </td>
                                 </tr>
                                 <tr class="form_address">
                                     <th>性別</th>
                                     <td>
-                                        <label class="">
-                                            <input type="radio" name="radio" id="1">男性
+                                        <label class="male">
+                                            <input type="radio" name="gender" v-model="register.gender" value="2" id="male">男性
                                             <span class="checkmark"></span>
                                         </label>
-                                        <label class="">
-                                            <input type="radio" name="radio" id="2">女性
+                                        <label class="female">
+                                            <input type="radio" name="gender" v-model="register.gender" value="1" id="female">女性
                                             <span class="checkmark"></span>
                                         </label>
                                     </td>
@@ -118,39 +118,47 @@
                                 </tr>
                                 <tr class="form_tel">
                                     <th>年齢</th>
-                                    <tdy>
-                                        <select name="" id="">
-                                            <option value="0">18～24歳</option>
-                                            <option value="0">25～34歳</option>
-                                            <option value="0">35～44歳</option>
-                                            <option value="0">45～54歳</option>
-                                            <option value="0">55～64歳</option>
-                                            <option value="0">65歳以上</option>
+                                    <td>
+                                        <select name="ages" id="" v-model="register.data_choose.ages">
+                                            <option :value="item.id" v-for="(item, index) in age">{{ item.title }}</option>
                                         </select>
-                                    </tdy>
+                                    </td>
                                 </tr>
                                 <tr class="form_inquiry">
                                     <th>住所</th>
                                     <td>
                                         郵便番号入力<br>
-                                        <input type="text" value="" class="one"><br>
-                                        <input type="text" value=""><br>
+                                        <input type="text" name="zipcode" v-model="register.zipcode" value="" class="one"><br>
+                                        <input type="text" name="address2" v-model="register.address2" value=""><br>
                                         番地、マンション部屋番号入力<br>
-                                        <input type="text" value="">
+                                        <input type="text" name="address" v-model="register.address" value="">
+                                    </td>
+
+                                </tr>
+                                <tr class="form_phone">
+                                    <th>電話番号</th>
+                                    <td>
+                                        <input type="text" name="phone" v-model="register.phone" value="">
                                     </td>
 
                                 </tr>
                                 <tr class="form_id">
                                     <th>ラインID</th>
                                     <td>
-                                        <input type="text" value="">
+                                        <input type="text" name="pass_port" v-model="register.pass_port" value="">
                                     </td>
 
                                 </tr>
                                 <tr class="">
                                     <th>メールアドレス<span class="req">必須</span></th>
                                     <td>
-                                        <input type="text" value="">
+                                        <input type="text" name="email" v-model="register.email"  value="">
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <th>パスワード<span class="req">必須</span></th>
+                                    <td>
+                                        <input type="text" name="email" v-model="register.password"  value="">
                                     </td>
                                 </tr>
                                 <tr class="form_check">
@@ -158,31 +166,17 @@
                                     <th>連絡方法
                                         必須<span class="req">必須</span></th>
                                     <td>
-                                        <form action="">
-                                            <label class="">
-                                                <input type="radio" name="radio" id="1">メール
+                                            <label class="" v-for="(item, index) in contact">
+                                                <input type="radio" name="contacts" v-model="register.data_choose.contacts" :value="item.id">{{ item.title }}
                                                 <span class="checkmark"></span>
                                             </label>
-                                            <label class="">
-                                                <input type="radio" name="radio" id="2">電話
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <label class="">
-                                                <input type="radio" name="radio" id="2">ライン
-                                                <span class="checkmark"></span>
-                                            </label><br>
-                                            <label class="">
-                                                <input type="radio" name="radio" id="1">当サイトからの連絡は受けとらない
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </form>
                                     </td>
                                 </tr>
                                 <tr class="form">
 
                                     <td rowspan="2" colspan="2">
                                         <label class="container">
-                                            <form action="" class="check">
+                                            <div class="check">
                                                 <input type="radio" name="radio" id="1">
                                                 <a href="#">利用規約</a>ご同意後、チェックを入れてください。
                                                 <span class="checkmark"></span>
@@ -193,7 +187,7 @@
                                                     入力内容を確認
                                                 </button>
                                             </p>
-                                            </form>
+                                            </div>
                                         </label>
 
                                     </td>
@@ -241,7 +235,68 @@
 import Infor from '../../components/Infor.vue';
 
 export default {
-    components: {Infor}
+    components: {Infor},
+    data() {
+        return {
+            age: [],
+            contact: [],
+            register:{
+                name:null,
+                nickName:null,
+                furigana:null,
+                email:null,
+                password:null,
+                data_choose:{
+                    contacts:null,
+                    ages:null,
+                },
+                gender:null,
+                zipcode:null,
+                address2:null,
+                address:null,
+                phone:null,
+                pass_port:null,
+            }
+        };
+    },
+    methods: {
+        async getListAge() {
+            let { data } = await this.axios.get("api/customer/list-choose-cate/detail", {
+                params: { code: "age" }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            this.age = data.data.content;
+        },
+        async getContact() {
+            let { data } = await this.axios.get("api/customer/list-choose-cate/detail", {
+                params: { code: "contact" }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            this.contact = data.data.content;
+        },
+        async registerData(e){
+            console.log(this.register)
+            await this.axios.post("api/customer/register",this.register).then((result)=>{
+                this.$router.push("/login");
+            }).catch(err => console.warn(err));
+            // e.preventDefault();
+        }
+    },
+    computed: {
+        // imageUrl() {
+        //     return this.banner2.image;
+        // },
+    },
+    async mounted() {
+        await this.getListAge();
+        await this.getContact();
+    },
 }
 </script>
 

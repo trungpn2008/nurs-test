@@ -112,23 +112,41 @@
             <div class="content">
                 <!-- ~*~*~*~*~ module start ~*~*~*~*~ -->
                 <!-- {$c8_Contents} -->
+
+                <ul class="bread">
+                    <li><a href="#">
+                        トップ
+                    </a></li>
+                    <li><a href="#">ユーザーマイページ</a></li>
+
+                </ul>
                 <div class="module">
-                    <div class="genaral break">
-                        <div class="box">
-                            <p class="bg-title">
-								<span>
-									{{ cate.title }}
-								</span>
-                            </p>
-                            <p class="att" v-html="cate.description"></p>
-                            <div class="info" v-for="(item, index) in content">
-                                <p class="title">
-                                    <span>{{ item.title }}</span>
-                                </p>
-                                <div class="text-box" v-html="item.content"></div>
+                    <div class="user">
+                        <p class="title">
+							<span>
+								login
+							</span>
+                        </p>
+                        <form @submit.prevent="loginPage" method="post">
+                            <div class="info">
+                                <label for="" >Email</label><br>
+                                <input type="text" placeholder="Email" v-model="login.email">
                             </div>
-                        </div>
+                            <div class="info">
+                                <label for="" >Password</label><br>
+                                <input type="password"placeholder="Password" v-model="login.password">
+                            </div>
+                            <ul class="list">
+                                <li>
+                                    <button type="submit">
+                                        ログイン
+                                    </button>
+                                </li>
+                            </ul>
+                        </form>
+
                     </div>
+
 
                 </div>
                 <div class="module">
@@ -148,7 +166,7 @@
                                 </div>
 
                             </div>
-                            <Infor />
+                            <Infor/>
                         </div>
                     </div>
                 </div>
@@ -163,42 +181,30 @@
 
 <script>
 import Infor from '../../components/Infor.vue';
+
 export default {
-    components: { Infor },
+    components: {Infor},
     data() {
         return {
-            cate: {
-                title:null,
-                description:null,
-                parent_id:null,
-            },
-            content: [],
+            login:{
+                email:null,
+                password:null,
+            }
         };
     },
     methods: {
-        async getGeneral() {
-            let { data } = await this.axios.get("api/term-and-condition-category/detail/3", {
-                params: { type: 1 }
-                // auth: {
-                //     username: "care21@greentechsolutions",
-                //     password: "care21greentech@"
-                // },
-            });
-            this.cate = data.data.category;
-            this.content = data.data.content;
-        },
-    },
-    computed: {
-        // imageUrl() {
-        //     return this.banner2.image;
-        // },
-    },
-    async mounted() {
-        await this.getGeneral();
+        async loginPage(e){
+            console.log(this.login)
+            await this.axios.post("api/customer/login",this.login).then((result)=>{
+                this.$session.set('jwt', result.data.data.token);
+                this.$router.push("/");
+            }).catch(err => console.warn(err));
+            // e.preventDefault();
+        }
     },
 }
 </script>
 
 <style scoped>
-@import '../../assets/css/genaral.css';
+@import '../../assets/css/user.css';
 </style>

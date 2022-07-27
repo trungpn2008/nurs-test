@@ -19,4 +19,5 @@ Route::prefix('faqs')->name('faqs.')->group(function() {
 
 Route::prefix('faq-category')->name('faq-category.')->group(function() {
     Route::get('/list', 'FAQCategoryController@listFaqCategory')->name('listing');
+    Route::get('/detail/{id?}', 'FAQCategoryController@detailFaqCategory')->name('detail');
 });

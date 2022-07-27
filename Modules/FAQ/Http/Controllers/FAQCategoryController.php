@@ -175,8 +175,11 @@ class FAQCategoryController extends Controller
         if($request->keyword){
             $faqCategories = $faqCategories->whereOperator(new Operator('title','%'.$request->keyword.'%',null,null,null,[],'like'));
         }
-        $faqCategories = $faqCategories->orderByDesc('created_at')->paging($data['per_page'],$data['page'],false);
+        $faqCategories = $faqCategories->orderByDesc('created_at')->builder(false);
+        foreach ($faqCategories as $key => $item){
+            $faq = $this->faq->whereOperator(new Operator('deleted_at',null))->whereOperator(new Operator('faq_category_id',$item->id))->builder(false);
+            $faqCategories[$key]->content = $faq;
+        }
         return $this->responseAPI($faqCategories,'Lấy dữ liệu thành công',200);
     }
-
 }

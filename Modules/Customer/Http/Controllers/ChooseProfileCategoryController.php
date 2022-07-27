@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Modules\Customer\Entities\ChooseProfileCategory;
+use Modules\Customer\Entities\ListProfileOption;
 
 class ChooseProfileCategoryController extends Controller
 {
@@ -18,10 +19,12 @@ class ChooseProfileCategoryController extends Controller
      * @return Renderable
      */
     private $chooseProfileCategory;
+    private $listOption;
     private $history_activity;
     function __construct()
     {
         $this->chooseProfileCategory = new ChooseProfileCategory();
+        $this->listOption = new ListProfileOption();
         $this->history_activity = new HistoryActivity();
     }
     public function index(Request $request)
@@ -75,8 +78,8 @@ class ChooseProfileCategoryController extends Controller
         }
         $data = $request->all();
         unset($data['_token']);
-        $data['required'] = $data['required'] =='on'?1:0;
-        $data['status'] = $data['status'] =='on'?1:0;
+        $data['required'] = isset($data['required']) && $data['required'] =='on'?1:0;
+        $data['status'] = isset($data['status']) && $data['status'] =='on'?1:0;
         $data['created_at'] = $data['updated_at'] =now();
         $chooseProfileCategory = $this->chooseProfileCategory->insertData($data);
         if($chooseProfileCategory){
@@ -200,5 +203,28 @@ class ChooseProfileCategoryController extends Controller
         }
         $chooseProfileCategory = $chooseProfileCategory->orderByDesc('created_at')->builder(false);
         return $this->responseAPI($chooseProfileCategory,'Lấy dữ liệu thành công',200);
+    }
+    public function detailChooseProfileCategory(Request $request)
+    {
+        $data=[];
+        $page = $request->input('page', 1);
+        $size = $request->input('size', 15);
+        $nameInput = $request->input('code', 15);
+        $keyword = $request->input('keyword', '');
+        $offset = ($page - 1) * $size;
+        $chooseProfileCategory = $this->chooseProfileCategory->whereOperator(new Operator('deleted_at',null))->whereOperator(new Operator('name_input',$nameInput));
+        if($request->keyword){
+            $chooseProfileCategory = $chooseProfileCategory->whereOperator(new Operator('title','%'.$request->keyword.'%',null,null,null,[],'like'));
+
+            $search['keyword']=$request->keyword;
+        }
+        $chooseProfileCategory = $chooseProfileCategory->orderByDesc('created_at')->builder();
+
+        if($chooseProfileCategory){
+            $data['category'] = $chooseProfileCategory;
+            $listOption = $this->listOption->whereOperator(new Operator('deleted_at',null))->whereOperator(new Operator('choose_category_id',$chooseProfileCategory->id))->builder(false);
+            $data['content'] = $listOption;
+        }
+        return $this->responseAPI($data,'Lấy dữ liệu thành công',200);
     }
 }

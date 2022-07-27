@@ -54,7 +54,7 @@ const routers = [
             default:()=> import('./pages/advice/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
-        name: 'news',
+        name: 'advice',
     },
     {
         path: '/community',
@@ -63,7 +63,7 @@ const routers = [
             default:()=> import('./pages/community/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
-        name: 'news',
+        name: 'community',
     },
     {
         path: '/company',
@@ -90,7 +90,7 @@ const routers = [
             default:()=> import('./pages/genaral/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
-        name: 'news',
+        name: 'genaral',
     },
     {
         path: '/qa',
@@ -171,7 +171,7 @@ const routers = [
             default:()=> import('./pages/privacy/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
-        name: 'news',
+        name: 'privacy',
     },
     {
         path: '/profile',
@@ -189,7 +189,7 @@ const routers = [
             default:()=> import('./pages/registration/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
-        name: 'news',
+        name: 'register',
     },
     {
         path: '/screen',
@@ -198,7 +198,7 @@ const routers = [
             default:()=> import('./pages/screen/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
-        name: 'news',
+        name: 'screen',
     },
     {
         path: '/transactions',
@@ -207,7 +207,7 @@ const routers = [
             default:()=> import('./pages/transactions/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
-        name: 'news',
+        name: 'transactions',
     },
     {
         path: '/user',
@@ -217,6 +217,15 @@ const routers = [
             footer:()=> import('./layouts/footer.vue'),
         },
         name: 'news',
+    },
+    {
+        path: '/login',
+        components: {
+            header:()=> import('./layouts/header.vue'),
+            default:()=> import('./pages/login/index.vue'),
+            footer:()=> import('./layouts/footer.vue'),
+        },
+        name: 'login',
     },
 
 ];

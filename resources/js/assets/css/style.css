@@ -2363,7 +2363,7 @@ input[type=”radio”] {
 
 #contact_form td .container input::before {
 	content: '';
-	position: absolute;
+	/*position: absolute;*/
 	top: 0;
 	left: 0;
 	background-color: #FCF9FC;

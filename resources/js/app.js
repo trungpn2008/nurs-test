@@ -7,13 +7,14 @@ window.Vue = require('vue').default;
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 // import axios from 'axios';
 import  VueRouter from "vue-router";
+import VueSession from 'vue-session'
 // import { createRouter, createWebHistory } from 'vue-router'
 import routes from './routers';
 import App from './layouts/App.vue'
 import VueAxios from 'vue-axios';
 import axios from 'axios';
-// import 'bootstrap/dist/css/bootstrap.css'
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/css/common.css';
 import './assets/css/style.css';
 // import Vue from 'vue';
@@ -22,11 +23,12 @@ import './assets/css/style.css';
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 // import App from './App.vue';
 
-// Vue.use(BootstrapVue)
+Vue.use(BootstrapVue)
 // Vue.use(IconsPlugin)
 // Vue.use(axios)
 Vue.use(VueRouter);
 Vue.use(VueAxios,axios)
+Vue.use(VueSession)
 // Vue.use(VueAwesomeSwiper)
 
 

@@ -127,13 +127,25 @@
                                 質問・相談
                             </span>
                         </p>
-                        <div class="info">
+                        <div class="info"  v-for="(item, index) in cate">
                             <p class="title">
                                 <span>
-                                    安心介護について
+                                    {{ item.title }}
                                 </span>
                             </p>
+                            <div class="accordion" role="tablist">
+                                <b-card no-body v-for="(item1, index1) in item.content">
+                                    <b-card-header header-tag="header" class="p-1" role="tab">
+                                        <b-button block v-b-toggle="[index1]" variant="info" class="text">{{item1.question}}</b-button>
+                                    </b-card-header>
+                                    <b-collapse :id="accordion-index1" visible accordion="my-accordion" role="tabpanel">
+                                        <b-card-body v-html="item1.anwwer">
+                                        </b-card-body>
+                                    </b-collapse>
+                                </b-card>
+                            </div>
                             <div class="text-box">
+
                                 <p class="text">
                                     Q1. 安心介護とは何ですか？
                                 </p>
@@ -231,7 +243,33 @@
 <script>
 import Infor from '../../components/Infor.vue';
 export default {
-    components: { Infor }
+    components: { Infor },
+    data() {
+        return {
+            cate: {
+                title:null,
+                content: [],
+            },
+        };
+    },
+    methods: {
+        async getPrivacy() {
+            let { data } = await this.axios.get("api/faq-category/list", {
+                params: { type: 1 }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            console.log(data.data)
+            this.cate = data.data;
+        },
+    },
+    computed: {
+    },
+    async mounted() {
+        await this.getPrivacy();
+    },
 }
 </script>
 
