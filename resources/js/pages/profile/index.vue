@@ -128,8 +128,9 @@
 								あなたのプロフィール
 							</span>
                         </p>
-                        <p class="image">
-                            <img src="img/user.png" alt="">
+                        <input type="file" hidden ref="file" @change="changeData" />
+                        <p class="image" @click="openFile()">
+                            <img  src="images/user.png" alt="">
                         </p>
                         <div class="info">
                             <label for="">ニックネーム</label><br>
@@ -142,7 +143,6 @@
                                     <option value="">女性</option>
                                     <option value="">女性</option>
                                     <option value="">女性</option>
-
                                 </select>
                             </div>
                             <div class="info-right">
@@ -151,7 +151,6 @@
                                     <option value="">1990</option>
                                     <option value="">1990</option>
                                     <option value="">1990</option>
-
                                 </select>
                             </div>
 
@@ -246,7 +245,36 @@
 <script>
 import Infor from '../../components/Infor.vue';
 export default {
-    components: { Infor }
+    components: { Infor },
+    data() {
+        return {
+            avatar: null,
+            nickname:null,
+            data_choose:[],
+            gender:[],
+            year_of_birth:[],
+            content_profile:[],
+        };
+    },
+    methods: {
+        async openFile() {
+            this.$refs.file.click();
+        },
+        changeData(event) {
+            let input = event.target;
+            if (input.files) {
+                new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.readAsDataURL(input.files[0]);
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = (error) => reject(error);
+                }).then(async (data) => {
+                    this.avatar=data
+                    console.log(this.avatar)
+                });
+            }
+        },
+    }
 }
 </script>
 

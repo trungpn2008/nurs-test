@@ -42,7 +42,7 @@ const routers = [
             default:()=> import('./pages/fqa/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
-        name: 'news',
+        name: 'faq',
     },
 
 

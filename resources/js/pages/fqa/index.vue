@@ -118,7 +118,6 @@
                         トップ
                         </a></li>
                     <li><a href="#">質問・相談</a></li>
-
                 </ul>
                 <div class="module">
                     <div class="question">
@@ -134,77 +133,15 @@
                                 </span>
                             </p>
                             <div class="accordion" role="tablist">
-                                <b-card no-body v-for="(item1, index1) in item.content">
+                                <b-card no-body v-for="(item1, index1) in item.content" v-bind:key="item1.id">
                                     <b-card-header header-tag="header" class="p-1" role="tab">
-                                        <b-button block v-b-toggle="[index1]" variant="info" class="text">{{item1.question}}</b-button>
+                                        <b-button block v-b-toggle="['accordion-'+index1]" class="btn-q">{{item1.question}}</b-button>
                                     </b-card-header>
-                                    <b-collapse :id="accordion-index1" visible accordion="my-accordion" role="tabpanel">
-                                        <b-card-body v-html="item1.anwwer">
+                                    <b-collapse :id="'accordion-'+index1" visible accordion="my-accordion" role="tabpanel">
+                                        <b-card-body v-html="item1.answer">
                                         </b-card-body>
                                     </b-collapse>
                                 </b-card>
-                            </div>
-                            <div class="text-box">
-
-                                <p class="text">
-                                    Q1. 安心介護とは何ですか？
-                                </p>
-                                <p class="text">
-                                    Q2. 安心介護のユーザーはどんな人ですか？
-                                </p>
-                                <p class="text">
-                                    Q3. 専門家の人はどんな資格を持っていますか？
-                                </p>
-                                <p class="text">
-                                    Q4. 安心介護でできることは、どんなことですか？
-                                </p>
-                                <p class="text">
-                                    Q5. 会員になるメリットは何ですか？
-                                </p>
-                            </div>
-
-                        </div>
-
-                        <div class="info">
-                            <p class="title">
-                                <span>会員登録について</span>
-                            </p>
-                            <div class="text-box">
-                                <p class="text">
-                                    Q1. 会員登録はどのように行えば良いですか？
-                                </p>
-                                <p class="text">
-                                    Q2. パスワードがうまく設定できません
-                                </p>
-                                <p class="text">
-                                    Q3. 会員登録の認証メールが届きません
-                                </p>
-                                <p class="text">
-                                    Q4. 介護・医療従事者として登録すると何ができますか？
-                                </p>
-                                <p class="text">
-                                    Q5. 一般ユーザーとして登録すると何ができますか？
-                                </p>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <p class="title">
-                                <span>ログインについて</span>
-                            </p>
-                            <div class="text-box">
-                                <p class="text">
-                                    Q1. 会員登録ボタンを押したのにログインができません
-                                </p>
-                                <p class="text">
-                                    Q2. ログインができなくなりました
-                                </p>
-                                <p class="text">
-                                    Q3. パスワードを忘れてしまいました
-                                </p>
-                                <p class="text">
-                                    Q4. 毎回のログインが面倒なのですが、簡単にする方法はありますか？
-                                </p>
-
                             </div>
                         </div>
                     </div>
@@ -246,10 +183,7 @@ export default {
     components: { Infor },
     data() {
         return {
-            cate: {
-                title:null,
-                content: [],
-            },
+            cate: [],
         };
     },
     methods: {
@@ -261,7 +195,6 @@ export default {
                 //     password: "care21greentech@"
                 // },
             });
-            console.log(data.data)
             this.cate = data.data;
         },
     },

@@ -174,8 +174,9 @@ class CustomerController extends Controller
         return $this->responseAPI([],'Tạo tài khoản không thành công',500);
     }
 
-    public function updateProfile(Request $request,$id)
+    public function updateProfile(Request $request)
     {
+        $customer_id = Auth::guard('api')->user()->id;
         $gender= $request->input('gender',null);
         $year_of_birth = $request->input('year_of_birth',null);
         if(!$gender){
@@ -184,10 +185,10 @@ class CustomerController extends Controller
         if(!$year_of_birth){
             return $this->responseAPI([],'required year of birth',500);
         }
-        if(!$id){
+        if(!$customer_id){
             return $this->responseAPI([],'required id',500);
         }
-        $customer = $this->customer->whereOperator(new Operator('deleted_at',null))->whereOperator(new Operator('id',$id))->builder();
+        $customer = $this->customer->whereOperator(new Operator('deleted_at',null))->whereOperator(new Operator('id',$customer_id))->builder();
         if(!$customer){
             return $this->responseAPI([],'No records found',500);
         }
@@ -205,7 +206,7 @@ class CustomerController extends Controller
         $data['gender'] = $gender;
         $data['year_of_birth'] = $year_of_birth;
         $data['content_profile'] = $request->input('content',$customer->content_profile);
-        $customer = $this->customer->updateData($data,$id,'id');
+        $customer = $this->customer->updateData($data,$customer_id,'id');
         if($customer){
             $this->history_activity->addHistory('update customer thành công','Customer','Add','Guest update customer thành công','update customer','Success',$customer);
             return $this->responseAPI($customer,'update profile thành công',200);
