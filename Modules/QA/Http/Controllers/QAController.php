@@ -10,6 +10,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\DB;
 use Modules\QA\Entities\QA;
 
 class QAController extends Controller
@@ -190,6 +191,26 @@ class QAController extends Controller
             $qa = $qa->whereOperator(new Operator('qa.status',$request->status));
         }
         $qa = $qa->whereOperator(new Operator('qa.customer_id',$data['customer_id']));
+        $qa = $qa->orderByDesc('qa.created_at')->paging($data['per_page'],$data['page'],false);
+        return $this->responseAPI($qa,'Lấy dữ liệu thành công',200);
+    }
+    public function listQAAll(Request $request)
+    {
+        $data['per_page'] = $request->input('per_page',6);
+        $data['page'] = $request->input('page',1);
+            $qa = $this->qa->select(['qa.id','qa.title','qa.created_at','qa.image','qa.content',DB::raw("DATE_FORMAT(`qa`.`created_at`, '%Y.%d.%m') as date"),'qa_cate.title as cate_name','qa_type.title as type_title'])->whereOperator(new Operator('qa.deleted_at',null))
+            ->join([
+                new Operator(null,null,'qa_cate','qa.qa_cate','qa_cate.id'),
+                new Operator(null,null,'qa_type','qa.qa_type','qa_type.id'),
+                new Operator(null,null,'customer','qa.customer_id','customer.id'),
+            ])
+        ;
+        if($request->keyword){
+            $qa = $qa->whereOperator(new Operator('qa.name','%'.$request->keyword.'%',null,null,null,[],'like'));
+        }
+        if($request->status !== 'all'){
+            $qa = $qa->whereOperator(new Operator('qa.status',$request->status));
+        }
         $qa = $qa->orderByDesc('qa.created_at')->paging($data['per_page'],$data['page'],false);
         return $this->responseAPI($qa,'Lấy dữ liệu thành công',200);
     }

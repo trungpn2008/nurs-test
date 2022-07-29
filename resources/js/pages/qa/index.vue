@@ -10,21 +10,18 @@
 
                 <div class="info">
                     <div class="bg-title">
-                        <p class="note">
-                            ― 皆様の介護のお悩み掲示板 ―
-                        </p>
+                        <p class="note"  v-html="banner4.intro"></p>
                         <p class="title">
-							<span>
-								掲 示 板
+							<span :style="{
+                                        'background': 'url(' + imageicon4 + ') left center no-repeat'}">
+								{{ banner4.title }}
 							</span>
                         </p>
                     </div>
 
-                    <p class="text">
-                        老人ホームの種類
-                    </p>
+                    <p class="text"  v-html="banner4.intro2"></p>
                     <p class="image">
-                        <img src="img/icon02.png" alt="">
+                        <img :src="banner4.image" alt="">
                     </p>
                 </div>
             </div>
@@ -37,16 +34,7 @@
                     <div class="homes-list break">
                         <div class="box">
                             <ul class="list-btn">
-                                <li><a href="#">老人ホームの種類について</a></li>
-                                <li><a href="#">介護付き有料老人ホーム </a></li>
-                                <li><a href="#">住宅型有料老人ホーム</a></li>
-                                <li><a href="#">サービス付き高齢者向け住宅
-                                </a></li>
-                                <li><a href="#">グループホーム</a></li>
-                                <li><a href="#">ケアハウス</a></li>
-                                <li><a href="#">特別養護老人ホーム</a></li>
-                                <li><a href="#">介護老人保健施設</a></li>
-                                <li><a href="#">介護医療院 </a></li>
+                                <li v-for="(item, index) in listQaCate"><a :href="'/introduction?cate='+item.id" >{{ item.title }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -60,380 +48,36 @@
 
                                 </p>
                                 <div class="info-box">
-                                    <div class="article">
+                                    <div class="article" v-for="(item, index) in listQa">
                                         <p class="image">
-                                            <img src="img/no-image.png" alt="">
+                                            <img :src="item.image" alt="">
                                         </p>
                                         <div class="text-box">
                                             <div class="time">
                                                 <p class="date">
-                                                    2022.05.09
+                                                    {{ item.date }}
                                                 </p>
                                                 <p class="att">
-                                                    老人ホームの種類について
+                                                    {{ item.cate_name }}
                                                 </p>
                                             </div>
 
                                             <p class="title">
-                                                県外の介護付き有料老人ホームに入居可能か？
+                                                {{ item.title }}
                                             </p>
                                             <p class="text">
-                                                入居可能です。都心や京都など人気のエリアに入居することができます。<br>
-                                                ただ入居には他にも条件があります…
-
+                                                {{ item.content }}
                                             </p>
                                             <div class="author">
                                                 <p class="page">
 													<span>
-														介護保険制度
+														{{ item.cate_name }}
 
 													</span>
                                                 </p>
                                                 <p class="question">
 													<span>
-														その他
-
-													</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="article">
-                                        <p class="image">
-                                            <img src="img/no-image.png" alt="">
-                                        </p>
-                                        <div class="text-box">
-                                            <div class="time">
-                                                <p class="date">
-                                                    2022.05.09
-                                                </p>
-                                                <p class="att">
-                                                    老人ホームの種類について
-                                                </p>
-                                            </div>
-
-                                            <p class="title">
-                                                県外の介護付き有料老人ホームに入居可能か？
-                                            </p>
-                                            <p class="text">
-                                                入居可能です。都心や京都など人気のエリアに入居することができます。<br>
-                                                ただ入居には他にも条件があります…
-
-                                            </p>
-                                            <div class="author">
-                                                <p class="page">
-													<span>
-														介護保険制度
-
-													</span>
-                                                </p>
-                                                <p class="question">
-													<span>
-														その他
-
-													</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="article">
-                                        <p class="image">
-                                            <img src="img/no-image.png" alt="">
-                                        </p>
-                                        <div class="text-box">
-                                            <div class="time">
-                                                <p class="date">
-                                                    2022.05.09
-                                                </p>
-                                                <p class="att">
-                                                    老人ホームの種類について
-                                                </p>
-                                            </div>
-
-                                            <p class="title">
-                                                県外の介護付き有料老人ホームに入居可能か？
-                                            </p>
-                                            <p class="text">
-                                                入居可能です。都心や京都など人気のエリアに入居することができます。<br>
-                                                ただ入居には他にも条件があります…
-
-                                            </p>
-                                            <div class="author">
-                                                <p class="page">
-													<span>
-														介護保険制度
-
-													</span>
-                                                </p>
-                                                <p class="question">
-													<span>
-														その他
-
-													</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="article">
-                                        <p class="image">
-                                            <img src="img/no-image.png" alt="">
-                                        </p>
-                                        <div class="text-box">
-                                            <div class="time">
-                                                <p class="date">
-                                                    2022.05.09
-                                                </p>
-                                                <p class="att">
-                                                    老人ホームの種類について
-                                                </p>
-                                            </div>
-
-                                            <p class="title">
-                                                県外の介護付き有料老人ホームに入居可能か？
-                                            </p>
-                                            <p class="text">
-                                                入居可能です。都心や京都など人気のエリアに入居することができます。<br>
-                                                ただ入居には他にも条件があります…
-
-                                            </p>
-                                            <div class="author">
-                                                <p class="page">
-													<span>
-														介護保険制度
-
-													</span>
-                                                </p>
-                                                <p class="question">
-													<span>
-														その他
-
-													</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="article">
-                                        <p class="image">
-                                            <img src="img/no-image.png" alt="">
-                                        </p>
-                                        <div class="text-box">
-                                            <div class="time">
-                                                <p class="date">
-                                                    2022.05.09
-                                                </p>
-                                                <p class="att">
-                                                    老人ホームの種類について
-                                                </p>
-                                            </div>
-
-                                            <p class="title">
-                                                県外の介護付き有料老人ホームに入居可能か？
-                                            </p>
-                                            <p class="text">
-                                                入居可能です。都心や京都など人気のエリアに入居することができます。<br>
-                                                ただ入居には他にも条件があります…
-
-                                            </p>
-                                            <div class="author">
-                                                <p class="page">
-													<span>
-														介護保険制度
-
-													</span>
-                                                </p>
-                                                <p class="question">
-													<span>
-														その他
-
-													</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="article">
-                                        <p class="image">
-                                            <img src="img/no-image.png" alt="">
-                                        </p>
-                                        <div class="text-box">
-                                            <div class="time">
-                                                <p class="date">
-                                                    2022.05.09
-                                                </p>
-                                                <p class="att">
-                                                    老人ホームの種類について
-                                                </p>
-                                            </div>
-
-                                            <p class="title">
-                                                県外の介護付き有料老人ホームに入居可能か？
-                                            </p>
-                                            <p class="text">
-                                                入居可能です。都心や京都など人気のエリアに入居することができます。<br>
-                                                ただ入居には他にも条件があります…
-
-                                            </p>
-                                            <div class="author">
-                                                <p class="page">
-													<span>
-														介護保険制度
-
-													</span>
-                                                </p>
-                                                <p class="question">
-													<span>
-														その他
-
-													</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="article">
-                                        <p class="image">
-                                            <img src="img/no-image.png" alt="">
-                                        </p>
-                                        <div class="text-box">
-                                            <div class="time">
-                                                <p class="date">
-                                                    2022.05.09
-                                                </p>
-                                                <p class="att">
-                                                    老人ホームの種類について
-                                                </p>
-                                            </div>
-
-                                            <p class="title">
-                                                県外の介護付き有料老人ホームに入居可能か？
-                                            </p>
-                                            <p class="text">
-                                                入居可能です。都心や京都など人気のエリアに入居することができます。<br>
-                                                ただ入居には他にも条件があります…
-
-                                            </p>
-                                            <div class="author">
-                                                <p class="page">
-													<span>
-														介護保険制度
-
-													</span>
-                                                </p>
-                                                <p class="question">
-													<span>
-														その他
-
-													</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="article">
-                                        <p class="image">
-                                            <img src="img/no-image.png" alt="">
-                                        </p>
-                                        <div class="text-box">
-                                            <div class="time">
-                                                <p class="date">
-                                                    2022.05.09
-                                                </p>
-                                                <p class="att">
-                                                    老人ホームの種類について
-                                                </p>
-                                            </div>
-
-                                            <p class="title">
-                                                県外の介護付き有料老人ホームに入居可能か？
-                                            </p>
-                                            <p class="text">
-                                                入居可能です。都心や京都など人気のエリアに入居することができます。<br>
-                                                ただ入居には他にも条件があります…
-
-                                            </p>
-                                            <div class="author">
-                                                <p class="page">
-													<span>
-														介護保険制度
-
-													</span>
-                                                </p>
-                                                <p class="question">
-													<span>
-														その他
-
-													</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="article">
-                                        <p class="image">
-                                            <img src="img/no-image.png" alt="">
-                                        </p>
-                                        <div class="text-box">
-                                            <div class="time">
-                                                <p class="date">
-                                                    2022.05.09
-                                                </p>
-                                                <p class="att">
-                                                    老人ホームの種類について
-                                                </p>
-                                            </div>
-
-                                            <p class="title">
-                                                県外の介護付き有料老人ホームに入居可能か？
-                                            </p>
-                                            <p class="text">
-                                                入居可能です。都心や京都など人気のエリアに入居することができます。<br>
-                                                ただ入居には他にも条件があります…
-
-                                            </p>
-                                            <div class="author">
-                                                <p class="page">
-													<span>
-														介護保険制度
-
-													</span>
-                                                </p>
-                                                <p class="question">
-													<span>
-														その他
-
-													</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="article">
-                                        <p class="image">
-                                            <img src="img/no-image.png" alt="">
-                                        </p>
-                                        <div class="text-box">
-                                            <div class="time">
-                                                <p class="date">
-                                                    2022.05.09
-                                                </p>
-                                                <p class="att">
-                                                    老人ホームの種類について
-                                                </p>
-                                            </div>
-
-                                            <p class="title">
-                                                県外の介護付き有料老人ホームに入居可能か？
-                                            </p>
-                                            <p class="text">
-                                                入居可能です。都心や京都など人気のエリアに入居することができます。<br>
-                                                ただ入居には他にも条件があります…
-
-                                            </p>
-                                            <div class="author">
-                                                <p class="page">
-													<span>
-														介護保険制度
-
-													</span>
-                                                </p>
-                                                <p class="question">
-													<span>
-														その他
+														{{ item.type_title }}
 
 													</span>
                                                 </p>
@@ -456,148 +100,8 @@
                                 </ul>
                             </div>
                             <div class="box-right">
-                                <div class="category">
-                                    <p class="term">
-										<span>
-											介護のご相談<br>
-											その前に！
-										</span>
-                                    </p>
-                                    <p class="att">
-                                        介護なんでも相談室について
-                                    </p>
-                                </div>
-                                <div class="product">
-                                    <p class="title">
-                                        人気記事ランキング
-
-                                    </p>
-                                    <div class="article">
-                                        <div class="bg-title">
-                                            <p class="num">
-                                                1
-                                            </p>
-                                            <p class="image">
-                                                <img src="img/no-image.png" alt="">
-                                            </p>
-                                        </div>
-
-                                        <div class="text-box">
-                                            <p class="date">
-                                                2022.05.09
-
-                                            </p>
-                                            <p class="note">
-                                                介護付き有料老人ホーム
-                                            </p>
-                                            <p class="text">
-                                                県外の介護付き<br>
-                                                有料老人ホームに入居…
-
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="article">
-                                        <div class="bg-title">
-                                            <p class="num">
-                                                2
-                                            </p>
-                                            <p class="image">
-                                                <img src="img/no-image.png" alt="">
-                                            </p>
-                                        </div>
-
-                                        <div class="text-box">
-                                            <p class="date">
-                                                2022.05.09
-
-                                            </p>
-                                            <p class="note">
-                                                介護付き有料老人ホーム
-                                            </p>
-                                            <p class="text">
-                                                県外の介護付き<br>
-                                                有料老人ホームに入居…
-
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="article">
-                                        <div class="bg-title">
-                                            <p class="num">
-                                                3
-                                            </p>
-                                            <p class="image">
-                                                <img src="img/no-image.png" alt="">
-                                            </p>
-                                        </div>
-
-                                        <div class="text-box">
-                                            <p class="date">
-                                                2022.05.09
-
-                                            </p>
-                                            <p class="note">
-                                                介護付き有料老人ホーム
-                                            </p>
-                                            <p class="text">
-                                                県外の介護付き<br>
-                                                有料老人ホームに入居…
-
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="article">
-                                        <div class="bg-title">
-                                            <p class="num">
-                                                4
-                                            </p>
-                                            <p class="image">
-                                                <img src="img/no-image.png" alt="">
-                                            </p>
-                                        </div>
-
-                                        <div class="text-box">
-                                            <p class="date">
-                                                2022.05.09
-
-                                            </p>
-                                            <p class="note">
-                                                介護付き有料老人ホーム
-                                            </p>
-                                            <p class="text">
-                                                県外の介護付き<br>
-                                                有料老人ホームに入居…
-
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="article">
-                                        <div class="bg-title">
-                                            <p class="num">
-                                                5
-                                            </p>
-                                            <p class="image">
-                                                <img src="img/no-image.png" alt="">
-                                            </p>
-                                        </div>
-
-                                        <div class="text-box">
-                                            <p class="date">
-                                                2022.05.09
-
-                                            </p>
-                                            <p class="note">
-                                                介護付き有料老人ホーム
-                                            </p>
-                                            <p class="text">
-                                                県外の介護付き<br>
-                                                有料老人ホームに入居…
-
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <category-right/>
+                                <list-popular/>
                                 <div class="keywords">
                                     <p class="title">
                                         人気キーワード
@@ -652,8 +156,69 @@
 
 <script>
 import Infor from '../../components/Infor.vue';
+import categoryRight from "../../components/categoryRight";
+import listPopular from "../../components/listPopular";
 export default {
-    components: { Infor }
+    components: { categoryRight,listPopular,Infor },
+    data() {
+        return {
+            banner4: {
+                image_left:null,
+                title:null,
+                image_right:null,
+                image:null,
+                intro:null,
+                intro2:null,
+                icon:null,
+                description:null,
+                list_image:[],
+            },
+            listQa: [],
+            listQaCate: []
+        };
+    },
+    methods: {
+        async getbanner4() {
+            let { data } = await this.axios.get("api/images/detail", {
+                params: { type: 4 }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            this.banner4 = data.data;
+        },
+        async getlistQa() {
+            let { data } = await this.axios.get("api/qa/list-all", {
+                params: { per_page: 10,status:"all" }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            this.listQa = data.data.data;
+        },
+        async getlistQaCate() {
+            let { data } = await this.axios.get("api/qa-cate/list", {
+                params: { per_page: 10 }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            this.listQaCate = data.data;
+        },
+    },
+    computed: {
+        imageicon4() {
+            return this.banner4.icon;
+        },
+    },
+    async mounted() {
+        await this.getbanner4();
+        await this.getlistQa();
+        await this.getlistQaCate();
+    },
 }
 </script>
 

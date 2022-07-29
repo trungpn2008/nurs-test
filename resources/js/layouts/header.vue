@@ -14,17 +14,17 @@
                 </div>
                 <ul class="list-btn">
                     <li>
-                        <a href="#">新規会員登録</a>
+                        <a href="/registration">新規会員登録</a>
                     </li>
                     <li>
-                        <a href="#">ログイン</a>
+                        <a class="login" href="/login">ログイン</a>
                     </li>
                 </ul>
                 <ul class="list">
-                    <li><a href="#">掲示板</a></li>
-                    <li><a href="#">コラム</a></li>
-                    <li><a href="#">ケアマネジャー紹介</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="/news">掲示板</a></li>
+                    <li><a href="/introduction">コラム</a></li>
+                    <li><a href="/news_details">ケアマネジャー紹介</a></li>
+                    <li><a href="/faq">FAQ</a></li>
                 </ul>
                 <div class="info-box">
                     <p class="att">
@@ -41,7 +41,7 @@
         <header id="header">
             <div class="header_sp">
                 <p class="h-logo_sp wink">
-                    <a class="h-logo__link" href="https://{$c8_SiteUrl}/index.php"><img :src="require('../assets/img/logo.png')"
+                    <a class="h-logo__link" href="/"><img :src="require('../assets/img/logo.png')"
                             alt="{$c8_CompanyName}"></a>
                 </p>
                 <p class="image">
@@ -52,7 +52,7 @@
             <div class="h-box">
                 <div class="h-box__left">
                     <p class="h-logo wink">
-                        <a class="h-logo__link" href="https://{$c8_SiteUrl}/index.php"><img :src="require('../assets/img/logo.png')"
+                        <a class="h-logo__link" href="/"><img :src="require('../assets/img/logo.png')"
                                 alt="{$c8_CompanyName}"></a>
                     </p>
                 </div>
@@ -81,21 +81,21 @@
                     <nav class="gnav">
                         <ul class="gnav-list">
                             <li class="gnav-list__item" data-current="index">
-                                <a class="gnav-list__link" href="https://{$c8_SiteUrl}/index.php">掲示板</a>
+                                <a class="gnav-list__link" href="/news">掲示板</a>
                             </li>
                             <li class="gnav-list__item" data-current="concept">
-                                <a class="gnav-list__link" href="{$c8_RootPath}concept.php">コラム</a>
+                                <a class="gnav-list__link" href="/introduction">コラム</a>
                             </li>
                             <li class="gnav-list__item" data-current="voice">
-                                <a class="gnav-list__link" href="{$c8_RootPath}voice.php">ケアマネジャー紹介</a>
+                                <a class="gnav-list__link" href="/news_details">ケアマネジャー紹介</a>
                             </li>
                             <li class="gnav-list__item" data-current="faq">
-                                <a class="gnav-list__link" href="{$c8_RootPath}faq.php">FAQ</a>
+                                <a class="gnav-list__link" href="/faq">FAQ</a>
                             </li>
                         </ul>
                         <ul class="h-list">
-                            <li><a href="#">新規会員登録</a></li>
-                            <li><a href="#">ログイン</a></li>
+                            <li><a href="/registration">新規会員登録</a></li>
+                            <li><a class="login" href="/login">ログイン</a></li>
                             <li><a href="#">
                                     <img :src="require('../assets/img/icon_bell.png')" alt="">
                                 </a></li>
@@ -110,6 +110,24 @@
 <script>
 export default {
     name: "FrontHeader",
+    async mounted() {
+        // let jwt = this.$session.get('jwt');
+        // let { data } = await this.axios.get("api/customer/check-expired", {
+        //     headers: {"Authorization" : `Bearer `+jwt},
+        //     // auth: {
+        //     //     username: "care21@greentechsolutions",
+        //     //     password: "care21greentech@"
+        //     // },
+        // }.catch((err) => {
+        //     // console.log(err.response.data.code)
+        //     if (err.response.data.code === 401){
+        //         $(".login").html('プロフィール').data('href','/info');
+        //     }
+        // }));
+        // $(".login").html('ログイン').data('href','/login');
+
+
+    }
 }
 </script>
 

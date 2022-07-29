@@ -121,11 +121,16 @@ class InvestigationController extends Controller
         unset($data['_token']);
         $data['created_at'] = $data['updated_at'] =now();
         $investigation = $this->investigation->insertData($data);
+        if(Auth::guard('api')->user()){
+            $name = Auth::guard('api')->user()->name;
+        }else{
+            $name = null;
+        }
         if($investigation){
-            $this->history_activity->addHistory('Thêm investigation thành công','Investigation','Add','Tài khoản '.Auth::user()->name.' thêm investigation thành công','Thêm investigation','Success',$investigation);
+            $this->history_activity->addHistory('Thêm investigation thành công','Investigation','Add','Tài khoản '.isset($name)?$name:"Quest".' thêm investigation thành công','Thêm investigation','Success',$investigation);
             return $this->responseAPI($investigation,'Thêm dữ liệu thành công',200);
         }
-        $this->history_activity->addHistory('Thêm investigation không thành công','Investigation','Add','Tài khoản '.Auth::user()->name.' thêm investigation không thành công','Thêm investigation','Error');
+        $this->history_activity->addHistory('Thêm investigation không thành công','Investigation','Add','Tài khoản '.isset($name)?$name:"Quest".' thêm investigation không thành công','Thêm investigation','Error');
         return $this->responseAPI([],'Thêm dữ liệu không thành công',500);
     }
 }

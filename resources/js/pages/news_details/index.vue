@@ -1,6 +1,7 @@
 <template>
     <section>
-        <div class="mainimg noo">
+        <div class="mainimg noo" :style="{
+    'background': 'url(' + imageUrl + ') center no-repeat;background-size: cover;'}">
 
             <p class="text">
                 お知らせ
@@ -22,369 +23,27 @@
                         <div class="inner">
                             <div class="box-left">
                                 <ul class="list">
-                                    <li><a href="#">全て</a></li>
-                                    <li><a href="#">お知らせ</a></li>
-                                    <li><a href="#">コラム</a></li>
+                                    <li><a href="#" @click="changeTab('all')">全て</a></li>
+                                    <li><a href="#" @click="changeTab('news')">お知らせ</a></li>
+                                    <li><a href="#" @click="changeTab('column')">コラム</a></li>
                                 </ul>
                             </div>
                             <div class="box-right">
-                                <div class="info">
+                                <div class="info" v-for="(item, index) in news">
                                     <p class="image">
-                                        <img src="img/img03.jpg" alt="">
+                                        <img :src="item.image" :alt="item.title">
                                     </p>
                                     <div class="text-box">
                                         <div class="bg-title">
                                             <p class="date">
-                                                2022/05/15 18:28
+                                                {{item.created_at}}
                                             </p>
                                             <p class="btn">
-                                                お知らせ
+                                                {{item.cate_name}}
                                             </p>
                                         </div>
                                         <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="image">
-                                        <img src="img/img03.jpg" alt="">
-                                    </p>
-                                    <div class="text-box">
-                                        <div class="bg-title">
-                                            <p class="date">
-                                                2022/05/15 18:28
-                                            </p>
-                                            <p class="btn">
-                                                お知らせ
-                                            </p>
-                                        </div>
-                                        <p class="text">
-                                            年末年始の休業のお知らせ
+                                            {{item.title}}
                                         </p>
                                     </div>
                                 </div>
@@ -434,7 +93,107 @@
 <script>
 import Infor from '../../components/Infor.vue';
 export default {
-    components: { Infor }
+    components: { Infor },
+    data() {
+        return {
+            banner: {
+                image_left:null,
+                title:null,
+                image_right:null,
+                image:null,
+                intro:null,
+                intro2:null,
+                description:null,
+                list_image:[],
+            },
+            news:[]
+        };
+    },
+    methods: {
+        async getbanner() {
+            let { data } = await this.axios.get("api/images/detail", {
+                params: { type: 5 }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            this.banner = data.data;
+        },
+        async getNewsColumn() {
+            let { data } = await this.axios.get("api/news/list-news-column", {
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            }).catch((err) => {
+                // console.log(err.response.data.code)
+                // if (err.response.data.code === 401){
+                this.$toast.error('Get all false!')
+                //     this.$router.push("/login");
+                // }
+            });
+            this.news=[];
+            this.$toast.success('Get all success!')
+            this.news = data.data.news;
+        },
+        async getNews() {
+            let { data } = await this.axios.get("api/news/list", {
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            }).catch((err) => {
+                // console.log(err.response.data.code)
+                // if (err.response.data.code === 401){
+                this.$toast.error('Get all news false!')
+                //     this.$router.push("/login");
+                // }
+            });
+            this.news=[];
+            this.$toast.success('Get all news success!')
+            this.news = data.data.news.data;
+        },
+        async getAllQuestion() {
+            let { data } = await this.axios.get("api/qa/list-all", {
+                // headers: {"Authorization" : `Bearer `+jwt},
+                params:{
+                    status:'all'
+                }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            }).catch((err) => {
+                // console.log(err.response.data.code)
+                // if (err.response.data.code === 401){
+                    this.$toast.error('Get all question customer false!')
+                //     this.$router.push("/login");
+                // }
+            });
+            this.$toast.success('Get all question customer success!')
+            // console.log(data.data.data)
+            this.news = data.data.data;
+        },
+        changeTab(e){
+            if(e === 'all'){
+                this.getNewsColumn();
+            }else if(e === 'news'){
+                this.getNews();
+            }else{
+                this.getAllQuestion();
+            }
+        }
+    },
+    computed: {
+        imageUrl() {
+            return this.banner.image;
+        },
+    },
+    async mounted() {
+        await this.getbanner();
+        await this.getNews();
+    },
 }
 </script>
 

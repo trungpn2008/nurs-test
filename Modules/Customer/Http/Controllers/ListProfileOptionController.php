@@ -183,4 +183,13 @@ class ListProfileOptionController extends Controller
         $listProfileOption = $listProfileOption->orderByDesc('created_at')->builder(false);
         return $this->responseAPI($listProfileOption,'Lấy dữ liệu thành công',200);
     }
+    public function detailOption(Request $request)
+    {
+        $id = $request->input('id', null);
+        $listProfileOption = $this->listProfileOption->whereOperator(new Operator('deleted_at',null))->whereOperator(new Operator('id',$id))->orderByDesc('created_at')->builder();
+        if($listProfileOption){
+            return $this->responseAPI($listProfileOption,'Lấy dữ liệu thành công',200);
+        }
+        return $this->responseAPI([],'Lấy dữ liệu không thành công',500);
+    }
 }

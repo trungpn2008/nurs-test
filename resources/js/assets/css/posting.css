@@ -25,6 +25,7 @@
 
 .posting .btn {
     background-color: #FFF;
+    width: 100%;
 }
 
 .posting .btn .inner {
@@ -42,6 +43,7 @@
     border-radius: 10px;
     box-shadow: 0 2px 10px 0 #00000040;
     padding: 17px 10px 18px;
+    font-size: 18px;
 }
 
 .posting .btn a:hover {

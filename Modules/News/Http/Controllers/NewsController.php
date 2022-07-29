@@ -110,7 +110,8 @@ class NewsController extends Controller
                     $query->orWhere('sub_slug',str_replace([' ','/','\\','"',"'",',','.',':',';'],'-',strtolower(self::stripVN($data['title']))));
                 })->get();
             if(count($check_alias)<=0){
-                $alias = $this->alias->insertData(['title'=>$data['title'],'slug'=>str_replace([' ','/','\\','"',"'",',','.',':',';'],'-',strtolower(self::stripVN($data['title']))),'news_id'=>$new,'created_at'=>now(),'updated_at'=>now()]);
+//                $alias = $this->alias->insertData(['title'=>$data['title'],'slug'=>str_replace([' ','/','\\','"',"'",',','.',':',';'],'-',strtolower(self::stripVN($data['title']))),'news_id'=>$new,'created_at'=>now(),'updated_at'=>now()]);
+                $alias = $this->alias->insertData(['title'=>$data['title'],'slug'=>self::stripVN($data['title']),'news_id'=>$new,'created_at'=>now(),'updated_at'=>now()]);
                 if($alias){
                     $this->history_activity->addHistory('Thêm alias thành công','Alias','Add','Tài khoản '.Auth::user()->name.' thêm alias thành công','Thêm alias','Success',$alias);
                 }
@@ -313,5 +314,15 @@ class NewsController extends Controller
             return $this->responseAPI($news,'Lấy dữ liệu thành công',200);
         }
         return $this->responseAPI([],'Lấy dữ liệu không thành công',500);
+    }
+    public function listNewAndColumn(Request $request)
+    {
+        $data['per_page'] = $request->input('per_page',5);
+//        dd($data['per_page']);
+        $data['page'] = $request->input('page',1);
+        $news = DB::select("(select `news`.`id`, `news`.`title`, `news`.`image`, `news`.`created_at`, `category`.`title` as `cate_name` from `news` left join `category_type` on `news`.`type` = `category_type`.`code` left join `category` on `news`.`category_id` = `category`.`id` left join `users` on `news`.`creator` = `users`.`id` where `news`.`deleted_at` is null and `news`.`status` = 1 order by `news`.`created_at` desc) UNION DISTINCT (select `qa`.`id`, `qa`.`title`, `qa`.`image`, `qa`.`created_at`, `qa_cate`.`title` as `cate_name` from `qa` left join `qa_cate` on `qa`.`qa_cate` = `qa_cate`.`id` left join `qa_type` on `qa`.`qa_type` = `qa_type`.`id` left join `customer` on `qa`.`customer_id` = `customer`.`id` where `qa`.`deleted_at` is null order by `qa`.`created_at` desc) ORDER BY created_at desc limit ".$data['per_page']." offset ".(($data['page']-1)*$data['per_page']));
+            $data['news']=$news;
+            return $this->responseAPI($data,'Lấy dữ liệu thành công',200);
+
     }
 }

@@ -121,42 +121,53 @@
 
                 </ul>
                 <div class="module">
-                    <div class="inquiry">
+                    <div class="inquiry form_check">
                         <p class="bg-title">
 							<span>
 								お問い合わせ
 							</span>
                         </p>
-                        <form action="">
+                        <form @submit.prevent="addInquiryData" method="post">
                             <label for="">
                                 お名前
                             </label><br>
-                            <input type="text" value=""><br>
+                            <input type="text" v-model="addInquiry.name" value=""><br>
                             <label for="">
                                 メールアドレス
                             </label><br>
-                            <input type="text" value=""><br>
+                            <input type="text" v-model="addInquiry.email" value=""><br>
                             <label for="">
                                 メールアドレス確認
                             </label><br>
-                            <input type="text" value="">
-                        </form>
+                            <input type="text" v-model="emailConfirm" value="">
+
                         <p class="att">
                             ※運営事務局よりご返信させていただく際に必要となりますので、お間違いのないようご入力ください
                         </p>
                         <p class="title">
                             お問い合わせの種類
                         </p>
-                        <ul class="list">
-                            <li>ログイン（パスワード紛失等）に関するお問い合わせ</li>
-                            <li>サイトの操作方法に関するお問い合わせ</li>
-                            <li>サイト内のコンテンツに対するお問い合わせ</li>
-                            <li>規約違反ユーザの通報</li>
-                            <li>その他（サイト全般）</li>
+<!--                        <ul class="list">-->
+                            <label class="" v-for="(item, index) in inquiry" style="width: 100%">
+                                <input type="radio" name="inquiry" v-model="addInquiry.inquiry_type" :value="item.id" style="border: none;
+    background: none;
+    margin-top: 2px;
+    margin-right: 18px;
+    width: 20px;
+    height: 25px;
+    background-color: #FCF9FC;
+    border-radius: 50%;box-shadow: 0 2px 10px 0 #ffffff40 inset;">{{ item.title }}
+                                <span class="checkmark"></span>
+                            </label>
+<!--                            <li>ログイン（パスワード紛失等）に関するお問い合わせ</li>-->
+<!--                            <li>サイトの操作方法に関するお問い合わせ</li>-->
+<!--                            <li>サイト内のコンテンツに対するお問い合わせ</li>-->
+<!--                            <li>規約違反ユーザの通報</li>-->
+<!--                            <li>その他（サイト全般）</li>-->
 
-                        </ul>
+<!--                        </ul>-->
                         <label for="">ご質問・ご相談内容</label>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <textarea name="question" id="question" cols="30" rows="10" v-model="addInquiry.question" v-html="addInquiry.question"></textarea>
 
                         <p class="note">
                             <a href="#">個人情報の利用目的</a>に同意のうえ、送信ボタンを押してください。
@@ -165,9 +176,13 @@
                             事務局から差し上げた内容に関しては、問合せいただいた個人宛てに差し上げたものです。内容の一部、または全部を転載・二次利用することはご遠慮ください。<br>
                             回答に時間がかかることがございます。また、頂いたご意見・お問合せすべてにはご返事を差し上げられない場合がございます。
                         </p>
-                        <p class="btn"><a href="#">
-                            送信する
+                        <p class="btn"><a >
+                            <button type="submit">
+                                送信する
+                            </button>
                         </a></p>
+
+                        </form>
                     </div>
 
 
@@ -205,7 +220,48 @@
 <script>
 import Infor from '../../components/Infor.vue';
 export default {
-    components: { Infor }
+    components: { Infor },
+    data() {
+        return {
+            inquiry: [],
+            addInquiry:{
+                name:null,
+                email:null,
+                inquiry_type:null,
+                question:null,
+            },
+            emailConfirm:null
+        };
+    },
+    methods: {
+        async getInquiryCate() {
+            let { data } = await this.axios.get("api/investigation-type/list", {
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            this.inquiry = data.data;
+        },
+        async addInquiryData(e){
+            await this.axios.post("api/investigation/add",this.addInquiry).then((result)=>{
+                this.$toast.success('Inquiry success!')
+                this.$router.push({path:'/screen'});
+            }).catch((err) =>{
+                this.$toast.error('Inquiry false!')
+                // console.warn(err)
+            });
+            // e.preventDefault();
+        },
+    },
+    computed: {
+        // imageUrl() {
+        //     return this.banner2.image;
+        // },
+    },
+    async mounted() {
+        await this.getInquiryCate();
+    },
 }
 </script>
 

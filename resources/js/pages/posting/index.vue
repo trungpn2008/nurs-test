@@ -45,27 +45,27 @@
                     <div class="posting">
                         <div class="text-box">
                             <p class="text">
-                                お名前: 長長
+                                お名前: {{ store.register.name }}
                             </p>
                             <p class="text">
-                                フリガナ: 長長長長長長長長長長
+                                フリガナ: {{ store.register.furigana }}
                             </p>
                             <p class="text">
-                                ニックネーム: 長長長長長長長長長
+                                ニックネーム: {{ store.register.nickName }}
                             </p>
                             <p class="text">
-                                メールアドレス: 長長長長長長長長長長長長長
+                                メールアドレス: {{ store.register.email }}
                             </p>
                             <p class="text">
-                                パスワード: 長長長長長長長長長長長長長長長長
+                                パスワード: {{ store.register.password }}
                             </p>
                             <p class="text">
-                                連絡方法: メール
+                                連絡方法: {{ store.register.data_choose.contacts }}
                             </p>
 
                         </div>
                         <div class="btn">
-                            <p class="inner"><a href="#">
+                            <p class="inner"><a @click="hasHistory() ? $router.go(-1) : $router.push({path:'/'})">
                                 閉じる
                             </a></p>
 
@@ -106,9 +106,31 @@
 
 <script>
 import Infor from '../../components/Infor.vue';
-
+import { store } from '../../store.js'
 export default {
-    components: {Infor}
+    components: {Infor},
+    data() {
+        return {
+            register:[],
+            store
+        };
+    },
+    methods:{
+        hasHistory () { return window.history.length > 2 },
+        async getContact(id) {
+            let { data } = await this.axios.get("api/customer/choose-option/detail", {
+                params: { id: id }
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            this.store.register.data_choose.contacts = data.data.title;
+        },
+    },
+    async mounted(){
+        await this.getContact(this.store.register.data_choose.contacts);
+    }
 }
 </script>
 

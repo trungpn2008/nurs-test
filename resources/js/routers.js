@@ -117,7 +117,7 @@ const routers = [
             default:()=> import('./pages/inquiry/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
-        name: 'news',
+        name: 'inquiry',
     },
     {
         path: '/list',
@@ -144,7 +144,7 @@ const routers = [
             default:()=> import('./pages/news_details/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
-        name: 'news',
+        name: 'news_details',
     },
     {
         path: '/nursing',
@@ -162,7 +162,7 @@ const routers = [
             default:()=> import('./pages/posting/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
-        name: 'news',
+        name: 'posting',
     },
     {
         path: '/privacy',

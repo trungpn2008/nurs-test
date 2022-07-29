@@ -18,8 +18,10 @@ Route::prefix('customer')->name('customer.')->group(function() {
     Route::post('/register', 'CustomerController@register')->name('register');
     Route::get('/list-choose-cate', 'ChooseProfileCategoryController@listChooseProfileCategory')->name('list-choose-cate');
     Route::get('/list-choose-cate/detail', 'ChooseProfileCategoryController@detailChooseProfileCategory')->name('list-option');
+    Route::get('/choose-option/detail', 'ListProfileOptionController@detailOption')->name('detail-option');
     Route::middleware(['auth.client'])->group( function() {
         Route::post('/update-profile', 'CustomerController@updateProfile')->name('update-profile');
+        Route::get('/check-expired', 'CustomerController@checLogin')->name('check-expired');
         Route::get('/info-customer', 'CustomerController@infoCustomer')->name('info-customer');
     });
 });

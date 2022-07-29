@@ -233,7 +233,7 @@
 
 <script>
 import Infor from '../../components/Infor.vue';
-
+import { store } from '../../store.js'
 export default {
     components: {Infor},
     data() {
@@ -256,7 +256,8 @@ export default {
                 address:null,
                 phone:null,
                 pass_port:null,
-            }
+            },
+            store
         };
     },
     methods: {
@@ -281,12 +282,16 @@ export default {
             this.contact = data.data.content;
         },
         async registerData(e){
-            console.log(this.register)
             await this.axios.post("api/customer/register",this.register).then((result)=>{
-                this.$router.push("/login");
-            }).catch(err => console.warn(err));
+                this.store.addDataRegister(this.register)
+                this.$toast.success('Register success!')
+                this.$router.push({path:'/posting'});
+            }).catch((err) =>{
+                this.$toast.error('Register false!')
+                // console.warn(err)
+            });
             // e.preventDefault();
-        }
+        },
     },
     computed: {
         // imageUrl() {

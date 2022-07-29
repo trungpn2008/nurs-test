@@ -53,7 +53,7 @@
 
                         </div>
                         <div class="btn">
-                            <p class="inner"><a href="/">
+                            <p class="inner"><a @click="hasHistory() ? $router.go(-1) : $router.push({path:'/'})">
                                 閉じる
                             </a></p>
 
@@ -96,7 +96,10 @@
 import Infor from '../../components/Infor.vue';
 
 export default {
-    components: {Infor}
+    components: {Infor},
+    methods:{
+        hasHistory () { return window.history.length > 2 },
+    },
 }
 </script>
 

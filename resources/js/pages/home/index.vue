@@ -379,7 +379,7 @@ export default {
             this.banner5 = data.data;
         },
         async getlistQa() {
-            let { data } = await this.axios.get("api/qa/list", {
+            let { data } = await this.axios.get("api/qa/list-all", {
                 params: { per_page: 6 }
                 // auth: {
                 //     username: "care21@greentechsolutions",

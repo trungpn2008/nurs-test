@@ -16,10 +16,10 @@
 				<div class="f-box__center">
 					<ul class="list">
 						<li><a href="#">介護なんでも相談室について</a></li>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">投稿ガイドライン</a></li>
-						<li><a href="#">利用規約</a></li>
-						<li><a href="#">プライバシーポリシー</a></li>
+						<li><a href="/faq">FAQ</a></li>
+						<li><a href="/community">投稿ガイドライン</a></li>
+						<li><a href="/genaral">利用規約</a></li>
+						<li><a href="/privacy">プライバシーポリシー</a></li>
 						<li><a href="#">運営会社</a></li>
 					</ul>
 				</div>

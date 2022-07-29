@@ -135,9 +135,9 @@
                             <div class="accordion" role="tablist">
                                 <b-card no-body v-for="(item1, index1) in item.content" v-bind:key="item1.id">
                                     <b-card-header header-tag="header" class="p-1" role="tab">
-                                        <b-button block v-b-toggle="['accordion-'+index1]" class="btn-q">{{item1.question}}</b-button>
+                                        <b-button block v-b-toggle="['accordion-'+index1+'-c'+item1.id]" class="btn-q">{{item1.question}}</b-button>
                                     </b-card-header>
-                                    <b-collapse :id="'accordion-'+index1" visible accordion="my-accordion" role="tabpanel">
+                                    <b-collapse :id="'accordion-'+index1+'-c'+item1.id"  accordion="my-accordion" role="tabpanel">
                                         <b-card-body v-html="item1.answer">
                                         </b-card-body>
                                     </b-collapse>

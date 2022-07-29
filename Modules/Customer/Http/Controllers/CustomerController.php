@@ -280,4 +280,11 @@ class CustomerController extends Controller
         }
         return $this->responseAPI([],'Không lấy được thông tin customer',500);
     }
+    public function checLogin(Request $request)
+    {
+        if(Auth::guard('api')->check()){
+            return $this->responseAPI([],'Tk vẫn giữ đăng nhập',200);
+        }
+        return $this->responseAPI([],'Tk hết hạn sử dụng, login lại',500);
+    }
 }
