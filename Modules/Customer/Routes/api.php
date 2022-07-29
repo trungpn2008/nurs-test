@@ -20,5 +20,6 @@ Route::prefix('customer')->name('customer.')->group(function() {
     Route::get('/list-choose-cate/detail', 'ChooseProfileCategoryController@detailChooseProfileCategory')->name('list-option');
     Route::middleware(['auth.client'])->group( function() {
         Route::post('/update-profile', 'CustomerController@updateProfile')->name('update-profile');
+        Route::get('/info-customer', 'CustomerController@infoCustomer')->name('info-customer');
     });
 });

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Storage;
 use Modules\Customer\Entities\Customer;
 use Modules\Customer\Entities\CustomerLoginHistory;
+use Exception;
 
 class CustomerController extends Controller
 {
@@ -176,43 +177,59 @@ class CustomerController extends Controller
 
     public function updateProfile(Request $request)
     {
-        $customer_id = Auth::guard('api')->user()->id;
-        $gender= $request->input('gender',null);
-        $year_of_birth = $request->input('year_of_birth',null);
-        if(!$gender){
-            return $this->responseAPI([],'required gender',500);
+        try {
+            $customer_id = Auth::guard('api')->user()->id;
+            $gender= $request->input('gender',null);
+            $year_of_birth = $request->input('year_of_birth',null);
+            if(!$gender){
+                return $this->responseAPI([],'required gender',500);
+            }
+            if(!$year_of_birth){
+                return $this->responseAPI([],'required year of birth',500);
+            }
+            if(!$customer_id){
+                return $this->responseAPI([],'required id',500);
+            }
+            $customer = $this->customer->whereOperator(new Operator('deleted_at',null))->whereOperator(new Operator('id',$customer_id))->builder();
+            if(!$customer){
+                return $this->responseAPI([],'No records found',500);
+            }
+            $data = [];
+            $data_choose = json_decode($customer->data_choose,true);
+            $inputChoose = $request->input('data_choose',null);
+            if($inputChoose){
+                $data_choose = array_merge($data_choose,$inputChoose);
+            }
+            $avatar = $request->input('avatar',null);
+            if($avatar){
+                if($customer->avatar === $avatar){
+                    $avatar = $customer->avatar;
+                }else{
+                    $avatar =$this->saveImgBase64($avatar,'uploads');
+                }
+            }else{
+                $avatar = $customer->avatar;
+            }
+
+            unset($data['_token']);
+            $data['user_name'] = $request->input('nickname',$customer->user_name);
+            $data['data_choose'] = json_encode($data_choose);
+            $data['avatar'] = $avatar;
+            $data['gender'] = $gender;
+            $data['year_of_birth'] = $year_of_birth;
+            $data['content_profile'] = $request->input('content_profile',$customer->content_profile);
+            $customer = $this->customer->updateData($data,$customer_id,'id');
+            if($customer){
+                $this->history_activity->addHistory('update customer thành công','Customer','Add','Guest update customer thành công','update customer','Success',$customer);
+                return $this->responseAPI($customer,'update profile thành công',200);
+            }
+            $this->history_activity->addHistory('Dữ liệu update không thay đổi','Customer','Add','Guest update customer không thành công','update customer','Error');
+            return $this->responseAPI([],'Dữ liệu update không thay đổi',200);
+        }catch (Exception $e){
+            $this->history_activity->addHistory('update customer không thành công','Customer','Add','Guest update customer không thành công','update customer','Error');
+            return $this->responseAPI($e,'Dữ liệu update không thay đổi',500);
         }
-        if(!$year_of_birth){
-            return $this->responseAPI([],'required year of birth',500);
-        }
-        if(!$customer_id){
-            return $this->responseAPI([],'required id',500);
-        }
-        $customer = $this->customer->whereOperator(new Operator('deleted_at',null))->whereOperator(new Operator('id',$customer_id))->builder();
-        if(!$customer){
-            return $this->responseAPI([],'No records found',500);
-        }
-        $data = [];
-        $data_choose = json_decode($customer->data_choose,true);
-        $inputChoose = $request->input('data_choose',null);
-        if($inputChoose){
-            $data_choose = array_merge($data_choose,$inputChoose);
-        }
-        $avatar = $request->input('avatar',null);
-        unset($data['_token']);
-        $data['user_name'] = $request->input('nickname',$customer->user_name);
-        $data['data_choose'] = json_encode($data_choose);
-        $data['avatar'] = $avatar?$this->saveImgBase64($avatar,'uploads'):$customer->avatar;
-        $data['gender'] = $gender;
-        $data['year_of_birth'] = $year_of_birth;
-        $data['content_profile'] = $request->input('content',$customer->content_profile);
-        $customer = $this->customer->updateData($data,$customer_id,'id');
-        if($customer){
-            $this->history_activity->addHistory('update customer thành công','Customer','Add','Guest update customer thành công','update customer','Success',$customer);
-            return $this->responseAPI($customer,'update profile thành công',200);
-        }
-        $this->history_activity->addHistory('update customer không thành công','Customer','Add','Guest update customer không thành công','update customer','Error');
-        return $this->responseAPI([],'update profile không thành công',500);
+
     }
     protected function saveImgBase64($param, $folder)
     {
@@ -231,7 +248,7 @@ class CustomerController extends Controller
 
         $storage->put($folder . '/' . $fileName, base64_decode($content), 'public');
 
-        return $folder . '/' . $fileName;
+        return 'storage/'.$folder . '/' . $fileName;
     }
     public function login(Request $request)
     {
@@ -243,10 +260,24 @@ class CustomerController extends Controller
             $success['token'] = $token->accessToken;
             $success['user'] = Auth::guard('client')->user();
 
-            return $this->responseAPI($success,'update profile thành công',200);
+            return $this->responseAPI($success,'Login thành công',200);
         }
         else {
             return $this->responseAPI([],'Unauthorised',500);
         }
+    }
+
+    public function infoCustomer(Request $request)
+    {
+        $id = Auth::guard('api')->user()->id;
+        if($id){
+            $customer = $this->customer->whereOperator(new Operator('deleted_at',null))->whereOperator(new Operator('id',$id));
+            $customer = $customer->orderByDesc('created_at')->builder();
+            $customer->data_choose = json_decode($customer->data_choose,true);
+            $customer->date_begin = date('Y',strtotime($customer->created_at))."年".date('m',strtotime($customer->created_at))."月".date('d',strtotime($customer->created_at))."日に参加";
+            $customer->age_number = empty($customer->year_of_birth)?"非公開": (int) date('Y',time()) - $customer->year_of_birth;
+            return $this->responseAPI($customer,'Lấy dữ liệu thành công',200);
+        }
+        return $this->responseAPI([],'Không lấy được thông tin customer',500);
     }
 }

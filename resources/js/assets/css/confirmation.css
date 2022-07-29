@@ -173,14 +173,14 @@
         margin: 20px 0 0;
     }
 
-    form.check {
+    .form .check {
         margin: 0 !important;
     }
 }
 
 #contact_form td input::before {
     content: '';
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     background-color: #FCF9FC;
@@ -207,7 +207,7 @@ button {
     margin: 80px auto 40px;
 }
 
-form.check {
+.form .check {
     max-width: 100%;
     width: 100%;
     margin: 0 0 0 265px;
@@ -215,7 +215,7 @@ form.check {
     padding: 60px 0 0;
 }
 
-form.check a {
+.form .check a {
     text-decoration: underline;
     font-weight: normal;
     font-family: 'Noto Sans JP', sans-serif;

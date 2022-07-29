@@ -194,7 +194,7 @@ class QACateController extends Controller
         if($request->keyword){
             $qaCate = $qaCate->whereOperator(new Operator('name','%'.$request->keyword.'%',null,null,null,[],'like'));
         }
-        $qaCate = $qaCate->orderByDesc('news.created_at')->builder(false);
+        $qaCate = $qaCate->orderByDesc('created_at')->builder(false);
         return $this->responseAPI($qaCate,'Lấy dữ liệu thành công',200);
     }
 }

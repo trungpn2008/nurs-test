@@ -71,7 +71,7 @@
                                         message: 'Please enter title'
                                     },
                                     stringLength: {
-                                        min: 3,
+                                        min: 2,
                                         max:255,
                                         message: 'The title must be more than 3 and less than 255 characters long'
                                     }

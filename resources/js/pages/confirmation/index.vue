@@ -44,7 +44,7 @@
                         掲示板投稿
                     </p>
                     <div id="contact_form">
-                        <form action="/static/php/contact.php" method="post" id="inquiry-form">
+                        <form @submit.prevent="addData" method="post" id="inquiry-form">
                             <input type="hidden" name="thanksurl" value="/thanks.php" class="errPosRight">
                             <input type="hidden" name="s" value="02" class="errPosRight">
                             <table class="form_table">
@@ -54,31 +54,11 @@
                                         <span class="req">必須</span>
                                     </th>
                                     <td>
-                                        <select name="" id="">
-                                            <option value="0">老人ホームの種類</option>
-                                            <option value="0">老人ホームの種類</option>
-
-                                            <option value="0">老人ホームの費用</option>
-
-                                            <option value="0">老人ホームの選び方</option>
-                                            <option value="0">介護保険制度とは</option>
-                                            <option value="0">認知症について</option>
-                                            <option value="0">在宅介護について</option>
-                                            <option value="0">その他</option>
-
+                                        <select name="type" id="type" v-model="qa.qa_type">
+                                            <option :value="item.id" v-for="(item, index) in type">{{ item.title }}</option>
                                         </select>
-                                        <select name="" id="">
-                                            <option value="0">介護付き有料老人ホーム</option>
-                                            <option value="0">住宅型有料老人ホーム</option>
-
-                                            <option value="0">サービス付き高齢者向け住宅</option>
-
-                                            <option value="0">グループホーム</option>
-                                            <option value="0">ケアハウス</option>
-                                            <option value="0">特別養護老人ホーム</option>
-                                            <option value="0">介護老人保健施設</option>
-                                            <option value="0">介護医療院</option>
-
+                                        <select name="cate" id="cate" v-model="qa.qa_cate">
+                                            <option :value="item.id" v-for="(item, index) in cate">{{ item.title }}</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -89,7 +69,7 @@
 											</span>
                                     </th>
                                     <td>
-                                        <input type="text" value="">
+                                        <input type="text" name="title" value="" v-model="qa.title">
                                     </td>
                                 </tr>
                                 <tr class="form_inquiry">
@@ -97,7 +77,7 @@
 
                                     </th>
                                     <td>
-                                        <textarea name="" id="must" cols="600px" rows="500px"></textarea>
+                                        <textarea name="content" id="must" cols="600px" rows="500px" v-model="qa.content" style="padding: 10px 15px"></textarea>
                                     </td>
                                 </tr>
 
@@ -105,8 +85,8 @@
 
                                     <td rowspan="2" colspan="2">
                                         <label class="container">
-                                            <form action="" class="check">
-                                                <input type="radio" name="radio" id="1">
+                                            <div class="check">
+                                                <input type="checkbox" name="radio" v-model="check" value="1" id="1">
                                                 <a href="#">利用規約</a>ご同意後、チェックを入れてください。
                                                 <span class="checkmark"></span>
                                                 <p class="submit">
@@ -114,7 +94,7 @@
                                                         入力内容を確認
                                                     </button>
                                                 </p>
-                                            </form>
+                                            </div>
                                         </label>
                                     </td>
                                 </tr>
@@ -157,7 +137,71 @@
 import Infor from '../../components/Infor.vue';
 
 export default {
-    components: {Infor}
+    components: {Infor},
+    data() {
+        return {
+            cate: null,
+            type: null,
+            qa:{
+                title:null,
+                qa_type:null,
+                qa_cate:null,
+                content:null,
+            },
+            check:0
+        };
+    },
+    methods: {
+        async getQaCate() {
+            let { data } = await this.axios.get("api/qa-cate/list", {
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            console.log(data.data)
+            this.cate = data.data;
+        },
+        async getQaType() {
+            let { data } = await this.axios.get("api/qa-type/list", {
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            });
+            console.log(data.data)
+            this.type = data.data;
+        },
+        async addData(e){
+            let jwt = this.$session.get('jwt')
+            console.log(this.qa)
+            if (this.check === true){
+                await this.axios.post("api/qa/add",this.qa,{headers: {"Authorization" : `Bearer `+jwt}}).then((result)=>{
+                    // console.log(result)
+                    this.$toast.success('Add data success!')
+                    this.$router.push("/info");
+                }).catch((err) => {
+                    if (err.response.data.code === 401){
+                        this.$toast.error('Session expired!')
+                        this.$router.push("/login");
+                    }
+                });
+                e.preventDefault();
+            }else{
+                // alert('no')
+            }
+
+        }
+    },
+    computed: {
+        // imageUrl() {
+        //     return this.banner2.image;
+        // },
+    },
+    async mounted() {
+        await this.getQaCate();
+        await this.getQaType();
+    },
 }
 </script>
 

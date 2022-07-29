@@ -12,11 +12,14 @@ import VueSession from 'vue-session'
 import routes from './routers';
 import App from './layouts/App.vue'
 import VueAxios from 'vue-axios';
+import VueToast from 'vue-toast-notification';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/css/common.css';
 import './assets/css/style.css';
+import 'vue-toast-notification/dist/theme-sugar.css';
+
 // import Vue from 'vue';
 // import VueAwesomeSwiper from 'vue-awesome-swiper'
 // import 'swiper/css/swiper.css'
@@ -29,6 +32,7 @@ Vue.use(BootstrapVue)
 Vue.use(VueRouter);
 Vue.use(VueAxios,axios)
 Vue.use(VueSession)
+Vue.use(VueToast);
 // Vue.use(VueAwesomeSwiper)
 
 
@@ -47,6 +51,7 @@ Vue.use(VueSession)
 //         }
 //     ],
 // })
+
 const router = new VueRouter({
     routes,
     mode: 'history'

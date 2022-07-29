@@ -197,8 +197,12 @@ export default {
             console.log(this.login)
             await this.axios.post("api/customer/login",this.login).then((result)=>{
                 this.$session.set('jwt', result.data.data.token);
-                this.$router.push("/");
-            }).catch(err => console.warn(err));
+                this.$toast.success('Login success!')
+                this.$router.push("/user");
+            }).catch((err) =>{
+                this.$toast.error('Login false!')
+                // console.warn(err)
+            });
             // e.preventDefault();
         }
     },

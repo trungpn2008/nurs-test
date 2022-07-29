@@ -81,7 +81,7 @@ const routers = [
             default:()=> import('./pages/confirmation/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
-        name: 'news',
+        name: 'confirmation',
     },
     {
         path: '/genaral',
@@ -108,7 +108,7 @@ const routers = [
             default:()=> import('./pages/info/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
-        name: 'news',
+        name: 'info',
     },
     {
         path: '/inquiry',
@@ -180,7 +180,7 @@ const routers = [
             default:()=> import('./pages/profile/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
-        name: 'news',
+        name: 'profile',
     },
     {
         path: '/registration',
@@ -216,7 +216,7 @@ const routers = [
             default:()=> import('./pages/user/index.vue'),
             footer:()=> import('./layouts/footer.vue'),
         },
-        name: 'news',
+        name: 'user',
     },
     {
         path: '/login',

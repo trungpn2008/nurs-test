@@ -128,47 +128,44 @@
 							</span>
                         </p>
                         <p class="image">
-                            <img src="img/user.png" alt="">
+                            <img  :src="profile.avatar" alt="" style="border-radius: 50%;width: 100%;">
                         </p>
                         <div class="info">
                             <label for="">ニックネーム</label><br>
-                            <input type="text" value="" placeholder="coach">
+                            <input type="text" name="nickname" v-model="profile.nickname" disabled placeholder="coach">
                         </div>
                         <div class="info-box">
                             <div class="info-left">
                                 <label for="">性別<span>必須</span></label><br>
-                                <select name="" id="">
-                                    <option value="">女性</option>
-                                    <option value="">女性</option>
-                                    <option value="">女性</option>
-
+                                <select name="gender" id="gender" disabled v-model="profile.gender" >
+                                    <option value="1" :selected="profile.gender === 1">女性</option>
+                                    <option value="2" :selected="profile.gender === 1">男性</option>
                                 </select>
                             </div>
                             <div class="info-right">
                                 <label for="">あなたの生まれた年<span>必須</span></label><br>
-                                <select name="" id="">
-                                    <option value="">1990</option>
-                                    <option value="">1990</option>
-                                    <option value="">1990</option>
-
+                                <select name="year_of_birth" id="year_of_birth" disabled v-model="profile.year_of_birth">
+                                    <option value="1990" :selected="profile.year_of_birth === 1990">1990</option>
+                                    <option value="1991" :selected="profile.year_of_birth === 1991">1991</option>
+                                    <option value="1992" :selected="profile.year_of_birth === 1992">1992</option>
                                 </select>
                             </div>
 
                         </div>
                         <label for="">プロフィール文 </label><br>
-                        <textarea name="" id="" cols="650" rows="150"></textarea>
+                        <textarea name="content_profile" id="content_profile" cols="650" rows="150"v-model="profile.content_profile" disabled v-html="profile.content_profile" style="padding: 10px 15px;"></textarea>
                         <p class="btn">
-                            <a href="#">
+                            <a href="/profile">
 								<span>
 									プロフィール変更
 								</span>
                             </a>
                         </p>
                         <ul class="list">
-                            <li><a href="#">
+                            <li><a href="/">
                                 みんなの広場
                             </a></li>
-                            <li><a href="#">
+                            <li><a href="/qa">
                                 Q&A
                             </a></li>
                         </ul>
@@ -210,7 +207,45 @@
 import Infor from '../../components/Infor.vue';
 
 export default {
-    components: {Infor}
+    components: {Infor},
+    data() {
+        return {
+            profile:{
+                avatar: null,
+                nickname:null,
+                gender:null,
+                year_of_birth:null,
+                content_profile:null,
+            },
+        };
+    },
+    methods: {
+        hasHistory () { return window.history.length > 2 },
+        async getinfo() {
+            let jwt = this.$session.get('jwt')
+            let { data } = await this.axios.get("api/customer/info-customer", {
+                headers: {"Authorization" : `Bearer `+jwt}
+                // auth: {
+                //     username: "care21@greentechsolutions",
+                //     password: "care21greentech@"
+                // },
+            }).catch((err) => {
+                // console.log(err.response.data.code)
+                if (err.response.data.code === 401){
+                    this.$toast.error('Session expired!')
+                    this.$router.push("/login");
+                }
+            });
+            this.profile.nickname = data.data.user_name;
+            this.profile.avatar = data.data.avatar;
+            this.profile.gender = data.data.gender;
+            this.profile.year_of_birth = data.data.year_of_birth;
+            this.profile.content_profile = data.data.content_profile;
+        },
+    },
+    async mounted() {
+        await this.getinfo();
+    },
 }
 </script>
 

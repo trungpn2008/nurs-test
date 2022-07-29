@@ -175,7 +175,8 @@ class QAController extends Controller
     {
         $data['per_page'] = $request->input('per_page',6);
         $data['page'] = $request->input('page',1);
-        $qa = $this->qa->select(['qa.id','qa.title','qa.content','qa.status','qa.customer_id','qa_cate.title as qa_cate_title','qa_type.title as qa_type_title'])->whereOperator(new Operator('qa.deleted_at',null))
+        $data['customer_id'] = Auth::guard('api')->user()->id;
+        $qa = $this->qa->select(['qa.id','qa.title','qa_cate.title as cate_title','qa_type.title as type_title'])->whereOperator(new Operator('qa.deleted_at',null))
             ->join([
                 new Operator(null,null,'qa_cate','qa.qa_cate','qa_cate.id'),
                 new Operator(null,null,'qa_type','qa.qa_type','qa_type.id'),
@@ -185,23 +186,28 @@ class QAController extends Controller
         if($request->keyword){
             $qa = $qa->whereOperator(new Operator('qa.name','%'.$request->keyword.'%',null,null,null,[],'like'));
         }
+        if($request->status !== 'all'){
+            $qa = $qa->whereOperator(new Operator('qa.status',$request->status));
+        }
+        $qa = $qa->whereOperator(new Operator('qa.customer_id',$data['customer_id']));
         $qa = $qa->orderByDesc('qa.created_at')->paging($data['per_page'],$data['page'],false);
         return $this->responseAPI($qa,'Lấy dữ liệu thành công',200);
     }
     public function AddQa(Request $request)
     {
         $data = $request->all();
-        if(!$data['title']){
+        if(!isset($data['title'])){
             return $this->responseAPI([],'Vui lòng điền title',500);
         }
-        if(!$data['qa_type']){
+        if(!isset($data['qa_type'])){
             return $this->responseAPI([],'Vui lòng điền type',500);
         }
-        if(!$data['qa_cate']){
+        if(!isset($data['qa_cate'])){
             return $this->responseAPI([],'Vui lòng điền qa_cate',500);
         }
         unset($data['_token']);
         $data['created_at'] = $data['updated_at'] =now();
+        $data['customer_id'] = Auth::guard('api')->user()->id;
         $qa = $this->qa->insertData($data);
         if($qa){
             $this->history_activity->addHistory('Thêm investigation thành công','Investigation','Add','Guest thêm investigation thành công','Thêm investigation','Success',$qa);
