@@ -192,7 +192,7 @@
                             <li><a @click="hasHistory() ? $router.go(-1) : $router.push('/')">
                                 戻る
                             </a></li>
-                            <li><a href="#">
+                            <li><a style="padding: 0">
                                 <button type="submit">
                                     変更
                                 </button>
