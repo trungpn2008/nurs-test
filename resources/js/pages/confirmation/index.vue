@@ -87,7 +87,7 @@
                                         <label class="container">
                                             <div class="check">
                                                 <input type="checkbox" name="radio" v-model="check" value="1" id="1">
-                                                <a href="#">利用規約</a>ご同意後、チェックを入れてください。
+                                                <a href="/genaral" target="_blank">利用規約</a>ご同意後、チェックを入れてください。
                                                 <span class="checkmark"></span>
                                                 <p class="submit">
                                                     <button type="submit">
