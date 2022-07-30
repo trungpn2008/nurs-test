@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
             $role = '';
             $permissions = [];
             if(Auth::user()){
+
                 $check_role = (new UserRolePermission())->select(['user_role_permission.user_id','user_role_permission.role_id','role_permission.permission','user_role_permission.permission as user_permission'])->join(new Operator(null,null,'role_permission','user_role_permission.role_id','role_permission.id'))->whereOperator([new Operator('user_role_permission.user_id',Auth::user()->id),new Operator('user_role_permission.status',1),new Operator('user_role_permission.deleted_at',null)])->builder();
                 if($check_role){
                     $role = $check_role->role_id;
@@ -47,7 +48,7 @@ class AppServiceProvider extends ServiceProvider
     }
     public function megeRole($permission = [],$user_permission = []){
         $permission = json_decode($permission,true);
-        $userPermission = json_decode($user_permission,true);
+        $userPermission = json_decode($user_permission,true) ?? [];
         foreach ($permission as $key =>$item){
             if(isset($userPermission[$key])){
                 $permissions[$key] = array_merge(array_diff($item,$userPermission[$key]),array_diff($userPermission[$key],$item),array_intersect($item,$userPermission[$key]));
@@ -57,4 +58,5 @@ class AppServiceProvider extends ServiceProvider
         }
         return array_merge($permissions,array_diff_key($userPermission,$permission));
     }
+
 }
