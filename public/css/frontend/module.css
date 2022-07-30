@@ -1,0 +1,909 @@
+@charset "utf-8";
+
+
+/*-------------------------------------------------------------------
+module
+-------------------------------------------------------------------*/
+.module {
+	width: 100%;
+ 	margin-bottom: 30px; 	
+}
+
+
+/* モジュール　【見出し（h1）モジュール】 */
+ .mod_h1 h1 {
+ 	background-color: #000000;
+ 	padding: 5px 10px;
+ 	font-size: 22px;
+ 	font-weight: bold;
+ 	line-height: 1.4;
+ 	color: #FFFFFF;
+ }
+
+
+/* モジュール　【見出し（h2）モジュール】 */
+ .mod_h2 h2 {
+ 	border-left: #000000 3px solid;
+ 	border-bottom: #000000 1px dotted;
+ 	padding: 5px 10px;
+ 	font-size: 16px;
+ 	line-height: 1.4;
+ }
+
+
+/* モジュール　【見出し（h3）モジュール】 */
+ .mod_h3 h3 {
+ 	background-color: #DFDFDF;
+ 	padding: 5px 10px;
+ 	font-size: 14px;
+ 	font-weight: bold;
+ 	line-height: 1.4;
+ }
+
+
+/* モジュール　【画像モジュール（左）】 */
+.mod_img_left {
+	text-align: left;
+}
+/* モジュール　【画像モジュール（中央）】 */
+.mod_img_center {
+	text-align: center;
+}
+/* モジュール　【画像モジュール（右）】 */
+.mod_img_right {
+	text-align: right;
+}
+/* モジュール　【画像モジュール（小）】 */
+.mod_img_small .img_small img {
+	width: 200px;
+}
+/* モジュール　【画像モジュール（中）】 */
+.mod_img_medium .img_medium img {
+	width: 300px;
+}
+/* モジュール　【画像モジュール（大）】 */
+.mod_img_large .img_large img {
+	width: 500px;
+}
+/* モジュール　【画像モジュール（特大）】 */
+.mod_img_origin .img_origin img {
+	max-width: 100%;
+}
+
+/* モジュール　【画像（左、小）付きテキストモジュール】 */
+.mod_img_text_left {
+	overflow: hidden;
+	*zoom: 1;
+}
+.mod_img_text_left .img_small {
+	float: left;
+	width: 200px;
+}
+.mod_img_text_left .text_box {
+	margin-left: 220px;
+}
+
+
+/* モジュール　【画像（右、小）付きテキストモジュール】 */
+.mod_img_text_right {
+	overflow: hidden;
+	*zoom: 1;
+}
+.mod_img_text_right .img_small {
+	float: right;
+	width: 200px;
+}
+.mod_img_text_right .text_box {
+	margin-right: 220px;
+}
+
+/* モジュール　【画像（左、中）付きテキストモジュール】 */
+.mod_img_text_left .img_medium {
+	float: left;
+	width: 300px;
+}
+.mod_img_text_left.mod_img_medium .text_box {
+	margin-left: 320px;
+}
+
+/* モジュール　【画像（右、中）付きテキストモジュール】 */
+.mod_img_text_right .img_medium {
+	float: right;
+	width: 300px;
+}
+.mod_img_text_right.mod_img_medium .text_box {
+	margin-right: 320px;
+}
+
+/* モジュール　【画像（左、大）付きテキストモジュール】 */
+.mod_img_text_left .img_large {
+	float: left;
+	width: 500px;
+}
+.mod_img_text_left.mod_img_large .text_box {
+	margin-left: 520px;
+}
+
+/* モジュール　【画像（右、大）付きテキストモジュール】 */
+.mod_img_text_right .img_large {
+	float: right;
+	width: 500px;
+}
+.mod_img_text_right.mod_img_large .text_box {
+	margin-right: 520px;
+}
+
+
+/* モジュール　【リンクバナーモジュール　画像（小,左）】 */
+.mod_link_banner_left {
+	overflow: hidden;
+	*zoom: 1;
+}
+.mod_link_banner_left.mod_img_small .img_small {
+	float: left;
+	width: 200px;
+}
+.mod_link_banner_left.mod_img_small .text_box {
+	margin-left: 220px;
+}
+
+/* モジュール　【リンクバナーモジュール　画像（小,右）】 */
+.mod_link_banner_right {
+	overflow: hidden;
+	*zoom: 1;
+}
+.mod_link_banner_right.mod_img_small .img_small {
+	float: right;
+	width: 200px;
+}
+.mod_link_banner_right.mod_img_small .text_box {
+	margin-right: 220px;
+}
+
+/* モジュール　【リンクバナーモジュール　画像（小,中央）】 */
+.mod_link_banner_center {
+	overflow: hidden;
+	*zoom: 1;
+}
+.mod_link_banner_center.mod_img_small .img_small {
+	text-align: center;
+}
+.mod_link_banner_center.mod_img_small .text_box {
+}
+
+/* モジュール　【リンクバナーモジュール　画像（中,左）】 */
+.mod_link_banner_left.mod_img_medium .img_medium {
+	float: left;
+	width: 300px;
+}
+.mod_link_banner_left.mod_img_medium .text_box {
+	margin-left: 320px;
+}
+
+/* モジュール　【リンクバナーモジュール　画像（中,右）】 */
+.mod_link_banner_right.mod_img_medium .img_medium {
+	float: right;
+	width: 300px;
+}
+.mod_link_banner_right.mod_img_medium .text_box {
+	margin-right: 320px;
+}
+
+/* モジュール　【リンクバナーモジュール　画像（中,中央）】 */
+.mod_link_banner_center.mod_img_medium .img_medium {
+	text-align: center;
+}
+
+/* モジュール　【リンクバナーモジュール　画像（大,左）】 */
+.mod_link_banner_left.mod_img_large .img_large {
+	float: left;
+	width: 500px;
+}
+.mod_link_banner_left.mod_img_large .text_box {
+	margin-left: 520px;
+}
+
+/* モジュール　【リンクバナーモジュール　画像（大,右）】 */
+.mod_link_banner_right.mod_img_large .img_large {
+	float: right;
+	width: 500px;
+}
+.mod_link_banner_right.mod_img_large .text_box {
+	margin-right: 520px;
+}
+
+/* モジュール　【リンクバナーモジュール　画像（大,中央）】 */
+.mod_link_banner_center.mod_img_large .img_large {
+	text-align: center;
+}
+
+/* モジュール　【リンクバナーモジュール　画像（Wide）】 */
+.mod_img_wide img {
+	width: 100%;
+}
+
+/* モジュール　【資料ダウンロードモジュール】 */
+.mod_file {
+	overflow: hidden;
+	*zoom: 1;
+}
+.mod_file>div:first-child {
+	float: left;
+	text-align: center;
+}
+.mod_file>.text_box {
+	margin-left: 100px;
+}
+
+/* モジュール　【マップモジュール】 */
+.map {
+	width: 100%;
+	height: 350px;
+}
+
+/* モジュール　【新着リスト】 */
+.mod_news_list #news {
+    height: 146px;
+    overflow-y: scroll;
+    margin-bottom: 30px;
+}
+.mod_news_list #news dl {
+    zoom: 1;
+    overflow: hidden;
+    border-bottom: 1px dotted #B2B2B2;
+    padding: 8px 20px 5px;
+    margin: 0;
+}
+.mod_news_list #news dl dt {
+    float: left;
+}
+.mod_news_list #news dl dd {
+    margin-left: 120px;
+}
+.mod_news_list .pager a {
+}
+
+	/* 新着情報一覧用 */
+.mod_news_list #news.news_list {
+	overflow-y: visible;
+	height: auto;
+}
+/* 新着詳細 */
+.mod_news_detail .prevnext {
+	overflow: hidden;
+	padding: 0;
+	list-style: none;
+}
+.mod_news_detail .prevnext .prev {
+	float: left;
+}
+.mod_news_detail .prevnext .next {
+	float: right;
+}
+.mod_news_detail .date {
+	font-size: 14px;
+	font-weight: bold;
+	color: #333333;
+}
+
+/* モジュール　【ピックアップギャラリーリスト】 */
+.mod_pickup_gallery #gallery,
+.mod_gallery_list #gallery {
+	width: 620px;
+    padding-bottom: 10px;
+    *padding-bottom: 30px;
+    overflow: hidden;
+    zoom: 1;
+}
+.mod_pickup_gallery #gallery dl,
+.mod_gallery_list #gallery dl {
+    width: 190px;
+    float: left;
+    margin: 0 25px 20px 0;
+}
+.mod_pickup_gallery #gallery dl:nth-child(3n),
+.mod_gallery_list #gallery dl:nth-child(3n) {
+    margin-right: 0;
+}
+
+.mod_pickup_gallery #gallery dl dt,
+.mod_gallery_list #gallery dl dt {
+    line-height: 1;
+    padding: 10px 0 5px;
+    font-weight: bold;
+}
+.mod_pickup_gallery #gallery dl dd,
+.mod_gallery_list #gallery dl dd {
+    font-size: 0.85em;
+}
+.mod_gallery_list #gallery dl dd {
+	margin: 0;
+}
+
+#gallery dl dd a {
+	display: table-cell;
+    width: 188px;
+    height: 188px;
+    border: 1px solid #eee;
+	text-align: center;
+	vertical-align: middle;
+}
+#gallery dl dd a img {
+	max-width: 188px;
+	max-height: 188px;
+	width: auto;
+	height: auto;
+}
+.mod_pickup_gallery #content .more {
+    font-size: 0.85em;
+    text-align: right;
+    font-weight: bold;
+}
+
+/* ギャラリー詳細パターン1 */
+.mod_gallery_detail {
+	margin-bottom: 30px;
+}
+.mod_gallery_detail .back {
+	margin-top: 10px;
+}
+.mod_gallery_detail.gallery_type01 .img_big {
+	width: 440px;
+	margin: 0 auto 10px;
+}
+.mod_gallery_detail.gallery_type01 .img_big a {
+	display: table-cell;
+	width: 438px;
+	height: 438px;
+    border: 1px solid #eee;
+	text-align: center;
+	vertical-align: middle;
+}
+.mod_gallery_detail.gallery_type01 .img_big a img {
+	max-width: 438px;
+	max-height: 438px;
+	width: auto;
+	height: auto;
+}
+.mod_gallery_detail.gallery_type01 ul.img_list {
+	width: 450px;
+	padding: 0;
+	margin: 0 auto 20px;
+	font-size: 0;
+	text-align: center;
+}
+.mod_gallery_detail.gallery_type01 ul.img_list li {
+	display: inline-block;
+	margin: 5px;
+}
+.mod_gallery_detail.gallery_type01 ul.img_list li a {
+	display: table-cell;
+	width: 78px;
+	height: 78px;
+    border: 1px solid #eee;
+	text-align: center;
+	vertical-align: middle;
+}
+.mod_gallery_detail.gallery_type01 ul.img_list li a img {
+	max-width: 78px;
+	max-height: 78px;
+	width: auto;
+	height: auto;
+}
+
+/* ギャラリー詳細パターン2 */
+.mod_gallery_detail.gallery_type02 .gallery_inner {
+	overflow: hidden;
+	margin-bottom: 30px;
+}
+.mod_gallery_detail.gallery_type02 .img_big {
+	width: 440px;
+	float: left;
+	margin: 0 20px 0 0;
+}
+.mod_gallery_detail.gallery_type02 .img_big a {
+	display: table-cell;
+	width: 438px;
+	height: 438px;
+    border: 1px solid #eee;
+	text-align: center;
+	vertical-align: middle;
+}
+.mod_gallery_detail.gallery_type02 .img_big a img {
+	max-width: 438px;
+	max-height: 438px;
+	width: auto;
+	height: auto;
+}
+.mod_gallery_detail.gallery_type02 ul.img_list {
+	width: 180px;
+	overflow: hidden;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.mod_gallery_detail.gallery_type02 ul.img_list li {
+	float: left;
+	margin: 0 20px 20px 0;
+}
+.mod_gallery_detail.gallery_type02 ul.img_list li:nth-child(2n) {
+	margin-right: 0;
+}
+.mod_gallery_detail.gallery_type02 ul.img_list li a {
+	display: table-cell;
+	width: 78px;
+	height: 78px;
+    border: 1px solid #eee;
+	text-align: center;
+	vertical-align: middle;
+}
+.mod_gallery_detail.gallery_type02 ul.img_list li a img {
+	max-width: 78px;
+	max-height: 78px;
+	width: auto;
+	height: auto;
+}
+
+/* ギャラリー詳細パターン3 */
+.mod_gallery_detail.gallery_type03 .before_after {
+	width: 640px;
+	overflow: hidden;
+	margin: 0 auto 20px;
+}
+.mod_gallery_detail.gallery_type03 .before_after .before {
+	float: left;
+	width: 300px;
+	margin: 0 40px 0 0;
+}
+.mod_gallery_detail.gallery_type03 .before_after .after {
+	float: left;
+	width: 300px;
+	margin: 0;
+}
+.mod_gallery_detail.gallery_type03 .before_after dl dt {
+	margin-bottom: 4px;
+	text-align: center;
+}
+.mod_gallery_detail.gallery_type03 .before_after dl dd {
+	margin: 0;
+}
+.mod_gallery_detail.gallery_type03 .before_after dl dd a {
+	display: table-cell;
+	width: 298px;
+	height: 298px;
+    border: 1px solid #eee;
+	text-align: center;
+	vertical-align: middle;
+}
+.mod_gallery_detail.gallery_type03 .before_after dl dd a img {
+	max-width: 298px;
+	max-height: 298px;
+	width: auto;
+	height: auto;
+}
+.mod_gallery_detail.gallery_type03 ul.img_list {
+	width: 640px;
+	margin: 0 auto;
+	font-size: 0;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+.mod_gallery_detail.gallery_type03 ul.img_list li {
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 0;
+}
+.mod_gallery_detail.gallery_type03 ul.img_list li:nth-child(4n) {
+	margin-right: 0;
+}
+.mod_gallery_detail.gallery_type03 ul.img_list li a {
+	display: table-cell;
+	width: 143px;
+	height: 143px;
+    border: 1px solid #eee;
+	text-align: center;
+	vertical-align: middle;
+}
+.mod_gallery_detail.gallery_type03 ul.img_list li a img {
+	max-width: 143px;
+	max-height: 143px;
+	width: auto;
+	height: auto;
+}
+
+/* default pagebute */
+ul.pagebute {
+    margin-bottom: 40px;
+    overflow: hidden;
+    zoom: 1;
+    text-align: center;
+}
+ul.pagebute li {
+    display: inline;
+    margin-right: 2px;
+}
+ul.pagebute li a,
+ul.pagebute li span {
+    border: 1px solid #666;
+    display: inline-block;
+    /display: inline;
+    /zoom: 1;
+    text-decoration: none;
+    background-color: #666;
+    color: #FFF;
+    line-height: 1.0;
+    padding: 4px 5px 2px;
+}
+ul.pagebute li span {
+    color: #666;
+}
+ul.pagebute li span,
+ul.pagebute li a:hover {
+    background: none;
+    text-decoration: none;
+    color: #666;
+}
+ul.pagebute li .link_page,
+ul.pagebute li .current_page {
+    width: 20px;
+    text-align: center;
+    margin: 0 1px 0 0;
+}
+ul.pagebute li a.link_next,
+ul.pagebute li a.link_before {
+    text-decoration: underline;
+    border: none;
+    background: none;
+    color: #666;
+}
+ul.pagebute li a.link_next {
+    margin-left: 5px;
+}
+ul.pagebute li a.link_before {
+    margin-right: 5px;
+}
+ul.pagebute li a.link_next:hover,
+ul.pagebute li a.link_before:hover {
+    text-decoration: none;
+}
+
+/* contact_form */
+#contact_form {
+}
+
+#contact_form .form_tel {
+	margin-bottom:30px;
+}
+
+#contact_form .form_thanks {
+	margin-bottom:25px;
+}
+
+#contact_form table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+#contact th img {
+ 	vertical-align: top;
+}
+#contact_form table th,
+#contact_form table td {
+	background:#FFFFFF;
+	border: #CCCCCC 1px solid;
+	padding: 7px 10px;
+	text-align:left;
+	vertical-align: top;
+	font-size: 14px;
+}
+#contact_form table th {
+	width:180px;
+	background: #F4F4F4;
+	font-weight: normal;
+}
+#contact_form table th img {
+	margin-left: 7px;
+}
+#contact_form table th span.req {
+	color: #FC3B3E;
+}
+#contact_form table td {
+	overflow:hidden;
+	zoom:1;
+}
+#contact_form table td label {
+	float:left;
+	display:block;
+	margin-right:20px;
+}
+#contact_form  table textarea {
+ 	border:1px solid #ccc;
+	margin: 3px 0 0;
+	background-color:#fff;
+	width:410px;
+	height:140px;
+}
+#contact_form td input[type="text"] {
+	width:410px;
+	height:20px;
+	border:1px solid #ccc;
+	background-color:#fff;
+}
+#contact_form table td input {
+	border:none;
+	background:none;
+	margin-top:2px;
+	margin-right:5px;
+}
+#contact_form table td input.zipcode {
+	width: 120px;
+}
+#contact_form table td input.address1 {
+	margin-bottom: 10px;
+}
+#contact_form  p.submit {
+	 margin: 30px 0 30px;
+	 text-align:center;
+}
+#contact_form  p.submit input {
+	 border:none;
+	 height:auto;
+}
+#contact_form p.submit button {
+	padding: 5px 10px 4px;
+}
+
+/*---------------------------
+  テーブル
+-----------------------------*/
+.table {
+	width: 100%;
+}
+.table td{
+	min-width:  100px;
+	height: 40px;
+}
+
+.table-bordered {
+	border-collapse: collapse;
+}
+
+.table-bordered td{
+	border: 1px solid #999;
+	padding: 5px;
+}
+
+/* レスポンシブモジュール */
+@media screen and (max-width: 680px) {
+	/* 画像テキストモジュール */
+	.mod_img_text_left .img_large{
+		max-width: 50%;
+		width: 100%;
+	    margin-right: 10px;
+	}
+	.mod_img_text_right .img_large {
+		max-width: 50%;
+		width: 100%;
+	    margin-left: 10px;
+	}
+	.mod_img_text_left.mod_img_large .text_box {
+		margin-left: auto;
+	}
+	.mod_img_text_right.mod_img_large .text_box {
+		margin-right: auto;
+	}
+	.mod_img_text_left .img_medium {
+		max-width: 40%;
+	    width: 100%;
+	    margin-right: 10px;
+	}
+	.mod_img_text_right .img_medium {
+		max-width: 40%;
+	    width: 100%;
+	    margin-left: 10px;
+	}
+	.mod_img_text_left.mod_img_medium .text_box {
+		margin-left: auto;
+	}
+	.mod_img_text_right.mod_img_medium .text_box {
+		margin-right: auto;
+	}
+	.mod_img_text_left .img_small {
+		max-width: 30%;
+	    width: 100%;
+	    margin-right: 10px;
+	}
+	.mod_img_text_right .img_small {
+		max-width: 30%;
+	    width: 100%;
+	    margin-left: 10px;
+	}
+	.mod_img_text_left.mod_img_small .text_box {
+		margin-left: auto;
+	}
+	.mod_img_text_right.mod_img_small .text_box {
+		margin-right: auto;
+	}
+	/* リンクバナーモジュール */
+	.mod_link_banner_left .img_origin,
+	.mod_link_banner_right .img_origin {
+		max-width: 100%;
+		width: 100%;
+	}
+	.mod_link_banner_left .img_large {
+		max-width: 50%;
+		width: 100%;
+	    margin-right: 10px;
+	}
+	.mod_link_banner_right .img_large {
+		max-width: 50%;
+		width: 100%;
+	    margin-left: 10px;
+	}
+	.mod_link_banner_left.mod_img_large .text_box {
+		margin-left: auto;
+	}
+	.mod_link_banner_right.mod_img_large .text_box {
+		margin-right: auto;
+	}
+	.mod_link_banner_left .img_medium {
+		max-width: 40%;
+		width: 100%;
+	    margin-right: 10px;
+	}
+	.mod_link_banner_right .img_medium {
+		max-width: 40%;
+		width: 100%;
+	    margin-left: 10px;
+	}
+	.mod_link_banner_left.mod_img_medium .text_box {
+		margin-left: auto;
+	}
+	.mod_link_banner_right.mod_img_medium .text_box {
+		margin-right: auto;
+	}
+	.mod_link_banner_left .img_small {
+		max-width: 30%;
+		width: 100%;
+	    margin-right: 10px;
+	}
+	.mod_link_banner_right .img_small {
+		max-width: 30%;
+		width: 100%;
+	    margin-left: 10px;
+	}
+	.mod_link_banner_left.mod_img_small .text_box {
+		margin-left: auto;
+	}
+	.mod_link_banner_right.mod_img_small .text_box {
+		margin-right: auto;
+	}
+	/* マップモジュール */
+	.map {
+		width: 100% !important;
+	}
+	/* お問い合わせモジュール */
+	#content table th,
+	#content table td {
+		padding: 10px 20px 10px;
+	}
+	#contact_form td input[type="text"],
+	#contact_form td textarea {
+		width: 100%;
+	}
+	/* ピックアップモジュール（新着情報） */
+	.mod_news_list #news dl dt {
+		float: none;
+	}
+	.mod_news_list #news dl dd {
+		margin-left: 0;
+	}
+	/* ピックアップモジュール（ギャラリー） */
+	.mod_gallery_list #gallery　{
+		width: 100%;
+	}
+	.mod_gallery_list #gallery dl {
+		width: 100%;
+	}
+	.mod_gallery_list #gallery dl dd.img {
+		display: block;
+		width: 40%;
+	}
+	.mod_pickup_gallery #gallery,
+	.mod_gallery_list #gallery {
+		width: 100%;
+	}
+	.mod_pickup_gallery #gallery dl,
+	.mod_gallery_list #gallery dl {
+		margin: 0 0 20px 0;
+	}
+	.mod_gallery_list #gallery dl dd.img {
+		float: none;
+		width: 100%;
+		text-align: center;
+	}
+	#gallery dl dd a {
+		display: inline-block;
+		width: auto;
+		height: auto;
+		padding: 5px;
+	}
+	.mod_gallery_detail.gallery_type01 .img_big,
+	.mod_gallery_detail.gallery_type02 .img_big {
+		width: 100%;
+		text-align: center;
+	}
+	.mod_gallery_detail.gallery_type01 .img_big a,
+	.mod_gallery_detail.gallery_type02 .img_big a {
+	    display: inline-block;
+	    width: auto;
+	    height: auto;
+    }
+	.mod_gallery_detail.gallery_type01 .img_big a img,
+	.mod_gallery_detail.gallery_type02 .img_big a img {
+	    max-width: 100%;
+	    max-height: 100%;
+	    width: auto;
+	    height: auto;
+	}
+	.mod_gallery_detail.gallery_type01 ul.img_list {
+	    width: 100%;
+    }
+    .mod_gallery_detail.gallery_type02 .img_big {
+    	margin: 0 0 20px;
+    }
+    .mod_gallery_detail.gallery_type02 ul.img_list {
+	    width: 100%;
+	    text-align: center;
+    }
+    .mod_gallery_detail.gallery_type02 ul.img_list li {
+    	display: inline-block;
+    	float: none;
+	    margin: 5px;
+	}
+	.mod_gallery_detail.gallery_type02 ul.img_list li:nth-child(2n) {
+		margin-right: 5px;
+	}
+	.mod_gallery_detail.gallery_type03 .before_after {
+		width: 100%;
+		font-size: 0;
+		text-align: center;
+	}
+	.mod_gallery_detail.gallery_type03 .before_after .before,
+	.mod_gallery_detail.gallery_type03 .before_after .after {
+		float: none;
+		display: inline-block;
+		width: 200px;
+		margin: 10px 10px;
+		font-size: 14px;
+	}
+	.mod_gallery_detail.gallery_type03 .before_after dl dd a {
+		width: 200px;
+		height: 200px;
+	}
+	.mod_gallery_detail.gallery_type03 .before_after dl dd a img {
+		max-width: 198px;
+    	max-height: 198px;
+	}
+	.mod_gallery_detail.gallery_type03 ul.img_list {
+	    width: 100%;
+	    text-align: center;		
+	}
+    .mod_gallery_detail.gallery_type03 ul.img_list li {
+    	display: inline-block;
+    	float: none;
+	    margin: 5px;
+	}
+	.mod_gallery_detail.gallery_type03 ul.img_list li:nth-child(4n) {
+	    margin-right: 5px;
+	}
+	.mod_gallery_detail.gallery_type03 ul.img_list li a {
+		width: 90px;
+		height: 90px;	
+	}
+	.mod_gallery_detail.gallery_type03 ul.img_list li a img {
+		max-width: 90px;
+		max-height: 90px;	
+	}
+}
+@media screen and (max-width: 480px) {
+}
