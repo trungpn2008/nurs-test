@@ -170,7 +170,7 @@
                         <textarea name="question" id="question" cols="30" rows="10" v-model="addInquiry.question" v-html="addInquiry.question"></textarea>
 
                         <p class="note">
-                            <a href="#">個人情報の利用目的</a>に同意のうえ、送信ボタンを押してください。
+                            <a href="/advice" target="_blank">個人情報の利用目的</a>に同意のうえ、送信ボタンを押してください。
                         </p>
                         <p class="text">
                             事務局から差し上げた内容に関しては、問合せいただいた個人宛てに差し上げたものです。内容の一部、または全部を転載・二次利用することはご遠慮ください。<br>

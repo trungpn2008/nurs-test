@@ -178,7 +178,7 @@
                                         <label class="container">
                                             <div class="check">
                                                 <input type="radio" name="radio" id="1">
-                                                <a href="#">利用規約</a>ご同意後、チェックを入れてください。
+                                                <a href="/genaral" target="_blank">利用規約</a>ご同意後、チェックを入れてください。
                                                 <span class="checkmark"></span>
 
 
