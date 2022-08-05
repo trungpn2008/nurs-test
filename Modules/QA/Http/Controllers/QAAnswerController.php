@@ -28,7 +28,7 @@ class QAAnswerController extends Controller
     public function index(Request $request)
     {
         $pemission = $this->authorize();
-        if((!isset($pemission['perms']['QAAnswer']) || in_array('investigation-type.index',isset($pemission['perms']['QAAnswer'])?$pemission['perms']['QAAnswer']:[]) == false) && $pemission['super'] != 1){
+        if((!isset($pemission['perms']['QAAnswer']) || in_array('qa-answer.index',isset($pemission['perms']['QAAnswer'])?$pemission['perms']['QAAnswer']:[]) == false) && $pemission['super'] != 1){
             return back()->with('error','Bạn không có quyền vào trang này!');
         }
         $data['per_page'] = Cookie::get('per_page', 20);
@@ -56,7 +56,7 @@ class QAAnswerController extends Controller
     public function create()
     {
         $pemission = $this->authorize();
-        if((!isset($pemission['perms']['QAAnswer']) || in_array('investigation-type.add',isset($pemission['perms']['QAAnswer'])?$pemission['perms']['QAAnswer']:[]) == false) && $pemission['super'] != 1){
+        if((!isset($pemission['perms']['QAAnswer']) || in_array('qa-answer.add',isset($pemission['perms']['QAAnswer'])?$pemission['perms']['QAAnswer']:[]) == false) && $pemission['super'] != 1){
             return back()->with('error','Bạn không có quyền add!');
         }
         $this->history_activity->addHistory('Vào trang thêm investigation type','QAAnswer','AddForm','Tài khoản '.Auth::user()->name.' vào trang thêm investigation type','Vào trang thêm investigation type','Nomal');
@@ -71,7 +71,7 @@ class QAAnswerController extends Controller
     public function store(Request $request)
     {
         $pemission = $this->authorize();
-        if((!isset($pemission['perms']['QAAnswer']) || in_array('investigation-type.add',isset($pemission['perms']['QAAnswer'])?$pemission['perms']['QAAnswer']:[]) == false) && $pemission['super'] != 1){
+        if((!isset($pemission['perms']['QAAnswer']) || in_array('qa-answer.add',isset($pemission['perms']['QAAnswer'])?$pemission['perms']['QAAnswer']:[]) == false) && $pemission['super'] != 1){
             return back()->with('error','Bạn không có quyền add!');
         }
         $data = $request->all();
@@ -80,7 +80,7 @@ class QAAnswerController extends Controller
         $qaAnswer = $this->qaAnswer->insertData($data);
         if($qaAnswer){
             $this->history_activity->addHistory('Thêm investigation type thành công','QAAnswer','Add','Tài khoản '.Auth::user()->name.' thêm investigation type thành công','Thêm investigation type','Success',$qaAnswer);
-            return redirect()->route('admin.investigation-type.index')->with('success','Thêm investigation type thành công');
+            return redirect()->route('admin.qa-answer.index')->with('success','Thêm investigation type thành công');
         }
         $this->history_activity->addHistory('Thêm investigation type không thành công','QAAnswer','Add','Tài khoản '.Auth::user()->name.' thêm investigation type không thành công','Thêm investigation type','Error');
         return back()->with('error','Thêm investigation type không thành công');
@@ -105,7 +105,7 @@ class QAAnswerController extends Controller
     public function edit($id)
     {
         $pemission = $this->authorize();
-        if((!isset($pemission['perms']['QAAnswer']) || in_array('investigation-type.edit',isset($pemission['perms']['QAAnswer'])?$pemission['perms']['QAAnswer']:[]) == false) && $pemission['super'] != 1){
+        if((!isset($pemission['perms']['QAAnswer']) || in_array('qa-answer.edit',isset($pemission['perms']['QAAnswer'])?$pemission['perms']['QAAnswer']:[]) == false) && $pemission['super'] != 1){
             return back()->with('error','Bạn không có quyền edit!');
         }
         $data['qaAnswer'] = $this->qaAnswer->whereOperator(new Operator('id',$id))
@@ -123,7 +123,7 @@ class QAAnswerController extends Controller
     public function update(Request $request, $id)
     {
         $pemission = $this->authorize();
-        if((!isset($pemission['perms']['QAAnswer']) || in_array('investigation-type.edit',isset($pemission['perms']['QAAnswer'])?$pemission['perms']['QAAnswer']:[]) == false) && $pemission['super'] != 1){
+        if((!isset($pemission['perms']['QAAnswer']) || in_array('qa-answer.edit',isset($pemission['perms']['QAAnswer'])?$pemission['perms']['QAAnswer']:[]) == false) && $pemission['super'] != 1){
             return back()->with('error','Bạn không có quyền edit!');
         }
         $data = $request->all();
@@ -133,7 +133,7 @@ class QAAnswerController extends Controller
             $qaAnswer = $this->qaAnswer->updateData($data,$id);
             if($qaAnswer){
                 $this->history_activity->addHistory('Sửa investigation type thành công','QAAnswer','Edit','Tài khoản '.Auth::user()->name.' Sửa investigation type thành công','sửa investigation type','Success',$id);
-                return redirect()->route('admin.investigation-type.index')->with('success','Sửa investigation type thành công');
+                return redirect()->route('admin.qa-answer.index')->with('success','Sửa investigation type thành công');
             }
             $this->history_activity->addHistory('Sửa investigation type không thành công','QAAnswer','Edit','Tài khoản '.Auth::user()->name.' Sửa investigation type không thành công','sửa investigation type','Error');
             return back()->with('error','Sửa investigation type không thành công');
@@ -150,14 +150,14 @@ class QAAnswerController extends Controller
     public function destroy($id)
     {
         $pemission = $this->authorize();
-        if((!isset($pemission['perms']['QAAnswer']) || in_array('investigation-type.delete',isset($pemission['perms']['QAAnswer'])?$pemission['perms']['QAAnswer']:[]) == false) && $pemission['super'] != 1){
+        if((!isset($pemission['perms']['QAAnswer']) || in_array('qa-answer.delete',isset($pemission['perms']['QAAnswer'])?$pemission['perms']['QAAnswer']:[]) == false) && $pemission['super'] != 1){
             return back()->with('error','Bạn không có quyền delete!');
         }
         if($id){
             $qaAnswer = $this->qaAnswer->del(new Operator('id',$id));
             if($qaAnswer){
                 $this->history_activity->addHistory('Xóa investigation type thành công','QAAnswer','Delete','Tài khoản '.Auth::user()->name.' Xóa investigation type thành công','Xóa investigation type','Success',$id);
-                return redirect()->route('admin.investigation-type.index')->with('success','Xóa investigation type thành công');
+                return redirect()->route('admin.qa-answer.index')->with('success','Xóa investigation type thành công');
             }
             $this->history_activity->addHistory('Xóa investigation type không thành công','QAAnswer','Delete','Tài khoản '.Auth::user()->name.' Xóa investigation type không thành công','Xóa investigation type','Error');
             return back()->with('error','Xóa investigation type không thành công');

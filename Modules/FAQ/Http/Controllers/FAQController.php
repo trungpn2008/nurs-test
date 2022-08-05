@@ -32,7 +32,7 @@ class FAQController extends Controller
     public function index(Request $request)
     {
         $pemission = $this->authorize();
-        if((!isset($pemission['perms']['Faqs']) || in_array('Faqs.index',isset($pemission['perms']['Faqs'])?$pemission['perms']['Faqs']:[]) == false) && $pemission['super'] != 1){
+        if((!isset($pemission['perms']['Faqs']) || in_array('faqs.index',isset($pemission['perms']['Faqs'])?$pemission['perms']['Faqs']:[]) == false) && $pemission['super'] != 1){
             return back()->with('error','Bạn không có quyền vào trang này!');
         }
         $data['per_page'] = Cookie::get('per_page', 20);

@@ -57,7 +57,7 @@
                                         message: 'Please enter title'
                                     },
                                     stringLength: {
-                                        min: 3,
+                                        min: 2,
                                         max:255,
                                         message: 'The title must be more than 3 and less than 255 characters long'
                                     }
@@ -70,8 +70,8 @@
                                     },
                                     stringLength: {
                                         min: 1,
-                                        max:10,
-                                        message: 'The module must be more than 1 and less than 10 characters long'
+                                        max:30,
+                                        message: 'The module must be more than 1 and less than 30 characters long'
                                     },
                                 }
                             }

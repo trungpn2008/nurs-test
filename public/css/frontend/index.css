@@ -682,7 +682,7 @@ border: 1px solid #F6D133;
     display: flex;
    flex-wrap: wrap;
    justify-content: space-between;
-    padding: 0;
+
 }
 .index-latest .keywords .list li{
     max-width: 160px;

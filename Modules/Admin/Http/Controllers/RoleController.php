@@ -137,7 +137,9 @@ class RoleController extends Controller
         unset($data['_token']);
         $data['updated_at'] =now();
         if($id){
-            $check_role_permission = $this->rolePermissions->whereOperator([new Operator('status',1),new Operator('deleted_at',null)])->builder();
+
+            $check_role_permission = $this->rolePermissions->whereOperator([new Operator('status',1),new Operator('deleted_at',null),new Operator('id',$id)])->builder();
+
             if($check_role_permission){
                 $this->rolePermissions->updateData(['permission'=>json_encode($data['permission']),'updated_at'=>now()],$check_role_permission->id);
                 $this->history_activity->addHistory('Sửa role permission thành công','RolePermission','Edit','Tài khoản '.Auth::user()->name.' Sửa role permission thành công','sửa role permission','Success',$check_role_permission->id,json_encode(['permission'=>json_encode($data['permission']),'updated_at'=>now()]));
