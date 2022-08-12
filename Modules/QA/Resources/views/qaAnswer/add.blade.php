@@ -15,8 +15,18 @@
             <h6 class="fw-normal">1. Thông tin cấu hình</h6>
             <div class="row g-3">
                 <div class="col-md-12">
+                    <label class="form-label" for="title">QA</label>
+                    <p></p>
+                    <p>Title:</p>
+                    <p>Content:</p>
+                </div>
+                <div class="col-md-12">
                     <label class="form-label" for="title">Title</label>
                     <input type="text" id="title" name="title" class="form-control" placeholder="Tiêu đề" />
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label" for="title">Content</label>
+                    <textarea name="content" id="content"  class="form-control" placeholder="Content" cols="30" rows="10"></textarea>
                 </div>
             </div>
             <hr class="my-4 mx-n4" />
@@ -41,6 +51,19 @@
     <script src="/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
     <script>CKFinder.config( { connectorPath: '/ckfinder/connector' } );</script>
     <script>
+        const mediaUpload = ({filesList, onFileChange}) => {
+            setTimeout(() => {
+                const uploadedFiles = Array.from(filesList).map(file => {
+                    return {
+                        id: file.name,
+                        name: file.name,
+                        url: `https://dummyimage.com/600x400/000/fff&text=${file.name}`
+                    }
+                })
+                onFileChange(uploadedFiles)
+            }, 1000)
+        }
+        Laraberg.init('content',{ mediaUpload })
         const formCategoryType = document.querySelector('#form-category-type');
 
         document.addEventListener('DOMContentLoaded', function (e) {

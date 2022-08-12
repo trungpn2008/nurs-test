@@ -287,4 +287,25 @@ class CustomerController extends Controller
         }
         return $this->responseAPI([],'Tk hết hạn sử dụng, login lại',500);
     }
+
+    public function getCustomer(Request $request)
+    {
+        $page = $request->input('page', 1);
+        $size = $request->input('size', 15);
+        $keyword = $request->input('keyword', '');
+        $offset = ($page - 1) * $size;
+        $customer = $this->customer->select(['id','name'])->whereOperator(new Operator('deleted_at',null));
+        if($request->keyword){
+            $customer = $customer->whereOperator(new Operator('name','%'.$request->keyword.'%',null,null,null,[],'like'));
+        }
+        $customer = $customer->orderByDesc('created_at')->builder(false);
+        $data = [];
+        foreach ($customer as $item) {
+            $data[] = [
+                'id' => $item->id,
+                'text' => $item->name
+            ];
+        }
+        return self::jsonSuccess($data);
+    }
 }

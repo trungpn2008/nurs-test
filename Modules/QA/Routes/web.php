@@ -27,9 +27,9 @@ Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function
         Route::post('/add', 'QATypeController@store');
         Route::get('/edit/{id?}', 'QATypeController@edit')->name('edit');
         Route::post('/edit/{id?}', 'QATypeController@update');
-        Route::get('/show/{id?}', 'QATypeController@show')->name('show');
+        Route::get('/show/{id?}', 'QATypeControlle  r@show')->name('show');
         Route::get('/delete/{id?}', 'QATypeController@destroy')->name('delete');
-        Route::get('/ajax-qa-type', 'QACateController@getQaType')->name('ajax-qa-type');
+        Route::get('/ajax-qa-type', 'QATypeController@getQaType')->name('ajax-qa-type');
     });
     Route::prefix('qa-cate')->name('qa-cate.')->group(function() {
         Route::get('/', 'QACateController@index')->name('index');

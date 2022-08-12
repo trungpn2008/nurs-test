@@ -15,8 +15,34 @@
             <h6 class="fw-normal">1. Thông tin cấu hình</h6>
             <div class="row g-3">
                 <div class="col-md-12">
+                    <label class="form-label" for="title">Customer</label>
+                    <p><img src="/{{$qa->cus_avatar}}" alt="{{$qa->cus_name}}" width="50" height="50" style="margin-right: 15px;border-radius: 50%">{{$qa->cus_name}}</p>
+                </div>
+                <div class="col-md-12">
                     <label class="form-label" for="title">Title</label>
                     <input type="text" id="title" name="title" class="form-control" placeholder="Tiêu đề" value="{{$qa->title}}" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="category_id">Qa Category <span style="color: red">*</span></label>
+                    <select id="qa_cate" name="qa_cate" class="form-select" data-allow-clear="true">
+                        <option value="">Chosse QA Category</option>
+                        @if($qa->qa_cate_id)
+                            <option value="{{$qa->qa_cate_id}}" selected="selected">{{$qa->qa_cate_title}}</option>
+                        @endif
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="category_id">Qa Type <span style="color: red">*</span></label>
+                    <select id="qa_type" name="qa_type" class="form-select" data-allow-clear="true">
+                        <option value="">Chosse QA Type</option>
+                        @if($qa->qa_type_id)
+                            <option value="{{$qa->qa_type_id}}" selected="selected">{{$qa->qa_type_title}}</option>
+                        @endif
+                    </select>
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label" for="title">Content</label>
+                    <textarea name="content" id="content"  class="form-control" placeholder="Mô tả ngắn" cols="30" rows="10">{{$qa->content}}</textarea>
                 </div>
             </div>
             <hr class="my-4 mx-n4" />
@@ -41,8 +67,100 @@
     <script src="/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
     <script>CKFinder.config( { connectorPath: '/ckfinder/connector' } );</script>
     <script>
+        const mediaUpload = ({filesList, onFileChange}) => {
+            setTimeout(() => {
+                const uploadedFiles = Array.from(filesList).map(file => {
+                    return {
+                        id: file.name,
+                        name: file.name,
+                        url: `https://dummyimage.com/600x400/000/fff&text=${file.name}`
+                    }
+                })
+                onFileChange(uploadedFiles)
+            }, 1000)
+        }
+        Laraberg.init('content',{ mediaUpload })
         const formCategoryType = document.querySelector('#form-category-type');
+        $(document).ready(function () {
+            get_categorys({
+                object: '#qa_cate',
+                url: '{{ route("admin.qa-cate.ajax-qa-cate") }}',
+                data_id: 'id',
+                data_text: 'text',
+                title_default: 'Chosse QA Category'
+            });
+            function get_categorys(options) {
+                $(options.object).select2({
+                    ajax: {
+                        url: options.url,
+                        dataType: 'json',
+                        data: function(params) {
+                            var query = {
+                                keyword: params.term,
+                            }
+                            return query;
+                        },
+                        processResults: function(json, params) {
+                            var results = [{
+                                id: '',
+                                text: options.title_default
+                            }];
 
+                            for (i in json.data) {
+                                var item = json.data[i];
+                                results.push({
+                                    id: item[options.data_id],
+                                    text: item[options.data_text]
+                                });
+                            }
+                            return {
+                                results: results,
+                            };
+                        },
+                        minimumInputLength: 3,
+                    }
+                });
+            }
+            get_type({
+                object: '#qa_type',
+                url: '{{ route("admin.qa-type.ajax-qa-type") }}',
+                data_id: 'id',
+                data_text: 'text',
+                title_default: 'Chosse QA Type'
+            });
+            function get_type(options) {
+                $(options.object).select2({
+                    ajax: {
+                        url: options.url,
+                        dataType: 'json',
+                        data: function(params) {
+                            var query = {
+                                keyword: params.term,
+                            }
+                            return query;
+                        },
+                        processResults: function(json, params) {
+                            var results = [{
+                                id: '',
+                                text: options.title_default
+                            }];
+
+                            for (i in json.data) {
+                                var item = json.data[i];
+                                results.push({
+                                    id: item[options.data_id],
+                                    text: item[options.data_text]
+                                });
+                            }
+                            return {
+                                results: results,
+                            };
+                        },
+                        minimumInputLength: 3,
+                    }
+                });
+            }
+        });
         document.addEventListener('DOMContentLoaded', function (e) {
             (function () {
                 // Form validation for Add new record

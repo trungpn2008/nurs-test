@@ -10,7 +10,9 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\DB;
 use Modules\QA\Entities\QAAnswer;
+use Modules\QA\Entities\QA;
 
 class QAAnswerController extends Controller
 {
@@ -18,10 +20,12 @@ class QAAnswerController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
+    private $qa;
     private $qaAnswer;
     private $history_activity;
     function __construct()
     {
+        $this->qa = new QA();
         $this->qaAnswer = new QAAnswer();
         $this->history_activity = new HistoryActivity();
     }
@@ -43,6 +47,19 @@ class QAAnswerController extends Controller
             $search['keyword']=$request->keyword;
         }
         $qaAnswer = $qaAnswer->orderByDesc('created_at')->paging($data['per_page'],$data['page'],false);
+//        $qaAnswer = $this->qa->select([(DB::raw("(select count(*) as total from qa_answer where qa_id = qa.id) as total")),'qa.id','qa.title','qa.content','qa.status','qa.customer_id','qa_cate.title as qa_cate_title','qa_type.title as qa_type_title','customer.name as cus_name','customer.avatar as cus_avatar' ])->whereOperator(new Operator('qa.deleted_at',null))
+//            ->join([
+//                new Operator(null,null,'qa_cate','qa.qa_cate','qa_cate.id'),
+//                new Operator(null,null,'qa_type','qa.qa_type','qa_type.id'),
+//                new Operator(null,null,'customer','qa.customer_id','customer.id'),
+//            ])
+//        ;
+//        if($request->keyword){
+//            $qaAnswer = $qaAnswer->whereOperator(new Operator('qa.name','%'.$request->keyword.'%',null,null,null,[],'like'));
+//
+//            $search['keyword']=$request->keyword;
+//        }
+//        $qaAnswer = $qaAnswer->orderByDesc('qa.created_at')->paging($data['per_page'],$data['page'],false);
         $data['qaAnswer'] = $qaAnswer;
         $data['search'] = $search;
         $this->history_activity->addHistory('Xem danh sách investigation type','QAAnswer','View','Tài khoản '.Auth::user()->name.' Xem danh sách investigation type','Mở xem Xem danh sách investigation type','Nomal');

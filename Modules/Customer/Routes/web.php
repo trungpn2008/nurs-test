@@ -35,5 +35,6 @@ Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function
     Route::prefix('customer')->name('customer.')->group(function() {
         Route::get('/', 'CustomerController@index')->name('index');
         Route::get('/show/{id?}', 'CustomerController@show')->name('show');
+        Route::get('/ajax-customer', 'CustomerController@getCustomer')->name('ajax-customer');
     });
 });

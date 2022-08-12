@@ -32,6 +32,7 @@
                         <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Answer</th>
                             <th>Hành động</th>
                         </tr>
                         </thead>

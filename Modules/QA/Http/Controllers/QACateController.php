@@ -173,9 +173,9 @@ class QACateController extends Controller
         $offset = ($page - 1) * $size;
         $qaCate = $this->qaCate->select(['id','title'])->whereOperator(new Operator('deleted_at',null));
         if($request->keyword){
-            $qaCate = $qaCate->whereOperator(new Operator('name','%'.$request->keyword.'%',null,null,null,[],'like'));
+            $qaCate = $qaCate->whereOperator(new Operator('title','%'.$request->keyword.'%',null,null,null,[],'like'));
         }
-        $qaCate = $qaCate->orderByDesc('created_at')->build(false);
+        $qaCate = $qaCate->orderByDesc('created_at')->builder(false);
         $data = [];
         foreach ($qaCate as $item) {
             $data[] = [

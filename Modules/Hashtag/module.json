@@ -1,0 +1,13 @@
+{
+    "name": "Hashtag",
+    "alias": "hashtag",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Hashtag\\Providers\\HashtagServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

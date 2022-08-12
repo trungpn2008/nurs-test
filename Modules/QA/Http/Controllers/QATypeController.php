@@ -173,9 +173,9 @@ class QATypeController extends Controller
         $offset = ($page - 1) * $size;
         $qaType = $this->qaType->select(['id','title'])->whereOperator(new Operator('deleted_at',null));
         if($request->keyword){
-            $qaType = $qaType->whereOperator(new Operator('name','%'.$request->keyword.'%',null,null,null,[],'like'));
+            $qaType = $qaType->whereOperator(new Operator('title','%'.$request->keyword.'%',null,null,null,[],'like'));
         }
-        $qaType = $qaType->orderByDesc('created_at')->build(false);
+        $qaType = $qaType->orderByDesc('created_at')->builder(false);
         $data = [];
         foreach ($qaType as $item) {
             $data[] = [

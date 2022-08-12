@@ -37,7 +37,7 @@ class QAController extends Controller
         $data['page'] = Cookie::get('page', 1);
         $data['title']='Danh sách';
         $search = ['keyword'=>''];
-        $qa = $this->qa->select(['qa.id','qa.title','qa.content','qa.status','qa.customer_id','qa_cate.title as qa_cate_title','qa_type.title as qa_type_title'])->whereOperator(new Operator('qa.deleted_at',null))
+        $qa = $this->qa->select(['qa.id','qa.title','qa.content','qa.status','qa.customer_id','qa_cate.title as qa_cate_title','qa_type.title as qa_type_title','customer.name as cus_name','customer.avatar as cus_avatar'])->whereOperator(new Operator('qa.deleted_at',null))
             ->join([
                 new Operator(null,null,'qa_cate','qa.qa_cate','qa_cate.id'),
                 new Operator(null,null,'qa_type','qa.qa_type','qa_type.id'),
@@ -115,7 +115,12 @@ class QAController extends Controller
         if((!isset($pemission['perms']['QA']) || in_array('qa.edit',isset($pemission['perms']['QA'])?$pemission['perms']['QA']:[]) == false) && $pemission['super'] != 1){
             return back()->with('error','Bạn không có quyền edit!');
         }
-        $data['qa'] = $this->qa->whereOperator(new Operator('id',$id))
+        $data['qa'] = $this->qa->select(['qa.id','qa.title','qa.content','qa.status','qa.customer_id','qa_cate.title as qa_cate_title','qa_cate.id as qa_cate_id','qa_type.id as qa_type_id','qa_type.title as qa_type_title','customer.name as cus_name','customer.avatar as cus_avatar'])->whereOperator(new Operator('qa.id',$id))
+            ->join([
+                new Operator(null,null,'qa_cate','qa.qa_cate','qa_cate.id'),
+                new Operator(null,null,'qa_type','qa.qa_type','qa_type.id'),
+                new Operator(null,null,'customer','qa.customer_id','customer.id'),
+            ])
             ->builder();
         $this->history_activity->addHistory('Vào trang sửa QA','QA','EditForm','Tài khoản '.Auth::user()->name.' vào trang sửa QA','Vào trang sửa QA','Nomal',$id);
         return view('qa::edit',$data);
